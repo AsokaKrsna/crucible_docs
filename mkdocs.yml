@@ -6,8 +6,8 @@
 site_name: Crucible Docs
 site_description: CLI-first EVM bridge security research testbed — deterministic exploit reproduction, structured artifacts, and plug-and-play attack packs.
 site_author: Crucible Research Team
-repo_url: https://github.com/crucible-bridge/crucible
-repo_name: crucible
+repo_url: https://github.com/AsokaKrsna/crucible_testbed
+repo_name: crucible_testbed
 edit_uri: ""
 docs_dir: '../docs'
 
@@ -56,7 +56,7 @@ extra_javascript:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/crucible-bridge/crucible
+      link: https://github.com/AsokaKrsna/crucible_testbed
   generator: false
 
 markdown_extensions:
@@ -125,10 +125,8 @@ nav:
     - Simple Operations: SIMPLE_OPERATIONS.md
     - Quick Reference: QUICK_REFERENCE.md
     - Fidelity Guide: FIDELITY_GUIDE.md
-    - Report: REPORT.md
     - Reproduction Scope: REPRODUCTION_SCOPE.md
     - Testbed Scope Guide: TESTBED_SCOPE_GUIDE.md
-    - Release Checklist: RELEASE_CHECKLIST.md
     
   - Publication & Case Studies:
     - AE Walkthrough: AE_WALKTHROUGH.md
