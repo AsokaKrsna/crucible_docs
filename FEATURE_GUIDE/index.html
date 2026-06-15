@@ -1742,6 +1742,8 @@
       
         
       
+        
+      
     
     
     
@@ -2110,6 +2112,34 @@
     
   
     Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUICK_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
   
 
     
@@ -3697,9 +3727,11 @@
 <li><strong>Hard</strong> ΓÇö nuclear option that guarantees clean state</li>
 </ul>
 <h3 id="how-to-use-it_6">How to Use It<a class="headerlink" href="#how-to-use-it_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>crucible<span class="w"> </span>reset<span class="w"> </span>soft
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>crucible<span class="w"> </span>reset<span class="w"> </span>medium
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>crucible<span class="w"> </span>reset<span class="w"> </span>hard
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Three-tier reset: soft (&lt;5s) → medium (&lt;30s) → hard (&lt;5min)</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>crucible<span class="w"> </span>reset<span class="w"> </span>--scenario<span class="w"> </span>single<span class="w"> </span>--mode<span class="w"> </span>soft
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>crucible<span class="w"> </span>reset<span class="w"> </span>--scenario<span class="w"> </span>single<span class="w"> </span>--mode<span class="w"> </span>medium
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>crucible<span class="w"> </span>reset<span class="w"> </span>--scenario<span class="w"> </span>single<span class="w"> </span>--mode<span class="w"> </span>hard
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>crucible<span class="w"> </span>hard-reset<span class="w"> </span>--scenario<span class="w"> </span>single<span class="w">          </span><span class="c1"># alias for --mode hard</span>
 </code></pre></div>
 <hr />
 <h2 id="8-agent-privilege-levels">8. Agent Privilege Levels<a class="headerlink" href="#8-agent-privilege-levels" title="Permanent link">&para;</a></h2>
@@ -3772,11 +3804,12 @@
 <p>From an attack plugin:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">bridge</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">bridge_plugin</span>
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">result</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="n">source_chain</span><span class="o">=</span><span class="s2">&quot;ethereum&quot;</span><span class="p">,</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    <span class="n">dest_chain</span><span class="o">=</span><span class="s2">&quot;polygon&quot;</span><span class="p">,</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="n">data</span><span class="o">=</span><span class="s2">&quot;0xforged_calldata&quot;</span><span class="p">,</span>
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    <span class="n">correlation_id</span><span class="o">=</span><span class="s2">&quot;msg-001&quot;</span><span class="p">,</span>
-<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="p">)</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    <span class="n">source_chain</span><span class="o">=</span><span class="s2">&quot;ethereum&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="n">dest_chain</span><span class="o">=</span><span class="s2">&quot;polygon&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>    <span class="n">data</span><span class="o">=</span><span class="s2">&quot;0xforged_calldata&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    <span class="n">correlation_id</span><span class="o">=</span><span class="s2">&quot;msg-001&quot;</span><span class="p">,</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h2 id="10-export-bundle">10. Export Bundle<a class="headerlink" href="#10-export-bundle" title="Permanent link">&para;</a></h2>

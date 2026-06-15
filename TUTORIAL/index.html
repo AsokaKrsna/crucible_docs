@@ -1381,6 +1381,8 @@
       
         
       
+        
+      
     
     
     
@@ -1749,6 +1751,34 @@
     
   
     Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUICK_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
   
 
     
@@ -2492,7 +2522,7 @@ publication bundle.</p>
 <hr />
 <h2 id="before-you-start">Before You Start<a class="headerlink" href="#before-you-start" title="Permanent link">&para;</a></h2>
 <p>Make sure you have an Ethereum archive RPC endpoint. If you don't have one,
-create a free account at <a href="https://llama.nodes.com/">LlamaNodes</a> — their free
+create a free account at <a href="https://llamanodes.com/">LlamaNodes</a> — their free
 tier works for all Crucible experiments.</p>
 <ol>
 <li><strong>Clone the repo and configure RPC</strong></li>
@@ -2558,6 +2588,12 @@ host's <code>.venv</code> is mounted into the container. Safe to ignore.</p>
 </code></pre></div>
 <p>If any check fails, fix the issue before continuing. The most common failure
 is a missing or incorrect <code>ETH_RPC_URL</code> in your <code>.env</code> file.</p>
+<blockquote>
+<p><strong>Tip:</strong> The Nomad experiment declares <code>topology: bridge</code> but this tutorial
+uses <code>--topology single</code>. If the runtime fidelity check fails with a
+"trace artifacts" error due to this mismatch, add <code>--no-fidelity</code> to skip
+the L2 verification: <code>uv run crucible experiment run experiments/nomad_replay.yaml --no-baseline --no-fidelity</code></p>
+</blockquote>
 <hr />
 <h3 id="step-2-fork-ethereum-and-run-the-exploit">Step 2: Fork Ethereum and run the exploit<a class="headerlink" href="#step-2-fork-ethereum-and-run-the-exploit" title="Permanent link">&para;</a></h3>
 <p>This is the <strong>core command</strong> — it forks the chain and runs the experiment in
@@ -2857,6 +2893,10 @@ hash-chain of 32 zero bytes remains <code>0x00</code>), <strong>any message can 
 <tr>
 <td>Run all 6 benchmark attacks</td>
 <td><a href="../BENCHMARKS/"><code>docs/BENCHMARKS.md</code></a></td>
+</tr>
+<tr>
+<td>Quick reference (cheat sheet)</td>
+<td><a href="../QUICK_REFERENCE/"><code>docs/QUICK_REFERENCE.md</code></a></td>
 </tr>
 <tr>
 <td>Understand the architecture</td>

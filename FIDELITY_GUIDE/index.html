@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="../SIMPLE_OPERATIONS/">
+        <link rel="prev" href="../QUICK_REFERENCE/">
       
       
         <link rel="next" href="../REPORT/">
@@ -1104,6 +1104,8 @@
       
         
       
+        
+      
     
     
     
@@ -1475,6 +1477,34 @@
     
   
     Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUICK_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
   
 
     
@@ -2725,7 +2755,7 @@
 <td>Either add chain X to topology, or remove from evidence</td>
 </tr>
 <tr>
-<td><code>Fidelity level L2 requires fork-state execution evidence... No artifact streams found</code></td>
+<td><code>Fidelity level L2 requires fork-state execution evidence... No artifact streams found — attack did not interact with the forked chain.</code></td>
 <td>Attack didn't send any transactions</td>
 <td>Ensure the plugin calls <code>send_transaction()</code> or <code>eth_call()</code></td>
 </tr>
@@ -2791,7 +2821,7 @@
 <td>Add the second chain to <code>chains:</code></td>
 </tr>
 <tr>
-<td><code>Fidelity level L4 (multi-chain) requires reproduction_scope.excluded_components to be declared</code></td>
+<td><code>Fidelity level L4 (multi-chain) requires reproduction_scope.excluded_components to be declared in evidence.yaml</code></td>
 <td>No <code>excluded_components</code> field</td>
 <td>Add realistic exclusions (e.g., off-chain relayer, non-EVM state)</td>
 </tr>

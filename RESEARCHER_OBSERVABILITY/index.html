@@ -1186,17 +1186,6 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#part-2-day-to-day-foundry-commands_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Part 2: Day-to-Day Foundry Commands
-      
-    </span>
-  </a>
-  
     <nav class="md-nav" aria-label="Part 2: Day-to-Day Foundry Commands">
       <ul class="md-nav__list">
         
@@ -1344,52 +1333,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-reference-card" class="md-nav__link">
+  <a href="#quick-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Reference Card
+        Quick Reference
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Quick Reference Card">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#crucible-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Crucible Commands
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cast-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cast Commands
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anvil-rpc-methods-via-cast-rpc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Anvil RPC Methods (via cast rpc)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1473,6 +1423,8 @@
   
     
     
+      
+        
       
         
       
@@ -1876,6 +1828,34 @@
     
   
     Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUICK_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
   
 
     
@@ -2510,17 +2490,6 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#part-2-day-to-day-foundry-commands_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Part 2: Day-to-Day Foundry Commands
-      
-    </span>
-  </a>
-  
     <nav class="md-nav" aria-label="Part 2: Day-to-Day Foundry Commands">
       <ul class="md-nav__list">
         
@@ -2668,52 +2637,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-reference-card" class="md-nav__link">
+  <a href="#quick-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Reference Card
+        Quick Reference
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Quick Reference Card">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#crucible-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Crucible Commands
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cast-commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cast Commands
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anvil-rpc-methods-via-cast-rpc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Anvil RPC Methods (via cast rpc)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2946,8 +2876,6 @@ the proxy's trace capture may have failed silently. This happens when
 the proxy, file a bug. If it also fails directly, it's an Anvil version limitation.</p>
 <hr />
 <h2 id="part-2-day-to-day-foundry-commands">Part 2: Day-to-Day Foundry Commands<a class="headerlink" href="#part-2-day-to-day-foundry-commands" title="Permanent link">&para;</a></h2>
-<hr />
-<h2 id="part-2-day-to-day-foundry-commands_1">Part 2: Day-to-Day Foundry Commands<a class="headerlink" href="#part-2-day-to-day-foundry-commands_1" title="Permanent link">&para;</a></h2>
 <p>These are the <code>cast</code> and <code>forge</code> commands you'll use most often while working with Crucible's forked chains.</p>
 <h3 id="21-finding-your-chains-rpc-url">2.1 Finding Your Chain's RPC URL<a class="headerlink" href="#21-finding-your-chains-rpc-url" title="Permanent link">&para;</a></h3>
 <p>After <code>crucible fork</code>, the default chain runs on:</p>
@@ -2988,8 +2916,7 @@ the proxy, file a bug. If it also fails directly, it's an Anvil version limitati
 <a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span>--rpc-url<span class="w"> </span><span class="nv">$RPC</span>
 </code></pre></div></p>
 <p><strong>Decode calldata (with ABI):</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>cast<span class="w"> </span>calldata-decode<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="s2">&quot;process(bytes,bytes)&quot;</span><span class="w"> </span>0x61bd0e46...<span class="w"> </span>--rpc-url<span class="w"> </span><span class="nv">$RPC</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>cast<span class="w"> </span>decode-calldata<span class="w"> </span><span class="s2">&quot;process(bytes,bytes)&quot;</span><span class="w"> </span>0x61bd0e46...<span class="w"> </span>--rpc-url<span class="w"> </span><span class="nv">$RPC</span>
 </code></pre></div></p>
 <p><strong>Get event logs:</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>cast<span class="w"> </span>logs<span class="w"> </span>--rpc-url<span class="w"> </span><span class="nv">$RPC</span><span class="w"> </span><span class="se">\</span>
@@ -3129,151 +3056,10 @@ the proxy, file a bug. If it also fails directly, it's an Anvil version limitati
 <a id="__codelineno-45-13" name="__codelineno-45-13" href="#__codelineno-45-13"></a>crucible<span class="w"> </span>verify<span class="w"> </span>datasets/DS-2026-00182/
 </code></pre></div>
 <hr />
-<h2 id="quick-reference-card">Quick Reference Card<a class="headerlink" href="#quick-reference-card" title="Permanent link">&para;</a></h2>
-<h3 id="crucible-commands">Crucible Commands<a class="headerlink" href="#crucible-commands" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>What It Does</th>
-<th>When to Use</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>crucible doctor</code></td>
-<td>Validate environment</td>
-<td>First thing daily</td>
-</tr>
-<tr>
-<td><code>crucible status</code></td>
-<td>Show running Anvil processes</td>
-<td>After fork</td>
-</tr>
-<tr>
-<td><code>crucible history</code></td>
-<td>Browse past runs</td>
-<td>Track progress</td>
-</tr>
-<tr>
-<td><code>crucible diff &lt;a&gt; &lt;b&gt;</code></td>
-<td>Compare two runs</td>
-<td>Verify determinism</td>
-</tr>
-<tr>
-<td><code>crucible clean</code></td>
-<td>Remove artifacts</td>
-<td>Before fresh start</td>
-</tr>
-<tr>
-<td><code>crucible export &lt;id&gt;</code></td>
-<td>Create publication bundle</td>
-<td>When publishing</td>
-</tr>
-</tbody>
-</table>
-<h3 id="cast-commands">Cast Commands<a class="headerlink" href="#cast-commands" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>cast balance &lt;addr&gt;</code></td>
-<td>Check ETH balance</td>
-</tr>
-<tr>
-<td><code>cast code &lt;addr&gt;</code></td>
-<td>Check if contract exists</td>
-</tr>
-<tr>
-<td><code>cast storage &lt;addr&gt; &lt;slot&gt;</code></td>
-<td>Read storage at slot</td>
-</tr>
-<tr>
-<td><code>cast call &lt;addr&gt; "sig" &lt;args&gt;</code></td>
-<td>Call read-only function</td>
-</tr>
-<tr>
-<td><code>cast send &lt;addr&gt; "sig" &lt;args&gt;</code></td>
-<td>Send transaction</td>
-</tr>
-<tr>
-<td><code>cast tx &lt;hash&gt;</code></td>
-<td>Get transaction details</td>
-</tr>
-<tr>
-<td><code>cast receipt &lt;hash&gt;</code></td>
-<td>Get transaction receipt</td>
-</tr>
-<tr>
-<td><code>cast logs --address &lt;addr&gt;</code></td>
-<td>Filter event logs</td>
-</tr>
-<tr>
-<td><code>cast block-number</code></td>
-<td>Current block</td>
-</tr>
-<tr>
-<td><code>cast sig "func(args)"</code></td>
-<td>Get 4-byte selector</td>
-</tr>
-<tr>
-<td><code>cast keccak "data"</code></td>
-<td>Compute keccak256</td>
-</tr>
-<tr>
-<td><code>cast rpc &lt;method&gt; &lt;params&gt;</code></td>
-<td>Call any RPC method</td>
-</tr>
-</tbody>
-</table>
-<h3 id="anvil-rpc-methods-via-cast-rpc">Anvil RPC Methods (via <code>cast rpc</code>)<a class="headerlink" href="#anvil-rpc-methods-via-cast-rpc" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>anvil_impersonateAccount</code></td>
-<td>Impersonate any address</td>
-</tr>
-<tr>
-<td><code>anvil_stopImpersonatingAccount</code></td>
-<td>Stop impersonation</td>
-</tr>
-<tr>
-<td><code>anvil_setBalance</code></td>
-<td>Change account balance</td>
-</tr>
-<tr>
-<td><code>anvil_setStorageAt</code></td>
-<td>Write storage directly</td>
-</tr>
-<tr>
-<td><code>anvil_dumpState</code></td>
-<td>Snapshot full chain state</td>
-</tr>
-<tr>
-<td><code>anvil_loadState</code></td>
-<td>Restore from snapshot</td>
-</tr>
-<tr>
-<td><code>evm_increaseTime</code></td>
-<td>Advance timestamp</td>
-</tr>
-<tr>
-<td><code>evm_mine</code></td>
-<td>Mine a new block</td>
-</tr>
-</tbody>
-</table>
+<h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">&para;</a></h2>
+<p>For a comprehensive one-page cheat sheet covering all common Crucible tasks — setup, forking,
+experiments, cast commands, state management, Docker, topology profiles, and common pitfalls —
+see the <a href="../QUICK_REFERENCE/">Quick Reference</a> card.</p>
 
 
 

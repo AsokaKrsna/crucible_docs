@@ -1104,6 +1104,8 @@
       
         
       
+        
+      
     
     
     
@@ -1904,6 +1906,34 @@
     
   
     Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUICK_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Reference
   
 
     
@@ -2947,7 +2977,7 @@ Last updated: June 2026</p>
 <tr>
 <td><code>topologies/</code></td>
 <td>[ok] Topologies</td>
-<td>5 topology profiles (single, dual, bridge, etc.)</td>
+<td>9 topology profiles (single, dual, bridge, wormhole_bridge, nomad_bridge, etc.)</td>
 </tr>
 <tr>
 <td><code>abis/</code></td>
@@ -3091,9 +3121,13 @@ Last updated: June 2026</p>
 <a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>│   ├── crucible_implementation_spec.md  # Full implementation spec (127K)
 <a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>│   └── crucible_research_overview.md    # Research overview
 <a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>│
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>└── case_studies/                 # Completed exploit reproductions
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>    ├── nomad_replica_fraud.md
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>    └── wormhole_guardian_bypass.md
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>└── case_studies/                 # Completed exploit reproductions (6 studies)
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>    ├── bnb_token_hub_proof.md
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>    ├── horizon_multisig_drain.md
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>    ├── multichain_router_permit.md
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>    ├── nomad_replica_fraud.md
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>    ├── poly_network_privkey.md
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>    └── wormhole_guardian_bypass.md
 </code></pre></div>
 <h3 id="attack-pack-structure">Attack Pack Structure<a class="headerlink" href="#attack-pack-structure" title="Permanent link">&para;</a></h3>
 <p>Each attack in <code>attacks/&lt;name&gt;/</code> is a self-contained directory:</p>
@@ -3131,7 +3165,7 @@ Last updated: June 2026</p>
 <a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="c1"># Run integration tests (requires Foundry)</span>
 <a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>pytest<span class="w"> </span>tests/integration/<span class="w"> </span>-m<span class="w"> </span>requires_foundry
 </code></pre></div>
-<p><strong>Current test count: 798 passing</strong> (all unit tests).</p>
+<p><strong>Current test count: 782 passing</strong> (all unit tests).</p>
 <hr />
 <h2 id="4-adding-new-content">4. Adding New Content<a class="headerlink" href="#4-adding-new-content" title="Permanent link">&para;</a></h2>
 <h3 id="adding-a-new-attack-quick-path">Adding a New Attack (Quick Path)<a class="headerlink" href="#adding-a-new-attack-quick-path" title="Permanent link">&para;</a></h3>
@@ -3180,65 +3214,8 @@ Last updated: June 2026</p>
 </ol>
 <hr />
 <h2 id="5-cli-reference-quick">5. CLI Reference (Quick)<a class="headerlink" href="#5-cli-reference-quick" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>crucible init</code></td>
-<td>Initialize workspace</td>
-</tr>
-<tr>
-<td><code>crucible doctor</code></td>
-<td>Validate environment (Python, Foundry, config, RPC)</td>
-</tr>
-<tr>
-<td><code>crucible status</code></td>
-<td>Show running chains</td>
-</tr>
-<tr>
-<td><code>crucible fork --topology &lt;name&gt;</code></td>
-<td>Start Anvil forks</td>
-</tr>
-<tr>
-<td><code>crucible setup --topology &lt;name&gt;</code></td>
-<td>Fork + bootstrap + capture baseline</td>
-</tr>
-<tr>
-<td><code>crucible experiment run &lt;file.yaml&gt;</code></td>
-<td>Formal research run</td>
-</tr>
-<tr>
-<td><code>crucible reset</code></td>
-<td>Soft reset (&lt;5s)</td>
-</tr>
-<tr>
-<td><code>crucible diff &lt;run_a&gt; &lt;run_b&gt;</code></td>
-<td>Compare two runs</td>
-</tr>
-<tr>
-<td><code>crucible history</code></td>
-<td>List experiment history</td>
-</tr>
-<tr>
-<td><code>crucible export &lt;run_id&gt;</code></td>
-<td>Bundle a run for publication</td>
-</tr>
-<tr>
-<td><code>crucible clean</code></td>
-<td>Kill chains + remove temp state</td>
-</tr>
-<tr>
-<td><code>crucible dashboard</code></td>
-<td>Launch Streamlit UI</td>
-</tr>
-</tbody>
-</table>
-<p>For full reference: <code>docs/CLI_REFERENCE.md</code></p>
+<p>For a one-page cheat sheet covering all common Crucible commands — setup, forking, experiments, cast interactions, state management, artifacts, and cleanup — see the <a href="../QUICK_REFERENCE/">Quick Reference</a>.</p>
+<p>For the full CLI reference with all flags and options: <a href="../CLI_REFERENCE/">CLI Reference</a>.</p>
 <hr />
 <h2 id="6-dashboard-overview">6. Dashboard Overview<a class="headerlink" href="#6-dashboard-overview" title="Permanent link">&para;</a></h2>
 <p>The Streamlit dashboard (<code>dashboard/app.py</code>) provides a browser UI for all CLI capabilities:</p>
@@ -3445,8 +3422,7 @@ Last updated: June 2026</p>
 - <code>somandteam_review2.md</code> — internal review
 - <code>CODEBASE_REVIEW.md</code> — internal review
 - <code>REMEDIATION_PLAN.md</code> — internal remediation plan
-- <code>docs/archive/</code> — 12 superseded/outdated docs</p>
-<p><strong>Moved to <code>docs/design/</code>:</strong>
+<strong>Moved to <code>docs/design/</code>:</strong>
 - <code>crucible_implementation_spec.md</code> (127K canonical design spec)
 - <code>crucible_research_overview.md</code> (research overview)</p>
 <p><strong>Fixed:</strong>
