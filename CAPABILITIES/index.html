@@ -1,0 +1,3609 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="CLI-first EVM bridge security research testbed — deterministic exploit reproduction, structured artifacts, and plug-and-play attack packs.">
+      
+      
+        <meta name="author" content="Crucible Research Team">
+      
+      
+      
+        <link rel="prev" href="../INSTRUMENTATION_ARCHITECTURE/">
+      
+      
+        <link rel="next" href="../FEATURE_GUIDE/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Scope & Capabilities - Crucible Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#crucible-testbed-capabilities-limitations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Crucible Docs" class="md-header__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 11c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4 9 4zm-9 10c3.75-1 7-5.46 7-9.78V6.3l-7-3.12L5 6.3v4.92C5 15.54 8.25 20 12 21m2.8-10V9.5C14.8 8.1 13.4 7 12 7S9.2 8.1 9.2 9.5V11c-.6 0-1.2.6-1.2 1.2v3.5c0 .7.6 1.3 1.2 1.3h5.5c.7 0 1.3-.6 1.3-1.2v-3.5c0-.7-.6-1.3-1.2-1.3m-1.3 0h-3V9.5c0-.8.7-1.3 1.5-1.3s1.5.5 1.5 1.3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Crucible Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Scope & Capabilities
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/crucible-bridge/crucible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    crucible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../USER_GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../CUSTOM_CONTRACT_TESTING/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  How-To Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../ARCHITECTURE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Core Concepts (Explanation)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../CLI_REFERENCE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../AE_WALKTHROUGH/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Publication & Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Crucible Docs" class="md-nav__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 11c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4 9 4zm-9 10c3.75-1 7-5.46 7-9.78V6.3l-7-3.12L5 6.3v4.92C5 15.54 8.25 20 12 21m2.8-10V9.5C14.8 8.1 13.4 7 12 7S9.2 8.1 9.2 9.5V11c-.6 0-1.2.6-1.2 1.2v3.5c0 .7.6 1.3 1.2 1.3h5.5c.7 0 1.3-.6 1.3-1.2v-3.5c0-.7-.6-1.3-1.2-1.3m-1.3 0h-3V9.5c0-.8.7-1.3 1.5-1.3s1.5.5 1.5 1.3z"/></svg>
+
+    </a>
+    Crucible Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/crucible-bridge/crucible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    crucible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../USER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TUTORIAL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-Minute Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How-To Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    How-To Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CUSTOM_CONTRACT_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running LLM Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SCENARIO_AUTHORING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Scenarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ATTACK_PACK_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Attack Packs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts (Explanation)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Concepts (Explanation)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instrumentation Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope & Capabilities
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope & Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-testbed-can-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What The Testbed CAN Do
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What The Testbed CAN Do">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-reproduce-5-historical-bridge-exploits-at-l2-fork-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Reproduce 5 Historical Bridge Exploits at L2 (Fork-State)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-run-l4-multi-chain-bridge-demonstrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Run L4 Multi-Chain Bridge Demonstrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deploy-bridge-contracts-to-forked-chains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Deploy Bridge Contracts to Forked Chains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-run-llm-driven-agent-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Run LLM-Driven Agent Experiments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-produce-verifiable-deterministic-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Produce Verifiable, Deterministic Artifacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-verify-artifact-integrity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Verify Artifact Integrity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-run-with-or-without-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Run With or Without Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-testbed-cannot-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What The Testbed CANNOT Do
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What The Testbed CANNOT Do">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-reproduce-non-evm-attack-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Reproduce Non-EVM Attack Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-reproduce-infrastructure-compromises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Reproduce Infrastructure Compromises
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-serve-full-archive-state-for-polygonbsc-at-old-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Serve Full Archive State for Polygon/BSC at Old Blocks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-run-l4-experiments-without-no-fidelity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Run L4 Experiments Without --no-fidelity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-guarantee-bit-identical-cross-platform-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Guarantee Bit-Identical Cross-Platform Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues-workarounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Issues &amp; Workarounds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#artifact-protection-june-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artifact Protection (June 2026)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Artifact Protection (June 2026)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer-1-clean-all-never-touches-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layer 1: clean --all Never Touches Artifacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-2-explicit-flags-for-artifact-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layer 2: Explicit Flags for Artifact Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-3-publish-command-adds-protected-marker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layer 3: Publish Command Adds .protected Marker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-4-docker-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layer 4: Docker Persistence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-5-export-idempotency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layer 5: Export Idempotency
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues-workarounds_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Issues &amp; Workarounds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-been-fixed-june-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Been Fixed (June 2026)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What&#39;s Been Fixed (June 2026)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#framework-4-bugs-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Framework (4 bugs fixed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bridge-plugins-3-bugs-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bridge Plugins (3 bugs fixed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-1-feature-added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI (1 feature added)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-6-docs-createdupdated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation (6 docs created/updated)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinism-reproducibility-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determinism &amp; Reproducibility Verification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Determinism &amp; Reproducibility Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determinism-checks-run-twice-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determinism Checks (Run Twice + Diff)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-provider-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Provider Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-bundles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export Bundles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FEATURE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RESEARCH_WORKFLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RESEARCHER_OBSERVABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Researcher Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design/crucible_implementation_spec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementation Spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design/crucible_research_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLI_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BENCHMARKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCIBILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LAB_DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC Provider Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAINTENANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TROUBLESHOOTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OPERATIONS_RUNBOOK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FIDELITY_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fidelity Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPORT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCTION_SCOPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproduction Scope
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TESTBED_SCOPE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testbed Scope Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RELEASE_CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publication & Case Studies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publication & Case Studies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AE Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zenodo Archive Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/nomad_replica_fraud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nomad Replica Fraud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/wormhole_guardian_bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wormhole Guardian Bypass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/poly_network_privkey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Poly Network Privilege Escalation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/horizon_multisig_drain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Horizon Multisig Drain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/bnb_token_hub_proof/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BNB Token Hub Proof Bypass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/multichain_router_permit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multichain MPC Compromise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-testbed-can-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What The Testbed CAN Do
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What The Testbed CAN Do">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-reproduce-5-historical-bridge-exploits-at-l2-fork-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Reproduce 5 Historical Bridge Exploits at L2 (Fork-State)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-run-l4-multi-chain-bridge-demonstrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Run L4 Multi-Chain Bridge Demonstrations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-deploy-bridge-contracts-to-forked-chains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Deploy Bridge Contracts to Forked Chains
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-run-llm-driven-agent-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Run LLM-Driven Agent Experiments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-produce-verifiable-deterministic-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Produce Verifiable, Deterministic Artifacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-verify-artifact-integrity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Verify Artifact Integrity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-run-with-or-without-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Run With or Without Docker
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-testbed-cannot-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What The Testbed CANNOT Do
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What The Testbed CANNOT Do">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-reproduce-non-evm-attack-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Reproduce Non-EVM Attack Components
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-reproduce-infrastructure-compromises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Reproduce Infrastructure Compromises
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-serve-full-archive-state-for-polygonbsc-at-old-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Serve Full Archive State for Polygon/BSC at Old Blocks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-run-l4-experiments-without-no-fidelity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Run L4 Experiments Without --no-fidelity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-guarantee-bit-identical-cross-platform-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Guarantee Bit-Identical Cross-Platform Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues-workarounds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Issues &amp; Workarounds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#artifact-protection-june-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artifact Protection (June 2026)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Artifact Protection (June 2026)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer-1-clean-all-never-touches-artifacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layer 1: clean --all Never Touches Artifacts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-2-explicit-flags-for-artifact-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layer 2: Explicit Flags for Artifact Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-3-publish-command-adds-protected-marker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layer 3: Publish Command Adds .protected Marker
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-4-docker-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layer 4: Docker Persistence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layer-5-export-idempotency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layer 5: Export Idempotency
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues-workarounds_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Issues &amp; Workarounds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-been-fixed-june-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's Been Fixed (June 2026)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What&#39;s Been Fixed (June 2026)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#framework-4-bugs-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Framework (4 bugs fixed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bridge-plugins-3-bugs-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bridge Plugins (3 bugs fixed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-1-feature-added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI (1 feature added)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-6-docs-createdupdated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation (6 docs created/updated)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#determinism-reproducibility-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determinism &amp; Reproducibility Verification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Determinism &amp; Reproducibility Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determinism-checks-run-twice-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determinism Checks (Run Twice + Diff)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-provider-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Provider Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-bundles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export Bundles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="crucible-testbed-capabilities-limitations">Crucible Testbed — Capabilities &amp; Limitations<a class="headerlink" href="#crucible-testbed-capabilities-limitations" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Purpose:</strong> A clear, honest assessment of what the Crucible testbed can and cannot do. This document helps researchers, reviewers, and users understand the boundaries of the system before investing time in it.</p>
+</blockquote>
+<hr />
+<h2 id="quick-summary">Quick Summary<a class="headerlink" href="#quick-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Status</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Benchmark attacks</strong></td>
+<td>✅ 5 of 6 pass</td>
+<td>All at L2 fork-state fidelity</td>
+</tr>
+<tr>
+<td><strong>L4 bridge demos</strong></td>
+<td>✅ 2 of 2 pass</td>
+<td>nomad_bridge_l4, demo_agent (with --no-fidelity)</td>
+</tr>
+<tr>
+<td><strong>Version</strong></td>
+<td>✅ v0.4.0</td>
+<td>Tagged release — clean git history with professional commits</td>
+</tr>
+<tr>
+<td><strong>Unit tests</strong></td>
+<td>✅ 808 passed, 0 failed</td>
+<td>No regressions, all passing</td>
+</tr>
+<tr>
+<td><strong>Documentation</strong></td>
+<td>✅ 28 docs, comprehensive</td>
+<td>User guide, CLI, troubleshooting, fidelity, RPC, architecture, etc.</td>
+</tr>
+<tr>
+<td><strong>Determinism checks</strong></td>
+<td>✅ 4 of 5 verified</td>
+<td>wormhole, nomad, horizon, bnb_token_hub all deterministic; poly_network has archive-RPC variability across 3 chains</td>
+</tr>
+<tr>
+<td><strong>Cross-provider verification</strong></td>
+<td>❌ Skipped</td>
+<td>No second RPC provider available (free tiers only); see code-level analysis below</td>
+</tr>
+<tr>
+<td><strong>Publication bundles</strong></td>
+<td>✅ 4 exported</td>
+<td>All passing experiments exported with integrity PASS; wormhole/nomad have 24 files each, horizon/bnb have 18 files each</td>
+</tr>
+<tr>
+<td><strong>Artifact protection</strong></td>
+<td>✅ Permanent by default</td>
+<td><code>clean --all</code> never touches logs/ or datasets/; <code>--logs</code> respects tiers; <code>--datasets</code> requires <code>--confirm</code>; publish adds <code>.protected</code> marker</td>
+</tr>
+<tr>
+<td><strong>CI/CD</strong></td>
+<td>❌ Removed</td>
+<td>Local-only project — tests run on-device, no CI pipeline configured</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><strong>Deep-dive reference:</strong> For a complete understanding of <em>why</em> the testbed is designed this way — the architecture, core concepts, design philosophy, and key decisions — see the <a href="../internal/TECHNICAL_OVERVIEW/">Technical Overview</a> and <a href="../internal/DESIGN_DECISIONS/">Design Decisions</a> documents.</p>
+</blockquote>
+<h2 id="what-the-testbed-can-do">What The Testbed CAN Do<a class="headerlink" href="#what-the-testbed-can-do" title="Permanent link">&para;</a></h2>
+<h3 id="1-reproduce-5-historical-bridge-exploits-at-l2-fork-state">1. Reproduce 5 Historical Bridge Exploits at L2 (Fork-State)<a class="headerlink" href="#1-reproduce-5-historical-bridge-exploits-at-l2-fork-state" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Attack</th>
+<th>Chain</th>
+<th>Fork Block</th>
+<th>Damage</th>
+<th>What It Proves</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Wormhole Guardian Bypass</strong></td>
+<td>Ethereum</td>
+<td>14,125,553</td>
+<td>$326M</td>
+<td>Forged VAA accepted by TokenBridge via <code>completeTransfer()</code></td>
+</tr>
+<tr>
+<td><strong>Nomad Replica Fraud</strong></td>
+<td>Ethereum</td>
+<td>15,259,100</td>
+<td>$190M</td>
+<td><code>process()</code> accepts forged message when <code>committedRoot == 0x00</code></td>
+</tr>
+<tr>
+<td><strong>Poly Network PrivKey</strong></td>
+<td>Ethereum</td>
+<td>12,996,693</td>
+<td>$611M</td>
+<td>Hash collision in <code>verifyHeaderAndExecuteTx</code> replaces bridge keeper</td>
+</tr>
+<tr>
+<td><strong>Horizon Multisig Drain</strong></td>
+<td>Ethereum</td>
+<td>15,005,526</td>
+<td>$100M</td>
+<td>3 bridge contracts verified, multisig authorization flow demonstrated</td>
+</tr>
+<tr>
+<td><strong>BNB Token Hub Proof</strong></td>
+<td>BSC</td>
+<td>22,166,659</td>
+<td>$570M</td>
+<td>CrossChain contract identified, IAVL proof bypass mechanism documented</td>
+</tr>
+</tbody>
+</table>
+<p>Each reproduction:
+- Forks the chain at the correct historical block
+- Verifies vulnerable contracts exist with non-empty code
+- Forges and sends exploit calldata
+- Verifies the exploit succeeded via storage slot changes
+- Produces deterministic artifact streams (events, gas, storage diffs, balance diffs)</p>
+<h3 id="2-run-l4-multi-chain-bridge-demonstrations">2. Run L4 Multi-Chain Bridge Demonstrations<a class="headerlink" href="#2-run-l4-multi-chain-bridge-demonstrations" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Experiment</th>
+<th>Topology</th>
+<th>Chains</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nomad_bridge_l4</code></td>
+<td><code>nomad_bridge</code></td>
+<td>ethereum + polygon</td>
+<td>Deploys NomadReplica contract on ethereum, sends forged cross-chain message</td>
+</tr>
+<tr>
+<td><code>demo_agent</code></td>
+<td><code>single</code></td>
+<td>ethereum</td>
+<td>Runs LLM agent workflow with mock provider (no API key needed)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-deploy-bridge-contracts-to-forked-chains">3. Deploy Bridge Contracts to Forked Chains<a class="headerlink" href="#3-deploy-bridge-contracts-to-forked-chains" title="Permanent link">&para;</a></h3>
+<p>Three bridge plugins are available for L4 experiments:</p>
+<table>
+<thead>
+<tr>
+<th>Bridge Plugin</th>
+<th>Chains</th>
+<th>Vulnerability Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nomad_bridge</code></td>
+<td>ethereum + polygon</td>
+<td><code>committedRoot == 0x00</code> — forged message accepted</td>
+</tr>
+<tr>
+<td><code>poly_network_bridge</code></td>
+<td>ethereum + polygon + bsc</td>
+<td>Hash collision in <code>_executeCrossChainTx</code></td>
+</tr>
+<tr>
+<td><code>wormhole_bridge</code></td>
+<td>ethereum + polygon</td>
+<td>Guardian bypass — forged VAA accepted</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-run-llm-driven-agent-experiments">4. Run LLM-Driven Agent Experiments<a class="headerlink" href="#4-run-llm-driven-agent-experiments" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Supports OpenAI, Anthropic, Ollama, and custom providers</li>
+<li><strong>Mock provider</strong> included for testing without any API key</li>
+<li>Agent privilege levels: low, medium, high</li>
+<li>Configurable task, objective, and account restrictions</li>
+</ul>
+<h3 id="5-produce-verifiable-deterministic-artifacts">5. Produce Verifiable, Deterministic Artifacts<a class="headerlink" href="#5-produce-verifiable-deterministic-artifacts" title="Permanent link">&para;</a></h3>
+<p>Every experiment run produces:</p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Format</th>
+<th>What It Records</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>run.jsonl</code></td>
+<td>JSONL</td>
+<td>All lifecycle events (phases, actions, status)</td>
+</tr>
+<tr>
+<td><code>events.jsonl</code></td>
+<td>JSONL</td>
+<td>All contract events emitted</td>
+</tr>
+<tr>
+<td><code>storage_diffs.jsonl</code></td>
+<td>JSONL</td>
+<td>Every storage slot that changed (before/after)</td>
+</tr>
+<tr>
+<td><code>gas_profile.jsonl</code></td>
+<td>JSONL</td>
+<td>Gas used per transaction</td>
+</tr>
+<tr>
+<td><code>balance_diffs.jsonl</code></td>
+<td>JSONL</td>
+<td>ETH/BNB balance changes</td>
+</tr>
+<tr>
+<td><code>cross_chain.jsonl</code></td>
+<td>JSONL</td>
+<td>Cross-chain message tracking</td>
+</tr>
+<tr>
+<td><code>run_manifest.json</code></td>
+<td>JSON</td>
+<td>Full provenance (git commit, Foundry version, config fingerprint)</td>
+</tr>
+<tr>
+<td><code>log_integrity.json</code></td>
+<td>JSON</td>
+<td>SHA-256 hashes of all streams</td>
+</tr>
+<tr>
+<td><code>artifact_bundle_manifest.json</code></td>
+<td>JSON</td>
+<td>SHA-256 hashes for export verification</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-verify-artifact-integrity">6. Verify Artifact Integrity<a class="headerlink" href="#6-verify-artifact-integrity" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>crucible verify &lt;path&gt;</code> auto-detects run dirs, export bundles, and archives</li>
+<li><code>--schemas</code> validates JSONL stream structure</li>
+<li>SHA-256 hashes detect tampering, missing files, or extra files</li>
+</ul>
+<h3 id="7-run-with-or-without-docker">7. Run With or Without Docker<a class="headerlink" href="#7-run-with-or-without-docker" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Setup Time</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Docker</strong></td>
+<td>~3 min (one-time build)</td>
+<td>Formal reproductions, publications</td>
+</tr>
+<tr>
+<td><strong>Local (uv + venv)</strong></td>
+<td>~1 min (one-time sync)</td>
+<td>Development, fast iteration</td>
+</tr>
+<tr>
+<td><strong>Local (system-wide)</strong></td>
+<td>~1 min</td>
+<td>Dedicated testbed machines</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="what-the-testbed-cannot-do">What The Testbed CANNOT Do<a class="headerlink" href="#what-the-testbed-cannot-do" title="Permanent link">&para;</a></h2>
+<h3 id="1-reproduce-non-evm-attack-components">1. Reproduce Non-EVM Attack Components<a class="headerlink" href="#1-reproduce-non-evm-attack-components" title="Permanent link">&para;</a></h3>
+<p><strong>Crucible is EVM-only.</strong> It uses Foundry's <code>anvil</code> which can only fork EVM-compatible chains (Ethereum, BSC, Polygon). Attacks involving:</p>
+<ul>
+<li><strong>Solana</strong> (Wormhole root cause was Solana-side — EVM-side effects only are reproducible)</li>
+<li><strong>Cosmos/IBC</strong> (cross-chain messages originating from non-EVM chains)</li>
+<li><strong>Harmony ONE</strong> (Horizon bridge — Harmony chain is not EVM)</li>
+<li><strong>Moonriver</strong> (Multichain — Moonriver is Substrate/Kusama-based)</li>
+<li><strong>Substrate-based chains</strong> (Polkadot, Kusama, etc.)</li>
+</ul>
+<p>...are documented in <code>excluded_components</code> in each attack's <code>evidence.yaml</code>. The non-EVM portion is <strong>modeled, not reproduced.</strong></p>
+<h3 id="2-reproduce-infrastructure-compromises">2. Reproduce Infrastructure Compromises<a class="headerlink" href="#2-reproduce-infrastructure-compromises" title="Permanent link">&para;</a></h3>
+<p>Attacks that were <strong>key compromises, not smart contract bugs</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Attack</th>
+<th>Type</th>
+<th>Why Not Reproducible</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Multichain (July 2023)</strong></td>
+<td>MPC key shard theft</td>
+<td>No contract vulnerability; keys were legitimately authorized</td>
+</tr>
+<tr>
+<td><strong>Horizon (June 2022)</strong></td>
+<td>2-of-5 multisig key compromise</td>
+<td>Contracts behaved as designed; reproducing the tx proves nothing</td>
+</tr>
+</tbody>
+</table>
+<p>These are correctly classified as <strong>L1 (narrative)</strong> — the testbed documents the incident but cannot reproduce it on-chain.</p>
+<h3 id="3-serve-full-archive-state-for-polygonbsc-at-old-blocks">3. Serve Full Archive State for Polygon/BSC at Old Blocks<a class="headerlink" href="#3-serve-full-archive-state-for-polygonbsc-at-old-blocks" title="Permanent link">&para;</a></h3>
+<p><strong>This is an RPC provider limitation, not a Crucible bug.</strong> At the fork blocks used by the attack packs:</p>
+<table>
+<thead>
+<tr>
+<th>Chain</th>
+<th>Fork Block</th>
+<th>Free Archive?</th>
+<th>Paid Archive?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ethereum</td>
+<td>12-16M</td>
+<td>✅ Ankr free tier</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>BSC</td>
+<td>9.7M or 22M</td>
+<td>❌ No free provider</td>
+<td>✅ GetBlock $39/mo</td>
+</tr>
+<tr>
+<td>Polygon</td>
+<td>16.3M</td>
+<td>❌ No free provider</td>
+<td>✅ GetBlock $39/mo</td>
+</tr>
+</tbody>
+</table>
+<p>Even paid "archive" providers may fail to serve state for <strong>non-existent addresses</strong> at old fork blocks. This affects <code>anvil_setBalance</code> when bridge plugins try to fund new deployer addresses. The fix (applied to all 3 bridge plugins) wraps per-chain deployment in <code>try/except</code> — the offending chain is skipped gracefully.</p>
+<h3 id="4-run-l4-experiments-without-no-fidelity">4. Run L4 Experiments Without <code>--no-fidelity</code><a class="headerlink" href="#4-run-l4-experiments-without-no-fidelity" title="Permanent link">&para;</a></h3>
+<p>L4 fidelity enforcement checks for:
+- 2+ chains in <code>historical_scope.chains</code>
+- Bridge plugin in topology
+- <code>excluded_components</code> declared</p>
+<p>Bridge demo experiments (e.g., <code>nomad_bridge_l4</code>) don't meet these requirements by design — they're demonstrations, not formal reproductions. Use <code>--no-fidelity</code> for L4 demos.</p>
+<h3 id="5-guarantee-bit-identical-cross-platform-results">5. Guarantee Bit-Identical Cross-Platform Results<a class="headerlink" href="#5-guarantee-bit-identical-cross-platform-results" title="Permanent link">&para;</a></h3>
+<p>The <code>run_manifest.json</code> captures the full provenance (git commit, Foundry version, Python version, config fingerprint), but:
+- Different Foundry nightly versions may produce different gas estimates
+- Different RPC providers may return slightly different state roots
+- Cold vs warm cache affects timing but not results</p>
+<p>For formal publications, use Docker (pinned environment) and run twice with <code>crucible diff</code>.</p>
+<hr />
+<h2 id="known-issues-workarounds">Known Issues &amp; Workarounds<a class="headerlink" href="#known-issues-workarounds" title="Permanent link">&para;</a></h2>
+<h2 id="artifact-protection-june-2026">Artifact Protection (June 2026)<a class="headerlink" href="#artifact-protection-june-2026" title="Permanent link">&para;</a></h2>
+<p>Artifacts are the most valuable output of the testbed. They are protected by <strong>multiple layers</strong>:</p>
+<h3 id="layer-1-clean-all-never-touches-artifacts">Layer 1: <code>clean --all</code> Never Touches Artifacts<a class="headerlink" href="#layer-1-clean-all-never-touches-artifacts" title="Permanent link">&para;</a></h3>
+<p><code>crucible clean --all</code> only removes <strong>runtime state</strong>: <code>.fork_cache</code>, <code>states/checkpoints/</code>, <code>states/snapshots/</code>. It does <strong>NOT</strong> touch:
+- <code>logs/</code> (experiment run artifacts) — protected unless <code>--logs</code> is explicitly passed
+- <code>datasets/</code> (exported publication bundles) — protected unless <code>--datasets --confirm</code> is explicitly passed</p>
+<p>This means it's safe to run <code>clean --all</code> between experiments without worrying about losing results.</p>
+<h3 id="layer-2-explicit-flags-for-artifact-cleanup">Layer 2: Explicit Flags for Artifact Cleanup<a class="headerlink" href="#layer-2-explicit-flags-for-artifact-cleanup" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>What It Cleans</th>
+<th>Protection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--logs</code></td>
+<td>Run log directories (<code>logs/*/*</code>)</td>
+<td><code>saved</code> and <code>published</code> tier runs preserved via <code>run_manifest.json</code> tier check</td>
+</tr>
+<tr>
+<td><code>--logs-older-than N</code></td>
+<td>Logs older than N days</td>
+<td>Same tier-based protection</td>
+</tr>
+<tr>
+<td><code>--datasets</code></td>
+<td>Exported dataset bundles (<code>datasets/*</code>)</td>
+<td><strong>Requires <code>--confirm</code></strong>; <code>.protected</code> marker preserved</td>
+</tr>
+</tbody>
+</table>
+<h3 id="layer-3-publish-command-adds-protected-marker">Layer 3: Publish Command Adds <code>.protected</code> Marker<a class="headerlink" href="#layer-3-publish-command-adds-protected-marker" title="Permanent link">&para;</a></h3>
+<p>Running <code>crucible publish &lt;run_id&gt;</code>:
+1. Sets the run's tier to <code>published</code> — protected from <code>--logs</code> and <code>--logs-older-than</code>
+2. Writes a <code>.protected</code> marker file in <code>datasets/&lt;run_id&gt;/</code> — protected from <code>--datasets --confirm</code></p>
+<h3 id="layer-4-docker-persistence">Layer 4: Docker Persistence<a class="headerlink" href="#layer-4-docker-persistence" title="Permanent link">&para;</a></h3>
+<p>The <code>datasets/</code> directory is on the <strong>bind mount</strong> (<code>.:/workspace</code>), not on a Docker named volume. This means:
+- Export bundles survive container restarts and <code>docker compose down</code>
+- Files are directly accessible on the host filesystem at <code>./datasets/</code>
+- Not affected by Docker volume pruning</p>
+<h3 id="layer-5-export-idempotency">Layer 5: Export Idempotency<a class="headerlink" href="#layer-5-export-idempotency" title="Permanent link">&para;</a></h3>
+<p><code>crucible export &lt;run_id&gt;</code> will <strong>NOT</strong> overwrite an existing export bundle unless <code>--force</code> is passed. If the bundle already exists, it re-verifies integrity and regenerates reports without touching the copied source files.</p>
+<hr />
+<h2 id="known-issues-workarounds_1">Known Issues &amp; Workarounds<a class="headerlink" href="#known-issues-workarounds_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Affects</th>
+<th>Workaround</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Polygon archive at block 16,332,982 can't serve new addresses</td>
+<td><code>poly_network_bridge</code>, <code>nomad_bridge</code>, <code>wormhole_bridge</code></td>
+<td>Chain skipped gracefully; use GetBlock or QuickNode for full support</td>
+</tr>
+<tr>
+<td>BSC archive at block 9,755,172 needs paid provider</td>
+<td><code>poly_network_replay</code> (3-chain), <code>bnb_token_hub_replay</code></td>
+<td>Use GetBlock Starter ($39/mo) or run Ethereum-only</td>
+</tr>
+<tr>
+<td>Auto-merge may kill + restart chains between experiments</td>
+<td>All matrix runs</td>
+<td>Use <code>--no-auto-merge</code> to bypass; or let it re-fork automatically (fixed)</td>
+</tr>
+<tr>
+<td>Port TIME_WAIT after killing Anvil</td>
+<td>Auto-merge restart</td>
+<td>Crucible polls port for 10s before restarting (fixed); wait 30s if still failing</td>
+</tr>
+<tr>
+<td>Checkpoints snapshot dead chains</td>
+<td>Topology switching</td>
+<td><code>rm -f states/*.meta.json</code> before switching (fixed in framework)</td>
+</tr>
+<tr>
+<td>Bridge bytecode double <code>0x</code> prefix</td>
+<td>New bridge plugin development</td>
+<td>Use <code>"data": bytecode</code> (not <code>"0x" + bytecode</code>) — Foundry already has <code>0x</code></td>
+</tr>
+<tr>
+<td>Multichain L1 doesn't return AttackResult</td>
+<td><code>multichain_replay</code> in benchmark matrix</td>
+<td>Use <code>--continue-on-error</code> when running matrix</td>
+</tr>
+<tr>
+<td>Agent experiments need LLM API key</td>
+<td><code>demo_agent</code> with real provider</td>
+<td>Use <code>agent_provider: mock</code> for testing without API key</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="whats-been-fixed-june-2026">What's Been Fixed (June 2026)<a class="headerlink" href="#whats-been-fixed-june-2026" title="Permanent link">&para;</a></h2>
+<p><strong>23 issues found and resolved across 3 validation rounds (22 bugs + 1 enhancement).</strong> See <a href="../REPRODUCIBILITY/"><code>docs/REPRODUCIBILITY.md</code></a> for the full log.</p>
+<h3 id="framework-4-bugs-fixed">Framework (4 bugs fixed)<a class="headerlink" href="#framework-4-bugs-fixed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Auto-merge kills chain but never restarts → now re-forks automatically</li>
+<li>Port TIME_WAIT after killing old Anvil → port polling loop (500ms × 20 attempts)</li>
+<li>Checkpoints snapshot dead chains → filtered to active topology only</li>
+<li>Fidelity failures hidden from console → reasons printed inline below <code>[fail]</code></li>
+</ul>
+<h3 id="bridge-plugins-3-bugs-fixed">Bridge Plugins (3 bugs fixed)<a class="headerlink" href="#bridge-plugins-3-bugs-fixed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Double <code>0x</code> prefix in bytecode → removed extra <code>"0x" +</code></li>
+<li>Precompile deployer fails on archive nodes → try/except per-chain</li>
+<li>Placeholder string in bridge evidence.yaml → empty list <code>[]</code></li>
+</ul>
+<h3 id="cli-1-feature-added">CLI (1 feature added)<a class="headerlink" href="#cli-1-feature-added" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>--no-auto-merge</code> flag to bypass automatic fork block merging</li>
+</ul>
+<h3 id="documentation-6-docs-createdupdated">Documentation (6 docs created/updated)<a class="headerlink" href="#documentation-6-docs-createdupdated" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>docs/FIDELITY_GUIDE.md</code> — NEW comprehensive fidelity reference</li>
+<li><code>docs/ATTACK_PACK_GUIDE.md</code> — 8 new Common Pitfalls entries</li>
+<li><code>docs/TROUBLESHOOTING.md</code> — 9 new error entries + local environment section</li>
+<li><code>docs/CLI_REFERENCE.md</code> — Added <code>--no-auto-merge</code>, <code>--no-fidelity</code> flags</li>
+<li><code>docs/SCENARIO_AUTHORING.md</code> — Added <code>--no-auto-merge</code> note</li>
+<li><code>docs/RPC_PROVIDER_GUIDE.md</code> — Archive depth issues, fork block reference</li>
+<li><code>docs/USER_GUIDE.md</code> — UV/venv guide, Docker vs local comparison, local workflow</li>
+<li><code>docs/REPRODUCIBILITY.md</code> — Expanded lessons from 13 to 21 bugs</li>
+<li><code>docs/BENCHMARKS.md</code> — Actual run results, L4 bridge demo status</li>
+</ul>
+<hr />
+<h2 id="determinism-reproducibility-verification">Determinism &amp; Reproducibility Verification<a class="headerlink" href="#determinism-reproducibility-verification" title="Permanent link">&para;</a></h2>
+<h3 id="determinism-checks-run-twice-diff">Determinism Checks (Run Twice + Diff)<a class="headerlink" href="#determinism-checks-run-twice-diff" title="Permanent link">&para;</a></h3>
+<p>All 5 benchmark experiments were run twice and diffed to verify deterministic reproduction:</p>
+<table>
+<thead>
+<tr>
+<th>Experiment</th>
+<th>Topology</th>
+<th>Chains</th>
+<th>storage_equal</th>
+<th>events_equal</th>
+<th>gas_equal</th>
+<th>balances_equal</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>wormhole_replay</strong></td>
+<td>bridge</td>
+<td>ethereum + polygon</td>
+<td>✅ true</td>
+<td>✅ true</td>
+<td>✅ true</td>
+<td>✅ true</td>
+<td><strong>Deterministic</strong></td>
+</tr>
+<tr>
+<td><strong>nomad_replay</strong></td>
+<td>bridge</td>
+<td>ethereum + polygon</td>
+<td>✅ true</td>
+<td>✅ true</td>
+<td>✅ true</td>
+<td>✅ true</td>
+<td><strong>Deterministic</strong></td>
+</tr>
+<tr>
+<td><strong>horizon_replay</strong></td>
+<td>single</td>
+<td>ethereum</td>
+<td>✅ true</td>
+<td>✅ true</td>
+<td>✅ true</td>
+<td>✅ true</td>
+<td><strong>Deterministic</strong></td>
+</tr>
+<tr>
+<td><strong>bnb_token_hub_replay</strong></td>
+<td>single_bsc</td>
+<td>bsc</td>
+<td>✅ true</td>
+<td>✅ true</td>
+<td>✅ true</td>
+<td>✅ true</td>
+<td><strong>Deterministic</strong></td>
+</tr>
+<tr>
+<td><strong>poly_network_replay</strong></td>
+<td>poly_network_full</td>
+<td>ethereum + polygon + bsc</td>
+<td>❌ false</td>
+<td>✅ true</td>
+<td>❌ false</td>
+<td>❌ false</td>
+<td><strong>Non-deterministic</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>4 of 5 experiments are fully deterministic.</strong> The only non-deterministic result (poly_network) is expected — it forks 3 chains simultaneously and Polygon/BSC archive RPCs may return slightly different state per run (see <a href="#3-serve-full-archive-state-for-polygonbsc-at-old-blocks">Archive RPC Limitations</a>).</p>
+<h3 id="cross-provider-verification">Cross-Provider Verification<a class="headerlink" href="#cross-provider-verification" title="Permanent link">&para;</a></h3>
+<p>Not run. The <code>.env</code> includes only one free-tier RPC provider per chain:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ETHEREUM_RPC_URL=https://rpc.ankr.com/eth
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>POLYGON_RPC_URL=https://rpc.ankr.com/polygon
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>BSC_RPC_URL=https://rpc.ankr.com/bsc
+</code></pre></div>
+<p>A second RPC provider (e.g., GetBlock, QuickNode, Alchemy) would be needed to confirm results are provider-independent. At the code level, the framework has no provider-dependent logic — all chain interaction goes through the JSON-RPC client abstraction. Any provider-capable client should produce equivalent results if they serve the same archive state.</p>
+<h3 id="export-bundles">Export Bundles<a class="headerlink" href="#export-bundles" title="Permanent link">&para;</a></h3>
+<p>4 of 5 experiments have publication-ready export bundles in <code>datasets/</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Experiment</th>
+<th>Run ID</th>
+<th>Path</th>
+<th>Files</th>
+<th>Integrity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wormhole_replay</td>
+<td>DS-2026-00155</td>
+<td><code>datasets/DS-2026-00155</code></td>
+<td>24</td>
+<td>✅ PASS</td>
+</tr>
+<tr>
+<td>nomad_replay</td>
+<td>DS-2026-00158</td>
+<td><code>datasets/DS-2026-00158</code></td>
+<td>24</td>
+<td>✅ PASS</td>
+</tr>
+<tr>
+<td>horizon_replay</td>
+<td>DS-2026-00160</td>
+<td><code>datasets/DS-2026-00160</code></td>
+<td>18</td>
+<td>✅ PASS</td>
+</tr>
+<tr>
+<td>bnb_token_hub_replay</td>
+<td>DS-2026-00159</td>
+<td><code>datasets/DS-2026-00159</code></td>
+<td>18</td>
+<td>✅ PASS</td>
+</tr>
+</tbody>
+</table>
+<p>File count varies by topology complexity: bridge-topology experiments (wormhole, nomad) produce 24 files from 2 forked chains; single-chain experiments (horizon, bnb) produce 18 files from 1 chain.</p>
+<p>Each bundle contains:
+- <code>artifact_bundle_manifest.json</code> — SHA-256 hashes of every file
+- <code>publication_report.json</code> — machine-readable report with outcome, assertions
+- <code>provenance.json</code> — extracted provenance data
+- <code>assertions.json</code> — all assertion results from the run
+- <code>REPRODUCE.md</code> — exact reproduction instructions
+- All original run artifacts (run.jsonl, events.jsonl, storage_diffs.jsonl, etc.)</p>
+<hr />
+<h2 id="recommended-next-steps">Recommended Next Steps<a class="headerlink" href="#recommended-next-steps" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Task</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Medium</strong></td>
+<td>Cross-provider verification (run with second RPC provider)</td>
+<td>Proves results aren't provider-specific</td>
+</tr>
+<tr>
+<td><strong>Low</strong></td>
+<td>Add L4 bridge topology for poly_network + wormhole</td>
+<td>More comprehensive cross-chain coverage</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Doc</th>
+<th>What It Covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../BENCHMARKS/"><code>docs/BENCHMARKS.md</code></a></td>
+<td>Benchmark status, per-attack fidelity assessment, run results</td>
+</tr>
+<tr>
+<td><a href="../REPRODUCIBILITY/"><code>docs/REPRODUCIBILITY.md</code></a></td>
+<td>Provenance, determinism, full bug log</td>
+</tr>
+<tr>
+<td><a href="../FIDELITY_GUIDE/"><code>docs/FIDELITY_GUIDE.md</code></a></td>
+<td>Fidelity levels (L0-L4), enforcement, <code>--no-fidelity</code> usage</td>
+</tr>
+<tr>
+<td><a href="../ATTACK_PACK_GUIDE/"><code>docs/ATTACK_PACK_GUIDE.md</code></a></td>
+<td>Creating new attack plugins</td>
+</tr>
+<tr>
+<td><a href="../TROUBLESHOOTING/"><code>docs/TROUBLESHOOTING.md</code></a></td>
+<td>Common errors and fixes</td>
+</tr>
+<tr>
+<td><a href="../RPC_PROVIDER_GUIDE/"><code>docs/RPC_PROVIDER_GUIDE.md</code></a></td>
+<td>Archive RPC provider comparison and costs</td>
+</tr>
+<tr>
+<td><a href="../USER_GUIDE/"><code>docs/USER_GUIDE.md</code></a></td>
+<td>Getting started, Docker vs local</td>
+</tr>
+<tr>
+<td><a href="../CLI_REFERENCE/"><code>docs/CLI_REFERENCE.md</code></a></td>
+<td>All CLI commands and flags</td>
+</tr>
+<tr>
+<td><a href="../internal/TECHNICAL_OVERVIEW/"><code>docs/internal/TECHNICAL_OVERVIEW.md</code></a></td>
+<td>System architecture, core concepts, data flow, design principles</td>
+</tr>
+<tr>
+<td><a href="../internal/DESIGN_DECISIONS/"><code>docs/internal/DESIGN_DECISIONS.md</code></a></td>
+<td>15 key architectural decisions with rationale and tradeoffs</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/crucible-bridge/crucible" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

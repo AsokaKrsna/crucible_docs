@@ -1,0 +1,5294 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="CLI-first EVM bridge security research testbed — deterministic exploit reproduction, structured artifacts, and plug-and-play attack packs.">
+      
+      
+        <meta name="author" content="Crucible Research Team">
+      
+      
+      
+        <link rel="prev" href="../ATTACK_PACK_GUIDE/">
+      
+      
+        <link rel="next" href="../INSTRUMENTATION_ARCHITECTURE/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>System Architecture - Crucible Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#crucible-architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Crucible Docs" class="md-header__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 11c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4 9 4zm-9 10c3.75-1 7-5.46 7-9.78V6.3l-7-3.12L5 6.3v4.92C5 15.54 8.25 20 12 21m2.8-10V9.5C14.8 8.1 13.4 7 12 7S9.2 8.1 9.2 9.5V11c-.6 0-1.2.6-1.2 1.2v3.5c0 .7.6 1.3 1.2 1.3h5.5c.7 0 1.3-.6 1.3-1.2v-3.5c0-.7-.6-1.3-1.2-1.3m-1.3 0h-3V9.5c0-.8.7-1.3 1.5-1.3s1.5.5 1.5 1.3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Crucible Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              System Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/crucible-bridge/crucible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    crucible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../USER_GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../CUSTOM_CONTRACT_TESTING/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  How-To Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Core Concepts (Explanation)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../CLI_REFERENCE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../AE_WALKTHROUGH/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Publication & Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Crucible Docs" class="md-nav__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 11c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4 9 4zm-9 10c3.75-1 7-5.46 7-9.78V6.3l-7-3.12L5 6.3v4.92C5 15.54 8.25 20 12 21m2.8-10V9.5C14.8 8.1 13.4 7 12 7S9.2 8.1 9.2 9.5V11c-.6 0-1.2.6-1.2 1.2v3.5c0 .7.6 1.3 1.2 1.3h5.5c.7 0 1.3-.6 1.3-1.2v-3.5c0-.7-.6-1.3-1.2-1.3m-1.3 0h-3V9.5c0-.8.7-1.3 1.5-1.3s1.5.5 1.5 1.3z"/></svg>
+
+    </a>
+    Crucible Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/crucible-bridge/crucible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    crucible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../USER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TUTORIAL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-Minute Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How-To Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    How-To Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CUSTOM_CONTRACT_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running LLM Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SCENARIO_AUTHORING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Scenarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ATTACK_PACK_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Attack Packs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts (Explanation)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Concepts (Explanation)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Architecture
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. System Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-layered-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Layered Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Layered Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layer Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-component-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Component Map
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Component Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-modules-41-files-in-crucible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Modules (41 files in crucible/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-data-flow-experiment-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Data Flow: Experiment Lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Data Flow: Experiment Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-design-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Design Property
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-plugin-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Plugin System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Plugin System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plugin-type-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin Type Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-lifecycle-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin Lifecycle Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-discovery-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin Discovery &amp; Loading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimentcontext-the-plugins-interface-to-crucible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExperimentContext — The Plugin's Interface to Crucible
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-chain-lifecycle-fork-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Chain Lifecycle &amp; Fork Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Chain Lifecycle &amp; Fork Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anvil-subprocess-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anvil Subprocess Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anvil-command-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anvil Command Construction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tier-reset-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-Tier Reset System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpc-provider-failover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPC Provider Failover
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-instrumentation-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Instrumentation Proxy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Instrumentation Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-gets-captured-per-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Gets Captured Per Transaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-chain-proxy-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Chain Proxy Isolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shutdown-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shutdown Sequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-observability-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Observability Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Observability Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log Directory Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-jsonl-artifact-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 JSONL Artifact Streams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logmanager-vs-logemitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LogManager vs LogEmitter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff-engine-determinism-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diff Engine — Determinism Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-configuration-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Configuration System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Configuration System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pydantic-config-model-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pydantic Config Model Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-validations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-In Validations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-scenario-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Scenario Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Scenario Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-dispatch-registry-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step Dispatch (Registry Pattern)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-agent-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Agent System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Agent System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-tool-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Tool Registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privilege-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privilege Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-determinism-reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Determinism &amp; Reproducibility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Determinism &amp; Reproducibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determinism-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determinism Boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provenance-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provenance Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrity-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrity Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-publication-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Publication Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Publication Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fidelity-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fidelity Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-publication-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 Publication Gates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export Bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-cli-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. CLI Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. CLI Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-registration-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Registration Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-command-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Command Tree
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-docker-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Docker Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. Docker Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-operational-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Operational Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Directory Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-key-design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Key Design Decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Key Design Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-first-ui-as-wrapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI-First, UI as Wrapper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topology-driven-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topology-Driven Composition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transparent-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transparent Instrumentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshot-driven-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot-Driven Reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determinism-by-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determinism by Default
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins-for-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugins for Capabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fidelity-levels-are-enforced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fidelity Levels Are Enforced
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#separation-of-scenario-and-experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Separation of Scenario and Experiment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instrumentation Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CAPABILITIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope & Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FEATURE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RESEARCH_WORKFLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RESEARCHER_OBSERVABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Researcher Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design/crucible_implementation_spec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementation Spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design/crucible_research_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLI_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BENCHMARKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCIBILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LAB_DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC Provider Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAINTENANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TROUBLESHOOTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OPERATIONS_RUNBOOK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FIDELITY_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fidelity Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPORT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCTION_SCOPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproduction Scope
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TESTBED_SCOPE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testbed Scope Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RELEASE_CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publication & Case Studies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publication & Case Studies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AE Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zenodo Archive Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/nomad_replica_fraud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nomad Replica Fraud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/wormhole_guardian_bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wormhole Guardian Bypass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/poly_network_privkey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Poly Network Privilege Escalation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/horizon_multisig_drain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Horizon Multisig Drain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/bnb_token_hub_proof/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BNB Token Hub Proof Bypass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/multichain_router_permit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multichain MPC Compromise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-system-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. System Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-layered-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Layered Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Layered Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layer-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layer Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-component-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Component Map
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Component Map">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-modules-41-files-in-crucible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core Modules (41 files in crucible/)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-data-flow-experiment-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Data Flow: Experiment Lifecycle
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Data Flow: Experiment Lifecycle">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-design-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Design Property
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-plugin-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Plugin System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Plugin System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plugin-type-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin Type Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-lifecycle-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin Lifecycle Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-discovery-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugin Discovery &amp; Loading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#experimentcontext-the-plugins-interface-to-crucible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ExperimentContext — The Plugin's Interface to Crucible
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-chain-lifecycle-fork-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Chain Lifecycle &amp; Fork Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Chain Lifecycle &amp; Fork Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#anvil-subprocess-lifecycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anvil Subprocess Lifecycle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anvil-command-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anvil Command Construction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-tier-reset-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3-Tier Reset System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rpc-provider-failover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPC Provider Failover
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-instrumentation-proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Instrumentation Proxy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Instrumentation Proxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How It Works
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-gets-captured-per-transaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Gets Captured Per Transaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-chain-proxy-isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Chain Proxy Isolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shutdown-sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shutdown Sequence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-observability-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Observability Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Observability Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log Directory Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-jsonl-artifact-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 JSONL Artifact Streams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logmanager-vs-logemitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LogManager vs LogEmitter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diff-engine-determinism-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diff Engine — Determinism Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-configuration-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Configuration System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Configuration System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pydantic-config-model-hierarchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pydantic Config Model Hierarchy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-validations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-In Validations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-scenario-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Scenario Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Scenario Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scenario-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scenario Structure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-dispatch-registry-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step Dispatch (Registry Pattern)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-agent-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Agent System
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Agent System">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-tool-registry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Tool Registry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privilege-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privilege Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-determinism-reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Determinism &amp; Reproducibility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Determinism &amp; Reproducibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determinism-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determinism Boundary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provenance-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provenance Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrity-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrity Verification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-publication-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Publication Pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Publication Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fidelity-levels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fidelity Levels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-publication-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 Publication Gates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export Bundle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-cli-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. CLI Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. CLI Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-registration-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Registration Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cli-command-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI Command Tree
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-docker-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. Docker Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15. Docker Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#container-topology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Topology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-operational-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Operational Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Directory Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17-key-design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        17. Key Design Decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="17. Key Design Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cli-first-ui-as-wrapper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI-First, UI as Wrapper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topology-driven-composition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Topology-Driven Composition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transparent-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transparent Instrumentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#snapshot-driven-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Snapshot-Driven Reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determinism-by-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determinism by Default
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins-for-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugins for Capabilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fidelity-levels-are-enforced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fidelity Levels Are Enforced
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#separation-of-scenario-and-experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Separation of Scenario and Experiment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="crucible-architecture">Crucible Architecture<a class="headerlink" href="#crucible-architecture" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Version:</strong> 0.4.0 · <strong>Last Updated:</strong> June 2026 · <strong>Audience:</strong> Developers, contributors, reviewers</p>
+</blockquote>
+<p>Crucible is a modular EVM bridge security research testbed. It forks historical blockchain state using Foundry's Anvil, runs exploit reproductions as plugins, and automatically captures publication-grade artifacts for academic research.</p>
+<blockquote>
+<p><strong>Looking for a broader overview?</strong> See the <a href="../internal/TECHNICAL_OVERVIEW/">Technical Overview</a> for system philosophy, core concepts, and design principles, or the <a href="../internal/DESIGN_DECISIONS/">Design Decisions</a> document for the rationale behind every major architectural choice.</p>
+</blockquote>
+<hr />
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ol>
+<li><a href="#1-system-overview">System Overview</a></li>
+<li><a href="#2-layered-architecture">Layered Architecture</a></li>
+<li><a href="#3-component-map">Component Map</a></li>
+<li><a href="#4-data-flow-experiment-lifecycle">Data Flow: Experiment Lifecycle</a></li>
+<li><a href="#5-plugin-system">Plugin System</a></li>
+<li><a href="#6-chain-lifecycle-fork-management">Chain Lifecycle &amp; Fork Management</a></li>
+<li><a href="#7-instrumentation-proxy">Instrumentation Proxy</a></li>
+<li><a href="#8-observability-pipeline">Observability Pipeline</a></li>
+<li><a href="#9-configuration-system">Configuration System</a></li>
+<li><a href="#10-scenario-engine">Scenario Engine</a></li>
+<li><a href="#11-agent-system">Agent System</a></li>
+<li><a href="#12-determinism-reproducibility">Determinism &amp; Reproducibility</a></li>
+<li><a href="#13-publication-pipeline">Publication Pipeline</a></li>
+<li><a href="#14-cli-architecture">CLI Architecture</a></li>
+<li><a href="#15-docker-architecture">Docker Architecture</a></li>
+<li><a href="#16-directory-structure">Directory Structure</a></li>
+<li><a href="#17-key-design-decisions">Key Design Decisions</a></li>
+</ol>
+<hr />
+<h2 id="1-system-overview">1. System Overview<a class="headerlink" href="#1-system-overview" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>graph TD
+    subgraph Inputs
+        YAML["Experiment YAML"]
+        TOPO["Topology YAML"]
+        ATTACK["Attack Plugin"]
+    end
+
+    subgraph Crucible
+        ER["Experiment Runner"]
+        CM["Chain Manager"]
+        SE["Scenario Engine"]
+        IP["Instrumentation Proxy"]
+        LM["Log Manager"]
+    end
+
+    subgraph External
+        ANVIL["Anvil Fork"]
+        RPC["Archive RPC"]
+    end
+
+    subgraph Outputs
+        LOGS["7 JSONL Streams"]
+        REPORT["report.md"]
+        MANIFEST["run_manifest.json"]
+        INTEGRITY["log_integrity.json"]
+    end
+
+    YAML --&gt; ER
+    TOPO --&gt; ER
+    ATTACK --&gt; ER
+    ER --&gt; CM
+    ER --&gt; SE
+    CM --&gt; ANVIL
+    ANVIL --&gt; RPC
+    CM --&gt; IP
+    IP --&gt; LM
+    LM --&gt; LOGS
+    LM --&gt; REPORT
+    ER --&gt; MANIFEST
+    LM --&gt; INTEGRITY</code></pre>
+<p><strong>Core principle:</strong> The researcher writes exploit logic. Crucible handles everything else — chain forking, instrumentation, artifact capture, integrity hashing, and provenance tracking.</p>
+<hr />
+<h2 id="2-layered-architecture">2. Layered Architecture<a class="headerlink" href="#2-layered-architecture" title="Permanent link">&para;</a></h2>
+<p>Crucible is organized into four dependency layers. Each layer only imports from layers below it.</p>
+<pre class="mermaid"><code>graph TB
+    subgraph "Layer 4 — CLI"
+        CLI["cli.py"]
+        CMD["commands/ (20 modules)"]
+    end
+
+    subgraph "Layer 3 — Orchestration"
+        ER["ExperimentRunner"]
+        SE["ScenarioEngine"]
+        BM["BaselineManager"]
+        CP["CheckpointManager"]
+        PG["PublicationGate"]
+        HI["HistoryIndex"]
+        EX["ExportBundle"]
+    end
+
+    subgraph "Layer 2 — Runtime"
+        CM["ChainManager"]
+        PR["PluginRegistry"]
+        RPC["JsonRpcClient"]
+        RPM["RpcProviderManager"]
+        IP["RpcProxy"]
+        BL["BridgeLifecycle"]
+        AL["LLMAgentPlugin"]
+    end
+
+    subgraph "Layer 1 — Foundation"
+        SDK["sdk.py"]
+        CFG["config.py"]
+        LOG["logging.py"]
+        ERR["errors.py"]
+        PROV["provenance.py"]
+        EV["evidence.py"]
+        HASH["hashing.py"]
+        FS["filesystem.py"]
+        ENV["env.py"]
+        IDS["ids.py"]
+    end
+
+    CLI --&gt; CMD
+    CMD --&gt; ER
+    CMD --&gt; CM
+
+    ER --&gt; SE
+    ER --&gt; CM
+    ER --&gt; BM
+    ER --&gt; PR
+    ER --&gt; PG
+    ER --&gt; HI
+    ER --&gt; CP
+    ER --&gt; BL
+    ER --&gt; LOG
+
+    SE --&gt; CM
+    CM --&gt; IP
+    CM --&gt; RPC
+    PR --&gt; SDK
+    BM --&gt; CM
+    PG --&gt; PROV
+    PG --&gt; EV
+    EX --&gt; HASH
+    AL --&gt; SDK
+
+    ER --&gt; CFG
+    SE --&gt; CFG
+    CM --&gt; CFG
+
+    SDK --&gt; LOG
+    LOG --&gt; HASH
+    LOG --&gt; FS
+    PROV --&gt; HASH
+    PROV --&gt; ENV
+    CFG --&gt; ENV
+    CFG --&gt; ERR</code></pre>
+<h3 id="layer-rules">Layer Rules<a class="headerlink" href="#layer-rules" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>May Import From</th>
+<th style="text-align: center;">Module Count</th>
+<th>Key Property</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L4: CLI</strong></td>
+<td>L3, L2, L1</td>
+<td style="text-align: center;">21</td>
+<td>Thin wrappers — zero business logic</td>
+</tr>
+<tr>
+<td><strong>L3: Orchestration</strong></td>
+<td>L2, L1</td>
+<td style="text-align: center;">7</td>
+<td>Coordinates runtime, manages state transitions</td>
+</tr>
+<tr>
+<td><strong>L2: Runtime</strong></td>
+<td>L1</td>
+<td style="text-align: center;">7</td>
+<td>Manages external processes and I/O</td>
+</tr>
+<tr>
+<td><strong>L1: Foundation</strong></td>
+<td>stdlib only</td>
+<td style="text-align: center;">12</td>
+<td>Zero upward imports, no external process deps</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-component-map">3. Component Map<a class="headerlink" href="#3-component-map" title="Permanent link">&para;</a></h2>
+<h3 id="core-modules-41-files-in-crucible">Core Modules (41 files in <code>crucible/</code>)<a class="headerlink" href="#core-modules-41-files-in-crucible" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Module</th>
+<th style="text-align: center;">Lines</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CLI Entry</strong></td>
+<td><code>cli.py</code></td>
+<td style="text-align: center;">10</td>
+<td>Delegates to <code>commands/</code></td>
+</tr>
+<tr>
+<td><strong>CLI Commands</strong></td>
+<td><code>commands/__init__.py</code></td>
+<td style="text-align: center;">107</td>
+<td>Typer app creation, <code>CliState</code>, sub-app registration</td>
+</tr>
+<tr>
+<td><strong>CLI: Lifecycle</strong></td>
+<td><code>commands/lifecycle.py</code></td>
+<td style="text-align: center;">240</td>
+<td><code>init</code>, <code>status</code>, <code>doctor</code>, <code>fork</code>, <code>setup</code>, <code>clean</code></td>
+</tr>
+<tr>
+<td><strong>CLI: Reset</strong></td>
+<td><code>commands/reset_cmd.py</code></td>
+<td style="text-align: center;">95</td>
+<td><code>reset</code> (soft/medium/hard), <code>hard-reset</code></td>
+</tr>
+<tr>
+<td><strong>CLI: Experiments</strong></td>
+<td><code>commands/experiment.py</code></td>
+<td style="text-align: center;">120</td>
+<td><code>experiment run</code>, <code>matrix</code>, <code>resume</code>, <code>checkpoints</code></td>
+</tr>
+<tr>
+<td><strong>CLI: Export</strong></td>
+<td><code>commands/export.py</code></td>
+<td style="text-align: center;">75</td>
+<td><code>export run</code> as publication bundle</td>
+</tr>
+<tr>
+<td><strong>CLI: Verify</strong></td>
+<td><code>commands/verify.py</code></td>
+<td style="text-align: center;">120</td>
+<td><code>verify</code> run/bundle/archive integrity</td>
+</tr>
+<tr>
+<td><strong>CLI: Evidence</strong></td>
+<td><code>commands/evidence.py</code></td>
+<td style="text-align: center;">60</td>
+<td><code>evidence check</code> pre-flight validation</td>
+</tr>
+<tr>
+<td><strong>CLI: Analytics</strong></td>
+<td><code>commands/analytics.py</code></td>
+<td style="text-align: center;">70</td>
+<td><code>history</code>, <code>diff</code></td>
+</tr>
+<tr>
+<td><strong>CLI: Summary</strong></td>
+<td><code>commands/summary.py</code></td>
+<td style="text-align: center;">50</td>
+<td>One-shot workspace overview (chains, runs, disk usage)</td>
+</tr>
+<tr>
+<td><strong>Experiment Runner</strong></td>
+<td><code>experiment.py</code></td>
+<td style="text-align: center;">638</td>
+<td>Formal experiment lifecycle, manifest writing</td>
+</tr>
+<tr>
+<td><strong>Scenario Engine</strong></td>
+<td><code>scenario.py</code></td>
+<td style="text-align: center;">169</td>
+<td>Load YAML, execute phases, checkpoint</td>
+</tr>
+<tr>
+<td><strong>Scenario Steps</strong></td>
+<td><code>scenario_steps.py</code></td>
+<td style="text-align: center;">497</td>
+<td>Registry-based step dispatch (11 step types)</td>
+</tr>
+<tr>
+<td><strong>Chain Manager</strong></td>
+<td><code>chain_manager.py</code></td>
+<td style="text-align: center;">365</td>
+<td>Anvil subprocess lifecycle, health check, port mgmt</td>
+</tr>
+<tr>
+<td><strong>RPC Client</strong></td>
+<td><code>rpc.py</code></td>
+<td style="text-align: center;">185</td>
+<td><code>JsonRpcClient</code>, <code>RpcProviderManager</code>, <code>TokenBucket</code></td>
+</tr>
+<tr>
+<td><strong>Instrumentation</strong></td>
+<td><code>instrumentation.py</code></td>
+<td style="text-align: center;">322</td>
+<td>Transparent RPC proxy, auto-trace, artifact capture</td>
+</tr>
+<tr>
+<td><strong>Plugin Registry</strong></td>
+<td><code>plugin.py</code></td>
+<td style="text-align: center;">148</td>
+<td>Discovery, validation, dynamic import</td>
+</tr>
+<tr>
+<td><strong>Plugin Manifest</strong></td>
+<td><code>plugin_manifest.py</code></td>
+<td style="text-align: center;">119</td>
+<td>Canonical manifest model (legacy + modern formats)</td>
+</tr>
+<tr>
+<td><strong>SDK</strong></td>
+<td><code>sdk.py</code></td>
+<td style="text-align: center;">219</td>
+<td><code>AttackPlugin</code>, <code>BridgePlugin</code>, <code>AgentPlugin</code> ABCs</td>
+</tr>
+<tr>
+<td><strong>Agent Tools</strong></td>
+<td><code>agent_tools.py</code></td>
+<td style="text-align: center;">298</td>
+<td>9 tool defs, <code>AgentContext</code>, privilege enforcement</td>
+</tr>
+<tr>
+<td><strong>Agent Loop</strong></td>
+<td><code>agent_loop.py</code></td>
+<td style="text-align: center;">480</td>
+<td><code>LLMAgentPlugin</code>, prompt construction, tool execution</td>
+</tr>
+<tr>
+<td><strong>LLM Providers</strong></td>
+<td><code>llm_providers.py</code></td>
+<td style="text-align: center;">399</td>
+<td>OpenAI/Anthropic provider abstraction</td>
+</tr>
+<tr>
+<td><strong>Log Emitter</strong></td>
+<td><code>logging.py</code></td>
+<td style="text-align: center;">416</td>
+<td><code>LogEmitter</code> + <code>LogManager</code>, 7 JSONL streams, report</td>
+</tr>
+<tr>
+<td><strong>Baseline</strong></td>
+<td><code>baseline.py</code></td>
+<td style="text-align: center;">103</td>
+<td>Golden snapshot capture/verify/restore</td>
+</tr>
+<tr>
+<td><strong>Checkpoint</strong></td>
+<td><code>checkpoint.py</code></td>
+<td style="text-align: center;">74</td>
+<td>Phase-level state checkpointing</td>
+</tr>
+<tr>
+<td><strong>Diff Engine</strong></td>
+<td><code>diff.py</code></td>
+<td style="text-align: center;">91</td>
+<td>Canonical run comparison (storage, events, gas, balances)</td>
+</tr>
+<tr>
+<td><strong>History</strong></td>
+<td><code>history.py</code></td>
+<td style="text-align: center;">92</td>
+<td>SQLite-backed experiment index</td>
+</tr>
+<tr>
+<td><strong>Publication</strong></td>
+<td><code>publication.py</code></td>
+<td style="text-align: center;">228</td>
+<td>7 research-quality gate checks</td>
+</tr>
+<tr>
+<td><strong>Evidence</strong></td>
+<td><code>evidence.py</code></td>
+<td style="text-align: center;">281</td>
+<td>Fidelity level validation, <code>validate_evidence_against_chain()</code> pre-flight</td>
+</tr>
+<tr>
+<td><strong>Provenance</strong></td>
+<td><code>provenance.py</code></td>
+<td style="text-align: center;">209</td>
+<td>Run manifest, git/foundry/platform info, version check</td>
+</tr>
+<tr>
+<td><strong>Config</strong></td>
+<td><code>config.py</code></td>
+<td style="text-align: center;">150</td>
+<td>Pydantic models, YAML deep merge, env expansion</td>
+</tr>
+<tr>
+<td><strong>Export</strong></td>
+<td><code>export.py</code></td>
+<td style="text-align: center;">182</td>
+<td>Publication bundles (tar-gz/zip) with integrity</td>
+</tr>
+<tr>
+<td><strong>Extract</strong></td>
+<td><code>extract.py</code></td>
+<td style="text-align: center;">739</td>
+<td>Auto-generate attack packs from on-chain txs</td>
+</tr>
+<tr>
+<td><strong>Matrix Runner</strong></td>
+<td><code>matrix.py</code></td>
+<td style="text-align: center;">78</td>
+<td>Sequential matrix experiment execution</td>
+</tr>
+<tr>
+<td><strong>Cache</strong></td>
+<td><code>cache.py</code></td>
+<td style="text-align: center;">231</td>
+<td>Fork cache fingerprinting and verification</td>
+</tr>
+<tr>
+<td><strong>ABI Registry</strong></td>
+<td><code>abi.py</code></td>
+<td style="text-align: center;">154</td>
+<td>ABI listing, validation, Etherscan/Sourcify fetch</td>
+</tr>
+<tr>
+<td><strong>Public API Re-exports</strong></td>
+<td><code>interfaces/__init__.py</code></td>
+<td style="text-align: center;">4</td>
+<td>Re-exports <code>AttackPlugin</code>, <code>BridgePlugin</code>, <code>CruciblePlugin</code>, <code>ExperimentContext</code></td>
+</tr>
+<tr>
+<td><strong>Bridge Lifecycle</strong></td>
+<td><code>bridge_lifecycle.py</code></td>
+<td style="text-align: center;">95</td>
+<td>Helper functions for bridge deploy/destroy</td>
+</tr>
+<tr>
+<td><strong>Errors</strong></td>
+<td><code>errors.py</code></td>
+<td style="text-align: center;">73</td>
+<td><code>CrucibleError</code> hierarchy with exit codes</td>
+</tr>
+<tr>
+<td><strong>Hashing</strong></td>
+<td><code>hashing.py</code></td>
+<td style="text-align: center;">14</td>
+<td><code>sha256_file()</code>, <code>sha256_json()</code></td>
+</tr>
+<tr>
+<td><strong>Environment</strong></td>
+<td><code>env.py</code></td>
+<td style="text-align: center;">32</td>
+<td><code>expand_env()</code>, <code>load_dotenv()</code>, <code>get_docker_mode()</code></td>
+</tr>
+<tr>
+<td><strong>IDs</strong></td>
+<td><code>ids.py</code></td>
+<td style="text-align: center;">33</td>
+<td><code>next_dataset_id()</code> — monotonic DS-YYYY-NNNNN</td>
+</tr>
+<tr>
+<td><strong>Utils</strong></td>
+<td><code>utils.py</code></td>
+<td style="text-align: center;">70</td>
+<td><code>utc_now()</code>, <code>run_notification_hooks()</code></td>
+</tr>
+<tr>
+<td><strong>Cleanup</strong></td>
+<td><code>cleanup.py</code></td>
+<td style="text-align: center;">18</td>
+<td>Log retention, disk warnings</td>
+</tr>
+<tr>
+<td><strong>File Locking</strong></td>
+<td><code>filesystem.py</code></td>
+<td style="text-align: center;">145</td>
+<td><code>lock_file()</code>/<code>unlock_file()</code>, <code>ensure_dir()</code>, cross-platform</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-data-flow-experiment-lifecycle">4. Data Flow: Experiment Lifecycle<a class="headerlink" href="#4-data-flow-experiment-lifecycle" title="Permanent link">&para;</a></h2>
+<p>A single <code>crucible experiment run experiments/nomad_replay.yaml</code> triggers this sequence:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant U as User / CLI
+    participant ER as ExperimentRunner
+    participant CFG as Config Loader
+    participant PG as Publication Gates
+    participant SE as ScenarioEngine
+    participant CM as ChainManager
+    participant IP as Instrumentation Proxy
+    participant PR as PluginRegistry
+    participant AP as AttackPlugin
+    participant LM as LogManager
+    participant PROV as Provenance
+
+    U-&gt;&gt;CFG: load_config() + load_experiment()
+    U-&gt;&gt;ER: run(experiment_path)
+    ER-&gt;&gt;ER: _check_foundry_version()
+    ER-&gt;&gt;ER: _enforce_cleanup()
+    ER-&gt;&gt;PG: check_all() (if publication mode)
+    ER-&gt;&gt;LM: new LogManager(run_dir)
+
+    rect rgb(230, 240, 255)
+        Note over SE,CM: Phase 1 — Environment Setup
+        ER-&gt;&gt;SE: run(scenario_name, context)
+        SE-&gt;&gt;CM: start_chain("ethereum")
+        CM-&gt;&gt;CM: anvil_command() → Popen()
+        CM-&gt;&gt;CM: _await_ready() (poll eth_blockNumber)
+        SE-&gt;&gt;SE: execute YAML steps (log, assert, impersonate...)
+    end
+
+    rect rgb(230, 255, 230)
+        Note over CM,IP: Phase 2 — Instrumentation
+        ER-&gt;&gt;CM: start_instrumentation("ethereum", chain_log)
+        CM-&gt;&gt;IP: attach_instrumentation(upstream_url, log)
+        IP-&gt;&gt;IP: HTTPServer.start() on random port
+        Note over CM: runtime_for() now returns proxy URL
+    end
+
+    rect rgb(255, 240, 230)
+        Note over PR,AP: Phase 3 — Attack Execution
+        ER-&gt;&gt;PR: load("attack", attack_name)
+        PR-&gt;&gt;AP: importlib → instantiate plugin class
+        ER-&gt;&gt;AP: plugin.run(context)
+        AP-&gt;&gt;CM: runtime_for("ethereum") → proxy URL
+        AP-&gt;&gt;IP: eth_sendTransaction (via proxy)
+        IP-&gt;&gt;IP: forward to Anvil → capture receipt → trace
+        IP-&gt;&gt;LM: emit(gas, events, storage_diffs, balances)
+    end
+
+    rect rgb(245, 230, 255)
+        Note over ER,PROV: Phase 4 — Teardown &amp; Artifacts
+        ER-&gt;&gt;CM: stop_instrumentation() (drain + stop)
+        ER-&gt;&gt;PROV: build_run_manifest()
+        ER-&gt;&gt;LM: write_report()
+        ER-&gt;&gt;LM: write_integrity()
+    end</code></pre>
+<h3 id="key-design-property">Key Design Property<a class="headerlink" href="#key-design-property" title="Permanent link">&para;</a></h3>
+<p>The attack plugin <strong>never knows it's instrumented.</strong> When <code>start_instrumentation()</code> is called, <code>ChainManager</code> stores the proxy reference and <code>runtime_for()</code> silently returns the proxy URL instead of the direct Anvil URL:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># chain_manager.py — transparent URL substitution</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">runtime_for</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chain_name</span><span class="p">):</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="o">...</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="k">if</span> <span class="n">chain_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_proxies</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">rpc_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_proxies</span><span class="p">[</span><span class="n">chain_name</span><span class="p">]</span><span class="o">.</span><span class="n">proxy_url</span>  <span class="c1"># ← proxy, not Anvil</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="k">return</span> <span class="n">ChainRuntime</span><span class="p">(</span><span class="n">chain_name</span><span class="p">,</span> <span class="n">rpc_url</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+<p>This means <strong>any</strong> attack — Python, Forge script, or <code>cast send</code> — produces complete artifacts without per-attack instrumentation code.</p>
+<hr />
+<h2 id="5-plugin-system">5. Plugin System<a class="headerlink" href="#5-plugin-system" title="Permanent link">&para;</a></h2>
+<h3 id="plugin-type-hierarchy">Plugin Type Hierarchy<a class="headerlink" href="#plugin-type-hierarchy" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>classDiagram
+    class CruciblePlugin {
+        &lt;&lt;abstract&gt;&gt;
+        +metadata() dict
+    }
+
+    class AttackPlugin {
+        +run(ctx)
+        +prepare(ctx)
+        +execute(ctx, phase) AttackResult
+        +verify(ctx) VerificationResult
+        +rollback(ctx)
+        +cleanup(ctx)
+    }
+
+    class BridgePlugin {
+        +deploy(ctx) dict
+        +configure(ctx, config)
+        +connect(ctx)
+        +send_message(ctx, src, dst, data) dict
+        +reset(ctx)
+        +destroy(ctx)
+    }
+
+    class AgentPlugin {
+        +run(ctx)
+        +prepare(ctx, agent_ctx)
+        +observe(ctx, agent_ctx) dict
+        +think(obs, ctx, agent_ctx) AgentAction
+        +respond(result, ctx, agent_ctx)
+        +is_done(ctx, agent_ctx) bool
+        +verify(ctx, agent_ctx) VerificationResult
+    }
+
+    CruciblePlugin &lt;|-- AttackPlugin
+    CruciblePlugin &lt;|-- BridgePlugin
+    CruciblePlugin &lt;|-- AgentPlugin</code></pre>
+<h3 id="plugin-lifecycle-comparison">Plugin Lifecycle Comparison<a class="headerlink" href="#plugin-lifecycle-comparison" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>AttackPlugin</th>
+<th>BridgePlugin</th>
+<th>AgentPlugin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Setup</strong></td>
+<td><code>prepare()</code></td>
+<td><code>deploy()</code> → <code>configure()</code> → <code>connect()</code></td>
+<td><code>prepare()</code></td>
+</tr>
+<tr>
+<td><strong>Execute</strong></td>
+<td><code>execute(phase)</code></td>
+<td><code>send_message()</code></td>
+<td><code>observe()</code> → <code>think()</code> → <code>call()</code> (loop)</td>
+</tr>
+<tr>
+<td><strong>Verify</strong></td>
+<td><code>verify()</code></td>
+<td>—</td>
+<td><code>verify()</code></td>
+</tr>
+<tr>
+<td><strong>Teardown</strong></td>
+<td><code>rollback()</code> → <code>cleanup()</code></td>
+<td><code>reset()</code> → <code>destroy()</code></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Convenience</strong></td>
+<td><code>run()</code> calls prepare→execute→verify</td>
+<td>—</td>
+<td><code>run()</code> calls prepare→loop→verify</td>
+</tr>
+</tbody>
+</table>
+<h3 id="plugin-discovery-loading">Plugin Discovery &amp; Loading<a class="headerlink" href="#plugin-discovery-loading" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Filesystem
+        A1["attacks/nomad_replay/plugin.yaml"]
+        A2["attacks/nomad_replay/nomad_replay.py"]
+        B1["bridges/demo_bridge/plugin.yaml"]
+        P1["plugins/agent_llm/plugin.yaml"]
+    end
+
+    subgraph PluginRegistry
+        DISC["discover()"]
+        VAL["validate()"]
+        LOAD["load()"]
+    end
+
+    A1 --&gt; DISC
+    B1 --&gt; DISC
+    P1 --&gt; DISC
+    DISC --&gt; VAL
+    VAL --&gt;|"check manifest + entry + evidence"| LOAD
+    LOAD --&gt;|"importlib.util.spec_from_file_location()"| INST["Plugin Instance"]</code></pre>
+<p><strong>Search directories:</strong> <code>attacks/</code>, <code>bridges/</code>, <code>plugins/</code></p>
+<p><strong>Manifest format</strong> (<code>plugin.yaml</code>):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_replay</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attack</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_replay.py</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NomadReplayAttack</span><span class="w">     </span><span class="c1"># modern format</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># class_name: NomadReplayAttack  # legacy format (also supported)</span>
+</code></pre></div></p>
+<p>Attack plugins <strong>must</strong> include <code>evidence.yaml</code> alongside <code>plugin.yaml</code>. The registry validates evidence structure during discovery.</p>
+<p><strong>Bridge plugins deployed:</strong>
+| Plugin | Contracts | Vulnerability | Lifecycle |
+|---|---|---|---|
+| <code>nomad_bridge</code> | <code>NomadReplica.sol</code> | <code>committedRoot == 0x00</code> | deploy -&gt; configure -&gt; connect -&gt; send_message -&gt; reset -&gt; destroy |
+| <code>poly_network_bridge</code> | <code>EthCrossChainManager</code> + <code>EthCrossChainData</code> | Hash collision selector dispatch | Same lifecycle |
+| <code>wormhole_bridge</code> | <code>WormholeCore</code> + <code>TokenBridge</code> | Guardian bypass mode | Same lifecycle |</p>
+<p>All three are discovered and loaded by the <code>PluginRegistry</code>, validated against <code>evidence.yaml</code>, and wired into the experiment lifecycle via <code>bridge_lifecycle.py</code>.</p>
+<h3 id="experimentcontext-the-plugins-interface-to-crucible">ExperimentContext — The Plugin's Interface to Crucible<a class="headerlink" href="#experimentcontext-the-plugins-interface-to-crucible" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>classDiagram
+    class ExperimentContext {
+        +config: TestbedConfig
+        +topology: TopologyConfig
+        +chains: ChainManager
+        +log: LogEmitter
+        +workspace: Path
+        +run_id: str
+        +run_config: dict
+        +bridge_plugin: BridgePlugin?
+    }</code></pre>
+<p>Every plugin method receives an <code>ExperimentContext</code>. Through it, the plugin can:
+- <strong>Read chain state:</strong> <code>context.chains.runtime_for("ethereum")</code> → <code>JsonRpcClient</code>
+- <strong>Log events:</strong> <code>context.log.step("message")</code>, <code>context.log.event(...)</code>
+- <strong>Access config:</strong> <code>context.config.chains["ethereum"].fork_block</code>
+- <strong>Use bridges:</strong> <code>context.bridge_plugin.send_message(...)</code></p>
+<hr />
+<h2 id="6-chain-lifecycle-fork-management">6. Chain Lifecycle &amp; Fork Management<a class="headerlink" href="#6-chain-lifecycle-fork-management" title="Permanent link">&para;</a></h2>
+<h3 id="anvil-subprocess-lifecycle">Anvil Subprocess Lifecycle<a class="headerlink" href="#anvil-subprocess-lifecycle" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Configured: load testbed.yaml
+    Configured --&gt; Starting: start_chain()
+    Starting --&gt; WaitingReady: Popen(anvil ...)
+    WaitingReady --&gt; Running: _await_ready() (poll eth_blockNumber)
+    Running --&gt; Instrumented: start_instrumentation()
+    Instrumented --&gt; Draining: drain() (flush traces)
+    Draining --&gt; Running: stop_instrumentation()
+    Running --&gt; Stopped: stop_all()
+    Stopped --&gt; [*]: meta.json deleted</code></pre>
+<h3 id="anvil-command-construction">Anvil Command Construction<a class="headerlink" href="#anvil-command-construction" title="Permanent link">&para;</a></h3>
+<p><code>ChainManager.anvil_command()</code> builds a deterministic Anvil command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>anvil \
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  --fork-url ${ETH_RPC_URL} \
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  --fork-block-number 15259100 \
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  --host 127.0.0.1 \
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  --port 8545 \
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  --chain-id 1 \
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>  --gas-price 0 \
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>  --block-base-fee-per-gas 1000000000 \
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>  --auto-impersonate \
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>  --order fifo \
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>  --cache-path .fork_cache/ethereum/15259100
+</code></pre></div>
+<h3 id="3-tier-reset-system">3-Tier Reset System<a class="headerlink" href="#3-tier-reset-system" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    SOFT["Soft Reset&lt;br/&gt;&lt; 5 seconds"]
+    MED["Medium Reset&lt;br/&gt;&lt; 30 seconds"]
+    HARD["Hard Reset&lt;br/&gt;&lt; 5 minutes"]
+
+    SOFT --&gt;|"anvil_loadState"| STATE["Restore from snapshot"]
+    MED --&gt;|"kill + relaunch + restore"| RELAUNCH["Fresh Anvil + restore"]
+    HARD --&gt;|"re-fork from RPC"| REFORK["Full re-fork + bootstrap"]</code></pre>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Method</th>
+<th>Speed</th>
+<th>Fidelity</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Soft</strong></td>
+<td><code>anvil_loadState</code></td>
+<td>&lt;5s</td>
+<td>Snapshot-perfect</td>
+<td>Matrix runs, parameter sweeps</td>
+</tr>
+<tr>
+<td><strong>Medium</strong></td>
+<td>Kill → restart → restore</td>
+<td>&lt;30s</td>
+<td>Clean process</td>
+<td>After process corruption</td>
+</tr>
+<tr>
+<td><strong>Hard</strong></td>
+<td>Re-fork from upstream RPC</td>
+<td>&lt;5min</td>
+<td>Full re-fetch</td>
+<td>After cache corruption, topology change</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rpc-provider-failover">RPC Provider Failover<a class="headerlink" href="#rpc-provider-failover" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    REQ["RPC Request"]
+    P1["Provider 1 (primary)"]
+    P2["Provider 2 (llamarpc)"]
+    P3["Provider 3 (ankr)"]
+    P4["Provider 4 (publicnode)"]
+
+    REQ --&gt; P1
+    P1 --&gt;|"429 / timeout"| P2
+    P2 --&gt;|"429 / timeout"| P3
+    P3 --&gt;|"429 / timeout"| P4
+    P4 --&gt;|"all failed"| ERR["RpcError"]
+
+    P1 --&gt;|"success"| OK["JsonRpcClient"]
+    P2 --&gt;|"success"| OK
+    P3 --&gt;|"success"| OK</code></pre>
+<p>Providers are configured per-chain in <code>testbed.yaml</code> and tried in priority order. Each provider has its own <code>TokenBucket</code> rate limiter.</p>
+<hr />
+<h2 id="7-instrumentation-proxy">7. Instrumentation Proxy<a class="headerlink" href="#7-instrumentation-proxy" title="Permanent link">&para;</a></h2>
+<p>The instrumentation proxy is the architectural centerpiece — it makes artifact capture <strong>automatic and universal.</strong></p>
+<h3 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "Attack Plugin"
+        SEND["eth_sendTransaction"]
+    end
+
+    subgraph "Instrumentation Proxy (HTTPServer thread)"
+        FWD["Forward to Anvil"]
+        SCHED["Schedule trace"]
+    end
+
+    subgraph "ThreadPoolExecutor"
+        RECEIPT["eth_getTransactionReceipt"]
+        TRACE["debug_traceTransaction&lt;br/&gt;(prestateTracer diffMode)"]
+        PARSE["Parse trace → artifacts"]
+    end
+
+    subgraph "Anvil Fork"
+        ANVIL["Process TX"]
+    end
+
+    subgraph "LogEmitter"
+        GAS["gas_profile.jsonl"]
+        EVENTS["events.jsonl"]
+        STORAGE["storage_diffs.jsonl"]
+        BALANCE["balance_diffs.jsonl"]
+    end
+
+    SEND --&gt; FWD
+    FWD --&gt; ANVIL
+    ANVIL --&gt; FWD
+    FWD --&gt; SCHED
+
+    SCHED --&gt; RECEIPT
+    RECEIPT --&gt; TRACE
+    TRACE --&gt; PARSE
+    PARSE --&gt; GAS
+    PARSE --&gt; EVENTS
+    PARSE --&gt; STORAGE
+    PARSE --&gt; BALANCE</code></pre>
+<h3 id="what-gets-captured-per-transaction">What Gets Captured Per Transaction<a class="headerlink" href="#what-gets-captured-per-transaction" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Source</th>
+<th>Stream</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gas used</strong></td>
+<td><code>eth_getTransactionReceipt</code> → <code>gasUsed</code></td>
+<td><code>gas_profile.jsonl</code></td>
+</tr>
+<tr>
+<td><strong>Contract events</strong></td>
+<td>Receipt → <code>logs[]</code> → decode topic[0]</td>
+<td><code>events.jsonl</code></td>
+</tr>
+<tr>
+<td><strong>Storage diffs</strong></td>
+<td><code>debug_traceTransaction</code> → <code>pre/post</code> storage</td>
+<td><code>storage_diffs.jsonl</code></td>
+</tr>
+<tr>
+<td><strong>Balance changes</strong></td>
+<td><code>debug_traceTransaction</code> → <code>pre/post</code> balance</td>
+<td><code>balance_diffs.jsonl</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="multi-chain-proxy-isolation">Multi-Chain Proxy Isolation<a class="headerlink" href="#multi-chain-proxy-isolation" title="Permanent link">&para;</a></h3>
+<p>Each chain gets its <strong>own</strong> proxy instance with its own handler class:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Ethereum: Attack → Proxy :9001 → Anvil :8545
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>BSC:      Attack → Proxy :9002 → Anvil :8547
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Polygon:  Attack → Proxy :9003 → Anvil :8546
+</code></pre></div>
+<p>The <code>_make_handler()</code> closure captures <code>upstream_url</code>, <code>log</code>, and <code>chain</code> per instance, preventing shared-state bugs across chains.</p>
+<h3 id="shutdown-sequence">Shutdown Sequence<a class="headerlink" href="#shutdown-sequence" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>1. proxy.drain()    → ThreadPoolExecutor.shutdown(wait=True)
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>                      (all pending traces complete)
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>2. proxy.stop()     → HTTPServer.shutdown() + server_close()
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>3. log.write_integrity()  → close file handles + hash files
+</code></pre></div>
+<p><code>drain()</code> <strong>must</strong> be called before <code>stop()</code> and before log handles close. This ensures all async trace tasks complete before artifacts are finalized.</p>
+<hr />
+<h2 id="8-observability-pipeline">8. Observability Pipeline<a class="headerlink" href="#8-observability-pipeline" title="Permanent link">&para;</a></h2>
+<h3 id="log-directory-structure">Log Directory Structure<a class="headerlink" href="#log-directory-structure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>logs/
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  nomad_experiment/
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    DS-2026-00042/                    ← run directory
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>      run.jsonl                       ← experiment lifecycle events
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>      run_manifest.json               ← provenance, config, outcome
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>      log_integrity.json              ← SHA-256 hashes of all streams
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>      report.md                       ← human-readable summary
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>      chain_ethereum/                 ← per-chain artifacts
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>        run.jsonl                     ← chain-specific lifecycle
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        events.jsonl                  ← contract events
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        gas_profile.jsonl             ← gas usage per transaction
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        storage_diffs.jsonl           ← storage slot changes
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        balance_diffs.jsonl           ← ETH/token balance changes
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>      chain_bsc/
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>        ...
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>      bridge/                         ← cross-chain correlation
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>        cross_chain.jsonl             ← bridge message tracking
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>        events.jsonl
+</code></pre></div>
+<h3 id="7-jsonl-artifact-streams">7 JSONL Artifact Streams<a class="headerlink" href="#7-jsonl-artifact-streams" title="Permanent link">&para;</a></h3>
+<p>The testbed produces <strong>6 core streams</strong> managed by <code>LogEmitter</code> through the standard emit API, plus <strong>1 agent-specific stream</strong> written directly by the LLM agent plugin:</p>
+<table>
+<thead>
+<tr>
+<th>Stream</th>
+<th>Content</th>
+<th>Written By</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>run.jsonl</code></td>
+<td>Experiment lifecycle (phase start/end, errors)</td>
+<td><code>LogManager.step()</code></td>
+</tr>
+<tr>
+<td><code>events.jsonl</code></td>
+<td>Contract events (Transfer, Approval, custom)</td>
+<td><code>LogEmitter.event()</code> via proxy</td>
+</tr>
+<tr>
+<td><code>storage_diffs.jsonl</code></td>
+<td>Storage slot changes (contract, slot, before, after)</td>
+<td><code>LogEmitter.storage_diff()</code> via proxy</td>
+</tr>
+<tr>
+<td><code>gas_profile.jsonl</code></td>
+<td>Gas used per transaction</td>
+<td><code>LogEmitter.gas()</code> via proxy</td>
+</tr>
+<tr>
+<td><code>balance_diffs.jsonl</code></td>
+<td>Balance changes (ETH and token)</td>
+<td><code>LogEmitter.balance_diff()</code> via proxy</td>
+</tr>
+<tr>
+<td><code>cross_chain.jsonl</code></td>
+<td>Bridge message correlation IDs</td>
+<td><code>LogEmitter.cross_chain()</code></td>
+</tr>
+<tr>
+<td><code>agent_reasoning.jsonl</code></td>
+<td>LLM agent reasoning traces (observation, action, conversation snapshot) — written <strong>outside</strong> the standard LogEmitter system, so not tracked in <code>log_integrity.json</code></td>
+<td><code>LLMAgentPlugin._log_reasoning_step()</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="logmanager-vs-logemitter">LogManager vs LogEmitter<a class="headerlink" href="#logmanager-vs-logemitter" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>classDiagram
+    class LogManager {
+        -_root: LogEmitter
+        -_chain_emitters: dict
+        -_bridge_emitter: LogEmitter
+        +step(message)
+        +for_chain(name) LogEmitter
+        +bridge() LogEmitter
+        +write_report()
+        +write_integrity()
+    }
+
+    class LogEmitter {
+        -_handles: dict[stream, file]
+        +emit(stream, fields)
+        +step(message)
+        +event(chain, event_name)
+        +storage_diff(chain, contract, slot, before, after)
+        +gas(step, gas_used)
+        +balance_diff(chain, contract, account, before, after)
+        +cross_chain(correlation_id, source, dest)
+        +close()
+        +write_integrity()
+    }
+
+    LogManager --&gt; LogEmitter : root
+    LogManager --&gt; LogEmitter : chain_ethereum
+    LogManager --&gt; LogEmitter : chain_bsc
+    LogManager --&gt; LogEmitter : bridge</code></pre>
+<p><code>LogManager</code> is the experiment-level orchestrator. It creates per-chain <code>LogEmitter</code> instances lazily via <code>for_chain()</code>. Attack plugins interact with <code>context.log</code> (which is a <code>LogManager</code>) — lifecycle events go to the root emitter, while chain-specific data routes to the per-chain subdirectory.</p>
+<h3 id="diff-engine-determinism-verification">Diff Engine — Determinism Verification<a class="headerlink" href="#diff-engine-determinism-verification" title="Permanent link">&para;</a></h3>
+<p><code>crucible diff &lt;run-a&gt; &lt;run-b&gt;</code> canonicalizes and compares four metrics:</p>
+<pre class="mermaid"><code>flowchart LR
+    A["Run A"] --&gt; CA["Canonical Sort"]
+    B["Run B"] --&gt; CB["Canonical Sort"]
+
+    CA --&gt; CMP["Compare"]
+    CB --&gt; CMP
+
+    CMP --&gt; S["storage_equal: true/false"]
+    CMP --&gt; E["events_equal: true/false"]
+    CMP --&gt; G["gas_equal: true/false"]
+    CMP --&gt; BL["balances_equal: true/false"]</code></pre>
+<p>All four must be <code>true</code> for deterministic reproduction.</p>
+<blockquote>
+<p><strong>Note:</strong> The 6 core streams appear in <code>STREAMS</code> in <code>crucible/logging.py</code>. The 7th (<code>agent_reasoning.jsonl</code>) is emitted by <code>LLMAgentPlugin</code> directly and bypasses integrity hashing — this is a known gap.</p>
+</blockquote>
+<hr />
+<h2 id="9-configuration-system">9. Configuration System<a class="headerlink" href="#9-configuration-system" title="Permanent link">&para;</a></h2>
+<h3 id="configuration-hierarchy">Configuration Hierarchy<a class="headerlink" href="#configuration-hierarchy" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    ENV[".env file&lt;br/&gt;(ETH_RPC_URL, BSC_RPC_URL...)"]
+    BASE["testbed.yaml&lt;br/&gt;(committed to git)"]
+    LOCAL["testbed.local.yaml&lt;br/&gt;(gitignored, per-user)"]
+    TOPO["topologies/*.yaml&lt;br/&gt;(chain composition)"]
+    EXP["experiments/*.yaml&lt;br/&gt;(experiment definition)"]
+
+    ENV --&gt;|"load_dotenv()"| MERGE
+    BASE --&gt;|"read_yaml()"| MERGE["deep_merge()"]
+    LOCAL --&gt;|"override"| MERGE
+    MERGE --&gt;|"expand_env()"| VALIDATE["Pydantic validation"]
+    VALIDATE --&gt; CFG["TestbedConfig"]
+
+    TOPO --&gt; TCFG["TopologyConfig"]
+    EXP --&gt; ECFG["ExperimentConfig"]</code></pre>
+<h3 id="pydantic-config-model-hierarchy">Pydantic Config Model Hierarchy<a class="headerlink" href="#pydantic-config-model-hierarchy" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>classDiagram
+    class TestbedConfig {
+        +workspace: str
+        +active_topology: str
+        +foundry: FoundryConfig
+        +publication: PublicationConfig
+        +chains: dict[str, ChainConfig]
+        +rpc_providers: dict[str, list]
+        +fork_cache: ForkCacheConfig
+        +logging: LoggingConfig
+        +cleanup: CleanupConfig
+        +rpc_budget: RpcBudgetConfig
+        +notifications: NotificationConfig
+    }
+
+    class ChainConfig {
+        +rpc_url: str
+        +fork_block: int?
+        +chain_id: int
+        +port: int
+        +host: str
+        +determinism: DeterminismConfig
+    }
+
+    class DeterminismConfig {
+        +gas_price: int = 0
+        +block_base_fee: int = 1_000_000_000
+        +timestamp: "fork_block"
+        +auto_mine: bool = true
+        +order: "fifo"
+    }
+
+    class TopologyConfig {
+        +name: str
+        +description: str
+        +chains: list[str]
+        +bridge: str?
+    }
+
+    class ExperimentConfig {
+        +name: str
+        +scenario: str
+        +attack: str
+        +topology: str = "single"
+        +run: dict
+        +tags: list[str]
+    }
+
+    TestbedConfig --&gt; ChainConfig
+    ChainConfig --&gt; DeterminismConfig</code></pre>
+<h3 id="built-in-validations">Built-In Validations<a class="headerlink" href="#built-in-validations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Port uniqueness</strong> — no two chains can share a port (model-level validator)</li>
+<li><strong>Chain ID uniqueness</strong> — no two chains can share a chain_id</li>
+<li><strong>Port range</strong> — must be 1–65535</li>
+<li><strong>Matrix detection</strong> — <code>load_experiment()</code> rejects matrix files with a helpful error message</li>
+</ul>
+<hr />
+<h2 id="10-scenario-engine">10. Scenario Engine<a class="headerlink" href="#10-scenario-engine" title="Permanent link">&para;</a></h2>
+<p>Scenarios define the chain environment <strong>before</strong> the attack runs. They set up contract state, impersonate accounts, and configure initial conditions.</p>
+<h3 id="scenario-structure">Scenario Structure<a class="headerlink" href="#scenario-structure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># scenarios/nomad_replay/scenario.yaml</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">phases</span><span class="p">:</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setup</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Setting</span><span class="nv"> </span><span class="s">up</span><span class="nv"> </span><span class="s">Nomad</span><span class="nv"> </span><span class="s">Replica</span><span class="nv"> </span><span class="s">contract</span><span class="nv"> </span><span class="s">state&quot;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">impersonate</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">        </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x...&quot;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">send_tx</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">        </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xB92...&quot;</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">        </span><span class="nt">data</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x...&quot;</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert_balance</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">        </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">        </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xB92...&quot;</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">        </span><span class="nt">min_value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000000000000000000&quot;</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attack_ready</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Environment</span><span class="nv"> </span><span class="s">ready</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">attack&quot;</span>
+</code></pre></div>
+<h3 id="step-dispatch-registry-pattern">Step Dispatch (Registry Pattern)<a class="headerlink" href="#step-dispatch-registry-pattern" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    YAML["YAML Step&lt;br/&gt;{type: 'send_tx', ...}"] --&gt; DISPATCH["handle_step()"]
+    DISPATCH --&gt; REG["Step Registry"]
+    REG --&gt; H1["@register_step('log')"]
+    REG --&gt; H2["@register_step('send_tx')"]
+    REG --&gt; H3["@register_step('impersonate')"]
+    REG --&gt; H4["@register_step('assert_balance')"]
+    REG --&gt; H5["@register_step('forge_script')"]
+    REG --&gt; H6["@register_step('python_script')"]
+    REG --&gt; H7["@register_step('advance_time')"]
+    REG --&gt; H8["@register_step('assert')"]
+    REG --&gt; H9["@register_step('verify_tracing')"]
+    REG --&gt; H10["@register_step('bridge_action')"]
+    REG --&gt; H11["@register_step('plugin')"]</code></pre>
+<p>Step handlers are registered via decorator — no if/elif chain:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nd">@register_step</span><span class="p">(</span><span class="s2">&quot;send_tx&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">_handle_send_tx</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">workspace</span><span class="p">):</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="o">...</span>
+</code></pre></div>
+<p>New step types can be added by registering a new handler without modifying the engine.</p>
+<hr />
+<h2 id="11-agent-system">11. Agent System<a class="headerlink" href="#11-agent-system" title="Permanent link">&para;</a></h2>
+<h3 id="agent-architecture">Agent Architecture<a class="headerlink" href="#agent-architecture" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    subgraph "Experiment Runner"
+        ER["_load_plugin()"]
+    end
+
+    subgraph "AgentPlugin (sdk.py)"
+        RUN["run()"]
+        LOOP["observe → think → act loop"]
+        VERIFY["verify()"]
+    end
+
+    subgraph "LLMAgentPlugin (agent_loop.py)"
+        PROMPT["build_system_prompt()"]
+        LLM["LLM API Call"]
+        PARSE["Parse tool_calls"]
+    end
+
+    subgraph "AgentContext (agent_tools.py)"
+        TOOLS["9 Tools + Privilege Gate"]
+        HISTORY["Tool Call History"]
+    end
+
+    subgraph "LLM Provider (llm_providers.py)"
+        OAI["OpenAI"]
+        ANT["Anthropic"]
+    end
+
+    ER --&gt;|"agent_provider in config"| RUN
+    RUN --&gt; LOOP
+    LOOP --&gt; PROMPT
+    PROMPT --&gt; LLM
+    LLM --&gt; OAI
+    LLM --&gt; ANT
+    LLM --&gt; PARSE
+    PARSE --&gt; TOOLS
+    TOOLS --&gt; HISTORY
+    LOOP --&gt; VERIFY</code></pre>
+<h3 id="agent-tool-registry">Agent Tool Registry<a class="headerlink" href="#agent-tool-registry" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th style="text-align: center;">Privilege</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chain_id</code></td>
+<td style="text-align: center;">LOW</td>
+<td>Get chain ID of running fork</td>
+</tr>
+<tr>
+<td><code>get_balance</code></td>
+<td style="text-align: center;">LOW</td>
+<td>Get ETH balance (wei)</td>
+</tr>
+<tr>
+<td><code>get_code</code></td>
+<td style="text-align: center;">LOW</td>
+<td>Get runtime bytecode</td>
+</tr>
+<tr>
+<td><code>get_storage</code></td>
+<td style="text-align: center;">LOW</td>
+<td>Get storage at slot</td>
+</tr>
+<tr>
+<td><code>call_contract</code></td>
+<td style="text-align: center;">LOW</td>
+<td>Read-only <code>eth_call</code></td>
+</tr>
+<tr>
+<td><code>get_logs</code></td>
+<td style="text-align: center;">LOW</td>
+<td>Get event logs for address</td>
+</tr>
+<tr>
+<td><code>impersonate</code></td>
+<td style="text-align: center;">MEDIUM</td>
+<td>Impersonate an account</td>
+</tr>
+<tr>
+<td><code>send_transaction</code></td>
+<td style="text-align: center;">MEDIUM</td>
+<td>Send a transaction</td>
+</tr>
+<tr>
+<td><code>advance_time</code></td>
+<td style="text-align: center;">HIGH</td>
+<td>Advance EVM timestamp</td>
+</tr>
+</tbody>
+</table>
+<h3 id="privilege-levels">Privilege Levels<a class="headerlink" href="#privilege-levels" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>LOW     → Read-only queries (5 tools)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>MEDIUM  → Impersonate + transact (7 tools, default)
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>HIGH    → Full access including time manipulation (9 tools)
+</code></pre></div>
+<p>Configured per-experiment in the YAML:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">run</span><span class="p">:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">agent_provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">agent_privilege</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">medium</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">agent_allowed_accounts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;0x...&quot;</span><span class="p p-Indicator">]</span>
+</code></pre></div></p>
+<hr />
+<h2 id="12-determinism-reproducibility">12. Determinism &amp; Reproducibility<a class="headerlink" href="#12-determinism-reproducibility" title="Permanent link">&para;</a></h2>
+<h3 id="determinism-boundary">Determinism Boundary<a class="headerlink" href="#determinism-boundary" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph "Crucible Guarantees"
+        DET1["Fixed gas price (0)"]
+        DET2["Fixed block base fee"]
+        DET3["FIFO tx ordering"]
+        DET4["Pinned fork block"]
+        DET5["Fork-block timestamp"]
+        DET6["Auto-mine (instant)"]
+    end
+
+    subgraph "Not Guaranteed"
+        ND1["Cross-RPC-provider&lt;br/&gt;response ordering"]
+        ND2["Multi-chain relay&lt;br/&gt;timing"]
+        ND3["Python dict ordering&lt;br/&gt;(mitigated by sort_keys)"]
+    end</code></pre>
+<h3 id="provenance-tracking">Provenance Tracking<a class="headerlink" href="#provenance-tracking" title="Permanent link">&para;</a></h3>
+<p>Every run produces a <code>run_manifest.json</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&quot;run_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DS-2026-00042&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">&quot;scenario&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nomad_replay&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">&quot;attack&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nomad_replay&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="nt">&quot;topology&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;single&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="nt">&quot;outcome&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="nt">&quot;provenance&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="nt">&quot;git_commit&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;a1b2c3d...&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="nt">&quot;git_dirty&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="nt">&quot;foundry_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;forge 0.2.0 (nightly)&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="nt">&quot;python_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3.12.4&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="nt">&quot;platform&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Linux-x86_64&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="nt">&quot;docker_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;container&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="nt">&quot;config_fingerprint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sha256:abc123...&quot;</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="integrity-verification">Integrity Verification<a class="headerlink" href="#integrity-verification" title="Permanent link">&para;</a></h3>
+<p><code>log_integrity.json</code> contains SHA-256 hashes of every artifact file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nt">&quot;run.jsonl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sha256:...&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nt">&quot;events.jsonl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sha256:...&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nt">&quot;storage_diffs.jsonl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sha256:...&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="nt">&quot;gas_profile.jsonl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sha256:...&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="nt">&quot;balance_diffs.jsonl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sha256:...&quot;</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="13-publication-pipeline">13. Publication Pipeline<a class="headerlink" href="#13-publication-pipeline" title="Permanent link">&para;</a></h2>
+<h3 id="fidelity-levels">Fidelity Levels<a class="headerlink" href="#fidelity-levels" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TB
+    L0["L0 — Narrative Only&lt;br/&gt;No code, description only"]
+    L1["L1 — Conceptual&lt;br/&gt;Deploys vulnerable contract"]
+    L2["L2 — Fork-State Behavioral&lt;br/&gt;Fork at historical block, check behavior"]
+    L3["L3 — Exact Transaction Replay&lt;br/&gt;Replay real exploit tx on fork"]
+    L4["L4 — Multi-Chain Full&lt;br/&gt;Multiple chains + bridge simulation"]
+
+    L0 --&gt; L1 --&gt; L2 --&gt; L3 --&gt; L4
+
+    L2 -.-&gt;|"requires"| REQ2["chains + affected_contracts"]
+    L3 -.-&gt;|"requires"| REQ3["exploit_transactions"]
+    L4 -.-&gt;|"requires"| REQ4["excluded_components declared"]</code></pre>
+<h3 id="7-publication-gates">7 Publication Gates<a class="headerlink" href="#7-publication-gates" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>What It Checks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Evidence</strong></td>
+<td><code>evidence.yaml</code> has all required sections</td>
+</tr>
+<tr>
+<td><strong>Fidelity</strong></td>
+<td>Fidelity-level-specific requirements met</td>
+</tr>
+<tr>
+<td><strong>Baseline</strong></td>
+<td>Golden baseline exists and verifies</td>
+</tr>
+<tr>
+<td><strong>Foundry</strong></td>
+<td>Foundry version pinned (no nightly drift)</td>
+</tr>
+<tr>
+<td><strong>Git Provenance</strong></td>
+<td>Workspace is a git repo with a known commit</td>
+</tr>
+<tr>
+<td><strong>Artifacts Complete</strong></td>
+<td>All expected trace artifacts were captured (no auto-trace failures)</td>
+</tr>
+<tr>
+<td><strong>Provenance</strong></td>
+<td>Git commit clean, platform recorded</td>
+</tr>
+</tbody>
+</table>
+<p>All 7 gates must pass before a run can be exported for publication.</p>
+<h3 id="export-bundle">Export Bundle<a class="headerlink" href="#export-bundle" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>datasets/DS-2026-00042/
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  run_manifest.json          ← provenance + outcome
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  log_integrity.json         ← artifact hashes
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  report.md                  ← human-readable summary
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>  run.jsonl                  ← lifecycle events
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>  chain_ethereum/            ← per-chain artifacts
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>  REPRODUCE.md               ← step-by-step reproduction guide
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>  CITATION.cff               ← citation metadata
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>  artifact_bundle_manifest.json  ← SHA-256 of every file
+</code></pre></div>
+<hr />
+<h2 id="14-cli-architecture">14. CLI Architecture<a class="headerlink" href="#14-cli-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="command-registration-pattern">Command Registration Pattern<a class="headerlink" href="#command-registration-pattern" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>flowchart TD
+    CLI["cli.py&lt;br/&gt;app()"]
+    INIT["commands/__init__.py&lt;br/&gt;Typer apps + CliState"]
+
+    CLI --&gt; INIT
+
+    INIT --&gt; LC["lifecycle.py&lt;br/&gt;init, status, fork, setup, clean"]
+    INIT --&gt; DR["doctor.py&lt;br/&gt;doctor"]
+    INIT --&gt; RS["reset_cmd.py&lt;br/&gt;reset, hard-reset"]
+    INIT --&gt; BL["baseline.py&lt;br/&gt;baseline capture/verify"]
+    INIT --&gt; SN["snapshot.py&lt;br/&gt;snapshot create/restore"]
+    INIT --&gt; PL["plugin.py&lt;br/&gt;plugin list/validate"]
+    INIT --&gt; EX["experiment.py&lt;br/&gt;experiment run/matrix/resume"]
+    INIT --&gt; LG["logs.py&lt;br/&gt;logs list"]
+    INIT --&gt; AB["abi.py&lt;br/&gt;abi list/validate/fetch"]
+    INIT --&gt; AT["attack.py&lt;br/&gt;attack init/extract"]
+    INIT --&gt; CA["cache.py&lt;br/&gt;cache inspect/clean"]
+    INIT --&gt; BU["bundle.py&lt;br/&gt;bundle hash/verify"]
+    INIT --&gt; VE["verify.py&lt;br/&gt;verify run/bundle/archive"]
+    INIT --&gt; EC["evidence.py&lt;br/&gt;evidence check pre-flight"]
+    INIT --&gt; EP["export.py&lt;br/&gt;export run"]
+    INIT --&gt; AN["analytics.py&lt;br/&gt;history, diff"]
+    INIT --&gt; IN["instrument.py&lt;br/&gt;standalone proxy"]
+    INIT --&gt; SM["summary.py&lt;br/&gt;summary"]
+    INIT --&gt; DB["dashboard.py&lt;br/&gt;dashboard launch"]
+    INIT --&gt; NB["notebook.py&lt;br/&gt;notebook launch"]</code></pre>
+<h3 id="cli-command-tree">CLI Command Tree<a class="headerlink" href="#cli-command-tree" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>crucible
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>├── init                    # Initialize workspace
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>├── status                  # Show running chains
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>├── doctor                  # Environment health check
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>├── fork                    # Fork chains from topology
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>├── setup                   # Fork + bootstrap
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>├── clean                   # Remove old logs/caches
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>├── reset [soft|medium|hard]
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>├── baseline
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>│   ├── capture             # Save golden baseline
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>│   └── verify              # Verify baseline integrity
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>├── snapshot
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>│   ├── create              # Manual snapshot
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>│   └── restore             # Restore snapshot
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>├── plugin
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>│   ├── list                # List discovered plugins
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a>│   └── validate            # Validate a plugin
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>├── experiment
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a>│   ├── run                 # Run single experiment
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a>│   ├── matrix              # Run experiment matrix
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>│   ├── resume              # Resume from checkpoint
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a>│   └── checkpoints         # List checkpoints
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>├── attack
+<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a>│   ├── init                # Scaffold new attack plugin from template (--from-tx populates real data)
+<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a>│   └── extract             # Auto-generate attack from on-chain tx (with ABI decoding)
+<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a>├── cache
+<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a>│   ├── inspect             # Show cache contents
+<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>│   ├── fingerprint         # Compute cache fingerprint
+<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a>│   ├── verify              # Verify cache integrity
+<a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a>│   └── clean               # Clean cache
+<a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>├── evidence
+<a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a>│   └── check               # Validate evidence.yaml claims against live (forked) chain state
+<a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a>├── bundle
+<a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a>│   ├── hash                # Compute bundle hash
+<a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a>│   └── verify              # Verify bundle integrity
+<a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a>├── verify                  # Verify run/bundle/archive integrity (auto-detect)
+<a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a>├── export                  # Export run as publication bundle
+<a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a>├── publish                 # Mark run as published (indefinite preservation)
+<a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a>├── history                 # Query experiment history
+<a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a>├── summary                 # One-shot workspace overview (chains, runs, disk usage)
+<a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a>├── diff                    # Compare two runs
+<a id="__codelineno-13-42" name="__codelineno-13-42" href="#__codelineno-13-42"></a>├── abi
+<a id="__codelineno-13-43" name="__codelineno-13-43" href="#__codelineno-13-43"></a>│   ├── list                # List known ABIs
+<a id="__codelineno-13-44" name="__codelineno-13-44" href="#__codelineno-13-44"></a>│   ├── validate            # Validate ABI file
+<a id="__codelineno-13-45" name="__codelineno-13-45" href="#__codelineno-13-45"></a>│   └── fetch               # Fetch from Etherscan/Sourcify
+<a id="__codelineno-13-46" name="__codelineno-13-46" href="#__codelineno-13-46"></a>├── logs
+<a id="__codelineno-13-47" name="__codelineno-13-47" href="#__codelineno-13-47"></a>│   └── list                # List run log directories
+<a id="__codelineno-13-48" name="__codelineno-13-48" href="#__codelineno-13-48"></a>├── instrument              # Standalone instrumentation proxy for ad-hoc tx instrumentation
+<a id="__codelineno-13-49" name="__codelineno-13-49" href="#__codelineno-13-49"></a>├── dashboard               # Launch Streamlit UI
+<a id="__codelineno-13-50" name="__codelineno-13-50" href="#__codelineno-13-50"></a>└── notebook                # Launch Jupyter notebook
+</code></pre></div>
+<hr />
+<h2 id="15-docker-architecture">15. Docker Architecture<a class="headerlink" href="#15-docker-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="container-topology">Container Topology<a class="headerlink" href="#container-topology" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TB
+    subgraph "docker-compose.yml"
+        ORCH["orchestrator&lt;br/&gt;Python 3.12 + Foundry + uv&lt;br/&gt;ENTRYPOINT: uv run crucible"]
+        DASH["dashboard&lt;br/&gt;Streamlit UI&lt;br/&gt;Port 8501"]
+        AE["anvil-ethereum&lt;br/&gt;(optional daemon)&lt;br/&gt;Port 8545"]
+        AP["anvil-polygon&lt;br/&gt;(optional daemon)&lt;br/&gt;Port 8546"]
+        AB["anvil-bsc&lt;br/&gt;(optional daemon)&lt;br/&gt;Port 8547"]
+    end
+
+    subgraph "Docker Volumes"
+        V1["states_data → /workspace/states"]
+        V2["logs_data → /workspace/logs"]
+        V3["fork_cache → /workspace/.fork_cache"]
+    end
+
+    ORCH --&gt; V1
+    ORCH --&gt; V2
+    ORCH --&gt; V3
+    DASH --&gt; V2</code></pre>
+<h3 id="two-operational-modes">Two Operational Modes<a class="headerlink" href="#two-operational-modes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Command</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Single-container</strong> (default)</td>
+<td><code>docker compose run --rm --entrypoint bash orchestrator -c "fork &amp;&amp; experiment run"</code></td>
+<td>Most experiments — Anvil runs inside orchestrator</td>
+</tr>
+<tr>
+<td><strong>Daemon + orchestrator</strong></td>
+<td><code>docker compose up -d anvil-ethereum &amp;&amp; docker compose run orchestrator experiment run</code></td>
+<td>Multi-session workflows, streaming</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommended:</strong> Single-container mode. Simpler, fully isolated, avoids daemon fork-block mismatch.</p>
+<hr />
+<h2 id="16-directory-structure">16. Directory Structure<a class="headerlink" href="#16-directory-structure" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>crucible-testbed/
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>├── crucible/                    # Core Python package (41 modules)
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>│   ├── __init__.py              # Public API + lazy imports
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>│   ├── cli.py                   # Entry point
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>│   ├── commands/                # CLI command modules (21 sub-modules + __init__.py)
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>│   ├── sdk.py                   # Plugin interfaces
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>│   ├── experiment.py            # Experiment runner
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>│   ├── scenario.py              # Scenario engine
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>│   ├── scenario_steps.py        # Step handlers
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>│   ├── chain_manager.py         # Anvil lifecycle
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>│   ├── instrumentation.py       # RPC proxy
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>│   ├── logging.py               # Artifact streams
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>│   ├── config.py                # Pydantic models
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>│   ├── plugin.py                # Plugin registry
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>│   ├── agent_tools.py           # Agent tool definitions
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>│   ├── agent_loop.py            # LLM agent loop
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>│   ├── llm_providers.py         # OpenAI/Anthropic
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>│   ├── schema.py               # JSONL schema validation
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>│   ├── enforcer.py             # Fidelity-level runtime enforcement
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>│   ├── extract.py              # Auto-generate attack packs from txs
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>│   ├── matrix.py               # Sequential matrix experiment execution
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>│   ├── cache.py                # Fork cache fingerprinting
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>│   ├── abi.py                  # ABI registry and Etherscan/Sourcify fetch
+<a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>│   ├── bridge_lifecycle.py     # Bridge deploy/destroy helpers
+<a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>│   ├── errors.py               # CrucibleError hierarchy
+<a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>│   ├── hashing.py              # SHA-256 helpers
+<a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>│   ├── env.py                  # Environment variable expansion
+<a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a>│   ├── ids.py                  # Monotonic dataset IDs
+<a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>│   ├── utils.py                # utc_now, notification hooks
+<a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a>│   ├── cleanup.py              # Log retention, disk warnings
+<a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a>│   └── filesystem.py           # File locking, cross-platform paths
+<a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a>├── attacks/                     # Attack plugins (8 packs)
+<a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>│   ├── nomad_replica_fraud/     #    L2 — Nomad Bridge (complete)
+<a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a>│   ├── wormhole_guardian_bypass/ #   L2 — Wormhole (complete)
+<a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a>│   ├── poly_network_privkey/    #    L2 — Poly Network (complete, ETH-only)
+<a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>│   ├── horizon_multisig_drain/  #    L2 — Horizon (complete)
+<a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a>│   ├── multichain_router_permit/ #   L1 — Multichain (narrative, maxed at L1)
+<a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a>│   ├── bnb_token_hub_proof/     #    L2 — BNB Bridge (complete)
+<a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a>│   ├── demo_attack/             #    L0 — Reference implementation
+<a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a>│   └── demo_agent/              #    Agent — LLM-driven demo
+<a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a>├── bridges/                     # Bridge plugins (4 implementations)
+<a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a>│   ├── demo_bridge/             #     Reference implementation (no-op)
+<a id="__codelineno-14-43" name="__codelineno-14-43" href="#__codelineno-14-43"></a>│   ├── nomad_bridge/            #     Nomad Replica (ethereum + polygon)
+<a id="__codelineno-14-44" name="__codelineno-14-44" href="#__codelineno-14-44"></a>│   ├── poly_network_bridge/     #     EthCrossChainManager/Data (ethereum + polygon + bsc)
+<a id="__codelineno-14-45" name="__codelineno-14-45" href="#__codelineno-14-45"></a>│   └── wormhole_bridge/         #     WormholeCore + TokenBridge (ethereum + polygon)
+<a id="__codelineno-14-46" name="__codelineno-14-46" href="#__codelineno-14-46"></a>├── plugins/                     # General plugins (agents)
+<a id="__codelineno-14-47" name="__codelineno-14-47" href="#__codelineno-14-47"></a>├── scenarios/                   # Scenario YAML definitions
+<a id="__codelineno-14-48" name="__codelineno-14-48" href="#__codelineno-14-48"></a>├── experiments/                 # Experiment YAML definitions
+<a id="__codelineno-14-49" name="__codelineno-14-49" href="#__codelineno-14-49"></a>├── topologies/                  # Topology profiles (9 files)
+<a id="__codelineno-14-50" name="__codelineno-14-50" href="#__codelineno-14-50"></a>│   ├── single.yaml              # Ethereum only
+<a id="__codelineno-14-51" name="__codelineno-14-51" href="#__codelineno-14-51"></a>│   ├── dual.yaml                # Ethereum + Polygon
+<a id="__codelineno-14-52" name="__codelineno-14-52" href="#__codelineno-14-52"></a>│   ├── bridge.yaml              # Two chains + demo_bridge plugin
+<a id="__codelineno-14-53" name="__codelineno-14-53" href="#__codelineno-14-53"></a>│   ├── nomad_bridge.yaml        # ethereum + polygon + nomad_bridge
+<a id="__codelineno-14-54" name="__codelineno-14-54" href="#__codelineno-14-54"></a>│   ├── poly_network_bridge.yaml # ethereum + polygon + bsc + poly_network_bridge
+<a id="__codelineno-14-55" name="__codelineno-14-55" href="#__codelineno-14-55"></a>│   ├── wormhole_bridge.yaml     # ethereum + polygon + wormhole_bridge
+<a id="__codelineno-14-56" name="__codelineno-14-56" href="#__codelineno-14-56"></a>│   ├── single_bsc.yaml          # BSC only
+<a id="__codelineno-14-57" name="__codelineno-14-57" href="#__codelineno-14-57"></a>│   ├── poly_network_full.yaml   # Ethereum + Polygon + BSC (no bridge)
+<a id="__codelineno-14-58" name="__codelineno-14-58" href="#__codelineno-14-58"></a>│   └── harmony_bridge.yaml      # Ethereum + Harmony + bridge
+<a id="__codelineno-14-59" name="__codelineno-14-59" href="#__codelineno-14-59"></a>├── states/                      # Chain state (meta files, snapshots, baselines)
+<a id="__codelineno-14-60" name="__codelineno-14-60" href="#__codelineno-14-60"></a>├── logs/                        # Experiment output artifacts
+<a id="__codelineno-14-61" name="__codelineno-14-61" href="#__codelineno-14-61"></a>├── datasets/                    # Exported publication bundles
+<a id="__codelineno-14-62" name="__codelineno-14-62" href="#__codelineno-14-62"></a>├── docs/                        # Documentation (23 files + 2 case studies + 2 design docs + 12 internal)
+<a id="__codelineno-14-63" name="__codelineno-14-63" href="#__codelineno-14-63"></a>├── tests/                       # Test suite (798+ tests)
+<a id="__codelineno-14-64" name="__codelineno-14-64" href="#__codelineno-14-64"></a>├── testbed.yaml                 # Main configuration
+<a id="__codelineno-14-65" name="__codelineno-14-65" href="#__codelineno-14-65"></a>├── testbed.local.yaml           # Per-user overrides (gitignored)
+<a id="__codelineno-14-66" name="__codelineno-14-66" href="#__codelineno-14-66"></a>├── Dockerfile                   # Container definition
+<a id="__codelineno-14-67" name="__codelineno-14-67" href="#__codelineno-14-67"></a>├── docker-compose.yml           # Multi-container orchestration
+<a id="__codelineno-14-68" name="__codelineno-14-68" href="#__codelineno-14-68"></a>└── pyproject.toml               # Python package definition
+</code></pre></div>
+<hr />
+<h2 id="17-key-design-decisions">17. Key Design Decisions<a class="headerlink" href="#17-key-design-decisions" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>For a deeper treatment of each decision</strong> — including the tradeoffs considered and why the current path was chosen — see the <a href="../internal/DESIGN_DECISIONS/">Design Decisions</a> document.</p>
+</blockquote>
+<h3 id="cli-first-ui-as-wrapper">CLI-First, UI as Wrapper<a class="headerlink" href="#cli-first-ui-as-wrapper" title="Permanent link">&para;</a></h3>
+<p>Every action is available via <code>crucible &lt;command&gt;</code>. The Streamlit dashboard is a separate read-only viewer. This makes experiments scriptable, CI-able, and Docker-friendly.</p>
+<h3 id="topology-driven-composition">Topology-Driven Composition<a class="headerlink" href="#topology-driven-composition" title="Permanent link">&para;</a></h3>
+<p>Topology YAML files declare which chains to fork. The same attack can run on different topologies. Adding a new chain config doesn't affect existing experiments.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># topologies/single.yaml — Ethereum only</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="nt">chains</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ethereum</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="nt">bridge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="c1"># topologies/bridge.yaml — Two chains + bridge (demo)</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="nt">chains</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ethereum</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">polygon</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="nt">bridge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo_bridge</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1"># topologies/nomad_bridge.yaml — Two chains + Nomad bridge plugin</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_bridge</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="nt">chains</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ethereum</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">polygon</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="nt">bridge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_bridge</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="c1"># topologies/wormhole_bridge.yaml — Two chains + Wormhole bridge plugin</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wormhole_bridge</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="nt">chains</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ethereum</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">polygon</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="nt">bridge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wormhole_bridge</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="c1"># topologies/poly_network_bridge.yaml — Three chains + Poly Network bridge plugin</span>
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poly_network_bridge</span>
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="nt">chains</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ethereum</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">polygon</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">bsc</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="nt">bridge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">poly_network_bridge</span>
+</code></pre></div>
+<h3 id="transparent-instrumentation">Transparent Instrumentation<a class="headerlink" href="#transparent-instrumentation" title="Permanent link">&para;</a></h3>
+<p>The instrumentation proxy intercepts all RPC traffic. Researchers don't need to add logging code. Any attack method (Python, Forge, <code>cast send</code>) produces complete artifacts.</p>
+<h3 id="snapshot-driven-reset">Snapshot-Driven Reset<a class="headerlink" href="#snapshot-driven-reset" title="Permanent link">&para;</a></h3>
+<p>Baselines are captured once after setup. Soft resets use <code>anvil_loadState</code> — no chain restart needed. This enables fast iteration during development.</p>
+<h3 id="determinism-by-default">Determinism by Default<a class="headerlink" href="#determinism-by-default" title="Permanent link">&para;</a></h3>
+<p>Deterministic flags (<code>gas_price: 0</code>, <code>order: fifo</code>, <code>timestamp: fork_block</code>) are <strong>opt-out</strong>, not opt-in. If a researcher does nothing, their experiments are deterministic.</p>
+<h3 id="plugins-for-capabilities">Plugins for Capabilities<a class="headerlink" href="#plugins-for-capabilities" title="Permanent link">&para;</a></h3>
+<p>New functionality arrives as plugins, not core rewrites:
+- <code>attack</code> — exploit reproductions
+- <code>bridge</code> — bridge protocol simulation
+- <code>agent</code> — LLM-driven autonomous agents</p>
+<h3 id="fidelity-levels-are-enforced">Fidelity Levels Are Enforced<a class="headerlink" href="#fidelity-levels-are-enforced" title="Permanent link">&para;</a></h3>
+<p>The L0–L4 fidelity system isn't just documentation — publication gates check requirements programmatically. An L2 reproduction without <code>affected_contracts</code> will fail the gate.</p>
+<h3 id="separation-of-scenario-and-experiment">Separation of Scenario and Experiment<a class="headerlink" href="#separation-of-scenario-and-experiment" title="Permanent link">&para;</a></h3>
+<p><strong>Scenarios</strong> define environments (chain state, contract setup). <strong>Experiments</strong> pair a scenario + attack plugin for formal runs. This means the same scenario can be used with different attacks, and the same attack can run against different scenarios.</p>
+<hr />
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Doc</th>
+<th>What It Covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../internal/TECHNICAL_OVERVIEW/"><code>docs/internal/TECHNICAL_OVERVIEW.md</code></a></td>
+<td>System philosophy, core concepts, data flow, design principles (broad overview)</td>
+</tr>
+<tr>
+<td><a href="../internal/DESIGN_DECISIONS/"><code>docs/internal/DESIGN_DECISIONS.md</code></a></td>
+<td>15 key architectural decisions with rationale, tradeoffs, and alternatives</td>
+</tr>
+<tr>
+<td><a href="../internal/BRIDGE_PLUGIN_LIMITATIONS/"><code>docs/internal/BRIDGE_PLUGIN_LIMITATIONS.md</code></a></td>
+<td>Bridge plugin coverage, limitations, and future improvement scope</td>
+</tr>
+<tr>
+<td><a href="../REPRODUCTION_SCOPE/"><code>docs/REPRODUCTION_SCOPE.md</code></a></td>
+<td>Fidelity levels, in-scope vs out-of-scope attack types</td>
+</tr>
+<tr>
+<td><a href="../ATTACK_PACK_GUIDE/"><code>docs/ATTACK_PACK_GUIDE.md</code></a></td>
+<td>Creating attack plugins and scenarios</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/crucible-bridge/crucible" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

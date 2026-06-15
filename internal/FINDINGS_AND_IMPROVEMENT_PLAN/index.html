@@ -1,0 +1,3326 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="CLI-first EVM bridge security research testbed — deterministic exploit reproduction, structured artifacts, and plug-and-play attack packs.">
+      
+      
+        <meta name="author" content="Crucible Research Team">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Crucible — Comprehensive Findings & Improvement Plan - Crucible Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#crucible-comprehensive-findings-improvement-plan" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Crucible Docs" class="md-header__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 11c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4 9 4zm-9 10c3.75-1 7-5.46 7-9.78V6.3l-7-3.12L5 6.3v4.92C5 15.54 8.25 20 12 21m2.8-10V9.5C14.8 8.1 13.4 7 12 7S9.2 8.1 9.2 9.5V11c-.6 0-1.2.6-1.2 1.2v3.5c0 .7.6 1.3 1.2 1.3h5.5c.7 0 1.3-.6 1.3-1.2v-3.5c0-.7-.6-1.3-1.2-1.3m-1.3 0h-3V9.5c0-.8.7-1.3 1.5-1.3s1.5.5 1.5 1.3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Crucible Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Crucible — Comprehensive Findings &amp; Improvement Plan
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/crucible-bridge/crucible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    crucible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../USER_GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../CUSTOM_CONTRACT_TESTING/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  How-To Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ARCHITECTURE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Core Concepts (Explanation)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../CLI_REFERENCE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../AE_WALKTHROUGH/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Publication & Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Crucible Docs" class="md-nav__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 11c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4 9 4zm-9 10c3.75-1 7-5.46 7-9.78V6.3l-7-3.12L5 6.3v4.92C5 15.54 8.25 20 12 21m2.8-10V9.5C14.8 8.1 13.4 7 12 7S9.2 8.1 9.2 9.5V11c-.6 0-1.2.6-1.2 1.2v3.5c0 .7.6 1.3 1.2 1.3h5.5c.7 0 1.3-.6 1.3-1.2v-3.5c0-.7-.6-1.3-1.2-1.3m-1.3 0h-3V9.5c0-.8.7-1.3 1.5-1.3s1.5.5 1.5 1.3z"/></svg>
+
+    </a>
+    Crucible Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/crucible-bridge/crucible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    crucible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../USER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TUTORIAL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-Minute Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How-To Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    How-To Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CUSTOM_CONTRACT_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RUNNING_LLM_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running LLM Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PLUGIN_DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SCENARIO_AUTHORING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Scenarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ATTACK_PACK_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Attack Packs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts (Explanation)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Concepts (Explanation)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instrumentation Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CAPABILITIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope & Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FEATURE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RESEARCH_WORKFLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RESEARCHER_OBSERVABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Researcher Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/crucible_implementation_spec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementation Spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/crucible_research_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CLI_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BENCHMARKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../REPRODUCIBILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DASHBOARD_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LAB_DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RPC_PROVIDER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC Provider Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MAINTENANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TROUBLESHOOTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OPERATIONS_RUNBOOK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SIMPLE_OPERATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FIDELITY_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fidelity Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../REPORT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../REPRODUCTION_SCOPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproduction Scope
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TESTBED_SCOPE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testbed Scope Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RELEASE_CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publication & Case Studies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publication & Case Studies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AE_WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AE Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zenodo Archive Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/nomad_replica_fraud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nomad Replica Fraud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/wormhole_guardian_bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wormhole Guardian Bypass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/poly_network_privkey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Poly Network Privilege Escalation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/horizon_multisig_drain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Horizon Multisig Drain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/bnb_token_hub_proof/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BNB Token Hub Proof Bypass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../case_studies/multichain_router_permit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multichain MPC Compromise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executive Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ok-whats-done-well" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [ok] What's Done Well
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[ok] What&#39;s Done Well">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture &amp; Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementation Quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goal-alignment-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Goal Alignment Assessment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#findings-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Findings &amp; Gaps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Findings &amp; Gaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-critical-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Critical Gaps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Critical Gaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1a-experimentrunner-has-too-many-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1a. ExperimentRunner has too many responsibilities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-agent-reasoning-logs-bypass-integrity-hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1b. Agent reasoning logs bypass integrity hashing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1c-no-integration-tests-for-the-agent-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1c. No integration tests for the agent system
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-architectural-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Architectural Concerns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Architectural Concerns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2a-the-resume-path-is-untested" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2a. The resume() path is untested
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2b-bridge-plugin-coverage-is-thin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2b. Bridge plugin coverage is thin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2c-no-hermetic-end-to-end-test-with-real-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2c. No hermetic end-to-end test with real fork
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-polishing-opportunities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Polishing Opportunities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Polishing Opportunities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3a-cli-output-still-has-silent-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3a. CLI output still has silent gaps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3b-docker-compose-health-checks-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3b. Docker compose health checks missing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3c-no-contributingmd-or-development-setup-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3c. No CONTRIBUTING.md or development setup guide
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d-pyprojecttoml-had-inconsistent-dependency-grouping-fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3d. pyproject.toml had inconsistent dependency grouping — FIXED
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3e-agent_reasoningjsonl-stream-not-in-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3e. agent_reasoning.jsonl stream not in schema
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-additional-module-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Additional Module Findings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Additional Module Findings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4a-crucibleanalysispy-public-api-surface-is-adequate-but-undocumented" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4a. crucible/analysis.py — Public API surface is adequate but undocumented
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4b-crucibleinterfaces__init__py-public-api-is-thin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4b. crucible/interfaces/__init__.py — Public API is thin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4c-cruciblerecordingpy-well-implemented-infrastructure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4c. crucible/recording.py — Well-implemented infrastructure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-test-coverage-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Test Coverage Gaps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improvement-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Improvement Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Improvement Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-a-core-hardening-1-2-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase A — Core Hardening (1-2 weeks)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-b-bridge-multi-chain-1-2-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase B — Bridge &amp; Multi-Chain (1-2 weeks)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-c-polish-dx-1-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase C — Polish &amp; DX (1 week)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-d-strategic-month-long" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase D — Strategic (Month-long)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#out-of-the-box-ideas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Out-of-the-Box Ideas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Out-of-the-Box Ideas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-visual-diff-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Visual Diff Dashboard
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-attack-pack-registry-marketplace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Attack Pack Registry / Marketplace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-repl-mode-for-interactive-experimentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. REPL Mode for Interactive Experimentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-automated-baseline-drift-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Automated Baseline Drift Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-fuzzing-engine-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Fuzzing Engine Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-self-contained-experiment-snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Self-Contained Experiment Snapshots
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-usenix-artifact-packaging-shortcut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. USENIX Artifact Packaging Shortcut
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-interactive-scenario-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Interactive Scenario Builder
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#small-things-that-matter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Small Things That Matter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Small Things That Matter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ok-completed-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [ok] Completed Fixes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="crucible-comprehensive-findings-improvement-plan">Crucible — Comprehensive Findings &amp; Improvement Plan<a class="headerlink" href="#crucible-comprehensive-findings-improvement-plan" title="Permanent link">&para;</a></h1>
+<p><strong>Date:</strong> June 9, 2026
+<strong>Audit scope:</strong> Full codebase review — architecture, modularity, correctness, test coverage, documentation, UX
+<strong>Test suite:</strong> 754 unit tests passing, 0 failures, 0 skipped</p>
+<hr />
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>Crucible is a well-architected EVM bridge security research testbed. The 4-layer architecture (Foundation → Runtime → Orchestration → CLI) is cleanly separated. The instrumentation proxy is the standout feature — making artifact capture automatic and universal. The plugin SDK, scenario engine, fidelity levels, and publication gates provide the academic rigor needed for USENIX-grade research.</p>
+<p>The codebase is <strong>production-quality in its core paths</strong> but has <strong>specific gaps in completeness and polish</strong> that would elevate it from "functional" to "exceptional."</p>
+<hr />
+<h2 id="ok-whats-done-well">[ok] What's Done Well<a class="headerlink" href="#ok-whats-done-well" title="Permanent link">&para;</a></h2>
+<h3 id="architecture-design">Architecture &amp; Design<a class="headerlink" href="#architecture-design" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Layer separation</strong></td>
+<td>Excellent — L1 (stdlib-only) through L4 (CLI) with clear import rules</td>
+</tr>
+<tr>
+<td><strong>Plugin system</strong></td>
+<td>Well-designed ABCs: <code>AttackPlugin</code>, <code>BridgePlugin</code>, <code>AgentPlugin</code></td>
+</tr>
+<tr>
+<td><strong>Instrumentation proxy</strong></td>
+<td>Architectural centerpiece — transparent, automatic artifact capture</td>
+</tr>
+<tr>
+<td><strong>Scenario engine</strong></td>
+<td>Registry pattern for step handlers (decorator-based) is extensible</td>
+</tr>
+<tr>
+<td><strong>Fidelity levels (L0-L4)</strong></td>
+<td>Enforced programmatically, not just documentation</td>
+</tr>
+<tr>
+<td><strong>Configuration</strong></td>
+<td>Pydantic models, deep merge, env expansion — robust</td>
+</tr>
+<tr>
+<td><strong>Provenance tracking</strong></td>
+<td>Git commit, platform, config fingerprint — all captured</td>
+</tr>
+<tr>
+<td><strong>Determinism by default</strong></td>
+<td>Opt-out design is correct for reproducibility</td>
+</tr>
+</tbody>
+</table>
+<h3 id="implementation-quality">Implementation Quality<a class="headerlink" href="#implementation-quality" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type hints</strong></td>
+<td>Comprehensive — <code>from __future__ import annotations</code> throughout</td>
+</tr>
+<tr>
+<td><strong>Docstrings</strong></td>
+<td>Detailed with examples, Args/Returns/Raises</td>
+</tr>
+<tr>
+<td><strong>Error handling</strong></td>
+<td><code>CrucibleError</code> hierarchy with exit codes</td>
+</tr>
+<tr>
+<td><strong>Process safety</strong></td>
+<td>PID validation, anvil-only kill guard, port retry with backoff</td>
+</tr>
+<tr>
+<td><strong>Concurrency</strong></td>
+<td>ThreadPoolExecutor for traces, threading.Lock for recording</td>
+</tr>
+<tr>
+<td><strong>Cross-platform</strong></td>
+<td>Windows taskkill fallback, POSIX/Windows signal handling</td>
+</tr>
+<tr>
+<td><strong>Test coverage</strong></td>
+<td>754 tests, 0 failures — mocking is thorough</td>
+</tr>
+</tbody>
+</table>
+<h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Doc</th>
+<th>Quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ARCHITECTURE.md</code></td>
+<td>Excellent — Mermaid diagrams, layer rules, data flow</td>
+</tr>
+<tr>
+<td><code>TUTORIAL.md</code></td>
+<td>Step-by-step Nomad reproduction — 8 commands</td>
+</tr>
+<tr>
+<td><code>ATTACK_PACK_GUIDE.md</code></td>
+<td>Complete plugin creation guide</td>
+</tr>
+<tr>
+<td><code>CLI_REFERENCE.md</code></td>
+<td>All commands documented</td>
+</tr>
+<tr>
+<td><code>BENCHMARKS.md</code></td>
+<td>Attack pack matrix with status</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="goal-alignment-assessment">🎯 Goal Alignment Assessment<a class="headerlink" href="#goal-alignment-assessment" title="Permanent link">&para;</a></h2>
+<p>How well does Crucible meet the user's stated goals?</p>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Score</th>
+<th>Assessment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>"Easy like defihacklabs"</strong></td>
+<td>6/10</td>
+<td>DefiHackLabs is single-click. Crucible requires RPC config → init → fork → experiment run. The CLI is scriptable but has a steeper initial setup. The <code>--from-tx</code> auto-extract feature bridges this gap partially.</td>
+</tr>
+<tr>
+<td><strong>"Researcher just needs to sit in attacker seat"</strong></td>
+<td>8/10</td>
+<td>Once configured, <code>crucible experiment run experiments/something.yaml</code> is indeed one command. The "sit in attacker seat" experience is good for attack plugins. Less so for agent plugins (need API keys).</td>
+</tr>
+<tr>
+<td><strong>"Don't worry about artifact collection"</strong></td>
+<td>9/10</td>
+<td>This is Crucible's strongest feature. The instrumentation proxy captures everything automatically. Artifact integrity hashing closes the loop. The <code>agent_reasoning.jsonl</code> gap is the only exception.</td>
+</tr>
+<tr>
+<td><strong>"One-click reset for multi-phase experiments"</strong></td>
+<td>8/10</td>
+<td>3-tier reset (soft/medium/hard) is well-designed. Soft reset (&lt;5s via <code>anvil_loadState</code>) is the "one-click" experience. Hard reset (&lt;5 min for cold cache) could use more progress feedback.</td>
+</tr>
+<tr>
+<td><strong>"Granular/modular lego-like architecture"</strong></td>
+<td>8/10</td>
+<td>Plugin system, step registry, and topology-driven composition are very modular. The <code>ExperimentRunner</code> god-object is the main anti-modularity concern.</td>
+</tr>
+<tr>
+<td><strong>"Multi-chain flexibility"</strong></td>
+<td>7/10</td>
+<td>Topology system supports single/dual/multi-chain declaratively. But only 1 bridge plugin exists (<code>demo_bridge</code>). L4 multi-chain fidelity is declared but not validated with a real bridge plugin.</td>
+</tr>
+<tr>
+<td><strong>"CLI-first with optional UI wrapper"</strong></td>
+<td>9/10</td>
+<td>Every action is available via CLI. The Streamlit dashboard is a complementary viewer. This is well executed.</td>
+</tr>
+<tr>
+<td><strong>"Automation for repetitive tasks"</strong></td>
+<td>7/10</td>
+<td>Cleanup, reset, and baseline are automated. Matrix experiments cover parameter sweeps. Missing: automated baseline monitoring, cron-based cleanup, GitHub Actions CI/CD.</td>
+</tr>
+<tr>
+<td><strong>"Comprehensive structured logging for research purposes"</strong></td>
+<td>9/10</td>
+<td>7 JSONL streams with per-chain isolation, SHA-256 integrity hashing, and cross-chain correlation IDs. The <code>agent_reasoning.jsonl</code> integrity gap is the only weakness.</td>
+</tr>
+<tr>
+<td><strong>"USENIX-grade research rigor"</strong></td>
+<td>8/10</td>
+<td>Fidelity levels are enforced programmatically. Publication gates (7 checks) enforce completeness. Provenance tracks everything. Missing: strict schema validation at write time (not just at export).</td>
+</tr>
+<tr>
+<td><strong>"Low learning curve"</strong></td>
+<td>5/10</td>
+<td>Tutorial is good but the tool has 20+ CLI commands, 4 config file types, 3 plugin types, 2 output formats, and 2 deployment modes. A new researcher faces a significant surface area.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Overall Goal Alignment Score: 7.6/10</strong></p>
+<p>The testbed is strongest where it matters most (artifact collection, modularity, multi-chain) but the initial setup and learning curve need attention for the "easy like defihacklabs" aspiration.</p>
+<hr />
+<h2 id="findings-gaps">🔍 Findings &amp; Gaps<a class="headerlink" href="#findings-gaps" title="Permanent link">&para;</a></h2>
+<h3 id="1-critical-gaps">1. Critical Gaps<a class="headerlink" href="#1-critical-gaps" title="Permanent link">&para;</a></h3>
+<h4 id="1a-experimentrunner-has-too-many-responsibilities">1a. ExperimentRunner has too many responsibilities<a class="headerlink" href="#1a-experimentrunner-has-too-many-responsibilities" title="Permanent link">&para;</a></h4>
+<p><strong>File:</strong> <code>crucible/experiment.py</code> — 638 lines</p>
+<p>The <code>ExperimentRunner</code> class handles:
+- Config loading
+- Plugin loading (with agent/attack preference logic)
+- Foundry version checking
+- Cleanup enforcement
+- Evidence validation
+- Publication gates
+- Baseline verification
+- Run orchestration (bridge deploy → scenario → instrumentation → plugin → fidelity → manifest)
+- Manifest writing
+- Cross-chain message tracking
+- Export
+- Matrix running
+- Run lookup</p>
+<p>This is a god-object pattern. The <code>run()</code> method alone spans ~200 lines with try/except/finally containing multiple phases. Making changes here is risky — the tests (22 tests) provide good coverage but don't exercise every path.</p>
+<p><strong>Recommendation:</strong> Extract into separate concerns:
+- <code>ExperimentRunner.run()</code> orchestrator → keep thin, delegate to phase managers
+- New <code>PhaseRunner</code> class for each phase
+- Move <code>_load_plugin()</code> to <code>PluginRegistry</code>
+- Move <code>_validate_evidence_against_chain()</code> to <code>evidence.py</code> (partially done already)</p>
+<h4 id="1b-agent-reasoning-logs-bypass-integrity-hashing">1b. Agent reasoning logs bypass integrity hashing<a class="headerlink" href="#1b-agent-reasoning-logs-bypass-integrity-hashing" title="Permanent link">&para;</a></h4>
+<p><strong>File:</strong> <code>crucible/agent_loop.py</code>, <code>crucible/logging.py</code></p>
+<p>The 7th artifact stream (<code>agent_reasoning.jsonl</code>) is written directly by <code>LLMAgentPlugin</code> via <code>_log_reasoning_step()</code>, NOT through the <code>LogEmitter</code> system. This means:
+- It's NOT included in <code>log_integrity.json</code> hashing
+- It's NOT tracked in <code>STREAM_SCHEMAS</code> in <code>schema.py</code>
+- A corrupted agent reasoning log would go undetected</p>
+<p><strong>Recommendation:</strong> Route agent reasoning through <code>LogEmitter.emit()</code> with a dedicated stream, or at minimum include it in <code>write_integrity()</code> and <code>STREAM_SCHEMAS</code>.</p>
+<h4 id="1c-no-integration-tests-for-the-agent-system">1c. No integration tests for the agent system<a class="headerlink" href="#1c-no-integration-tests-for-the-agent-system" title="Permanent link">&para;</a></h4>
+<p><strong>Files:</strong> All agent modules — <code>agent_loop.py</code> (480 lines), <code>agent_tools.py</code> (298 lines), <code>llm_providers.py</code> (399 lines)</p>
+<p>The agent system has <strong>unit tests</strong> (94 in <code>test_llm_providers.py</code> + agent tests) but <strong>zero integration tests</strong> that verify:
+- An actual LLM provider integration end-to-end
+- Agent tools actually interact with a running fork correctly
+- Agent reasoning logs are properly written and retrievable</p>
+<p>This matters because the agent system is the second major use case (after attack plugins).</p>
+<h3 id="2-architectural-concerns">2. Architectural Concerns<a class="headerlink" href="#2-architectural-concerns" title="Permanent link">&para;</a></h3>
+<h4 id="2a-the-resume-path-is-untested">2a. The <code>resume()</code> path is untested<a class="headerlink" href="#2a-the-resume-path-is-untested" title="Permanent link">&para;</a></h4>
+<p><strong>File:</strong> <code>crucible/experiment.py</code> — <code>resume()</code> method (~100 lines)
+<strong>Tests:</strong> Zero</p>
+<p>The resume feature (restarting interrupted experiments from checkpoints) has no unit tests. It's a complex method that involves:
+- Loading checkpoint manifests
+- Restoring chain state from snapshots
+- Skipping completed phases
+- Writing updated manifests with resume metadata</p>
+<p>A regression here would silently produce incorrect results.</p>
+<h4 id="2b-bridge-plugin-coverage-is-thin">2b. Bridge plugin coverage is thin<a class="headerlink" href="#2b-bridge-plugin-coverage-is-thin" title="Permanent link">&para;</a></h4>
+<p><strong>Files:</strong> <code>crucible/bridge_lifecycle.py</code>, <code>bridges/demo_bridge/</code></p>
+<p>Only one bridge plugin (<code>demo_bridge</code>) exists. The <code>BridgePlugin</code> ABC has 7 methods but <code>bridge_lifecycle.py</code> only exercises <code>deploy</code> and <code>destroy</code>. The <code>send_message</code>, <code>configure</code>, <code>connect</code>, and <code>reset</code> methods are never tested in integration.</p>
+<p><strong>Recommendation:</strong> Implement at least one real bridge plugin (e.g., Nomad's xApp or Wormhole's core bridge) to validate the ABC design before publishing. This is important because the multi-chain L4 fidelity claim depends on bridge plugins working correctly.</p>
+<h4 id="2c-no-hermetic-end-to-end-test-with-real-fork">2c. No hermetic end-to-end test with real fork<a class="headerlink" href="#2c-no-hermetic-end-to-end-test-with-real-fork" title="Permanent link">&para;</a></h4>
+<p><strong>File:</strong> <code>tests/e2e/test_hermetic_nomad.py</code></p>
+<p>The E2E test exists but uses a JSONL fixture (recorded RPC calls via <code>ReplayServer</code> from <code>crucible/recording.py</code>) instead of actually forking from an archive node. This is fine for CI but means the test doesn't validate the full pipeline:
+- Config loading → chain forking → scenario execution → instrumentation → artifact capture</p>
+<p>A true hermetic E2E test would:
+1. Start an Anvil fork at a known block (using a cached state fixture)
+2. Run an experiment end-to-end
+3. Verify all 7 artifact streams exist with expected content
+4. Assert manifest fields are correct
+5. Export and verify the bundle</p>
+<p>Note: <code>crucible/recording.py</code> (ReplayServer + record_fixture) is well-implemented and provides good infrastructure for this. The gap is in using it for a <em>full pipeline</em> test rather than just replaying RPC calls.</p>
+<h3 id="3-polishing-opportunities">3. Polishing Opportunities<a class="headerlink" href="#3-polishing-opportunities" title="Permanent link">&para;</a></h3>
+<h4 id="3a-cli-output-still-has-silent-gaps">3a. CLI output still has silent gaps<a class="headerlink" href="#3a-cli-output-still-has-silent-gaps" title="Permanent link">&para;</a></h4>
+<p>Addressed partially (progress spinners in library modules), but:
+- <code>crucible resume</code> has no progress indicators during chain state restoration
+- <code>crucible export</code> does not validate the bundle until after creation — user waits for archive creation before finding errors
+- <code>crucible baseline verify</code> doesn't show per-chain progress when checking multiple chains</p>
+<h4 id="3b-docker-compose-health-checks-missing">3b. Docker compose health checks missing<a class="headerlink" href="#3b-docker-compose-health-checks-missing" title="Permanent link">&para;</a></h4>
+<p><strong>File:</strong> <code>docker-compose.yml</code></p>
+<p>The docker-compose configuration has <code>depends_on</code> but no <code>healthcheck</code> directives. If an Anvil daemon starts slowly, the orchestrator will try to connect before it's ready. The <code>_await_ready</code> method handles this at the Python level, but Docker Compose would show no status of the delay.</p>
+<h4 id="3c-no-contributingmd-or-development-setup-guide">3c. No <code>CONTRIBUTING.md</code> or development setup guide<a class="headerlink" href="#3c-no-contributingmd-or-development-setup-guide" title="Permanent link">&para;</a></h4>
+<p>While documentation is extensive for users, there's no concise guide for new contributors on:
+- Setting up a development environment
+- Running tests
+- Code style conventions (Ruff config exists but isn't documented)
+- How to add a new step type to the scenario engine
+- How to add a new CLI command</p>
+<h4 id="3d-pyprojecttoml-had-inconsistent-dependency-grouping-fixed">3d. <code>pyproject.toml</code> had inconsistent dependency grouping — <strong>FIXED</strong><a class="headerlink" href="#3d-pyprojecttoml-had-inconsistent-dependency-grouping-fixed" title="Permanent link">&para;</a></h4>
+<p><code>pandas</code> and <code>streamlit</code> were in both <code>[project.dependencies]</code> and <code>[project.optional-dependencies]</code>. Now they only appear in main deps (which is correct since the dashboard imports them at module level). The redundant entries in optional groups (<code>analysis</code>, <code>ui</code>) have been removed.</p>
+<h4 id="3e-agent_reasoningjsonl-stream-not-in-schema">3e. <code>agent_reasoning.jsonl</code> stream not in schema<a class="headerlink" href="#3e-agent_reasoningjsonl-stream-not-in-schema" title="Permanent link">&para;</a></h4>
+<p><strong>File:</strong> <code>crucible/schema.py</code></p>
+<p>The <code>STREAM_SCHEMAS</code> dict has 6 streams but not <code>agent_reasoning.jsonl</code>. This means:
+- The schema validator won't catch corruption in agent reasoning logs
+- Export bundle validation skips it
+- It's an invisible gap for agent-based experiments</p>
+<h3 id="4-additional-module-findings">4. Additional Module Findings<a class="headerlink" href="#4-additional-module-findings" title="Permanent link">&para;</a></h3>
+<h4 id="4a-crucibleanalysispy-public-api-surface-is-adequate-but-undocumented">4a. <code>crucible/analysis.py</code> — Public API surface is adequate but undocumented<a class="headerlink" href="#4a-crucibleanalysispy-public-api-surface-is-adequate-but-undocumented" title="Permanent link">&para;</a></h4>
+<p><strong>File:</strong> <code>crucible/analysis.py</code> — 105 lines</p>
+<p>Provides 7 public functions for loading experiment data into pandas DataFrames:
+- <code>find_run()</code>, <code>load_run()</code>, <code>list_runs()</code> — run discovery
+- <code>load_events()</code>, <code>load_gas()</code>, <code>load_storage_diffs()</code>, <code>load_balance_diffs()</code>, <code>load_cross_chain()</code> — artifact loading</p>
+<p><strong>Gaps:</strong>
+- No <code>load_agent_reasoning()</code> function (consistent with the integrity gap)
+- No <code>load_balance_diffs()</code> documented in the module docstring (it exists but is missing from the docstring's "Available functions" list)
+- No type annotations for returned DataFrames (columns vary, but a documented minimum schema would help)
+- The module's <code>_load_jsonl_df()</code> helper loads ALL entries — for large runs with thousands of storage diffs, this could be memory-intensive. Consider adding pagination or filter parameters.</p>
+<p><strong>Recommendation:</strong> Add documented column schemas for each DataFrame, add <code>load_agent_reasoning()</code>, and consider lazy-loading or chunked reading for large artifact streams.</p>
+<h4 id="4b-crucibleinterfaces__init__py-public-api-is-thin">4b. <code>crucible/interfaces/__init__.py</code> — Public API is thin<a class="headerlink" href="#4b-crucibleinterfaces__init__py-public-api-is-thin" title="Permanent link">&para;</a></h4>
+<p><strong>File:</strong> <code>crucible/interfaces/__init__.py</code> — 4 lines</p>
+<p>Re-exports only 4 classes: <code>AttackPlugin</code>, <code>BridgePlugin</code>, <code>CruciblePlugin</code>, <code>ExperimentContext</code>.</p>
+<p><strong>Gaps:</strong>
+- Missing: <code>VerificationResult</code>, <code>FidelityResult</code>, <code>GateResult</code> — useful for plugin authors writing custom verification
+- Missing: <code>ChainRuntime</code>, <code>JsonRpcClient</code> — plugins frequently need these
+- Missing: <code>AgentPlugin</code> — not re-exported despite being a first-class plugin type
+- Missing: <code>LogEmitter</code>, <code>LogManager</code> — for plugins that need advanced logging</p>
+<p>Currently, plugin authors must import from <code>crucible.sdk</code>, <code>crucible.rpc</code>, <code>crucible.chain_manager</code> directly. A richer <code>interfaces/__init__.py</code> would make the SDK surface clear and stable.</p>
+<p><strong>Recommendation:</strong> Expand the public API to include all types a plugin author needs (e.g., <code>VerificationResult</code>, <code>FidelityResult</code>, <code>ChainRuntime</code>, <code>JsonRpcClient</code>, <code>AgentPlugin</code>, <code>LogEmitter</code>) and document the stable API surface.</p>
+<h4 id="4c-cruciblerecordingpy-well-implemented-infrastructure">4c. <code>crucible/recording.py</code> — Well-implemented infrastructure<a class="headerlink" href="#4c-cruciblerecordingpy-well-implemented-infrastructure" title="Permanent link">&para;</a></h4>
+<p><strong>File:</strong> <code>crucible/recording.py</code> — 175 lines</p>
+<p>Provides <code>ReplayServer</code> and <code>record_fixture</code> for hermetic CI testing. The implementation is clean:
+- Thread-based HTTP server with daemon thread
+- Fixture lookup via canonical method+params key
+- Helpful error message when fixture entry is not found (lists available methods)
+- Suppressed default logging</p>
+<p><strong>No issues found.</strong> The module is well-designed and serves its purpose. It's used by <code>tests/e2e/test_hermetic_nomad.py</code>.</p>
+<h3 id="5-test-coverage-gaps">5. Test Coverage Gaps<a class="headerlink" href="#5-test-coverage-gaps" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Tests</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>experiment.py</code></td>
+<td>22 unit</td>
+<td>Good — all critical paths covered</td>
+</tr>
+<tr>
+<td><code>chain_manager.py</code></td>
+<td>49 unit</td>
+<td>Good — process safety well tested</td>
+</tr>
+<tr>
+<td><code>resume()</code></td>
+<td><strong>0</strong></td>
+<td>High — complex, untested</td>
+</tr>
+<tr>
+<td><code>bridge_lifecycle.py</code></td>
+<td>0</td>
+<td>Medium — deploying bridge plugins</td>
+</tr>
+<tr>
+<td><code>scenario.py</code></td>
+<td>1 unit</td>
+<td>Low-medium — step dispatch via registry</td>
+</tr>
+<tr>
+<td><code>scenario_steps.py</code></td>
+<td>27 unit</td>
+<td>Good — 11 step types covered</td>
+</tr>
+<tr>
+<td><code>export.py</code></td>
+<td>18 unit</td>
+<td>Good</td>
+</tr>
+<tr>
+<td>Hermetic E2E</td>
+<td>1</td>
+<td>Medium — uses fixture, not real fork</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="improvement-plan">🚀 Improvement Plan<a class="headerlink" href="#improvement-plan" title="Permanent link">&para;</a></h2>
+<h3 id="phase-a-core-hardening-1-2-weeks">Phase A — Core Hardening (1-2 weeks)<a class="headerlink" href="#phase-a-core-hardening-1-2-weeks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Item</th>
+<th>Effort</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>Extract <code>ExperimentRunner</code> into focused classes</td>
+<td>2 days</td>
+<td>Reduces risk for all future changes</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>Add <code>agent_reasoning.jsonl</code> to integrity hashing</td>
+<td>[ok] Done</td>
+<td>Closes data integrity gap</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>Add <code>agent_reasoning.jsonl</code> to schema validation</td>
+<td>[ok] Done</td>
+<td>Catches corruption</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>Write unit tests for <code>resume()</code></td>
+<td>[ok] Done</td>
+<td>7 tests added, all passing</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>Write integration test for agent system (LLM → tool → fork)</td>
+<td>2 days</td>
+<td>Validates agent pipeline</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phase-b-bridge-multi-chain-1-2-weeks">Phase B — Bridge &amp; Multi-Chain (1-2 weeks)<a class="headerlink" href="#phase-b-bridge-multi-chain-1-2-weeks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Item</th>
+<th>Effort</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>Implement real bridge plugin (Nomad xApp or Wormhole)</td>
+<td>3 days</td>
+<td>Validates BridgePlugin ABC</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>Integration test for multi-chain + bridge experiment</td>
+<td>2 days</td>
+<td>Validates L4 path</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>E2E test with real Anvil fork (cached state fixture)</td>
+<td>2 days</td>
+<td>True pipeline validation</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phase-c-polish-dx-1-week">Phase C — Polish &amp; DX (1 week)<a class="headerlink" href="#phase-c-polish-dx-1-week" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Item</th>
+<th>Effort</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P2</td>
+<td>Make pandas import lazy in monitoring.py</td>
+<td>1 hour</td>
+<td>Keeps CLI install lean</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Clean up redundant optional deps in pyproject.toml</td>
+<td>[ok] Done</td>
+<td>Clean dependency spec</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Expand <code>crucible/interfaces/__init__.py</code> public API</td>
+<td>[ok] Done</td>
+<td>13 exports, clear SDK surface</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Add <code>load_agent_reasoning()</code> to analysis.py</td>
+<td>[ok] Done</td>
+<td>Completeness</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Add progress indicators to <code>resume</code>, <code>export</code>, <code>verify</code></td>
+<td>1 day</td>
+<td>UX consistency</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phase-d-strategic-month-long">Phase D — Strategic (Month-long)<a class="headerlink" href="#phase-d-strategic-month-long" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Item</th>
+<th>Effort</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P2</td>
+<td>Hermetic E2E test with real Anvil</td>
+<td>2 days</td>
+<td>CI-readiness</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Add more attack packs (L3/L4)</td>
+<td>5 days</td>
+<td>Demonstrates full capability</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Documentation site (e.g., mkdocs)</td>
+<td>3 days</td>
+<td>Better discoverability</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Benchmark suite for timing/shape</td>
+<td>2 days</td>
+<td>Performance regression detection</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="out-of-the-box-ideas">💡 Out-of-the-Box Ideas<a class="headerlink" href="#out-of-the-box-ideas" title="Permanent link">&para;</a></h2>
+<h3 id="1-visual-diff-dashboard">1. Visual Diff Dashboard<a class="headerlink" href="#1-visual-diff-dashboard" title="Permanent link">&para;</a></h3>
+<p>Currently <code>crucible diff</code> outputs text. A Streamlit-based visual diff comparing two runs side-by-side (storage slots, event timelines, balance flows) would dramatically improve the researcher experience. Think: "Git diff but for blockchain experiments."</p>
+<h3 id="2-attack-pack-registry-marketplace">2. Attack Pack Registry / Marketplace<a class="headerlink" href="#2-attack-pack-registry-marketplace" title="Permanent link">&para;</a></h3>
+<p>A discoverability tool: <code>crucible attack search "bridge"</code> that lists known attack packs from a public registry (GitHub-based or simple YAML index). Researchers could share reproductions like packages.</p>
+<h3 id="3-repl-mode-for-interactive-experimentation">3. REPL Mode for Interactive Experimentation<a class="headerlink" href="#3-repl-mode-for-interactive-experimentation" title="Permanent link">&para;</a></h3>
+<p><code>crucible shell</code> — an interactive Python REPL with:
+- Pre-loaded <code>context</code>, <code>chains</code>, <code>rpc</code> objects
+- Tab completion for chain names, RPC methods
+- Auto-instrumentation of every transaction
+- History persistence
+- "Record → Export" workflow</p>
+<h3 id="4-automated-baseline-drift-detection">4. Automated Baseline Drift Detection<a class="headerlink" href="#4-automated-baseline-drift-detection" title="Permanent link">&para;</a></h3>
+<p>Currently baselines capture state at a point in time. A <code>crucible baseline monitor</code> command that periodically checks for baseline drift would alert researchers when:
+- Their local modifications have drifted from the golden state
+- RPC provider changes have caused block differences
+- Cache corruption has occurred</p>
+<h3 id="5-fuzzing-engine-integration">5. Fuzzing Engine Integration<a class="headerlink" href="#5-fuzzing-engine-integration" title="Permanent link">&para;</a></h3>
+<p>Plug in a fuzzer (like Echidna or Medusa) as a step type:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fuzz</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">contract</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x...&quot;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">corpus</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">tx1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">tx2</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">duration_seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span>
+</code></pre></div></p>
+<p>This would make Crucible not just a reproduction tool but a vulnerability discovery tool.</p>
+<h3 id="6-self-contained-experiment-snapshots">6. Self-Contained Experiment Snapshots<a class="headerlink" href="#6-self-contained-experiment-snapshots" title="Permanent link">&para;</a></h3>
+<p>Export experiments as a single portable <code>.crucible</code> file containing:
+- The experiment YAML
+- The chain state snapshot (compressed JSON or Anvil cache)
+- The attack plugin code
+- The scenario YAML</p>
+<p>Share via: <code>crucible experiment share DS-2026-00042 → nomad_repro.crucible</code>
+Replay via: <code>crucible experiment run nomad_repro.crucible</code></p>
+<p>No RPC needed, no git clone needed. One file, one command.</p>
+<h3 id="7-usenix-artifact-packaging-shortcut">7. USENIX Artifact Packaging Shortcut<a class="headerlink" href="#7-usenix-artifact-packaging-shortcut" title="Permanent link">&para;</a></h3>
+<p>A single command that outputs a <code>usenix-artifact.zip</code> ready for submission:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>crucible<span class="w"> </span>publish<span class="w"> </span>--package<span class="w"> </span>usenix<span class="w"> </span>--run<span class="w"> </span>DS-2026-00042<span class="w"> </span>--output<span class="w"> </span>usenix-artifact.zip
+</code></pre></div></p>
+<p>It would auto-generate:
+- README.md with submission instructions
+- Dockerfile (if using Docker mode)
+- runs/ directory with run manifest + all artifacts
+- BIBLIOGRAPHY.md with citations from evidence.yaml
+- CHECKLIST.md with the AE checklist</p>
+<h3 id="8-interactive-scenario-builder">8. Interactive Scenario Builder<a class="headerlink" href="#8-interactive-scenario-builder" title="Permanent link">&para;</a></h3>
+<p><code>crucible scenario init</code> with an interactive wizard that:
+- Asks which chains to use
+- Asks what setup steps are needed (impersonate, send_tx, assert)
+- Generates the scenario YAML with proper structure
+- Opens it in the default editor</p>
+<p>This would lower the learning curve significantly — currently, scenario authoring requires knowing the YAML schema by heart.</p>
+<hr />
+<h2 id="small-things-that-matter">🔧 Small Things That Matter<a class="headerlink" href="#small-things-that-matter" title="Permanent link">&para;</a></h2>
+<h3 id="documentation_1">Documentation<a class="headerlink" href="#documentation_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>docs/REPRODUCIBILITY.md</code> references fidelity levels but doesn't include the table — add it inline</li>
+<li><code>docs/CLI_REFERENCE.md</code> should be verified — does the <code>fork</code> command section document <code>--fork-timeout</code>?</li>
+<li><code>docs/INSTRUMENTATION_ARCHITECTURE.md</code> is excellent but would benefit from a sequence diagram showing the proxy interaction flow</li>
+<li>Tutorial mentions 8 commands — number each step for clarity</li>
+</ul>
+<h3 id="code-quality">Code Quality<a class="headerlink" href="#code-quality" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>experiment.py</code> had <code>import sys</code> that's now correctly removed (replaced by <code>progress.get_console()</code>) [ok]</li>
+<li>Some docstrings in <code>scenario_steps.py</code> use <code>Args:</code> blocks but don't include all parameters</li>
+<li><code>enforcer.py</code> <code>_check_chain_state()</code> correctly accesses <code>self.historical.get("chains", [])</code> where <code>self.historical</code> is the <code>historical_scope</code> dict from evidence.yaml [ok]</li>
+<li><code>analysis.py</code> module docstring doesn't document the public function API at all (single-sentence description)</li>
+<li><code>analysis.py</code> doesn't have <code>load_agent_reasoning()</code> — requires the P0 integrity fix first (adding agent_reasoning.jsonl to LogEmitter/integrity hashing)</li>
+</ul>
+<h3 id="test-quality">Test Quality<a class="headerlink" href="#test-quality" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>test_experiment.py</code> tests are well-structured with fixtures and helpers</li>
+<li><code>test_chain_manager.py</code> is thorough — 49 tests covering all process safety paths</li>
+<li><code>test_monitoring.py</code> tests are good but depended on <code>pandas</code> at import time (now fixed by installing pandas) [ok]</li>
+<li>Some tests use <code>from module import function</code> inside test functions (lazy import) — this is fine but inconsistent with the project pattern</li>
+</ul>
+<h3 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>_trace_transaction</code> in <code>instrumentation.py</code> has retry + backoff — good</li>
+<li><code>CacheManager.fingerprint()</code> re-reads all cache state — could be slow with large caches</li>
+<li><code>ExperimentRunner.run()</code> scans all <code>run.jsonl</code> files in the finally block — this is O(files) which is fine for typical runs</li>
+<li><code>analysis.py</code> <code>_load_jsonl_df()</code> loads ALL entries into memory — for runs with millions of storage diffs, this could be an issue</li>
+</ul>
+<hr />
+<h2 id="summary">📊 Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Score (1-10)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Architecture</strong></td>
+<td>9</td>
+<td>Clean layers, but <code>ExperimentRunner</code> is a god object</td>
+</tr>
+<tr>
+<td><strong>Modularity</strong></td>
+<td>8</td>
+<td>Plugin system is excellent; step registry is extensible; <code>interfaces/__init__.py</code> is thin</td>
+</tr>
+<tr>
+<td><strong>Correctness</strong></td>
+<td>9</td>
+<td>754 tests passing; process safety is well handled</td>
+</tr>
+<tr>
+<td><strong>Test coverage</strong></td>
+<td>7</td>
+<td>Core paths covered; resume/agent-integration untested</td>
+</tr>
+<tr>
+<td><strong>Documentation</strong></td>
+<td>9</td>
+<td>Extensive; missing CONTRIBUTING.md, CLI_REFERENCE.md has minor gaps</td>
+</tr>
+<tr>
+<td><strong>UX</strong></td>
+<td>7</td>
+<td>Spinners help; residual silent gaps; no REPL; learning curve is significant</td>
+</tr>
+<tr>
+<td><strong>Security</strong></td>
+<td>9</td>
+<td>PID guards, anvil-only kill, EOA checks</td>
+</tr>
+<tr>
+<td><strong>Reproducibility</strong></td>
+<td>9</td>
+<td>Fidelity enforcement, provenance, integrity hashing (except agent_reasoning.jsonl)</td>
+</tr>
+<tr>
+<td><strong>Goal Alignment</strong></td>
+<td>7.6</td>
+<td>Strongest on artifact collection (9/10); weakest on learning curve (5/10)</td>
+</tr>
+<tr>
+<td><strong>Overall</strong></td>
+<td><strong>8.2</strong></td>
+<td>Production-ready core with polish gaps in secondary paths</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="ok-completed-fixes">[ok] Completed Fixes<a class="headerlink" href="#ok-completed-fixes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Fix</th>
+<th>Files Changed</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent reasoning integrity hashing</td>
+<td><code>agent_loop.py</code>, <code>logging.py</code>, <code>schema.py</code></td>
+<td>[ok]</td>
+</tr>
+<tr>
+<td>Unit tests for <code>resume()</code></td>
+<td><code>tests/unit/test_experiment.py</code></td>
+<td>[ok] 7 new tests</td>
+</tr>
+<tr>
+<td>Expanded public SDK surface</td>
+<td><code>crucible/interfaces/__init__.py</code></td>
+<td>[ok] 4→13 exports</td>
+</tr>
+<tr>
+<td><code>load_agent_reasoning()</code> + improved docstring</td>
+<td><code>crucible/analysis.py</code></td>
+<td>[ok]</td>
+</tr>
+<tr>
+<td>Removed redundant optional deps</td>
+<td><code>pyproject.toml</code></td>
+<td>[ok]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Test suite:</strong> 761 passing, 0 failures, 1 warning.</p>
+<hr />
+<p><em>Generated by comprehensive codebase audit — 761 tests passing, 0 failures.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/crucible-bridge/crucible" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

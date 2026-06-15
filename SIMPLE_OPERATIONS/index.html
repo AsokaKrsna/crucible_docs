@@ -1,0 +1,4161 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="CLI-first EVM bridge security research testbed — deterministic exploit reproduction, structured artifacts, and plug-and-play attack packs.">
+      
+      
+        <meta name="author" content="Crucible Research Team">
+      
+      
+      
+        <link rel="prev" href="../OPERATIONS_RUNBOOK/">
+      
+      
+        <link rel="next" href="../FIDELITY_GUIDE/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Simple Operations - Crucible Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#simple-operations-ad-hoc-testing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Crucible Docs" class="md-header__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 11c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4 9 4zm-9 10c3.75-1 7-5.46 7-9.78V6.3l-7-3.12L5 6.3v4.92C5 15.54 8.25 20 12 21m2.8-10V9.5C14.8 8.1 13.4 7 12 7S9.2 8.1 9.2 9.5V11c-.6 0-1.2.6-1.2 1.2v3.5c0 .7.6 1.3 1.2 1.3h5.5c.7 0 1.3-.6 1.3-1.2v-3.5c0-.7-.6-1.3-1.2-1.3m-1.3 0h-3V9.5c0-.8.7-1.3 1.5-1.3s1.5.5 1.5 1.3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Crucible Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Simple Operations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/crucible-bridge/crucible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    crucible
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../USER_GUIDE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../CUSTOM_CONTRACT_TESTING/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  How-To Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../ARCHITECTURE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Core Concepts (Explanation)
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../CLI_REFERENCE/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../AE_WALKTHROUGH/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Publication & Case Studies
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Crucible Docs" class="md-nav__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 11c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V5l9-4 9 4zm-9 10c3.75-1 7-5.46 7-9.78V6.3l-7-3.12L5 6.3v4.92C5 15.54 8.25 20 12 21m2.8-10V9.5C14.8 8.1 13.4 7 12 7S9.2 8.1 9.2 9.5V11c-.6 0-1.2.6-1.2 1.2v3.5c0 .7.6 1.3 1.2 1.3h5.5c.7 0 1.3-.6 1.3-1.2v-3.5c0-.7-.6-1.3-1.2-1.3m-1.3 0h-3V9.5c0-.8.7-1.3 1.5-1.3s1.5.5 1.5 1.3z"/></svg>
+
+    </a>
+    Crucible Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/crucible-bridge/crucible" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    crucible
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../USER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TUTORIAL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10-Minute Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How-To Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    How-To Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CUSTOM_CONTRACT_TESTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running LLM Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SCENARIO_AUTHORING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Scenarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ATTACK_PACK_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Attack Packs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts (Explanation)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Concepts (Explanation)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instrumentation Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CAPABILITIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope & Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FEATURE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RESEARCH_WORKFLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RESEARCHER_OBSERVABILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Researcher Observability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design/crucible_implementation_spec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementation Spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design/crucible_research_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CLI_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BENCHMARKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCIBILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LAB_DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lab Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC Provider Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAINTENANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TROUBLESHOOTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OPERATIONS_RUNBOOK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations Runbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-fork-use-in-30-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start: Fork &amp; Use in 30 Seconds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-forking-chains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Forking Chains
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Forking Chains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Fork
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-baseline-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Baseline Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blank-fork-no-archive-rpc-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blank Fork (No Archive RPC Needed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-checking-whats-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Checking What's Running
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-managing-state-snapshots-baselines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Managing State (Snapshots &amp; Baselines)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Managing State (Snapshots &amp; Baselines)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named-snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Named Snapshots
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-tier-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three-Tier Reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-and-restore-custom-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save and Restore Custom States
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-working-with-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Working With Accounts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Working With Accounts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#account-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Account Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fund-any-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fund Any Address
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-balances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Balances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-auto-impersonation-no-private-keys-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Auto-Impersonation (No Private Keys Needed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-impersonating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stop Impersonating
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sending-transactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sending Transactions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Sending Transactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-cast-send" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With cast send
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-python-crucibles-built-in-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Python (Crucible's built-in client)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-forge-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With forge script
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-calling-contracts-read-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Calling Contracts (Read-Only)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Calling Contracts (Read-Only)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-cast-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With cast call
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-manipulating-chain-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Manipulating Chain State
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Manipulating Chain State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-storage-slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Storage Slots
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-nonce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Nonce
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advance-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advance Time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mine-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mine Blocks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-contract-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Contract Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Contract Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-forge-create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using forge create
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-forge-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using forge script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-python-crucible-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Python (Crucible SDK)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-working-with-artifacts-free-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Working With Artifacts (Free Instrumentation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-advanced-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Advanced Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Advanced Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-chain-testing-dual-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Chain Testing (Dual Fork)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-jupyter-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Jupyter Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#record-and-replay-rpc-fixtures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Record and Replay RPC Fixtures
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-cleaning-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Cleaning Up
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Cleaning Up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fresh-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fresh Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-common-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Common Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Common Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-contract-development-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow: Contract Development &amp; Debugging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-historical-state-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow: Historical State Exploration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-gas-optimization-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow: Gas Optimization Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-troubleshooting-common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Troubleshooting Common Issues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Troubleshooting Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#address-has-no-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Address Has No Balance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-matching-key-when-using-unlocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "No matching key" When Using --unlocked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forge-script-default-deployer-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forge Script Default Deployer Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-already-in-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Port Already in Use
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cold-cache-fork-too-slow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cold-Cache Fork Too Slow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-all-available-anvil-cheatcodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. All Available Anvil Cheatcodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-rpc-endpoints-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. RPC Endpoints Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FIDELITY_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fidelity Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPORT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Report
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCTION_SCOPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproduction Scope
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TESTBED_SCOPE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testbed Scope Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RELEASE_CHECKLIST/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publication & Case Studies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publication & Case Studies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AE Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zenodo Archive Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/nomad_replica_fraud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nomad Replica Fraud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/wormhole_guardian_bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wormhole Guardian Bypass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/poly_network_privkey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Poly Network Privilege Escalation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/horizon_multisig_drain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Horizon Multisig Drain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/bnb_token_hub_proof/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BNB Token Hub Proof Bypass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_studies/multichain_router_permit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multichain MPC Compromise
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-fork-use-in-30-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start: Fork &amp; Use in 30 Seconds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-forking-chains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Forking Chains
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Forking Chains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Fork
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-baseline-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Baseline Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blank-fork-no-archive-rpc-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blank Fork (No Archive RPC Needed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-checking-whats-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Checking What's Running
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-managing-state-snapshots-baselines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Managing State (Snapshots &amp; Baselines)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Managing State (Snapshots &amp; Baselines)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#named-snapshots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Named Snapshots
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-tier-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three-Tier Reset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-and-restore-custom-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save and Restore Custom States
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-working-with-accounts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Working With Accounts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Working With Accounts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#account-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Account Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fund-any-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fund Any Address
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-balances" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check Balances
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-auto-impersonation-no-private-keys-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Auto-Impersonation (No Private Keys Needed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-impersonating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stop Impersonating
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sending-transactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sending Transactions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Sending Transactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-cast-send" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With cast send
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-python-crucibles-built-in-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Python (Crucible's built-in client)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-forge-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With forge script
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-calling-contracts-read-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Calling Contracts (Read-Only)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Calling Contracts (Read-Only)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-cast-call" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With cast call
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-manipulating-chain-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Manipulating Chain State
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Manipulating Chain State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-storage-slots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Storage Slots
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-nonce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set Nonce
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advance-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advance Time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mine-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mine Blocks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-contract-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Contract Deployment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Contract Deployment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-forge-create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using forge create
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-forge-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using forge script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-python-crucible-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Python (Crucible SDK)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-working-with-artifacts-free-instrumentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Working With Artifacts (Free Instrumentation)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-advanced-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Advanced Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Advanced Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-chain-testing-dual-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-Chain Testing (Dual Fork)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interactive-jupyter-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interactive Jupyter Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#record-and-replay-rpc-fixtures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Record and Replay RPC Fixtures
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-cleaning-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Cleaning Up
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Cleaning Up">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fresh-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fresh Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-common-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Common Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="12. Common Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#workflow-contract-development-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow: Contract Development &amp; Debugging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-historical-state-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow: Historical State Exploration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-gas-optimization-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow: Gas Optimization Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-troubleshooting-common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Troubleshooting Common Issues
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. Troubleshooting Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#address-has-no-balance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Address Has No Balance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-matching-key-when-using-unlocked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "No matching key" When Using --unlocked
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forge-script-default-deployer-not-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forge Script Default Deployer Not Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-already-in-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Port Already in Use
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cold-cache-fork-too-slow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cold-Cache Fork Too Slow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-all-available-anvil-cheatcodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. All Available Anvil Cheatcodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-rpc-endpoints-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15. RPC Endpoints Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="simple-operations-ad-hoc-testing">Simple Operations &amp; Ad-Hoc Testing<a class="headerlink" href="#simple-operations-ad-hoc-testing" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Purpose:</strong> Crucible isn't just for automated exploit reproduction. It's also a <strong>managed Anvil orchestrator</strong> for day-to-day development, manual testing, contract debugging, and chain exploration. This guide covers every granular operation you can do.</p>
+</blockquote>
+<hr />
+<h2 id="quick-start-fork-use-in-30-seconds">Quick Start: Fork &amp; Use in 30 Seconds<a class="headerlink" href="#quick-start-fork-use-in-30-seconds" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 1. Fork a chain</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>single
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 2. See what&#39;s running</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>crucible<span class="w"> </span>status
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># 3. Fund an address and start transacting</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span>0xYourAddress<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">1000</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>cast<span class="w"> </span>send<span class="w"> </span>0xTargetContract<span class="w"> </span><span class="s2">&quot;transfer(address,uint256)&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span>0xRecipient<span class="w"> </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">10</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span>--unlocked<span class="w"> </span>--from<span class="w"> </span>0xYourAddress<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># 4. Clean up when done</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>crucible<span class="w"> </span>clean
+</code></pre></div>
+<hr />
+<h2 id="1-forking-chains">1. Forking Chains<a class="headerlink" href="#1-forking-chains" title="Permanent link">&para;</a></h2>
+<h3 id="basic-fork">Basic Fork<a class="headerlink" href="#basic-fork" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Fork a single Ethereum chain (port 8545)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>single
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Fork multiple chains (Ethereum on 8545, Polygon on 8546)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>dual
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Fork with a longer timeout for cold-cache chains (e.g., Polygon)</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>dual<span class="w"> </span>--fork-timeout<span class="w"> </span><span class="m">600</span>
+</code></pre></div>
+<p>After forking, Anvil is running on localhost. You can point <strong>any</strong> tool at it:
+- <code>cast</code>, <code>forge</code> (Foundry)
+- <code>curl</code> (raw JSON-RPC)
+- <code>web3.py</code>, <code>ethers.js</code>, <code>viem</code>
+- Crucible's own <code>JsonRpcClient</code></p>
+<h3 id="with-baseline-setup">With Baseline Setup<a class="headerlink" href="#with-baseline-setup" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Full setup: fork + bootstrap + capture golden baseline</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>crucible<span class="w"> </span>setup<span class="w"> </span>--topology<span class="w"> </span>single
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Now you can reset back to this state at any time</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>crucible<span class="w"> </span>reset<span class="w"> </span>--scenario<span class="w"> </span>my_scenario<span class="w"> </span>--mode<span class="w"> </span>soft
+</code></pre></div>
+<h3 id="blank-fork-no-archive-rpc-needed">Blank Fork (No Archive RPC Needed)<a class="headerlink" href="#blank-fork-no-archive-rpc-needed" title="Permanent link">&para;</a></h3>
+<p>For testing contracts without forking from a historical block, set <code>fork_block</code> to <code>null</code> in your topology:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># testbed.local.yaml</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">chains</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">ethereum</span><span class="p">:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">fork_block</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span><span class="w">   </span><span class="c1"># blank fork — starts from genesis</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8545</span>
+</code></pre></div>
+<p>Then fork normally:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>single<span class="w">   </span><span class="c1"># clean Anvil, no remote dependency</span>
+</code></pre></div>
+<hr />
+<h2 id="2-checking-whats-running">2. Checking What's Running<a class="headerlink" href="#2-checking-whats-running" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Show all running Anvil processes</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>crucible<span class="w"> </span>status
+</code></pre></div>
+<p>Output example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>┌──────────┬──────┬──────┬───────┬────────┬───────────┬──────────┬─────────────────────────┐
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>│ Name     │ PID  │ Port │ Block │ Status │ Gas Price │ Base Fee │ RPC                     │
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>├──────────┼──────┼──────┼───────┼────────┼───────────┼──────────┼─────────────────────────┤
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>│ ethereum │ 1234 │ 8545 │ 12996693 │ ALIVE │ 0         │ 1gwei    │ http://127.0.0.1:8545   │
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>│ polygon  │ 1235 │ 8546 │ 16332982 │ ALIVE │ 0         │ 1gwei    │ http://127.0.0.1:8546   │
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>└──────────┴──────┴──────┴───────┴────────┴───────────┴──────────┴─────────────────────────┘
+</code></pre></div>
+<p>Also see disk usage:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>crucible<span class="w"> </span>status<span class="w"> </span>--disk
+</code></pre></div>
+<hr />
+<h2 id="3-managing-state-snapshots-baselines">3. Managing State (Snapshots &amp; Baselines)<a class="headerlink" href="#3-managing-state-snapshots-baselines" title="Permanent link">&para;</a></h2>
+<h3 id="named-snapshots">Named Snapshots<a class="headerlink" href="#named-snapshots" title="Permanent link">&para;</a></h3>
+<p>Snapshots save the full EVM state (all contracts, storage, balances) of a running chain.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Create a snapshot</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>crucible<span class="w"> </span>snapshot<span class="w"> </span>create<span class="w"> </span>my_state
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Restore a snapshot (instant — loads saved state back into memory)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>crucible<span class="w"> </span>snapshot<span class="w"> </span>restore<span class="w"> </span>my_state<span class="w"> </span>--chain<span class="w"> </span>ethereum
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Snapshot specific chains in multi-chain topologies</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>crucible<span class="w"> </span>snapshot<span class="w"> </span>create<span class="w"> </span>phase1<span class="w"> </span>--chain<span class="w"> </span>ethereum
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>crucible<span class="w"> </span>snapshot<span class="w"> </span>create<span class="w"> </span>phase1<span class="w"> </span>--chain<span class="w"> </span>polygon
+</code></pre></div>
+<p>Snapshots are stored in <code>states/snapshots/</code> as JSON files.</p>
+<h3 id="three-tier-reset">Three-Tier Reset<a class="headerlink" href="#three-tier-reset" title="Permanent link">&para;</a></h3>
+<p>Reset to a clean baseline state without re-forking:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Speed</th>
+<th>What Happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>soft</strong></td>
+<td>&lt;5s</td>
+<td><code>anvil_loadState</code> from baseline snapshot — no process restart</td>
+</tr>
+<tr>
+<td><strong>medium</strong></td>
+<td>&lt;30s</td>
+<td>Kill Anvil, relaunch, then restore snapshot</td>
+</tr>
+<tr>
+<td><strong>hard</strong></td>
+<td>&lt;5min</td>
+<td>Kill, re-fork from archive RPC, re-run bootstrap, restore snapshot</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Fastest — just reload state</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>crucible<span class="w"> </span>reset<span class="w"> </span>--scenario<span class="w"> </span>single<span class="w"> </span>--mode<span class="w"> </span>soft
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Full clean restart</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>crucible<span class="w"> </span>reset<span class="w"> </span>--scenario<span class="w"> </span>single<span class="w"> </span>--mode<span class="w"> </span>hard
+</code></pre></div>
+<h3 id="save-and-restore-custom-states">Save and Restore Custom States<a class="headerlink" href="#save-and-restore-custom-states" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonRpcClient</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">JsonRpcClient</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:8545&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># Save the entire EVM state</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">state</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">dump_state</span><span class="p">()</span>  <span class="c1"># returns huge dict</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;my_state.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c1"># Later: restore it</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;my_state.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    <span class="n">saved</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="n">client</span><span class="o">.</span><span class="n">load_state</span><span class="p">(</span><span class="n">saved</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="4-working-with-accounts">4. Working With Accounts<a class="headerlink" href="#4-working-with-accounts" title="Permanent link">&para;</a></h2>
+<h3 id="account-model">Account Model<a class="headerlink" href="#account-model" title="Permanent link">&para;</a></h3>
+<p>Crucible starts Anvil with <code>--accounts 0 --balance 0</code>. This means <strong>no pre-funded test accounts</strong> are created. This is intentional — some archive nodes fail when Anvil tries to prefetch balance for the default Foundry accounts at historical blocks.</p>
+<h3 id="fund-any-address">Fund Any Address<a class="headerlink" href="#fund-any-address" title="Permanent link">&para;</a></h3>
+<p>Since <code>--auto-impersonate</code> is always enabled, you can use <strong>any</strong> address — you just need to give it balance first.</p>
+<p><strong>With <code>cast</code>:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Fund with 1000 ETH</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span>0xYourWalletAddress<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">1000</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Fund with 10000 ETH (for contract deployment)</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">  </span>0xDeployerAddress<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">10000</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div></p>
+<p><strong>With Python:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonRpcClient</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">JsonRpcClient</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:8545&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">client</span><span class="o">.</span><span class="n">set_balance</span><span class="p">(</span><span class="s2">&quot;0xYourWalletAddress&quot;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">1000</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span><span class="p">))</span>
+</code></pre></div></p>
+<p><strong>With <code>curl</code>:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:8545<span class="w"> </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="s1">    &quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="s1">    &quot;method&quot;:&quot;anvil_setBalance&quot;,</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="s1">    &quot;params&quot;:[&quot;0xYourWalletAddress&quot;, &quot;0x3635C9ADC5DEA00000&quot;]</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="s1">  }&#39;</span>
+</code></pre></div></p>
+<blockquote>
+<p><strong>💡 Tip:</strong> Create a shell script <code>fund.sh</code> that funds your test accounts:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nv">RPC</span><span class="o">=</span><span class="s2">&quot;http://127.0.0.1:8545&quot;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nv">ETH1000</span><span class="o">=</span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">1000</span><span class="w"> </span>ether<span class="k">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">for</span><span class="w"> </span>addr<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$addr</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$ETH1000</span><span class="s2">&quot;</span><span class="w"> </span>--rpc-url<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$RPC</span><span class="s2">&quot;</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="k">done</span>
+</code></pre></div>
+Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
+</blockquote>
+<h3 id="check-balances">Check Balances<a class="headerlink" href="#check-balances" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>cast<span class="w"> </span>balance<span class="w"> </span>0xYourWalletAddress<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>cast<span class="w"> </span>balance<span class="w"> </span>0xTargetContract<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div>
+<h3 id="use-auto-impersonation-no-private-keys-needed">Use Auto-Impersonation (No Private Keys Needed)<a class="headerlink" href="#use-auto-impersonation-no-private-keys-needed" title="Permanent link">&para;</a></h3>
+<p>With <code>--auto-impersonate</code>, you can send transactions from <strong>any</strong> address without knowing its private key:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Send from a contract owner address (no private key needed!)</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>cast<span class="w"> </span>send<span class="w"> </span>0xVulnerableContract<span class="w"> </span><span class="s2">&quot;approve(address,uint256)&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span>0xSpender<span class="w"> </span><span class="m">1000000</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span>--unlocked<span class="w"> </span>--from<span class="w"> </span>0xOwnerAddress<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div>
+<p>The <code>--unlocked</code> flag tells Anvil to skip signature verification because the sender is impersonated.</p>
+<h3 id="stop-impersonating">Stop Impersonating<a class="headerlink" href="#stop-impersonating" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_stopImpersonatingAccount<span class="w"> </span>0xOwnerAddress<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div>
+<hr />
+<h2 id="5-sending-transactions">5. Sending Transactions<a class="headerlink" href="#5-sending-transactions" title="Permanent link">&para;</a></h2>
+<h3 id="with-cast-send">With <code>cast send</code><a class="headerlink" href="#with-cast-send" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Simple ETH transfer</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>cast<span class="w"> </span>send<span class="w"> </span>0xRecipient<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span>--value<span class="w"> </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">1</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">  </span>--unlocked<span class="w"> </span>--from<span class="w"> </span>0xYourAddress<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="c1"># Contract call</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>cast<span class="w"> </span>send<span class="w"> </span>0xTokenContract<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">  </span><span class="s2">&quot;transfer(address,uint256)&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">  </span>0xRecipient<span class="w"> </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">100</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">  </span>--unlocked<span class="w"> </span>--from<span class="w"> </span>0xTokenOwner<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="c1"># With custom gas</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a>cast<span class="w"> </span>send<span class="w"> </span>0xContract<span class="w"> </span><span class="s2">&quot;exploit()&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">  </span>--gas-limit<span class="w"> </span><span class="m">500000</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">  </span>--unlocked<span class="w"> </span>--from<span class="w"> </span>0xAttacker<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div>
+<h3 id="with-python-crucibles-built-in-client">With Python (Crucible's built-in client)<a class="headerlink" href="#with-python-crucibles-built-in-client" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonRpcClient</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">web3</span><span class="w"> </span><span class="kn">import</span> <span class="n">Web3</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">JsonRpcClient</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:8545&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="c1"># Fund the sender first</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="n">client</span><span class="o">.</span><span class="n">set_balance</span><span class="p">(</span><span class="s2">&quot;0xSender&quot;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span><span class="p">))</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="c1"># Impersonate and send</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="n">client</span><span class="o">.</span><span class="n">impersonate_account</span><span class="p">(</span><span class="s2">&quot;0xSender&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="n">tx_hash</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">send_transaction</span><span class="p">({</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>    <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0xSender&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>    <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xRecipient&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>    <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">18</span><span class="p">),</span>  <span class="c1"># 1 ETH</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>    <span class="s2">&quot;gas&quot;</span><span class="p">:</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">21000</span><span class="p">),</span>
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>    <span class="s2">&quot;gasPrice&quot;</span><span class="p">:</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="p">})</span>
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tx hash: </span><span class="si">{</span><span class="n">tx_hash</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="with-forge-script">With <code>forge script</code><a class="headerlink" href="#with-forge-script" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>forge<span class="w"> </span>script<span class="w"> </span>DeployMyContract<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span>--unlocked<span class="w"> </span>--broadcast
+</code></pre></div>
+<blockquote>
+<p><strong>⚠️ Note:</strong> When using <code>forge script</code> against a Crucible fork, the deployer address (default: <code>0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266</code>) needs to be funded first with <code>anvil_setBalance</code> since Crucible uses <code>--accounts 0</code>.</p>
+</blockquote>
+<hr />
+<h2 id="6-calling-contracts-read-only">6. Calling Contracts (Read-Only)<a class="headerlink" href="#6-calling-contracts-read-only" title="Permanent link">&para;</a></h2>
+<h3 id="with-cast-call">With <code>cast call</code><a class="headerlink" href="#with-cast-call" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Query any contract state</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>cast<span class="w"> </span>call<span class="w"> </span>0xTokenContract<span class="w"> </span><span class="s2">&quot;totalSupply()&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>cast<span class="w"> </span>call<span class="w"> </span>0xTokenContract<span class="w"> </span><span class="s2">&quot;balanceOf(address)&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">  </span>0xSomeAddress<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="c1"># With block specification</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>cast<span class="w"> </span>call<span class="w"> </span>0xContract<span class="w"> </span><span class="s2">&quot;owner()&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">  </span>--block<span class="w"> </span><span class="m">12996693</span><span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div>
+<h3 id="with-python">With Python<a class="headerlink" href="#with-python" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonRpcClient</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">JsonRpcClient</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:8545&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="c1"># Raw eth_call</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;eth_call&quot;</span><span class="p">,</span> <span class="p">[{</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>    <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;0xTokenContract&quot;</span><span class="p">,</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;0x18160ddd&quot;</span><span class="p">,</span>  <span class="c1"># totalSupply() selector</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="p">},</span> <span class="s2">&quot;latest&quot;</span><span class="p">])</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="c1"># Higher-level helpers</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a><span class="n">balance</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_balance</span><span class="p">(</span><span class="s2">&quot;0xSomeAddress&quot;</span><span class="p">)</span>  <span class="c1"># returns int (wei)</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a><span class="n">code</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_code</span><span class="p">(</span><span class="s2">&quot;0xContract&quot;</span><span class="p">)</span>           <span class="c1"># returns hex bytecode</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a><span class="n">storage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_storage_at</span><span class="p">(</span><span class="s2">&quot;0xContract&quot;</span><span class="p">,</span> <span class="s2">&quot;0x0&quot;</span><span class="p">)</span>  <span class="c1"># slot 0</span>
+</code></pre></div>
+<hr />
+<h2 id="7-manipulating-chain-state">7. Manipulating Chain State<a class="headerlink" href="#7-manipulating-chain-state" title="Permanent link">&para;</a></h2>
+<h3 id="set-storage-slots">Set Storage Slots<a class="headerlink" href="#set-storage-slots" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># Directly write to a contract&#39;s storage</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setStorageAt<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span>0xContractAddress<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span>0xStorageSlotHex<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">  </span>0xNewValueHex<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div>
+<p>Python:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">client</span><span class="o">.</span><span class="n">set_storage_at</span><span class="p">(</span><span class="s2">&quot;0xContract&quot;</span><span class="p">,</span> <span class="s2">&quot;0x0&quot;</span><span class="p">,</span> <span class="s2">&quot;0xNewValue&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<h3 id="set-code">Set Code<a class="headerlink" href="#set-code" title="Permanent link">&para;</a></h3>
+<p>Replace a contract's bytecode at runtime (useful for testing upgrade patterns):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setCode<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span>0xContractAddress<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">  </span>0xNewBytecode<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">client</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s2">&quot;anvil_setCode&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;0xContractAddress&quot;</span><span class="p">,</span> <span class="s2">&quot;0xNewBytecode&quot;</span><span class="p">])</span>
+</code></pre></div>
+<h3 id="set-nonce">Set Nonce<a class="headerlink" href="#set-nonce" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setNonce<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">  </span>0xSomeAddress<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="w">  </span>0x10<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div>
+<h3 id="advance-time">Advance Time<a class="headerlink" href="#advance-time" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1"># Jump forward 1 day</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>cast<span class="w"> </span>rpc<span class="w"> </span>evm_increaseTime<span class="w"> </span><span class="m">86400</span><span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>cast<span class="w"> </span>rpc<span class="w"> </span>evm_mine<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="c1"># Or use Crucible&#39;s helper</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="s2">from crucible.rpc import JsonRpcClient</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="s2">c = JsonRpcClient(&#39;http://127.0.0.1:8545&#39;)</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="s2">c.advance_time(86400)  # advances time + mines a block</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="s2">&quot;</span>
+</code></pre></div>
+<h3 id="mine-blocks">Mine Blocks<a class="headerlink" href="#mine-blocks" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1"># Mine a single block</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>cast<span class="w"> </span>rpc<span class="w"> </span>evm_mine<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="c1"># Mine with specific timestamp</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>cast<span class="w"> </span>rpc<span class="w"> </span>evm_mine<span class="w"> </span><span class="k">$(</span>date<span class="w"> </span>+%s<span class="k">)</span><span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="c1"># Mine N blocks</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..10<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>cast<span class="w"> </span>rpc<span class="w"> </span>evm_mine<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545<span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre></div>
+<hr />
+<h2 id="8-contract-deployment">8. Contract Deployment<a class="headerlink" href="#8-contract-deployment" title="Permanent link">&para;</a></h2>
+<h3 id="using-forge-create">Using <code>forge create</code><a class="headerlink" href="#using-forge-create" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="c1"># Fund the deployer first</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">  </span>0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">  </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">100</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="c1"># Deploy</span>
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>forge<span class="w"> </span>create<span class="w"> </span>src/MyContract.sol:MyContract<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="w">  </span>--constructor-args<span class="w"> </span>arg1<span class="w"> </span>arg2<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="w">  </span>--unlocked<span class="w"> </span>--from<span class="w"> </span>0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div>
+<h3 id="using-forge-script">Using <code>forge script</code><a class="headerlink" href="#using-forge-script" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c1"># 1. Fund the default deployer</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="w">  </span>0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">  </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">100</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="c1"># 2. Deploy with forge script</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>forge<span class="w"> </span>script<span class="w"> </span>script/Deploy.s.sol:DeployScript<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="w">  </span>--unlocked<span class="w"> </span>--broadcast<span class="w"> </span>--slow
+</code></pre></div>
+<h3 id="using-python-crucible-sdk">Using Python (Crucible SDK)<a class="headerlink" href="#using-python-crucible-sdk" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonRpcClient</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="n">client</span> <span class="o">=</span> <span class="n">JsonRpcClient</span><span class="p">(</span><span class="s2">&quot;http://127.0.0.1:8545&quot;</span><span class="p">)</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="n">client</span><span class="o">.</span><span class="n">set_balance</span><span class="p">(</span><span class="s2">&quot;0xDeployer&quot;</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span><span class="p">))</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="n">client</span><span class="o">.</span><span class="n">impersonate_account</span><span class="p">(</span><span class="s2">&quot;0xDeployer&quot;</span><span class="p">)</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="c1"># Deploy by sending to null address with init code</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="n">tx_hash</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">send_transaction</span><span class="p">({</span>
+<a id="__codelineno-32-9" name="__codelineno-32-9" href="#__codelineno-32-9"></a>    <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;0xDeployer&quot;</span><span class="p">,</span>
+<a id="__codelineno-32-10" name="__codelineno-32-10" href="#__codelineno-32-10"></a>    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;0x&quot;</span> <span class="o">+</span> <span class="n">bytecode_hex</span><span class="p">,</span>  <span class="c1"># contract init code</span>
+<a id="__codelineno-32-11" name="__codelineno-32-11" href="#__codelineno-32-11"></a>    <span class="s2">&quot;gas&quot;</span><span class="p">:</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">2000000</span><span class="p">),</span>
+<a id="__codelineno-32-12" name="__codelineno-32-12" href="#__codelineno-32-12"></a>    <span class="s2">&quot;gasPrice&quot;</span><span class="p">:</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+<a id="__codelineno-32-13" name="__codelineno-32-13" href="#__codelineno-32-13"></a><span class="p">})</span>
+</code></pre></div>
+<hr />
+<h2 id="9-working-with-artifacts-free-instrumentation">9. Working With Artifacts (Free Instrumentation)<a class="headerlink" href="#9-working-with-artifacts-free-instrumentation" title="Permanent link">&para;</a></h2>
+<p>Even during ad-hoc manual testing, Crucible's instrumentation proxy captures everything automatically if you use <code>crucible setup</code> instead of <code>crucible fork</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>crucible<span class="w"> </span>setup<span class="w"> </span>--topology<span class="w"> </span>single<span class="w">   </span><span class="c1"># fork + bootstrap + instrumentation</span>
+</code></pre></div>
+<p>Now every transaction — whether sent via <code>cast</code>, <code>curl</code>, Python, or <code>forge script</code> — produces artifact streams:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="c1"># See captured events</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>cat<span class="w"> </span>logs/setup/bootstrap/events.jsonl<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="c1"># See gas used per transaction</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>cat<span class="w"> </span>logs/setup/bootstrap/gas_profile.jsonl
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="c1"># See storage changes</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>cat<span class="w"> </span>logs/setup/bootstrap/storage_diffs.jsonl
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a><span class="c1"># See balance changes</span>
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>cat<span class="w"> </span>logs/setup/bootstrap/balance_diffs.jsonl
+</code></pre></div>
+<p>Each JSONL line is structured and queryable:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c1"># Find all Transfer events</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>grep<span class="w"> </span><span class="s1">&#39;&quot;event_name&quot;:&quot;Transfer&quot;&#39;</span><span class="w"> </span>logs/setup/bootstrap/events.jsonl
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="c1"># Find storage changes for a specific contract</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>grep<span class="w"> </span><span class="s2">&quot;0xTargetContract&quot;</span><span class="w"> </span>logs/setup/bootstrap/storage_diffs.jsonl
+</code></pre></div>
+<p>To use the proxy URL instead of the raw Anvil URL — the proxy port is <strong>dynamically assigned</strong> and printed in the setup output:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="c1"># After crucible setup, the proxy URL is shown in the CLI output.</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="c1"># Example output: &quot;started instrumented proxy for ethereum on http://127.0.0.1:34567&quot;</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="c1"># Use that URL for all your cast calls to get automatic artifact capture:</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>cast<span class="w"> </span>call<span class="w"> </span>0xContract<span class="w"> </span><span class="s2">&quot;owner()&quot;</span><span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:34567
+</code></pre></div>
+<blockquote>
+<p><strong>Note:</strong> The proxy URL changes on every <code>crucible setup</code> since the OS assigns an available port. Always get the current URL from the setup output or <code>crucible status</code>. To find the proxy URL programmatically, check the chain's meta file in <code>states/*.meta.json</code> for the proxied <code>rpc_url</code> field.</p>
+</blockquote>
+<hr />
+<h2 id="10-advanced-operations">10. Advanced Operations<a class="headerlink" href="#10-advanced-operations" title="Permanent link">&para;</a></h2>
+<h3 id="cross-chain-testing-dual-fork">Cross-Chain Testing (Dual Fork)<a class="headerlink" href="#cross-chain-testing-dual-fork" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="c1"># Fork Ethereum + Polygon simultaneously</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>dual
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="c1"># Ethereum on :8545, Polygon on :8546</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>cast<span class="w"> </span>block-number<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>cast<span class="w"> </span>block-number<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8546
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="c1"># Fund addresses on both chains</span>
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span>0xAddr<span class="w"> </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">100</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span>0xAddr<span class="w"> </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">100</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8546
+</code></pre></div>
+<h3 id="interactive-jupyter-analysis">Interactive Jupyter Analysis<a class="headerlink" href="#interactive-jupyter-analysis" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="c1"># Launch Jupyter with Crucible analysis helpers</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>crucible<span class="w"> </span>notebook
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="c1"># In a notebook cell:</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>from<span class="w"> </span>crucible.analysis<span class="w"> </span>import<span class="w"> </span>load_run,<span class="w"> </span>list_runs
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="nv">runs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>list_runs<span class="o">()</span><span class="w">                     </span><span class="c1"># all experiment runs</span>
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="nv">events</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>load_run<span class="o">(</span>runs<span class="o">[</span><span class="m">0</span><span class="o">]</span>,<span class="w"> </span><span class="s2">&quot;events&quot;</span><span class="o">)</span><span class="w">   </span><span class="c1"># load events as DataFrame</span>
+</code></pre></div>
+<h3 id="record-and-replay-rpc-fixtures">Record and Replay RPC Fixtures<a class="headerlink" href="#record-and-replay-rpc-fixtures" title="Permanent link">&para;</a></h3>
+<p>Record all RPC traffic during a session for later replay:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c1"># Run with record mode</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/attack.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">  </span>--record<span class="w"> </span>tests/fixtures/my_session.jsonl
+</code></pre></div>
+<p>Then replay in CI without needing a live archive node:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.recording</span><span class="w"> </span><span class="kn">import</span> <span class="n">ReplayServer</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="n">server</span> <span class="o">=</span> <span class="n">ReplayServer</span><span class="p">(</span><span class="s2">&quot;tests/fixtures/my_session.jsonl&quot;</span><span class="p">)</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="n">server</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="c1"># Now ethereum RPC is served from the fixture, not a real node</span>
+</code></pre></div>
+<hr />
+<h2 id="11-cleaning-up">11. Cleaning Up<a class="headerlink" href="#11-cleaning-up" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c1"># Stop all chains</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>crucible<span class="w"> </span>clean<span class="w">         </span><span class="c1"># stops Anvil processes, removes meta files</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="c1"># Full cleanup — also remove fork cache and snapshots</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>crucible<span class="w"> </span>clean<span class="w"> </span>--all
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="c1"># Selective cleanup</span>
+<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a>crucible<span class="w"> </span>clean<span class="w"> </span>--cache<span class="w">         </span><span class="c1"># remove .fork_cache only</span>
+<a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a>crucible<span class="w"> </span>clean<span class="w"> </span>--checkpoints<span class="w">   </span><span class="c1"># remove checkpoints only</span>
+<a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a>crucible<span class="w"> </span>clean<span class="w"> </span>--states<span class="w">        </span><span class="c1"># remove non-baseline snapshots</span>
+<a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a>
+<a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a><span class="c1"># Remove old logs (respects saved/published tiers)</span>
+<a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a>crucible<span class="w"> </span>clean<span class="w"> </span>--logs
+<a id="__codelineno-41-14" name="__codelineno-41-14" href="#__codelineno-41-14"></a>crucible<span class="w"> </span>clean<span class="w"> </span>--logs-older-than<span class="w"> </span><span class="m">7</span>
+<a id="__codelineno-41-15" name="__codelineno-41-15" href="#__codelineno-41-15"></a>
+<a id="__codelineno-41-16" name="__codelineno-41-16" href="#__codelineno-41-16"></a><span class="c1"># Remove exported datasets (requires --confirm)</span>
+<a id="__codelineno-41-17" name="__codelineno-41-17" href="#__codelineno-41-17"></a>crucible<span class="w"> </span>clean<span class="w"> </span>--datasets<span class="w"> </span>--confirm
+</code></pre></div>
+<h3 id="fresh-start">Fresh Start<a class="headerlink" href="#fresh-start" title="Permanent link">&para;</a></h3>
+<p>If you want to completely reset the workspace:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>crucible<span class="w"> </span>clean<span class="w"> </span>--all<span class="w"> </span>--logs<span class="w"> </span>--datasets<span class="w"> </span>--confirm
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>crucible<span class="w"> </span>init<span class="w">  </span><span class="c1"># recreate runtime directories</span>
+</code></pre></div>
+<hr />
+<h2 id="12-common-workflows">12. Common Workflows<a class="headerlink" href="#12-common-workflows" title="Permanent link">&para;</a></h2>
+<h3 id="workflow-contract-development-debugging">Workflow: Contract Development &amp; Debugging<a class="headerlink" href="#workflow-contract-development-debugging" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="c1"># 1. Fork a clean chain</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>single
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="c1"># 2. Fund the default Forge deployer</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="w">  </span>0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="w">  </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">10000</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a>
+<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a><span class="c1"># 3. Deploy and test iteratively</span>
+<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a>forge<span class="w"> </span>script<span class="w"> </span>Deploy<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545<span class="w"> </span>--unlocked<span class="w"> </span>--broadcast
+<a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a>forge<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--fork-url<span class="w"> </span>http://127.0.0.1:8545<span class="w"> </span>--match-test<span class="w"> </span>testFeature
+<a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a>
+<a id="__codelineno-43-14" name="__codelineno-43-14" href="#__codelineno-43-14"></a><span class="c1"># 4. Quick state check</span>
+<a id="__codelineno-43-15" name="__codelineno-43-15" href="#__codelineno-43-15"></a>cast<span class="w"> </span>call<span class="w"> </span>0xDeployed<span class="w"> </span><span class="s2">&quot;balanceOf(address)&quot;</span><span class="w"> </span>0xAddr<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-43-16" name="__codelineno-43-16" href="#__codelineno-43-16"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setStorageAt<span class="w"> </span>0xDeployed<span class="w"> </span>0xSlot<span class="w"> </span>0xValue<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-43-17" name="__codelineno-43-17" href="#__codelineno-43-17"></a>
+<a id="__codelineno-43-18" name="__codelineno-43-18" href="#__codelineno-43-18"></a><span class="c1"># 5. Snapshot before risky experiments</span>
+<a id="__codelineno-43-19" name="__codelineno-43-19" href="#__codelineno-43-19"></a>crucible<span class="w"> </span>snapshot<span class="w"> </span>create<span class="w"> </span>before_hack
+<a id="__codelineno-43-20" name="__codelineno-43-20" href="#__codelineno-43-20"></a>
+<a id="__codelineno-43-21" name="__codelineno-43-21" href="#__codelineno-43-21"></a><span class="c1"># 6. If something breaks — restore instantly</span>
+<a id="__codelineno-43-22" name="__codelineno-43-22" href="#__codelineno-43-22"></a>crucible<span class="w"> </span>snapshot<span class="w"> </span>restore<span class="w"> </span>before_hack<span class="w"> </span>--chain<span class="w"> </span>ethereum
+</code></pre></div>
+<h3 id="workflow-historical-state-exploration">Workflow: Historical State Exploration<a class="headerlink" href="#workflow-historical-state-exploration" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="c1"># 1. Fork at a specific block</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>single
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="c1"># 2. Check what state looked like at that block</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>cast<span class="w"> </span>balance<span class="w"> </span>0xOldContract<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>cast<span class="w"> </span>call<span class="w"> </span>0xOldContract<span class="w"> </span><span class="s2">&quot;owner()&quot;</span><span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="c1"># 3. Try to exploit a known vulnerability</span>
+<a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a>cast<span class="w"> </span>send<span class="w"> </span>0xOldContract<span class="w"> </span><span class="s2">&quot;vulnerableFunction(bytes)&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="w">  </span><span class="k">$(</span>cast<span class="w"> </span>calldata<span class="w"> </span><span class="s2">&quot;exploit()&quot;</span><span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="w">  </span>--unlocked<span class="w"> </span>--from<span class="w"> </span>0xAttacker<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-44-12" name="__codelineno-44-12" href="#__codelineno-44-12"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-44-13" name="__codelineno-44-13" href="#__codelineno-44-13"></a>
+<a id="__codelineno-44-14" name="__codelineno-44-14" href="#__codelineno-44-14"></a><span class="c1"># 4. Did it work? Check storage</span>
+<a id="__codelineno-44-15" name="__codelineno-44-15" href="#__codelineno-44-15"></a>cast<span class="w"> </span>storage<span class="w"> </span>0xOldContract<span class="w"> </span>0xKeySlot<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-44-16" name="__codelineno-44-16" href="#__codelineno-44-16"></a>
+<a id="__codelineno-44-17" name="__codelineno-44-17" href="#__codelineno-44-17"></a><span class="c1"># 5. Reset and try a different approach</span>
+<a id="__codelineno-44-18" name="__codelineno-44-18" href="#__codelineno-44-18"></a>crucible<span class="w"> </span>reset<span class="w"> </span>--scenario<span class="w"> </span>single<span class="w"> </span>--mode<span class="w"> </span>soft
+</code></pre></div>
+<h3 id="workflow-gas-optimization-testing">Workflow: Gas Optimization Testing<a class="headerlink" href="#workflow-gas-optimization-testing" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1"># 1. Fork and setup instrumentation</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>crucible<span class="w"> </span>setup<span class="w"> </span>--topology<span class="w"> </span>single
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="c1"># 2. Fund deployer</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span>0xDeployer<span class="w"> </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">100</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a><span class="c1"># 3. Deploy optimized contract</span>
+<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a>forge<span class="w"> </span>create<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:&lt;proxy-port&gt;<span class="w"> </span><span class="se">\ </span><span class="w"> </span><span class="c1"># use proxy URL from crucible setup output</span>
+<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a><span class="w">  </span>--unlocked<span class="w"> </span>--from<span class="w"> </span>0xDeployer<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a><span class="w">  </span>src/Optimized.sol:Optimized
+<a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a>
+<a id="__codelineno-45-13" name="__codelineno-45-13" href="#__codelineno-45-13"></a><span class="c1"># 4. Check gas profile</span>
+<a id="__codelineno-45-14" name="__codelineno-45-14" href="#__codelineno-45-14"></a>grep<span class="w"> </span><span class="s2">&quot;Deploy&quot;</span><span class="w"> </span>logs/setup/bootstrap/gas_profile.jsonl
+<a id="__codelineno-45-15" name="__codelineno-45-15" href="#__codelineno-45-15"></a>
+<a id="__codelineno-45-16" name="__codelineno-45-16" href="#__codelineno-45-16"></a><span class="c1"># 5. Snapshot, deploy old version, compare</span>
+<a id="__codelineno-45-17" name="__codelineno-45-17" href="#__codelineno-45-17"></a>crucible<span class="w"> </span>snapshot<span class="w"> </span>create<span class="w"> </span>optimized
+<a id="__codelineno-45-18" name="__codelineno-45-18" href="#__codelineno-45-18"></a><span class="c1"># ... deploy old version ...</span>
+<a id="__codelineno-45-19" name="__codelineno-45-19" href="#__codelineno-45-19"></a>grep<span class="w"> </span><span class="s2">&quot;Deploy&quot;</span><span class="w"> </span>logs/setup/bootstrap/gas_profile.jsonl
+<a id="__codelineno-45-20" name="__codelineno-45-20" href="#__codelineno-45-20"></a>crucible<span class="w"> </span>snapshot<span class="w"> </span>restore<span class="w"> </span>optimized<span class="w"> </span>--chain<span class="w"> </span>ethereum
+</code></pre></div>
+<hr />
+<h2 id="13-troubleshooting-common-issues">13. Troubleshooting Common Issues<a class="headerlink" href="#13-troubleshooting-common-issues" title="Permanent link">&para;</a></h2>
+<h3 id="address-has-no-balance">Address Has No Balance<a class="headerlink" href="#address-has-no-balance" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> <code>cast send</code> fails with "insufficient funds" or "sender doesn't have enough funds".</p>
+<p><strong>Fix:</strong> Fund the address before using it:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span>0xYourAddress<span class="w"> </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">100</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div></p>
+<h3 id="no-matching-key-when-using-unlocked">"No matching key" When Using <code>--unlocked</code><a class="headerlink" href="#no-matching-key-when-using-unlocked" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> <code>cast send --unlocked</code> fails because the account isn't impersonated.</p>
+<p><strong>Fix:</strong> <code>--auto-impersonate</code> is enabled by default in Crucible, but <code>cast</code> may need the <code>--from</code> flag explicitly:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>cast<span class="w"> </span>send<span class="w"> </span>0xContract<span class="w"> </span><span class="s2">&quot;method()&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">  </span>--unlocked<span class="w"> </span>--from<span class="w"> </span>0xYourAddress<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div></p>
+<h3 id="forge-script-default-deployer-not-working">Forge Script Default Deployer Not Working<a class="headerlink" href="#forge-script-default-deployer-not-working" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> <code>forge script</code> fails with "insufficient funds" for the default deployer.</p>
+<p><strong>Fix:</strong> The default Foundry deployer (<code>0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266</code>) is not pre-funded in Crucible (because of <code>--accounts 0</code>). Fund it:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="w">  </span>0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="w">  </span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">10000</span><span class="w"> </span>ether<span class="k">)</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="w">  </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+</code></pre></div></p>
+<h3 id="port-already-in-use">Port Already in Use<a class="headerlink" href="#port-already-in-use" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> Can't fork because port 8545 is taken.</p>
+<p><strong>Fix:</strong> Check what's running and clean up:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>crucible<span class="w"> </span>clean<span class="w">   </span><span class="c1"># stop all Crucible-managed chains</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="c1"># Or manually: kill the old Anvil process</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>lsof<span class="w"> </span>-i<span class="w"> </span>:8545
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="nb">kill</span><span class="w"> </span>&lt;pid&gt;
+</code></pre></div></p>
+<h3 id="cold-cache-fork-too-slow">Cold-Cache Fork Too Slow<a class="headerlink" href="#cold-cache-fork-too-slow" title="Permanent link">&para;</a></h3>
+<p><strong>Problem:</strong> Forking Polygon takes 3-5 minutes.</p>
+<p><strong>Fix:</strong> Increase timeout or use a faster archive RPC:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>dual<span class="w"> </span>--fork-timeout<span class="w"> </span><span class="m">600</span>
+</code></pre></div></p>
+<p>The second fork will use the cache and be much faster (&lt;30s).</p>
+<hr />
+<h2 id="14-all-available-anvil-cheatcodes">14. All Available Anvil Cheatcodes<a class="headerlink" href="#14-all-available-anvil-cheatcodes" title="Permanent link">&para;</a></h2>
+<p>These are all forwarded through Crucible's instrumentation proxy:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Purpose</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>anvil_setBalance</code></td>
+<td>Set ETH balance</td>
+<td><code>cast rpc anvil_setBalance 0xAddr 0xAmount</code></td>
+</tr>
+<tr>
+<td><code>anvil_impersonateAccount</code></td>
+<td>Impersonate any address</td>
+<td><code>anvil_impersonateAccount(addr)</code> (auto-enabled)</td>
+</tr>
+<tr>
+<td><code>anvil_stopImpersonatingAccount</code></td>
+<td>Stop impersonating</td>
+<td><code>anvil_stopImpersonatingAccount(addr)</code></td>
+</tr>
+<tr>
+<td><code>anvil_setCode</code></td>
+<td>Replace contract bytecode</td>
+<td><code>anvil_setCode(addr, bytecode)</code></td>
+</tr>
+<tr>
+<td><code>anvil_setStorageAt</code></td>
+<td>Write storage slot</td>
+<td><code>anvil_setStorageAt(addr, slot, value)</code></td>
+</tr>
+<tr>
+<td><code>anvil_setNonce</code></td>
+<td>Set account nonce</td>
+<td><code>anvil_setNonce(addr, nonce)</code></td>
+</tr>
+<tr>
+<td><code>anvil_mine</code></td>
+<td>Mine blocks</td>
+<td><code>anvil_mine(blocks)</code></td>
+</tr>
+<tr>
+<td><code>anvil_setCoinbase</code></td>
+<td>Set coinbase address</td>
+<td><code>anvil_setCoinbase(addr)</code></td>
+</tr>
+<tr>
+<td><code>anvil_setChainId</code></td>
+<td>Set chain ID</td>
+<td><code>anvil_setChainId(id)</code></td>
+</tr>
+<tr>
+<td><code>anvil_dumpState</code></td>
+<td>Export full EVM state</td>
+<td><code>dump_state()</code> → JSON</td>
+</tr>
+<tr>
+<td><code>anvil_loadState</code></td>
+<td>Import full EVM state</td>
+<td><code>load_state(json)</code></td>
+</tr>
+<tr>
+<td><code>evm_increaseTime</code></td>
+<td>Jump forward</td>
+<td><code>increaseTime(seconds)</code></td>
+</tr>
+<tr>
+<td><code>evm_setNextBlockTimestamp</code></td>
+<td>Set next block time</td>
+<td><code>setNextBlockTimestamp(timestamp)</code></td>
+</tr>
+<tr>
+<td><code>evm_snapshot</code></td>
+<td>Create snapshot ID</td>
+<td><code>snapshot()</code> → id</td>
+</tr>
+<tr>
+<td><code>evm_revert</code></td>
+<td>Revert to snapshot</td>
+<td><code>revert(id)</code></td>
+</tr>
+</tbody>
+</table>
+<p>All of these work through:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="c1"># cast (direct to Anvil port — all methods work)</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>cast<span class="w"> </span>rpc<span class="w"> </span>&lt;method&gt;<span class="w"> </span>&lt;params&gt;<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="c1"># Python (direct to Anvil port — all methods work)</span>
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>client.call<span class="o">(</span><span class="s2">&quot;&lt;method&gt;&quot;</span>,<span class="w"> </span><span class="o">[</span>params<span class="o">])</span>
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="c1"># curl (direct to Anvil port — all methods work)</span>
+<a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:8545<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;method&quot;:&quot;&lt;method&gt;&quot;,&quot;params&quot;:[...]}&#39;</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Proxy vs Direct:</strong> When using the instrumentation proxy URL, only a subset of Anvil methods are forwarded (see the proxy allowlist in <a href="../INSTRUMENTATION_ARCHITECTURE/">Instrumentation Architecture</a>). For unrestricted access to all cheatcodes, connect to the raw Anvil port directly (<code>http://127.0.0.1:8545</code>).</p>
+</blockquote>
+<hr />
+<h2 id="15-rpc-endpoints-reference">15. RPC Endpoints Reference<a class="headerlink" href="#15-rpc-endpoints-reference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Chain</th>
+<th>Default Port</th>
+<th>RPC URL</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ethereum</td>
+<td>8545</td>
+<td><code>http://127.0.0.1:8545</code></td>
+<td>Default for <code>--topology single</code></td>
+</tr>
+<tr>
+<td>Polygon</td>
+<td>8546</td>
+<td><code>http://127.0.0.1:8546</code></td>
+<td>For <code>--topology dual</code></td>
+</tr>
+<tr>
+<td>BSC</td>
+<td>8547</td>
+<td><code>http://127.0.0.1:8547</code></td>
+<td>For custom topologies</td>
+</tr>
+<tr>
+<td>Harmony</td>
+<td>8548</td>
+<td><code>http://127.0.0.1:8548</code></td>
+<td>For custom topologies</td>
+</tr>
+<tr>
+<td>Proxy (Ethereum)</td>
+<td>Dynamic</td>
+<td><code>http://127.0.0.1:&lt;dynamic&gt;</code></td>
+<td>OS-assigned, printed by <code>crucible setup</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Doc</th>
+<th>What It Covers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../internal/TECHNICAL_OVERVIEW/"><code>Technical Overview</code></a></td>
+<td>System architecture, core concepts, design principles</td>
+</tr>
+<tr>
+<td><a href="../USER_GUIDE/"><code>User Guide</code></a></td>
+<td>Full setup, Docker vs local, environment config</td>
+</tr>
+<tr>
+<td><a href="../CLI_REFERENCE/"><code>CLI Reference</code></a></td>
+<td>All CLI commands and flags</td>
+</tr>
+<tr>
+<td><a href="../PLUGIN_DEVELOPMENT/"><code>Plugin Development Guide</code></a></td>
+<td>Writing attack, bridge, and agent plugins</td>
+</tr>
+<tr>
+<td><a href="../TROUBLESHOOTING/"><code>Troubleshooting Guide</code></a></td>
+<td>Common errors and fixes</td>
+</tr>
+<tr>
+<td><a href="../FIDELITY_GUIDE/"><code>Fidelity Guide</code></a></td>
+<td>Fidelity levels and enforcement</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/crucible-bridge/crucible" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
