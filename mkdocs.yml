@@ -1,0 +1,140 @@
+# Crucible Internal Documentation
+# Built with MkDocs + Material
+# Local: mkdocs serve
+# Deploy: mkdocs gh-deploy
+
+site_name: Crucible Docs
+site_description: CLI-first EVM bridge security research testbed — deterministic exploit reproduction, structured artifacts, and plug-and-play attack packs.
+site_author: Crucible Research Team
+repo_url: https://github.com/crucible-bridge/crucible
+repo_name: crucible
+edit_uri: ""
+docs_dir: '../docs'
+
+theme:
+  name: material
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - scheme: default
+      primary: white
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+  icon:
+    logo: material/shield-lock-outline
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/crucible-bridge/crucible
+  generator: false
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+  - pymdownx.keys
+  - tables
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Home: index.md
+  
+  - Getting Started:
+    - User Guide: USER_GUIDE.md
+    - 10-Minute Tutorial: TUTORIAL.md
+    
+  - How-To Guides:
+    - Deploying Contracts: CUSTOM_CONTRACT_TESTING.md
+    - Running LLM Agents: RUNNING_LLM_AGENTS.md
+    - Authoring Plugins: PLUGIN_DEVELOPMENT.md
+    - Authoring Scenarios: SCENARIO_AUTHORING.md
+    - Writing Attack Packs: ATTACK_PACK_GUIDE.md
+    
+  - Core Concepts (Explanation):
+    - System Architecture: ARCHITECTURE.md
+    - Instrumentation Architecture: INSTRUMENTATION_ARCHITECTURE.md
+    - Scope & Capabilities: CAPABILITIES.md
+    - Feature Guide: FEATURE_GUIDE.md
+    - Research Workflow: RESEARCH_WORKFLOW.md
+    - Researcher Observability: RESEARCHER_OBSERVABILITY.md
+    - Implementation Spec: design/crucible_implementation_spec.md
+    - Research Overview: design/crucible_research_overview.md
+    
+  - Reference:
+    - CLI Reference: CLI_REFERENCE.md
+    - Benchmarks: BENCHMARKS.md
+    - Reproducibility: REPRODUCIBILITY.md
+    - Analysis Notebooks: ANALYSIS_NOTEBOOKS.md
+    - Dashboard Guide: DASHBOARD_GUIDE.md
+    - Deployment & Setup: DEPLOYMENT.md
+    - Lab Deployment: LAB_DEPLOYMENT.md
+    - RPC Provider Guide: RPC_PROVIDER_GUIDE.md
+    - Maintenance: MAINTENANCE.md
+    - Troubleshooting: TROUBLESHOOTING.md
+    - Operations Runbook: OPERATIONS_RUNBOOK.md
+    - Simple Operations: SIMPLE_OPERATIONS.md
+    - Fidelity Guide: FIDELITY_GUIDE.md
+    - Report: REPORT.md
+    - Reproduction Scope: REPRODUCTION_SCOPE.md
+    - Testbed Scope Guide: TESTBED_SCOPE_GUIDE.md
+    - Release Checklist: RELEASE_CHECKLIST.md
+    
+  - Publication & Case Studies:
+    - AE Walkthrough: AE_WALKTHROUGH.md
+    - Zenodo Archive Guide: ZENODO_ARCHIVE_GUIDE.md
+    - Nomad Replica Fraud: case_studies/nomad_replica_fraud.md
+    - Wormhole Guardian Bypass: case_studies/wormhole_guardian_bypass.md
+    - Poly Network Privilege Escalation: case_studies/poly_network_privkey.md
+    - Horizon Multisig Drain: case_studies/horizon_multisig_drain.md
+    - BNB Token Hub Proof Bypass: case_studies/bnb_token_hub_proof.md
+    - Multichain MPC Compromise: case_studies/multichain_router_permit.md
