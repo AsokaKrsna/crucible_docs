@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../INSTRUMENTATION_ARCHITECTURE/">
+        <link rel="prev" href="../FEATURE_GUIDE/">
       
       
-        <link rel="next" href="../FEATURE_GUIDE/">
+        <link rel="next" href="../RESEARCH_WORKFLOW/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Scope & Capabilities - Crucible Docs</title>
+        <title>Bridge Limitations - Crucible Docs</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#crucible-testbed-capabilities-limitations" class="md-skip">
+        <a href="#bridge-plugin-system-current-coverage-limitations" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Scope & Capabilities
+              Bridge Limitations
             
           </span>
         </div>
@@ -925,37 +925,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scope & Capabilities
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../CAPABILITIES/" class="md-nav__link">
         
   
   
@@ -971,430 +944,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#quick-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-the-testbed-can-do" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What The Testbed CAN Do
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="What The Testbed CAN Do">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-reproduce-5-historical-bridge-exploits-at-l2-fork-state" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Reproduce 5 Historical Bridge Exploits at L2 (Fork-State)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-run-l4-multi-chain-bridge-demonstrations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Run L4 Multi-Chain Bridge Demonstrations
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-deploy-bridge-contracts-to-forked-chains" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Deploy Bridge Contracts to Forked Chains
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-run-llm-driven-agent-experiments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Run LLM-Driven Agent Experiments
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-produce-verifiable-deterministic-artifacts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Produce Verifiable, Deterministic Artifacts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-verify-artifact-integrity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Verify Artifact Integrity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-run-with-or-without-docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Run With or Without Docker
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-the-testbed-cannot-do" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What The Testbed CANNOT Do
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="What The Testbed CANNOT Do">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-reproduce-non-evm-attack-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Reproduce Non-EVM Attack Components
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-reproduce-infrastructure-compromises" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Reproduce Infrastructure Compromises
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-serve-full-archive-state-for-polygonbsc-at-old-blocks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Serve Full Archive State for Polygon/BSC at Old Blocks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-run-l4-experiments-without-no-fidelity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Run L4 Experiments Without --no-fidelity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-guarantee-bit-identical-cross-platform-results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Guarantee Bit-Identical Cross-Platform Results
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#known-issues-workarounds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Known Issues &amp; Workarounds
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#artifact-protection-june-2026" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Artifact Protection (June 2026)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Artifact Protection (June 2026)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#layer-1-clean-all-never-touches-artifacts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Layer 1: clean --all Never Touches Artifacts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#layer-2-explicit-flags-for-artifact-cleanup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Layer 2: Explicit Flags for Artifact Cleanup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#layer-3-publish-command-adds-protected-marker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Layer 3: Publish Command Adds .protected Marker
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#layer-4-docker-persistence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Layer 4: Docker Persistence
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#layer-5-export-idempotency" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Layer 5: Export Idempotency
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#known-issues-workarounds_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Known Issues &amp; Workarounds
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#whats-been-fixed-june-2026" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What's Been Fixed (June 2026)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="What&#39;s Been Fixed (June 2026)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#framework-4-bugs-fixed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Framework (4 bugs fixed)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bridge-plugins-3-bugs-fixed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bridge Plugins (3 bugs fixed)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cli-1-feature-added" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI (1 feature added)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#documentation-6-docs-createdupdated" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation (6 docs created/updated)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#determinism-reproducibility-verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Determinism &amp; Reproducibility Verification
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Determinism &amp; Reproducibility Verification">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#determinism-checks-run-twice-diff" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Determinism Checks (Run Twice + Diff)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cross-provider-verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-Provider Verification
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#export-bundles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Export Bundles
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recommended-next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended Next Steps
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1432,10 +981,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge Limitations
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1451,6 +1027,347 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Executive Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-what-exists-the-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. What Exists (The Architecture)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. What Exists (The Architecture)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-bridgeplugin-abc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 BridgePlugin ABC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-bridge-lifecycle-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Bridge Lifecycle Wiring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-scenario-engine-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Scenario Engine Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-cross-chain-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Cross-Chain Observability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-topology-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Topology Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-evidence-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Evidence Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-whats-still-missing-remaining-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. What's Still Missing (Remaining Gaps)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. What&#39;s Still Missing (Remaining Gaps)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-relayer-timing-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Relayer Timing Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-l4-fidelity-enforcement-is-structural" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 L4 Fidelity Enforcement Is Structural
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-solidity-contracts-are-simplified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Solidity Contracts Are Simplified
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-no-bridge-protocol-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 No Bridge Protocol Templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-researcher-use-case-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Researcher Use Case Coverage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Researcher Use Case Coverage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ok-covered-by-current-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        [ok] Covered By Current Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partially-covered-architecture-exists-limited-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partially Covered (Architecture Exists, Limited Implementation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not-covered-architecture-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Not Covered (Architecture Gap)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-phase-3-behavioral-assertions-for-l4-2-3-days" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Phase 3: Behavioral Assertions for L4 (2-3 days)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-total-remaining-investment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Total Remaining Investment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-how-researchers-can-use-the-bridge-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. How Researchers Can Use The Bridge Plugins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. How Researchers Can Use The Bridge Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-an-attack-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From An Attack Plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#from-a-scenario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From A Scenario
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate-the-bridge-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validate The Bridge Plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-cross-chain-simulation-without-bridge-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Cross-Chain Simulation (Without Bridge Plugin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2474,10 +2391,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-summary" class="md-nav__link">
+  <a href="#1-executive-summary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Summary
+        1. Executive Summary
       
     </span>
   </a>
@@ -2485,22 +2402,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-the-testbed-can-do" class="md-nav__link">
+  <a href="#2-what-exists-the-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What The Testbed CAN Do
+        2. What Exists (The Architecture)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What The Testbed CAN Do">
+    <nav class="md-nav" aria-label="2. What Exists (The Architecture)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-reproduce-5-historical-bridge-exploits-at-l2-fork-state" class="md-nav__link">
+  <a href="#21-bridgeplugin-abc" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Reproduce 5 Historical Bridge Exploits at L2 (Fork-State)
+        2.1 BridgePlugin ABC
       
     </span>
   </a>
@@ -2508,10 +2425,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-run-l4-multi-chain-bridge-demonstrations" class="md-nav__link">
+  <a href="#22-bridge-lifecycle-wiring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Run L4 Multi-Chain Bridge Demonstrations
+        2.2 Bridge Lifecycle Wiring
       
     </span>
   </a>
@@ -2519,10 +2436,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-deploy-bridge-contracts-to-forked-chains" class="md-nav__link">
+  <a href="#23-scenario-engine-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Deploy Bridge Contracts to Forked Chains
+        2.3 Scenario Engine Integration
       
     </span>
   </a>
@@ -2530,10 +2447,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-run-llm-driven-agent-experiments" class="md-nav__link">
+  <a href="#24-cross-chain-observability" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Run LLM-Driven Agent Experiments
+        2.4 Cross-Chain Observability
       
     </span>
   </a>
@@ -2541,10 +2458,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-produce-verifiable-deterministic-artifacts" class="md-nav__link">
+  <a href="#25-topology-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Produce Verifiable, Deterministic Artifacts
+        2.5 Topology Configuration
       
     </span>
   </a>
@@ -2552,21 +2469,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-verify-artifact-integrity" class="md-nav__link">
+  <a href="#26-evidence-validation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Verify Artifact Integrity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#7-run-with-or-without-docker" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Run With or Without Docker
+        2.6 Evidence Validation
       
     </span>
   </a>
@@ -2579,22 +2485,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-the-testbed-cannot-do" class="md-nav__link">
+  <a href="#3-whats-still-missing-remaining-gaps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What The Testbed CANNOT Do
+        3. What's Still Missing (Remaining Gaps)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What The Testbed CANNOT Do">
+    <nav class="md-nav" aria-label="3. What&#39;s Still Missing (Remaining Gaps)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-reproduce-non-evm-attack-components" class="md-nav__link">
+  <a href="#31-relayer-timing-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Reproduce Non-EVM Attack Components
+        3.1 Relayer Timing Model
       
     </span>
   </a>
@@ -2602,10 +2508,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-reproduce-infrastructure-compromises" class="md-nav__link">
+  <a href="#32-l4-fidelity-enforcement-is-structural" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Reproduce Infrastructure Compromises
+        3.2 L4 Fidelity Enforcement Is Structural
       
     </span>
   </a>
@@ -2613,10 +2519,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-serve-full-archive-state-for-polygonbsc-at-old-blocks" class="md-nav__link">
+  <a href="#33-solidity-contracts-are-simplified" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Serve Full Archive State for Polygon/BSC at Old Blocks
+        3.3 Solidity Contracts Are Simplified
       
     </span>
   </a>
@@ -2624,21 +2530,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-run-l4-experiments-without-no-fidelity" class="md-nav__link">
+  <a href="#34-no-bridge-protocol-templates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Run L4 Experiments Without --no-fidelity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-guarantee-bit-identical-cross-platform-results" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Guarantee Bit-Identical Cross-Platform Results
+        3.4 No Bridge Protocol Templates
       
     </span>
   </a>
@@ -2651,33 +2546,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#known-issues-workarounds" class="md-nav__link">
+  <a href="#4-researcher-use-case-coverage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Known Issues &amp; Workarounds
+        4. Researcher Use Case Coverage
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#artifact-protection-june-2026" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Artifact Protection (June 2026)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Artifact Protection (June 2026)">
+    <nav class="md-nav" aria-label="4. Researcher Use Case Coverage">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#layer-1-clean-all-never-touches-artifacts" class="md-nav__link">
+  <a href="#ok-covered-by-current-implementation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Layer 1: clean --all Never Touches Artifacts
+        [ok] Covered By Current Implementation
       
     </span>
   </a>
@@ -2685,10 +2569,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#layer-2-explicit-flags-for-artifact-cleanup" class="md-nav__link">
+  <a href="#partially-covered-architecture-exists-limited-implementation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Layer 2: Explicit Flags for Artifact Cleanup
+        Partially Covered (Architecture Exists, Limited Implementation)
       
     </span>
   </a>
@@ -2696,10 +2580,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#layer-3-publish-command-adds-protected-marker" class="md-nav__link">
+  <a href="#not-covered-architecture-gap" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Layer 3: Publish Command Adds .protected Marker
+        Not Covered (Architecture Gap)
       
     </span>
   </a>
@@ -2707,10 +2591,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#layer-4-docker-persistence" class="md-nav__link">
+  <a href="#53-phase-3-behavioral-assertions-for-l4-2-3-days" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Layer 4: Docker Persistence
+        5.3 Phase 3: Behavioral Assertions for L4 (2-3 days)
       
     </span>
   </a>
@@ -2718,10 +2602,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#layer-5-export-idempotency" class="md-nav__link">
+  <a href="#54-total-remaining-investment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Layer 5: Export Idempotency
+        5.4 Total Remaining Investment
       
     </span>
   </a>
@@ -2734,33 +2618,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#known-issues-workarounds_1" class="md-nav__link">
+  <a href="#5-how-researchers-can-use-the-bridge-plugins" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Known Issues &amp; Workarounds
+        5. How Researchers Can Use The Bridge Plugins
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#whats-been-fixed-june-2026" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What's Been Fixed (June 2026)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="What&#39;s Been Fixed (June 2026)">
+    <nav class="md-nav" aria-label="5. How Researchers Can Use The Bridge Plugins">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#framework-4-bugs-fixed" class="md-nav__link">
+  <a href="#quick-start" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Framework (4 bugs fixed)
+        Quick Start
       
     </span>
   </a>
@@ -2768,10 +2641,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bridge-plugins-3-bugs-fixed" class="md-nav__link">
+  <a href="#from-an-attack-plugin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Bridge Plugins (3 bugs fixed)
+        From An Attack Plugin
       
     </span>
   </a>
@@ -2779,10 +2652,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cli-1-feature-added" class="md-nav__link">
+  <a href="#from-a-scenario" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CLI (1 feature added)
+        From A Scenario
       
     </span>
   </a>
@@ -2790,10 +2663,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#documentation-6-docs-createdupdated" class="md-nav__link">
+  <a href="#validate-the-bridge-plugin" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Documentation (6 docs created/updated)
+        Validate The Bridge Plugin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-cross-chain-simulation-without-bridge-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual Cross-Chain Simulation (Without Bridge Plugin)
       
     </span>
   </a>
@@ -2806,60 +2690,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#determinism-reproducibility-verification" class="md-nav__link">
+  <a href="#6-summary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Determinism &amp; Reproducibility Verification
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Determinism &amp; Reproducibility Verification">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#determinism-checks-run-twice-diff" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Determinism Checks (Run Twice + Diff)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cross-provider-verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cross-Provider Verification
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#export-bundles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Export Bundles
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recommended-next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended Next Steps
+        6. Summary
       
     </span>
   </a>
@@ -2894,646 +2728,478 @@
 
 
 
-<h1 id="crucible-testbed-capabilities-limitations">Crucible Testbed — Capabilities &amp; Limitations<a class="headerlink" href="#crucible-testbed-capabilities-limitations" title="Permanent link">&para;</a></h1>
+<h1 id="bridge-plugin-system-current-coverage-limitations">Bridge Plugin System — Current Coverage &amp; Limitations<a class="headerlink" href="#bridge-plugin-system-current-coverage-limitations" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>Purpose:</strong> A clear, honest assessment of what the Crucible testbed can and cannot do. This document helps researchers, reviewers, and users understand the boundaries of the system before investing time in it.</p>
+<p><strong>Date:</strong> June 2026 (Updated)
+<strong>Audience:</strong> Researchers, contributors, and reviewers evaluating Crucible's bridge experimentation capabilities.
+<strong>Purpose:</strong> Document Crucible's bridge protocol simulation capabilities — what's covered by the 3 implemented bridge plugins and what are the known limitations.</p>
 </blockquote>
 <hr />
-<h2 id="quick-summary">Quick Summary<a class="headerlink" href="#quick-summary" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Dimension</th>
-<th>Status</th>
-<th>Detail</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Benchmark attacks</strong></td>
-<td>✅ 5 of 6 pass</td>
-<td>All at L2 fork-state fidelity</td>
-</tr>
-<tr>
-<td><strong>L4 bridge demos</strong></td>
-<td>✅ 2 of 2 pass</td>
-<td>nomad_bridge_l4, demo_agent (with --no-fidelity)</td>
-</tr>
-<tr>
-<td><strong>Version</strong></td>
-<td>✅ v0.4.0</td>
-<td>Tagged release — clean git history with professional commits</td>
-</tr>
-<tr>
-<td><strong>Unit tests</strong></td>
-<td>✅ 782 passed, 0 failed</td>
-<td>No regressions, all passing</td>
-</tr>
-<tr>
-<td><strong>Documentation</strong></td>
-<td>✅ 28 docs, comprehensive</td>
-<td>User guide, CLI, troubleshooting, fidelity, RPC, architecture, etc.</td>
-</tr>
-<tr>
-<td><strong>Determinism checks</strong></td>
-<td>✅ 4 of 5 verified</td>
-<td>wormhole, nomad, horizon, bnb_token_hub all deterministic; poly_network has archive-RPC variability across 3 chains</td>
-</tr>
-<tr>
-<td><strong>Cross-provider verification</strong></td>
-<td>❌ Skipped</td>
-<td>No second RPC provider available (free tiers only); see code-level analysis below</td>
-</tr>
-<tr>
-<td><strong>Publication bundles</strong></td>
-<td>✅ 4 exported</td>
-<td>All passing experiments exported with integrity PASS; wormhole/nomad have 24 files each, horizon/bnb have 18 files each</td>
-</tr>
-<tr>
-<td><strong>Artifact protection</strong></td>
-<td>✅ Permanent by default</td>
-<td><code>clean --all</code> never touches logs/ or datasets/; <code>--logs</code> respects tiers; <code>--datasets</code> requires <code>--confirm</code>; publish adds <code>.protected</code> marker</td>
-</tr>
-<tr>
-<td><strong>CI/CD</strong></td>
-<td>❌ Removed</td>
-<td>Local-only project — tests run on-device, no CI pipeline configured</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<blockquote>
-<p><strong>Deep-dive reference:</strong> For a complete understanding of <em>why</em> the testbed is designed this way — the architecture, core concepts, design philosophy, and key decisions — see the <a href="internal/TECHNICAL_OVERVIEW.md">Technical Overview</a> and <a href="../internal/DESIGN_DECISIONS/">Design Decisions</a> documents.</p>
-</blockquote>
-<h2 id="what-the-testbed-can-do">What The Testbed CAN Do<a class="headerlink" href="#what-the-testbed-can-do" title="Permanent link">&para;</a></h2>
-<h3 id="1-reproduce-5-historical-bridge-exploits-at-l2-fork-state">1. Reproduce 5 Historical Bridge Exploits at L2 (Fork-State)<a class="headerlink" href="#1-reproduce-5-historical-bridge-exploits-at-l2-fork-state" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Attack</th>
-<th>Chain</th>
-<th>Fork Block</th>
-<th>Damage</th>
-<th>What It Proves</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Wormhole Guardian Bypass</strong></td>
-<td>Ethereum</td>
-<td>14,125,553</td>
-<td>$326M</td>
-<td>Forged VAA accepted by TokenBridge via <code>completeTransfer()</code></td>
-</tr>
-<tr>
-<td><strong>Nomad Replica Fraud</strong></td>
-<td>Ethereum</td>
-<td>15,259,100</td>
-<td>$190M</td>
-<td><code>process()</code> accepts forged message when <code>committedRoot == 0x00</code></td>
-</tr>
-<tr>
-<td><strong>Poly Network PrivKey</strong></td>
-<td>Ethereum</td>
-<td>12,996,693</td>
-<td>$611M</td>
-<td>Hash collision in <code>verifyHeaderAndExecuteTx</code> replaces bridge keeper</td>
-</tr>
-<tr>
-<td><strong>Horizon Multisig Drain</strong></td>
-<td>Ethereum</td>
-<td>15,005,526</td>
-<td>$100M</td>
-<td>3 bridge contracts verified, multisig authorization flow demonstrated</td>
-</tr>
-<tr>
-<td><strong>BNB Token Hub Proof</strong></td>
-<td>BSC</td>
-<td>22,166,659</td>
-<td>$570M</td>
-<td>CrossChain contract identified, IAVL proof bypass mechanism documented</td>
-</tr>
-</tbody>
-</table>
-<p>Each reproduction:
-- Forks the chain at the correct historical block
-- Verifies vulnerable contracts exist with non-empty code
-- Forges and sends exploit calldata
-- Verifies the exploit succeeded via storage slot changes
-- Produces deterministic artifact streams (events, gas, storage diffs, balance diffs)</p>
-<h3 id="2-run-l4-multi-chain-bridge-demonstrations">2. Run L4 Multi-Chain Bridge Demonstrations<a class="headerlink" href="#2-run-l4-multi-chain-bridge-demonstrations" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Experiment</th>
-<th>Topology</th>
-<th>Chains</th>
-<th>What It Does</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>nomad_bridge_l4</code></td>
-<td><code>nomad_bridge</code></td>
-<td>ethereum + polygon</td>
-<td>Deploys NomadReplica contract on ethereum, sends forged cross-chain message</td>
-</tr>
-<tr>
-<td><code>demo_agent</code></td>
-<td><code>single</code></td>
-<td>ethereum</td>
-<td>Runs LLM agent workflow with mock provider (no API key needed)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-deploy-bridge-contracts-to-forked-chains">3. Deploy Bridge Contracts to Forked Chains<a class="headerlink" href="#3-deploy-bridge-contracts-to-forked-chains" title="Permanent link">&para;</a></h3>
-<p>Three bridge plugins are available for L4 experiments:</p>
+<h2 id="1-executive-summary">1. Executive Summary<a class="headerlink" href="#1-executive-summary" title="Permanent link">&para;</a></h2>
+<p>Crucible now ships with <strong>3 real bridge plugin implementations</strong> covering the most significant historical bridge protocols:</p>
 <table>
 <thead>
 <tr>
 <th>Bridge Plugin</th>
-<th>Chains</th>
+<th>Solidity Contracts</th>
 <th>Vulnerability Model</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>nomad_bridge</code></td>
-<td>ethereum + polygon</td>
-<td><code>committedRoot == 0x00</code> — forged message accepted</td>
-</tr>
-<tr>
-<td><code>poly_network_bridge</code></td>
-<td>ethereum + polygon + bsc</td>
-<td>Hash collision in <code>_executeCrossChainTx</code></td>
-</tr>
-<tr>
-<td><code>wormhole_bridge</code></td>
-<td>ethereum + polygon</td>
-<td>Guardian bypass — forged VAA accepted</td>
-</tr>
-</tbody>
-</table>
-<h3 id="4-run-llm-driven-agent-experiments">4. Run LLM-Driven Agent Experiments<a class="headerlink" href="#4-run-llm-driven-agent-experiments" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Supports OpenAI, Anthropic, Ollama, and custom providers</li>
-<li><strong>Mock provider</strong> included for testing without any API key</li>
-<li>Agent privilege levels: low, medium, high</li>
-<li>Configurable task, objective, and account restrictions</li>
-</ul>
-<h3 id="5-produce-verifiable-deterministic-artifacts">5. Produce Verifiable, Deterministic Artifacts<a class="headerlink" href="#5-produce-verifiable-deterministic-artifacts" title="Permanent link">&para;</a></h3>
-<p>Every experiment run produces:</p>
-<table>
-<thead>
-<tr>
-<th>Artifact</th>
-<th>Format</th>
-<th>What It Records</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>run.jsonl</code></td>
-<td>JSONL</td>
-<td>All lifecycle events (phases, actions, status)</td>
-</tr>
-<tr>
-<td><code>events.jsonl</code></td>
-<td>JSONL</td>
-<td>All contract events emitted</td>
-</tr>
-<tr>
-<td><code>storage_diffs.jsonl</code></td>
-<td>JSONL</td>
-<td>Every storage slot that changed (before/after)</td>
-</tr>
-<tr>
-<td><code>gas_profile.jsonl</code></td>
-<td>JSONL</td>
-<td>Gas used per transaction</td>
-</tr>
-<tr>
-<td><code>balance_diffs.jsonl</code></td>
-<td>JSONL</td>
-<td>ETH/BNB balance changes</td>
-</tr>
-<tr>
-<td><code>cross_chain.jsonl</code></td>
-<td>JSONL</td>
-<td>Cross-chain message tracking</td>
-</tr>
-<tr>
-<td><code>run_manifest.json</code></td>
-<td>JSON</td>
-<td>Full provenance (git commit, Foundry version, config fingerprint)</td>
-</tr>
-<tr>
-<td><code>log_integrity.json</code></td>
-<td>JSON</td>
-<td>SHA-256 hashes of all streams</td>
-</tr>
-<tr>
-<td><code>artifact_bundle_manifest.json</code></td>
-<td>JSON</td>
-<td>SHA-256 hashes for export verification</td>
-</tr>
-</tbody>
-</table>
-<h3 id="6-verify-artifact-integrity">6. Verify Artifact Integrity<a class="headerlink" href="#6-verify-artifact-integrity" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>crucible verify &lt;path&gt;</code> auto-detects run dirs, export bundles, and archives</li>
-<li><code>--schemas</code> validates JSONL stream structure</li>
-<li>SHA-256 hashes detect tampering, missing files, or extra files</li>
-</ul>
-<h3 id="7-run-with-or-without-docker">7. Run With or Without Docker<a class="headerlink" href="#7-run-with-or-without-docker" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Mode</th>
-<th>Setup Time</th>
-<th>Best For</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Docker</strong></td>
-<td>~3 min (one-time build)</td>
-<td>Formal reproductions, publications</td>
-</tr>
-<tr>
-<td><strong>Local (uv + venv)</strong></td>
-<td>~1 min (one-time sync)</td>
-<td>Development, fast iteration</td>
-</tr>
-<tr>
-<td><strong>Local (system-wide)</strong></td>
-<td>~1 min</td>
-<td>Dedicated testbed machines</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="what-the-testbed-cannot-do">What The Testbed CANNOT Do<a class="headerlink" href="#what-the-testbed-cannot-do" title="Permanent link">&para;</a></h2>
-<h3 id="1-reproduce-non-evm-attack-components">1. Reproduce Non-EVM Attack Components<a class="headerlink" href="#1-reproduce-non-evm-attack-components" title="Permanent link">&para;</a></h3>
-<p><strong>Crucible is EVM-only.</strong> It uses Foundry's <code>anvil</code> which can only fork EVM-compatible chains (Ethereum, BSC, Polygon). Attacks involving:</p>
-<ul>
-<li><strong>Solana</strong> (Wormhole root cause was Solana-side — EVM-side effects only are reproducible)</li>
-<li><strong>Cosmos/IBC</strong> (cross-chain messages originating from non-EVM chains)</li>
-<li><strong>Harmony ONE</strong> (Horizon bridge — Harmony chain is not EVM)</li>
-<li><strong>Moonriver</strong> (Multichain — Moonriver is Substrate/Kusama-based)</li>
-<li><strong>Substrate-based chains</strong> (Polkadot, Kusama, etc.)</li>
-</ul>
-<p>...are documented in <code>excluded_components</code> in each attack's <code>evidence.yaml</code>. The non-EVM portion is <strong>modeled, not reproduced.</strong></p>
-<h3 id="2-reproduce-infrastructure-compromises">2. Reproduce Infrastructure Compromises<a class="headerlink" href="#2-reproduce-infrastructure-compromises" title="Permanent link">&para;</a></h3>
-<p>Attacks that were <strong>key compromises, not smart contract bugs</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Attack</th>
-<th>Type</th>
-<th>Why Not Reproducible</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Multichain (July 2023)</strong></td>
-<td>MPC key shard theft</td>
-<td>No contract vulnerability; keys were legitimately authorized</td>
-</tr>
-<tr>
-<td><strong>Horizon (June 2022)</strong></td>
-<td>2-of-5 multisig key compromise</td>
-<td>Contracts behaved as designed; reproducing the tx proves nothing</td>
-</tr>
-</tbody>
-</table>
-<p>These are correctly classified as <strong>L1 (narrative)</strong> — the testbed documents the incident but cannot reproduce it on-chain.</p>
-<h3 id="3-serve-full-archive-state-for-polygonbsc-at-old-blocks">3. Serve Full Archive State for Polygon/BSC at Old Blocks<a class="headerlink" href="#3-serve-full-archive-state-for-polygonbsc-at-old-blocks" title="Permanent link">&para;</a></h3>
-<p><strong>This is an RPC provider limitation, not a Crucible bug.</strong> At the fork blocks used by the attack packs:</p>
-<table>
-<thead>
-<tr>
-<th>Chain</th>
-<th>Fork Block</th>
-<th>Free Archive?</th>
-<th>Paid Archive?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ethereum</td>
-<td>12-16M</td>
-<td>✅ Ankr free tier</td>
-<td>✅</td>
-</tr>
-<tr>
-<td>BSC</td>
-<td>9.7M or 22M</td>
-<td>❌ No free provider</td>
-<td>✅ GetBlock $39/mo</td>
-</tr>
-<tr>
-<td>Polygon</td>
-<td>16.3M</td>
-<td>❌ No free provider</td>
-<td>✅ GetBlock $39/mo</td>
-</tr>
-</tbody>
-</table>
-<p>Even paid "archive" providers may fail to serve state for <strong>non-existent addresses</strong> at old fork blocks. This affects <code>anvil_setBalance</code> when bridge plugins try to fund new deployer addresses. The fix (applied to all 3 bridge plugins) wraps per-chain deployment in <code>try/except</code> — the offending chain is skipped gracefully.</p>
-<h3 id="4-run-l4-experiments-without-no-fidelity">4. Run L4 Experiments Without <code>--no-fidelity</code><a class="headerlink" href="#4-run-l4-experiments-without-no-fidelity" title="Permanent link">&para;</a></h3>
-<p>L4 fidelity enforcement checks for:
-- 2+ chains in <code>historical_scope.chains</code>
-- Bridge plugin in topology
-- <code>excluded_components</code> declared</p>
-<p>Bridge demo experiments (e.g., <code>nomad_bridge_l4</code>) don't meet these requirements by design — they're demonstrations, not formal reproductions. Use <code>--no-fidelity</code> for L4 demos.</p>
-<h3 id="5-guarantee-bit-identical-cross-platform-results">5. Guarantee Bit-Identical Cross-Platform Results<a class="headerlink" href="#5-guarantee-bit-identical-cross-platform-results" title="Permanent link">&para;</a></h3>
-<p>The <code>run_manifest.json</code> captures the full provenance (git commit, Foundry version, Python version, config fingerprint), but:
-- Different Foundry nightly versions may produce different gas estimates
-- Different RPC providers may return slightly different state roots
-- Cold vs warm cache affects timing but not results</p>
-<p>For formal publications, use Docker (pinned environment) and run twice with <code>crucible diff</code>.</p>
-<hr />
-<h2 id="known-issues-workarounds">Known Issues &amp; Workarounds<a class="headerlink" href="#known-issues-workarounds" title="Permanent link">&para;</a></h2>
-<h2 id="artifact-protection-june-2026">Artifact Protection (June 2026)<a class="headerlink" href="#artifact-protection-june-2026" title="Permanent link">&para;</a></h2>
-<p>Artifacts are the most valuable output of the testbed. They are protected by <strong>multiple layers</strong>:</p>
-<h3 id="layer-1-clean-all-never-touches-artifacts">Layer 1: <code>clean --all</code> Never Touches Artifacts<a class="headerlink" href="#layer-1-clean-all-never-touches-artifacts" title="Permanent link">&para;</a></h3>
-<p><code>crucible clean --all</code> only removes <strong>runtime state</strong>: <code>.fork_cache</code>, <code>states/checkpoints/</code>, <code>states/snapshots/</code>. It does <strong>NOT</strong> touch:
-- <code>logs/</code> (experiment run artifacts) — protected unless <code>--logs</code> is explicitly passed
-- <code>datasets/</code> (exported publication bundles) — protected unless <code>--datasets --confirm</code> is explicitly passed</p>
-<p>This means it's safe to run <code>clean --all</code> between experiments without worrying about losing results.</p>
-<h3 id="layer-2-explicit-flags-for-artifact-cleanup">Layer 2: Explicit Flags for Artifact Cleanup<a class="headerlink" href="#layer-2-explicit-flags-for-artifact-cleanup" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Flag</th>
-<th>What It Cleans</th>
-<th>Protection</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>--logs</code></td>
-<td>Run log directories (<code>logs/*/*</code>)</td>
-<td><code>saved</code> and <code>published</code> tier runs preserved via <code>run_manifest.json</code> tier check</td>
-</tr>
-<tr>
-<td><code>--logs-older-than N</code></td>
-<td>Logs older than N days</td>
-<td>Same tier-based protection</td>
-</tr>
-<tr>
-<td><code>--datasets</code></td>
-<td>Exported dataset bundles (<code>datasets/*</code>)</td>
-<td><strong>Requires <code>--confirm</code></strong>; <code>.protected</code> marker preserved</td>
-</tr>
-</tbody>
-</table>
-<h3 id="layer-3-publish-command-adds-protected-marker">Layer 3: Publish Command Adds <code>.protected</code> Marker<a class="headerlink" href="#layer-3-publish-command-adds-protected-marker" title="Permanent link">&para;</a></h3>
-<p>Running <code>crucible publish &lt;run_id&gt;</code>:
-1. Sets the run's tier to <code>published</code> — protected from <code>--logs</code> and <code>--logs-older-than</code>
-2. Writes a <code>.protected</code> marker file in <code>datasets/&lt;run_id&gt;/</code> — protected from <code>--datasets --confirm</code></p>
-<h3 id="layer-4-docker-persistence">Layer 4: Docker Persistence<a class="headerlink" href="#layer-4-docker-persistence" title="Permanent link">&para;</a></h3>
-<p>The <code>datasets/</code> directory is on the <strong>bind mount</strong> (<code>.:/workspace</code>), not on a Docker named volume. This means:
-- Export bundles survive container restarts and <code>docker compose down</code>
-- Files are directly accessible on the host filesystem at <code>./datasets/</code>
-- Not affected by Docker volume pruning</p>
-<h3 id="layer-5-export-idempotency">Layer 5: Export Idempotency<a class="headerlink" href="#layer-5-export-idempotency" title="Permanent link">&para;</a></h3>
-<p><code>crucible export &lt;run_id&gt;</code> will <strong>NOT</strong> overwrite an existing export bundle unless <code>--force</code> is passed. If the bundle already exists, it re-verifies integrity and regenerates reports without touching the copied source files.</p>
-<hr />
-<h2 id="known-issues-workarounds_1">Known Issues &amp; Workarounds<a class="headerlink" href="#known-issues-workarounds_1" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Issue</th>
-<th>Affects</th>
-<th>Workaround</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Polygon archive at block 16,332,982 can't serve new addresses</td>
-<td><code>poly_network_bridge</code>, <code>nomad_bridge</code>, <code>wormhole_bridge</code></td>
-<td>Chain skipped gracefully; use GetBlock or QuickNode for full support</td>
-</tr>
-<tr>
-<td>BSC archive at block 9,755,172 needs paid provider</td>
-<td><code>poly_network_replay</code> (3-chain), <code>bnb_token_hub_replay</code></td>
-<td>Use GetBlock Starter ($39/mo) or run Ethereum-only</td>
-</tr>
-<tr>
-<td>Auto-merge may kill + restart chains between experiments</td>
-<td>All matrix runs</td>
-<td>Use <code>--no-auto-merge</code> to bypass; or let it re-fork automatically (fixed)</td>
-</tr>
-<tr>
-<td>Port TIME_WAIT after killing Anvil</td>
-<td>Auto-merge restart</td>
-<td>Crucible polls port for 10s before restarting (fixed); wait 30s if still failing</td>
-</tr>
-<tr>
-<td>Checkpoints snapshot dead chains</td>
-<td>Topology switching</td>
-<td><code>rm -f states/*.meta.json</code> before switching (fixed in framework)</td>
-</tr>
-<tr>
-<td>Bridge bytecode double <code>0x</code> prefix</td>
-<td>New bridge plugin development</td>
-<td>Use <code>"data": bytecode</code> (not <code>"0x" + bytecode</code>) — Foundry already has <code>0x</code></td>
-</tr>
-<tr>
-<td>Multichain L1 doesn't return AttackResult</td>
-<td><code>multichain_replay</code> in benchmark matrix</td>
-<td>Use <code>--continue-on-error</code> when running matrix</td>
-</tr>
-<tr>
-<td>Agent experiments need LLM API key</td>
-<td><code>demo_agent</code> with real provider</td>
-<td>Use <code>agent_provider: mock</code> for testing without API key</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="whats-been-fixed-june-2026">What's Been Fixed (June 2026)<a class="headerlink" href="#whats-been-fixed-june-2026" title="Permanent link">&para;</a></h2>
-<p><strong>23 issues found and resolved across 3 validation rounds (22 bugs + 1 enhancement).</strong> See <a href="../REPRODUCIBILITY/"><code>docs/REPRODUCIBILITY.md</code></a> for the full log.</p>
-<h3 id="framework-4-bugs-fixed">Framework (4 bugs fixed)<a class="headerlink" href="#framework-4-bugs-fixed" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Auto-merge kills chain but never restarts → now re-forks automatically</li>
-<li>Port TIME_WAIT after killing old Anvil → port polling loop (500ms × 20 attempts)</li>
-<li>Checkpoints snapshot dead chains → filtered to active topology only</li>
-<li>Fidelity failures hidden from console → reasons printed inline below <code>[fail]</code></li>
-</ul>
-<h3 id="bridge-plugins-3-bugs-fixed">Bridge Plugins (3 bugs fixed)<a class="headerlink" href="#bridge-plugins-3-bugs-fixed" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Double <code>0x</code> prefix in bytecode → removed extra <code>"0x" +</code></li>
-<li>Precompile deployer fails on archive nodes → try/except per-chain</li>
-<li>Placeholder string in bridge evidence.yaml → empty list <code>[]</code></li>
-</ul>
-<h3 id="cli-1-feature-added">CLI (1 feature added)<a class="headerlink" href="#cli-1-feature-added" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>--no-auto-merge</code> flag to bypass automatic fork block merging</li>
-</ul>
-<h3 id="documentation-6-docs-createdupdated">Documentation (6 docs created/updated)<a class="headerlink" href="#documentation-6-docs-createdupdated" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>docs/FIDELITY_GUIDE.md</code> — NEW comprehensive fidelity reference</li>
-<li><code>docs/ATTACK_PACK_GUIDE.md</code> — 8 new Common Pitfalls entries</li>
-<li><code>docs/TROUBLESHOOTING.md</code> — 9 new error entries + local environment section</li>
-<li><code>docs/CLI_REFERENCE.md</code> — Added <code>--no-auto-merge</code>, <code>--no-fidelity</code> flags</li>
-<li><code>docs/SCENARIO_AUTHORING.md</code> — Added <code>--no-auto-merge</code> note</li>
-<li><code>docs/RPC_PROVIDER_GUIDE.md</code> — Archive depth issues, fork block reference</li>
-<li><code>docs/USER_GUIDE.md</code> — UV/venv guide, Docker vs local comparison, local workflow</li>
-<li><code>docs/REPRODUCIBILITY.md</code> — Expanded lessons from 13 to 21 bugs</li>
-<li><code>docs/BENCHMARKS.md</code> — Actual run results, L4 bridge demo status</li>
-</ul>
-<hr />
-<h2 id="determinism-reproducibility-verification">Determinism &amp; Reproducibility Verification<a class="headerlink" href="#determinism-reproducibility-verification" title="Permanent link">&para;</a></h2>
-<h3 id="determinism-checks-run-twice-diff">Determinism Checks (Run Twice + Diff)<a class="headerlink" href="#determinism-checks-run-twice-diff" title="Permanent link">&para;</a></h3>
-<p>All 5 benchmark experiments were run twice and diffed to verify deterministic reproduction:</p>
-<table>
-<thead>
-<tr>
-<th>Experiment</th>
-<th>Topology</th>
 <th>Chains</th>
-<th>storage_equal</th>
-<th>events_equal</th>
-<th>gas_equal</th>
-<th>balances_equal</th>
-<th>Result</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>wormhole_replay</strong></td>
-<td>bridge</td>
+<td><strong>NomadBridge</strong> (<code>bridges/nomad_bridge/</code>)</td>
+<td><code>NomadReplica</code></td>
+<td><code>committedRoot == 0x00</code> — forged message accepted</td>
 <td>ethereum + polygon</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td><strong>Deterministic</strong></td>
 </tr>
 <tr>
-<td><strong>nomad_replay</strong></td>
-<td>bridge</td>
-<td>ethereum + polygon</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td><strong>Deterministic</strong></td>
-</tr>
-<tr>
-<td><strong>horizon_replay</strong></td>
-<td>single</td>
-<td>ethereum</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td><strong>Deterministic</strong></td>
-</tr>
-<tr>
-<td><strong>bnb_token_hub_replay</strong></td>
-<td>single_bsc</td>
-<td>bsc</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td><strong>Deterministic</strong></td>
-</tr>
-<tr>
-<td><strong>poly_network_replay</strong></td>
-<td>poly_network_full</td>
+<td><strong>PolyNetworkBridge</strong> (<code>bridges/poly_network_bridge/</code>)</td>
+<td><code>EthCrossChainManager</code> + <code>EthCrossChainData</code></td>
+<td>Hash collision in <code>_executeCrossChainTx</code> selector dispatch</td>
 <td>ethereum + polygon + bsc</td>
-<td>❌ false</td>
-<td>✅ true</td>
-<td>❌ false</td>
-<td>❌ false</td>
-<td><strong>Non-deterministic</strong></td>
+</tr>
+<tr>
+<td><strong>WormholeBridge</strong> (<code>bridges/wormhole_bridge/</code>)</td>
+<td><code>WormholeCore</code> + <code>TokenBridge</code></td>
+<td>Guardian bypass — VAAs accepted without real signatures</td>
+<td>ethereum + polygon</td>
 </tr>
 </tbody>
 </table>
-<p><strong>4 of 5 experiments are fully deterministic.</strong> The only non-deterministic result (poly_network) is expected — it forks 3 chains simultaneously and Polygon/BSC archive RPCs may return slightly different state per run (see <a href="#3-serve-full-archive-state-for-polygonbsc-at-old-blocks">Archive RPC Limitations</a>).</p>
-<h3 id="cross-provider-verification">Cross-Provider Verification<a class="headerlink" href="#cross-provider-verification" title="Permanent link">&para;</a></h3>
-<p>Not run. The <code>.env</code> includes only one free-tier RPC provider per chain:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ETHEREUM_RPC_URL=https://rpc.ankr.com/eth
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>POLYGON_RPC_URL=https://rpc.ankr.com/polygon
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>BSC_RPC_URL=https://rpc.ankr.com/bsc
-</code></pre></div>
-<p>A second RPC provider (e.g., GetBlock, QuickNode, Alchemy) would be needed to confirm results are provider-independent. At the code level, the framework has no provider-dependent logic — all chain interaction goes through the JSON-RPC client abstraction. Any provider-capable client should produce equivalent results if they serve the same archive state.</p>
-<h3 id="export-bundles">Export Bundles<a class="headerlink" href="#export-bundles" title="Permanent link">&para;</a></h3>
-<p>4 of 5 experiments have publication-ready export bundles in <code>datasets/</code>:</p>
+<p>Each plugin:
+- Deploys real Solidity contracts to forked chains (compiled via <code>forge build</code>)
+- Configures the vulnerable initial state (zero root, default keeper, bypass mode)
+- Supports the full <code>BridgePlugin</code> lifecycle: <code>deploy</code> → <code>configure</code> → <code>connect</code> → <code>send_message</code> → <code>reset</code> → <code>destroy</code>
+- Produces cross-chain artifacts through the existing instrumentation pipeline</p>
+<p>These are <strong>protocol-simulating</strong> plugins, not full protocol replicas. They deploy minimal contracts that model the vulnerability path, enabling L4 experiments without running the complete production protocol (which can require non-EVM components, off-chain relayers, and governance processes).</p>
+<hr />
+<h2 id="2-what-exists-the-architecture">2. What Exists (The Architecture)<a class="headerlink" href="#2-what-exists-the-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="21-bridgeplugin-abc">2.1 BridgePlugin ABC<a class="headerlink" href="#21-bridgeplugin-abc" title="Permanent link">&para;</a></h3>
+<p><strong>File:</strong> <code>crucible/sdk.py</code></p>
+<p>A full lifecycle interface:</p>
 <table>
 <thead>
 <tr>
-<th>Experiment</th>
-<th>Run ID</th>
-<th>Path</th>
-<th>Files</th>
-<th>Integrity</th>
+<th>Method</th>
+<th>Purpose</th>
+<th>Default Implementation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>wormhole_replay</td>
-<td>DS-2026-00155</td>
-<td><code>datasets/DS-2026-00155</code></td>
-<td>24</td>
-<td>✅ PASS</td>
+<td><code>deploy()</code></td>
+<td>Deploy bridge contracts to both chains</td>
+<td>Returns <code>{}</code></td>
 </tr>
 <tr>
-<td>nomad_replay</td>
-<td>DS-2026-00158</td>
-<td><code>datasets/DS-2026-00158</code></td>
-<td>24</td>
-<td>✅ PASS</td>
+<td><code>configure()</code></td>
+<td>Set validator set, relayer addresses, guardian keys</td>
+<td>No-op</td>
 </tr>
 <tr>
-<td>horizon_replay</td>
-<td>DS-2026-00160</td>
-<td><code>datasets/DS-2026-00160</code></td>
-<td>18</td>
-<td>✅ PASS</td>
+<td><code>connect()</code></td>
+<td>Start message-passing simulation (relayer process)</td>
+<td>No-op</td>
 </tr>
 <tr>
-<td>bnb_token_hub_replay</td>
-<td>DS-2026-00159</td>
-<td><code>datasets/DS-2026-00159</code></td>
-<td>18</td>
-<td>✅ PASS</td>
+<td><code>send_message()</code></td>
+<td>Send a cross-chain message</td>
+<td>Logs only, returns empty result</td>
+</tr>
+<tr>
+<td><code>reset()</code></td>
+<td>Reset bridge state to post-deploy baseline</td>
+<td>No-op</td>
+</tr>
+<tr>
+<td><code>destroy()</code></td>
+<td>Tear down relayer and clean up deployed contracts</td>
+<td>No-op</td>
 </tr>
 </tbody>
 </table>
-<p>File count varies by topology complexity: bridge-topology experiments (wormhole, nomad) produce 24 files from 2 forked chains; single-chain experiments (horizon, bnb) produce 18 files from 1 chain.</p>
-<p>Each bundle contains:
-- <code>artifact_bundle_manifest.json</code> — SHA-256 hashes of every file
-- <code>publication_report.json</code> — machine-readable report with outcome, assertions
-- <code>provenance.json</code> — extracted provenance data
-- <code>assertions.json</code> — all assertion results from the run
-- <code>REPRODUCE.md</code> — exact reproduction instructions
-- All original run artifacts (run.jsonl, events.jsonl, storage_diffs.jsonl, etc.)</p>
-<hr />
-<h2 id="recommended-next-steps">Recommended Next Steps<a class="headerlink" href="#recommended-next-steps" title="Permanent link">&para;</a></h2>
+<p><strong>Status:</strong> [ok] Well-designed ABC — all 3 bridge plugins override every method with real implementations.</p>
+<h3 id="22-bridge-lifecycle-wiring">2.2 Bridge Lifecycle Wiring<a class="headerlink" href="#22-bridge-lifecycle-wiring" title="Permanent link">&para;</a></h3>
+<p><strong>File:</strong> <code>crucible/bridge_lifecycle.py</code></p>
+<p>The experiment runner automatically:
+1. Loads the bridge plugin from topology config (<code>topology.bridge</code>)
+2. Calls <code>deploy()</code> → <code>configure()</code> → <code>connect()</code> before scenario setup
+3. Calls <code>destroy()</code> in <code>finally</code> blocks (both <code>run()</code> and <code>resume()</code>)</p>
+<p><strong>Status:</strong> [ok] Production-ready wiring — all 3 bridge plugins benefit from this automatically.</p>
+<h3 id="23-scenario-engine-integration">2.3 Scenario Engine Integration<a class="headerlink" href="#23-scenario-engine-integration" title="Permanent link">&para;</a></h3>
+<p><strong>File:</strong> <code>crucible/scenario_steps.py</code></p>
+<p>A <code>bridge_action</code> step type with 4 actions:</p>
 <table>
 <thead>
 <tr>
-<th>Priority</th>
-<th>Task</th>
+<th>Action</th>
+<th>Purpose</th>
+<th>Current Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>send_message</code></td>
+<td>Send cross-chain message</td>
+<td>Delegates to <code>bridge_plugin.send_message()</code></td>
+</tr>
+<tr>
+<td><code>relay_messages</code></td>
+<td>Trigger relayer to process pending messages</td>
+<td>Calls <code>bridge_plugin.connect()</code></td>
+</tr>
+<tr>
+<td><code>check_delivery</code></td>
+<td>Verify a specific message was delivered</td>
+<td>Log-only</td>
+</tr>
+<tr>
+<td><code>verify_state</code></td>
+<td>Check bridge contract state</td>
+<td>Log-only</td>
+</tr>
+</tbody>
+</table>
+<p>Symbolic address resolution (<code>bridge.ethereum</code> -&gt; hex address from scenario) is wired in.</p>
+<p><strong>Status:</strong> [ok] Works with all 3 bridge plugins. <code>send_message</code> and <code>relay_messages</code> delegate to real plugin implementations.</p>
+<h3 id="24-cross-chain-observability">2.4 Cross-Chain Observability<a class="headerlink" href="#24-cross-chain-observability" title="Permanent link">&para;</a></h3>
+<p><strong>File:</strong> <code>crucible/logging.py</code></p>
+<ul>
+<li>Dedicated bridge subdirectory in log output: <code>logs/&lt;experiment&gt;/&lt;run&gt;/bridge/</code></li>
+<li><code>cross_chain.jsonl</code> stream for message correlation IDs</li>
+<li><code>LogManager.bridge()</code> emitter for bridge-specific events</li>
+</ul>
+<p><strong>Status:</strong> [ok] Production-ready — captures real bridge traffic from all 3 plugins.</p>
+<h3 id="25-topology-configuration">2.5 Topology Configuration<a class="headerlink" href="#25-topology-configuration" title="Permanent link">&para;</a></h3>
+<p><strong>Files:</strong> <code>topologies/nomad_bridge.yaml</code>, <code>topologies/poly_network_bridge.yaml</code>, <code>topologies/wormhole_bridge.yaml</code>, <code>topologies/bridge.yaml</code>, <code>topologies/harmony_bridge.yaml</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_bridge</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">chains</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ethereum</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">polygon</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">bridge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_bridge</span>
+</code></pre></div>
+<p><strong>Status:</strong> [ok] 3 dedicated bridge topology files, each pointing to its respective bridge plugin.</p>
+<h3 id="26-evidence-validation">2.6 Evidence Validation<a class="headerlink" href="#26-evidence-validation" title="Permanent link">&para;</a></h3>
+<p><strong>File:</strong> <code>crucible/evidence.py</code></p>
+<p><code>validate_bridge_evidence()</code> checks that bridge plugins declare:
+- <code>protocol.name</code> and <code>protocol.version</code>
+- <code>features</code> (list of modeled features)
+- <code>limitations</code> (what's excluded or simplified)
+- <code>chains</code> (supported chains)</p>
+<p><strong>Status:</strong> [ok] Validates metadata correctly. All 3 bridge plugins pass validation.</p>
+<hr />
+<h2 id="3-whats-still-missing-remaining-gaps">3. What's Still Missing (Remaining Gaps)<a class="headerlink" href="#3-whats-still-missing-remaining-gaps" title="Permanent link">&para;</a></h2>
+<h3 id="31-relayer-timing-model">3.1 Relayer Timing Model<a class="headerlink" href="#31-relayer-timing-model" title="Permanent link">&para;</a></h3>
+<p>All 3 bridge plugins use synchronous <code>connect()</code> — there is no configurable message relay latency. Real bridge exploits often depend on:</p>
+<ul>
+<li>Relayer latency (minutes to hours across chains)</li>
+<li>Guardian quorum timing (waiting for N signatures)</li>
+<li>Message ordering (which message arrives first affects state)</li>
+</ul>
+<p><strong>Impact:</strong> Cannot simulate timing-dependent attack scenarios (e.g., front-running a relayer, oracle timing attacks).</p>
+<h3 id="32-l4-fidelity-enforcement-is-structural">3.2 L4 Fidelity Enforcement Is Structural<a class="headerlink" href="#32-l4-fidelity-enforcement-is-structural" title="Permanent link">&para;</a></h3>
+<p>The <code>FidelityEnforcer</code> checks that a bridge plugin is declared in the topology config, but it cannot verify that the bridge plugin actually <strong>works</strong> (message passing, state synchronization). L4 is currently a <strong>structural declaration</strong>, not a behavioral guarantee.</p>
+<p><strong>Impact:</strong> An experiment that declares L4 but never calls <code>send_message()</code> will still pass the gate if a bridge plugin is in the topology.</p>
+<h3 id="33-solidity-contracts-are-simplified">3.3 Solidity Contracts Are Simplified<a class="headerlink" href="#33-solidity-contracts-are-simplified" title="Permanent link">&para;</a></h3>
+<p>The contracts deployed by all 3 plugins are <strong>minimal implementations</strong> that model only the vulnerability path:</p>
+<table>
+<thead>
+<tr>
+<th>Real Protocol Feature</th>
+<th>Modeled?</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Full Merkle tree verification</td>
+<td>No (simplified hash-chain)</td>
+<td>Cannot test advanced proof manipulation</td>
+</tr>
+<tr>
+<td>Real guardian/VAA signing</td>
+<td>No (bypass mode)</td>
+<td>Signing round simulation not available</td>
+</tr>
+<tr>
+<td>Governance / timelock</td>
+<td>No</td>
+<td>Cannot test governance-based attacks</td>
+</tr>
+<tr>
+<td>Token minting / burning</td>
+<td>No (log-only)</td>
+<td>Token supply changes are not modeled</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Impact:</strong> These plugins are designed for L4 attack reproduction, not production-grade protocol testing.</p>
+<h3 id="34-no-bridge-protocol-templates">3.4 No Bridge Protocol Templates<a class="headerlink" href="#34-no-bridge-protocol-templates" title="Permanent link">&para;</a></h3>
+<p>There is no <code>crucible bridge init</code> scaffold generator for creating new bridge plugins. Researchers who want to build a custom bridge must do it from scratch.</p>
+<hr />
+<h2 id="4-researcher-use-case-coverage">4. Researcher Use Case Coverage<a class="headerlink" href="#4-researcher-use-case-coverage" title="Permanent link">&para;</a></h2>
+<h3 id="ok-covered-by-current-implementation">[ok] Covered By Current Implementation<a class="headerlink" href="#ok-covered-by-current-implementation" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deploy a fresh Nomad Replica on 2+ chains</td>
+<td><code>topologies/nomad_bridge.yaml</code> + NomadBridge plugin</td>
+</tr>
+<tr>
+<td>Deploy a fresh Wormhole Core + TokenBridge</td>
+<td><code>topologies/wormhole_bridge.yaml</code> + WormholeBridge plugin</td>
+</tr>
+<tr>
+<td>Deploy Poly Network Manager + Data contracts</td>
+<td><code>topologies/poly_network_bridge.yaml</code> + PolyNetworkBridge plugin</td>
+</tr>
+<tr>
+<td>Forge a cross-chain message (Nomad)</td>
+<td><code>send_message()</code> with forged <code>process()</code> calldata</td>
+</tr>
+<tr>
+<td>Replace keeper keys (Poly Network)</td>
+<td><code>send_message()</code> with hash-collision calldata</td>
+</tr>
+<tr>
+<td>Submit a forged VAA (Wormhole)</td>
+<td><code>send_message()</code> with guardian-bypass <code>completeTransfer()</code></td>
+</tr>
+<tr>
+<td>Set up pre-exploit bridge state</td>
+<td>Use <code>bridge_action</code> scenario steps with real plugins</td>
+</tr>
+<tr>
+<td>Reproduce a historical bridge exploit where the bridge is already deployed</td>
+<td>Fork the chain at the exploit block — the bridge contracts are part of the fork state</td>
+</tr>
+<tr>
+<td>Verify that a vulnerable state existed at a specific block</td>
+<td>L2: use <code>get_code()</code> + <code>get_storage_at()</code> in an AttackPlugin</td>
+</tr>
+<tr>
+<td>Replay an exploit transaction against a forked chain</td>
+<td>L3: forge exact calldata and send via <code>client.send_transaction()</code></td>
+</tr>
+<tr>
+<td>Analyze bridge contract behavior during an exploit</td>
+<td>Auto-captured in 6 JSONL streams by the RPC proxy</td>
+</tr>
+<tr>
+<td>Test an attack plugin against different fork blocks</td>
+<td>Use <code>experiment run</code> with different <code>fork_block</code> values in <code>testbed.local.yaml</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="partially-covered-architecture-exists-limited-implementation">Partially Covered (Architecture Exists, Limited Implementation)<a class="headerlink" href="#partially-covered-architecture-exists-limited-implementation" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Experiment with relay timing assumptions</td>
+<td>No relayer timing model — <code>connect()</code> is synchronous</td>
+</tr>
+<tr>
+<td>Test what-if scenarios with modified bridge parameters</td>
+<td>Must manually edit Solidity contracts before <code>forge build</code></td>
+</tr>
+<tr>
+<td>Deploy a custom bridge protocol from scratch</td>
+<td>Must write full BridgePlugin + Solidity contracts from nothing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="not-covered-architecture-gap">Not Covered (Architecture Gap)<a class="headerlink" href="#not-covered-architecture-gap" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
 <th>Why</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Medium</strong></td>
-<td>Cross-provider verification (run with second RPC provider)</td>
-<td>Proves results aren't provider-specific</td>
+<td>Non-EVM bridge components</td>
+<td>Crucible is EVM-only by design</td>
 </tr>
 <tr>
-<td><strong>Low</strong></td>
-<td>Add L4 bridge topology for poly_network + wormhole</td>
-<td>More comprehensive cross-chain coverage</td>
+<td>Real cross-chain relay with actual finality</td>
+<td>Anvil auto-mines instantly</td>
+</tr>
+<tr>
+<td>Multi-guardian consensus simulation</td>
+<td>No signing/verification round model</td>
+</tr>
+<tr>
+<td>MEV-aware bridge attack sequencing</td>
+<td>Anvil uses FIFO ordering</td>
+</tr>
+<tr>
+<td>Token minting / burning on cross-chain transfer</td>
+<td>Not modeled in simplified contracts</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>---|---|---|
+| <code>optimistic-bridge</code> | Nomad-style fraud-proof bridge | 3-4 days |
+| <code>light-client-bridge</code> | Wormhole-style guardian/light-client bridge | 3-4 days |
+| <code>lock-mint-bridge</code> | Simple token bridge (Portal-style) | 2-3 days |</p>
+<h3 id="53-phase-3-behavioral-assertions-for-l4-2-3-days">5.3 Phase 3: Behavioral Assertions for L4 (2-3 days)<a class="headerlink" href="#53-phase-3-behavioral-assertions-for-l4-2-3-days" title="Permanent link">&para;</a></h3>
+<p>Upgrade L4 fidelity enforcement to verify actual bridge behavior:</p>
+<p><strong>Deliverable:</strong>
+- Bridge plugin declares behavioral assertions in evidence.yaml
+- L4 gate checks: message delivery confirmed, state synchronized across chains
+- <code>FidelityEnforcer</code> validates bridge behavior, not just structural presence</p>
+<h3 id="54-total-remaining-investment">5.4 Total Remaining Investment<a class="headerlink" href="#54-total-remaining-investment" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Effort</th>
+<th>Timeline (1 person)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase 1: Relayer timing</td>
+<td>2-3 days</td>
+<td>Week 1</td>
+</tr>
+<tr>
+<td>Phase 2: Bridge templates (3 templates)</td>
+<td>8-12 days</td>
+<td>Weeks 2-3</td>
+</tr>
+<tr>
+<td>Phase 3: L4 enforcement</td>
+<td>2-3 days</td>
+<td>Week 4</td>
+</tr>
+<tr>
+<td><strong>Total remaining</strong></td>
+<td><strong>12-18 days</strong></td>
+<td><strong>3-4 weeks</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-how-researchers-can-use-the-bridge-plugins">5. How Researchers Can Use The Bridge Plugins<a class="headerlink" href="#5-how-researchers-can-use-the-bridge-plugins" title="Permanent link">&para;</a></h2>
+<h3 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># experiments/my_l4_experiment.yaml</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_l4_experiment</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">scenario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_bridge_scenario</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">attack</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_attack_plugin</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nt">topology</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_bridge</span><span class="w">               </span><span class="c1"># Use a bridge topology</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nt">run</span><span class="p">:</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="nt">traces</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">storage_diffs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nt">gas_profiling</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+<h3 id="from-an-attack-plugin">From An Attack Plugin<a class="headerlink" href="#from-an-attack-plugin" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">ExperimentContext</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AttackResult</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="c1"># The bridge is already deployed and configured by the lifecycle</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">bridge</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">bridge_plugin</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="c1"># Send a forged cross-chain message</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>        <span class="n">source_chain</span><span class="o">=</span><span class="s2">&quot;ethereum&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>        <span class="n">dest_chain</span><span class="o">=</span><span class="s2">&quot;polygon&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>        <span class="n">data</span><span class="o">=</span><span class="s2">&quot;0xdeadbeef...&quot;</span>  <span class="c1"># forged calldata</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="c1"># Use the existing RPC for chain-specific operations</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">JsonRpcClient</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">chains</span><span class="o">.</span><span class="n">runtime_for</span><span class="p">(</span><span class="s2">&quot;ethereum&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rpc_url</span><span class="p">)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="c1"># ... exploit logic using both chains and the bridge</span>
+</code></pre></div>
+<h3 id="from-a-scenario">From A Scenario<a class="headerlink" href="#from-a-scenario" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># scenarios/my_bridge_scenario/scenario.yaml</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">phases</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setup</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Bridge</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">deployed</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">configured</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">lifecycle&quot;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attack</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Attack</span><span class="nv"> </span><span class="s">runs</span><span class="nv"> </span><span class="s">here</span><span class="nv"> </span><span class="s">(bridges</span><span class="nv"> </span><span class="s">ready)&quot;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">verify</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge_action</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">        </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">verify_state</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">        </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
+</code></pre></div>
+<h3 id="validate-the-bridge-plugin">Validate The Bridge Plugin<a class="headerlink" href="#validate-the-bridge-plugin" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>crucible<span class="w"> </span>plugin<span class="w"> </span>list<span class="w"> </span>--type<span class="w"> </span>bridge
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>crucible<span class="w"> </span>plugin<span class="w"> </span>validate<span class="w"> </span>bridges/nomad_bridge
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>crucible<span class="w"> </span>plugin<span class="w"> </span>validate<span class="w"> </span>bridges/poly_network_bridge
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>crucible<span class="w"> </span>plugin<span class="w"> </span>validate<span class="w"> </span>bridges/wormhole_bridge
+</code></pre></div>
+<h3 id="manual-cross-chain-simulation-without-bridge-plugin">Manual Cross-Chain Simulation (Without Bridge Plugin)<a class="headerlink" href="#manual-cross-chain-simulation-without-bridge-plugin" title="Permanent link">&para;</a></h3>
+<p>This pattern is still available for custom bridge protocols not covered by the 3 plugins:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Chain A: call bridge.send_message()</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">client_a</span><span class="o">.</span><span class="n">send_transaction</span><span class="p">({</span><span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="n">BRIDGE_A</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">message_data</span><span class="p">})</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># Chain B: simulate relayer by calling bridge.receive_message()</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">client_b</span><span class="o">.</span><span class="n">send_transaction</span><span class="p">({</span><span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="n">BRIDGE_B</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">message_data</span><span class="p">})</span>
+</code></pre></div>
+<p>Crucible's instrumentation proxy captures every interaction automatically.</p>
+<hr />
+<h2 id="6-summary">6. Summary<a class="headerlink" href="#6-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BridgePlugin ABC</td>
+<td>[ok] Complete, well-designed</td>
+</tr>
+<tr>
+<td>Lifecycle wiring (deploy -&gt; destroy)</td>
+<td>[ok] Production-ready</td>
+</tr>
+<tr>
+<td>Scenario step type (bridge_action)</td>
+<td>[ok] Wired, works with real plugins</td>
+</tr>
+<tr>
+<td>Cross-chain logging</td>
+<td>[ok] Production-ready</td>
+</tr>
+<tr>
+<td>Topology configuration</td>
+<td>[ok] 3 bridge topology files</td>
+</tr>
+<tr>
+<td>Evidence validation</td>
+<td>[ok] Validates metadata</td>
+</tr>
+<tr>
+<td><strong>Real bridge plugins</strong></td>
+<td>[ok] 3 plugins (Nomad, Poly Network, Wormhole)</td>
+</tr>
+<tr>
+<td>Solidity contracts for 3 protocols</td>
+<td>[ok] Compiled via forge build</td>
+</tr>
+<tr>
+<td>Integration tests</td>
+<td>[ok] 17+ unit tests in test_bridge_plugins.py</td>
 </tr>
 </tbody>
 </table>
@@ -3548,44 +3214,32 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../BENCHMARKS/"><code>docs/BENCHMARKS.md</code></a></td>
-<td>Benchmark status, per-attack fidelity assessment, run results</td>
+<td><a href="../ARCHITECTURE.md">docs/ARCHITECTURE.md</a></td>
+<td>System architecture, plugin system, data flow</td>
 </tr>
 <tr>
-<td><a href="../REPRODUCIBILITY/"><code>docs/REPRODUCIBILITY.md</code></a></td>
-<td>Provenance, determinism, full bug log</td>
+<td><a href="../REPRODUCTION_SCOPE.md">docs/REPRODUCTION_SCOPE.md</a></td>
+<td>Fidelity levels, what's in/out of scope</td>
 </tr>
 <tr>
-<td><a href="../FIDELITY_GUIDE/"><code>docs/FIDELITY_GUIDE.md</code></a></td>
-<td>Fidelity levels (L0-L4), enforcement, <code>--no-fidelity</code> usage</td>
+<td><a href="../ATTACK_PACK_GUIDE.md">docs/ATTACK_PACK_GUIDE.md</a></td>
+<td>Creating attack plugins with bridge topology</td>
 </tr>
 <tr>
-<td><a href="../ATTACK_PACK_GUIDE/"><code>docs/ATTACK_PACK_GUIDE.md</code></a></td>
-<td>Creating new attack plugins</td>
+<td><a href="../SCENARIO_AUTHORING.md">docs/SCENARIO_AUTHORING.md</a></td>
+<td>bridge_action step type reference</td>
 </tr>
 <tr>
-<td><a href="../TROUBLESHOOTING/"><code>docs/TROUBLESHOOTING.md</code></a></td>
-<td>Common errors and fixes</td>
+<td><a href="../CLI_REFERENCE.md">docs/CLI_REFERENCE.md</a></td>
+<td>Bridge plugin CLI commands</td>
 </tr>
 <tr>
-<td><a href="../RPC_PROVIDER_GUIDE/"><code>docs/RPC_PROVIDER_GUIDE.md</code></a></td>
-<td>Archive RPC provider comparison and costs</td>
+<td><a href="https://github.com/your-org/crucible/blob/main/crucible/sdk.py">crucible/sdk.py</a></td>
+<td>BridgePlugin ABC source</td>
 </tr>
 <tr>
-<td><a href="../USER_GUIDE/"><code>docs/USER_GUIDE.md</code></a></td>
-<td>Getting started, Docker vs local</td>
-</tr>
-<tr>
-<td><a href="../CLI_REFERENCE/"><code>docs/CLI_REFERENCE.md</code></a></td>
-<td>All CLI commands and flags</td>
-</tr>
-<tr>
-<td><a href="internal/TECHNICAL_OVERVIEW.md"><code>docs/internal/TECHNICAL_OVERVIEW.md</code></a></td>
-<td>System architecture, core concepts, data flow, design principles</td>
-</tr>
-<tr>
-<td><a href="../internal/DESIGN_DECISIONS/"><code>docs/internal/DESIGN_DECISIONS.md</code></a></td>
-<td>15 key architectural decisions with rationale and tradeoffs</td>
+<td><a href="https://github.com/your-org/crucible/blob/main/crucible/bridge_lifecycle.py">crucible/bridge_lifecycle.py</a></td>
+<td>Bridge lifecycle helpers source</td>
 </tr>
 </tbody>
 </table>

@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../LAB_DEPLOYMENT/">
+        <link rel="prev" href="../DEPLOYMENT/">
       
       
-        <link rel="next" href="../MAINTENANCE/">
+        <link rel="next" href="../LAB_DEPLOYMENT/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>RPC Provider Guide - Crucible Docs</title>
+        <title>Docker Guide - Crucible Docs</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rpc-provider-guide" class="md-skip">
+        <a href="#docker-implementation-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -116,7 +116,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RPC Provider Guide
+              Docker Guide
             
           </span>
         </div>
@@ -1384,10 +1384,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../DOCKER_GUIDE/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1403,6 +1430,353 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#two-operational-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Operational Modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Container Breakdown
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Container Breakdown">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestrator-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestrator Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemon-anvil-containers-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daemon Anvil Containers (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Implementation Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-the-entrypoint-bash-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. The --entrypoint bash Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-stale-meta-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Stale Meta Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-daemon-anvil-fork-block-mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Daemon Anvil Fork Block Mismatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-rpc-url-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. RPC URL Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-fork-block-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Fork Block Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-volume-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Volume Persistence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Building
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Experiments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Experiments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-experiment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single Experiment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determinism-check-two-runs-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determinism Check (Two Runs + Diff)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-validation-all-3-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Full Validation (All 3 Attacks)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-chain-topology-requires-paid-archive-rpcs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Chain Topology (Requires Paid Archive RPCs)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sh-c-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sh -c Fails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stale-meta-file-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stale Meta File Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chain-not-ready" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chain Not Ready
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contract-has-no-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contract Has No Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contract-address-is-an-eoa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contract Address Is An EOA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foundry-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Foundry Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-single-container-vs-daemon-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison: Single-Container vs Daemon Approach
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1440,37 +1814,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RPC Provider Guide
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
         
   
   
@@ -1486,320 +1833,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#why-archive-nodes-are-required" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why Archive Nodes Are Required
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Why Archive Nodes Are Required">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#archive-vs-full-node" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Archive vs Full Node
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#which-chains-need-archive-access" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Which Chains Need Archive Access
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#provider-comparison" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Provider Comparison
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Provider Comparison">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ethereum-free-archive-available-ok" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ethereum (Free Archive Available [ok])
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bsc-no-free-archive-fail" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        BSC (No Free Archive [fail])
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#polygon-no-free-archive-fail" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Polygon (No Free Archive [fail])
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recommended-provider-getblock" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended Provider: GetBlock
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Recommended Provider: GetBlock">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alternatives-if-getblock-doesnt-fit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alternatives (if GetBlock doesn't fit)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-in-crucible" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration in Crucible
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration in Crucible">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-get-an-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 1: Get an API Key
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-set-environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2: Set Environment Variables
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-configure-rate-limiting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3: Configure Rate Limiting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-verify-connectivity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Verify Connectivity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-run-multi-chain-experiment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Run Multi-Chain Experiment
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#historical-state-not-available-error" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "Historical state not available" Error
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anvil_setbalance-fails-with-historical-state-not-available" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "anvil_setBalance" Fails with "Historical State Not Available"
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eth_sendtransaction-from-new-address-fails" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "eth_sendTransaction" From New Address Fails
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-test-archive-depth" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How To Test Archive Depth
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fork-block-depth-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fork Block Depth Reference
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connection-refused-on-fork" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "Connection refused" on Fork
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rate-limited" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rate Limited
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary-what-we-need-vs-whats-free" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary: What We Need vs What's Free
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2364,33 +2397,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-archive-nodes-are-required" class="md-nav__link">
+  <a href="#architecture-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why Archive Nodes Are Required
+        Architecture Overview
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Why Archive Nodes Are Required">
+    <nav class="md-nav" aria-label="Architecture Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#archive-vs-full-node" class="md-nav__link">
+  <a href="#two-operational-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Archive vs Full Node
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#which-chains-need-archive-access" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Which Chains Need Archive Access
+        Two Operational Modes
       
     </span>
   </a>
@@ -2403,22 +2425,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#provider-comparison" class="md-nav__link">
+  <a href="#container-breakdown" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provider Comparison
+        Container Breakdown
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Provider Comparison">
+    <nav class="md-nav" aria-label="Container Breakdown">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ethereum-free-archive-available-ok" class="md-nav__link">
+  <a href="#orchestrator-container" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ethereum (Free Archive Available [ok])
+        Orchestrator Container
       
     </span>
   </a>
@@ -2426,10 +2448,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bsc-no-free-archive-fail" class="md-nav__link">
+  <a href="#dashboard-container" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BSC (No Free Archive [fail])
+        Dashboard Container
       
     </span>
   </a>
@@ -2437,10 +2459,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#polygon-no-free-archive-fail" class="md-nav__link">
+  <a href="#daemon-anvil-containers-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Polygon (No Free Archive [fail])
+        Daemon Anvil Containers (Optional)
       
     </span>
   </a>
@@ -2453,22 +2475,77 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#recommended-provider-getblock" class="md-nav__link">
+  <a href="#key-implementation-details" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Recommended Provider: GetBlock
+        Key Implementation Details
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Recommended Provider: GetBlock">
+    <nav class="md-nav" aria-label="Key Implementation Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#alternatives-if-getblock-doesnt-fit" class="md-nav__link">
+  <a href="#1-the-entrypoint-bash-pattern" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alternatives (if GetBlock doesn't fit)
+        1. The --entrypoint bash Pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-stale-meta-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Stale Meta Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-daemon-anvil-fork-block-mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Daemon Anvil Fork Block Mismatch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-rpc-url-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. RPC URL Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-fork-block-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Fork Block Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-volume-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Volume Persistence
       
     </span>
   </a>
@@ -2481,22 +2558,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration-in-crucible" class="md-nav__link">
+  <a href="#building" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Configuration in Crucible
+        Building
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Configuration in Crucible">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-experiments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Experiments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running Experiments">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#step-1-get-an-api-key" class="md-nav__link">
+  <a href="#single-experiment" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1: Get an API Key
+        Single Experiment
       
     </span>
   </a>
@@ -2504,10 +2592,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-set-environment-variables" class="md-nav__link">
+  <a href="#determinism-check-two-runs-diff" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2: Set Environment Variables
+        Determinism Check (Two Runs + Diff)
       
     </span>
   </a>
@@ -2515,10 +2603,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-configure-rate-limiting" class="md-nav__link">
+  <a href="#full-validation-all-3-attacks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3: Configure Rate Limiting
+        Full Validation (All 3 Attacks)
       
     </span>
   </a>
@@ -2526,21 +2614,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-4-verify-connectivity" class="md-nav__link">
+  <a href="#multi-chain-topology-requires-paid-archive-rpcs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4: Verify Connectivity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-run-multi-chain-experiment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Run Multi-Chain Experiment
+        Multi-Chain Topology (Requires Paid Archive RPCs)
       
     </span>
   </a>
@@ -2565,10 +2642,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#historical-state-not-available-error" class="md-nav__link">
+  <a href="#sh-c-fails" class="md-nav__link">
     <span class="md-ellipsis">
       
-        "Historical state not available" Error
+        sh -c Fails
       
     </span>
   </a>
@@ -2576,10 +2653,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#anvil_setbalance-fails-with-historical-state-not-available" class="md-nav__link">
+  <a href="#stale-meta-file-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        "anvil_setBalance" Fails with "Historical State Not Available"
+        Stale Meta File Errors
       
     </span>
   </a>
@@ -2587,10 +2664,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#eth_sendtransaction-from-new-address-fails" class="md-nav__link">
+  <a href="#chain-not-ready" class="md-nav__link">
     <span class="md-ellipsis">
       
-        "eth_sendTransaction" From New Address Fails
+        Chain Not Ready
       
     </span>
   </a>
@@ -2598,10 +2675,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-to-test-archive-depth" class="md-nav__link">
+  <a href="#contract-has-no-code" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How To Test Archive Depth
+        Contract Has No Code
       
     </span>
   </a>
@@ -2609,10 +2686,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fork-block-depth-reference" class="md-nav__link">
+  <a href="#contract-address-is-an-eoa" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fork Block Depth Reference
+        Contract Address Is An EOA
       
     </span>
   </a>
@@ -2620,21 +2697,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#connection-refused-on-fork" class="md-nav__link">
+  <a href="#foundry-not-found" class="md-nav__link">
     <span class="md-ellipsis">
       
-        "Connection refused" on Fork
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rate-limited" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rate Limited
+        Foundry Not Found
       
     </span>
   </a>
@@ -2647,10 +2713,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary-what-we-need-vs-whats-free" class="md-nav__link">
+  <a href="#comparison-single-container-vs-daemon-approach" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary: What We Need vs What's Free
+        Comparison: Single-Container vs Daemon Approach
       
     </span>
   </a>
@@ -2674,622 +2740,369 @@
 
 
 
-<h1 id="rpc-provider-guide">RPC Provider Guide<a class="headerlink" href="#rpc-provider-guide" title="Permanent link">&para;</a></h1>
-<h2 id="why-archive-nodes-are-required">Why Archive Nodes Are Required<a class="headerlink" href="#why-archive-nodes-are-required" title="Permanent link">&para;</a></h2>
-<p>Crucible reproduces historical blockchain exploits by <strong>forking the chain at a specific block</strong> using Foundry's <code>anvil</code>. To do this, <code>anvil</code> needs an <strong>archive node</strong> (also called a "full archive node") that can serve historical state data.</p>
-<h3 id="archive-vs-full-node">Archive vs Full Node<a class="headerlink" href="#archive-vs-full-node" title="Permanent link">&para;</a></h3>
+<h1 id="docker-implementation-guide">Docker Implementation Guide<a class="headerlink" href="#docker-implementation-guide" title="Permanent link">&para;</a></h1>
+<h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
+<p>Crucible uses Docker for <strong>fully containerized, reproducible experiment runs</strong>. The Docker setup has three tiers:</p>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Compose["docker-compose.yml"]
+        A["orchestrator&lt;br&gt;(experiment runs)&lt;br&gt;&lt;br&gt;ENTRYPOINT:&lt;br&gt;uv run crucible"]
+        B["dashboard&lt;br&gt;(Streamlit UI)&lt;br&gt;&lt;br&gt;ENTRYPOINT:&lt;br&gt;uv run streamlit"]
+        C["anvil-* (opt.)&lt;br&gt;(persistent chain daemons)&lt;br&gt;&lt;br&gt;ENTRYPOINT:&lt;br&gt;anvil"]
+        A ~~~ B ~~~ C
+    end</code></pre>
+<h3 id="two-operational-modes">Two Operational Modes<a class="headerlink" href="#two-operational-modes" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Feature</th>
-<th>Full Node</th>
-<th>Archive Node</th>
+<th>Mode</th>
+<th>Command</th>
+<th>When to Use</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Latest block state</td>
-<td>[ok]</td>
-<td>[ok]</td>
+<td><strong>Single-container (default)</strong></td>
+<td><code>docker compose run --rm --entrypoint bash orchestrator -c "fork &amp;&amp; experiment run"</code></td>
+<td>Most experiments — Anvil runs inside the orchestrator container</td>
 </tr>
 <tr>
-<td>Historical state (eth_getBalance at old block)</td>
-<td>[fail] (pruned after ~128 blocks)</td>
-<td>[ok] (stores ALL state since genesis)</td>
-</tr>
-<tr>
-<td>eth_getBlockByNumber (old blocks)</td>
-<td>[ok] (block headers kept)</td>
-<td>[ok]</td>
-</tr>
-<tr>
-<td>eth_getCode / eth_call (old blocks)</td>
-<td>[fail]</td>
-<td>[ok]</td>
-</tr>
-<tr>
-<td>Disk space (Ethereum)</td>
-<td>~1 TB</td>
-<td>~12+ TB</td>
-</tr>
-<tr>
-<td>Disk space (BSC)</td>
-<td>~1 TB</td>
-<td>~10+ TB</td>
+<td><strong>Daemon + orchestrator</strong></td>
+<td><code>docker compose up -d anvil-ethereum &amp;&amp; docker compose run orchestrator experiment run</code></td>
+<td>Multi-session workflows, streaming to dashboard</td>
 </tr>
 </tbody>
 </table>
-<h3 id="which-chains-need-archive-access">Which Chains Need Archive Access<a class="headerlink" href="#which-chains-need-archive-access" title="Permanent link">&para;</a></h3>
+<p><strong>Recommended:</strong> Single-container mode. It's simpler, fully isolated, and avoids the daemon Anvil's fork block mismatch problem.</p>
+<hr />
+<h2 id="container-breakdown">Container Breakdown<a class="headerlink" href="#container-breakdown" title="Permanent link">&para;</a></h2>
+<h3 id="orchestrator-container">Orchestrator Container<a class="headerlink" href="#orchestrator-container" title="Permanent link">&para;</a></h3>
+<p>The orchestrator is the <strong>main workhorse</strong>. It contains:</p>
+<ul>
+<li><strong>Crucible CLI</strong> — all commands (<code>fork</code>, <code>experiment run</code>, <code>diff</code>, etc.)</li>
+<li><strong>Foundry (anvil, forge, cast)</strong> — for forking EVM chains</li>
+<li><strong>Python 3.12 + dependencies</strong> — via uv package manager</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># docker-compose.yml (simplified)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">orchestrator</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">entrypoint</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;uv&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;run&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;crucible&quot;</span><span class="p p-Indicator">]</span><span class="w">  </span><span class="c1"># [warn] NOT a shell!</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.:/workspace</span><span class="w">           </span><span class="c1"># project source (live-mounted)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">states_data:/workspace/states</span><span class="w">      </span><span class="c1"># persistent chain meta files</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">logs_data:/workspace/logs</span><span class="w">          </span><span class="c1"># experiment logs &amp; artifacts</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fork_cache:/workspace/.fork_cache</span><span class="w">  </span><span class="c1"># cached RPC data</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">env_file</span><span class="p">:</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.env</span><span class="w">                   </span><span class="c1"># RPC URLs and configuration</span>
+</code></pre></div>
+<p><strong>Critical detail:</strong> The entire project directory is mounted as a bind volume (<code>.</code> → <code>/workspace</code>). This means:
+- Code changes are live — no rebuild needed for Python changes
+- But Foundry binaries are baked INTO the image — rebuild needed after Dockerfile changes
+- Config files (<code>testbed.yaml</code>, <code>.env</code>) are live — no rebuild for config changes</p>
+<h3 id="dashboard-container">Dashboard Container<a class="headerlink" href="#dashboard-container" title="Permanent link">&para;</a></h3>
+<p>The dashboard runs the <strong>Streamlit web UI</strong> for visualizing experiment results:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Access the dashboard</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>dashboard
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># Then open http://localhost:8501</span>
+</code></pre></div>
+<h3 id="daemon-anvil-containers-optional">Daemon Anvil Containers (Optional)<a class="headerlink" href="#daemon-anvil-containers-optional" title="Permanent link">&para;</a></h3>
+<p>The <code>docker-compose.yml</code> includes pre-configured Anvil containers for persistent chain forking:</p>
+<ul>
+<li><code>anvil-ethereum</code> — port 8545</li>
+<li><code>anvil-polygon</code> — port 8546</li>
+<li><code>anvil-bsc</code> — port 8547</li>
+<li><code>anvil-harmony</code> — port 8548</li>
+</ul>
+<p>These are <strong>optional</strong> — the single-container mode runs Anvil inside the orchestrator. However, if you want persistent chains that survive container restarts:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>anvil-ethereum<span class="w"> </span>anvil-polygon
+</code></pre></div>
+<p>To use daemon containers, create a <code>testbed.local.yaml</code> pointing to Docker service names:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># testbed.local.yaml</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">chains</span><span class="p">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">ethereum</span><span class="p">:</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;anvil-ethereum&quot;</span><span class="w">  </span><span class="c1"># Docker service name</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">polygon</span><span class="p">:</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;anvil-polygon&quot;</span>
+</code></pre></div>
+<p>Then run experiments against the persistent daemons:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>orchestrator<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/nomad_replay.yaml
+</code></pre></div>
+<hr />
+<h2 id="key-implementation-details">Key Implementation Details<a class="headerlink" href="#key-implementation-details" title="Permanent link">&para;</a></h2>
+<h3 id="1-the-entrypoint-bash-pattern">1. The <code>--entrypoint bash</code> Pattern<a class="headerlink" href="#1-the-entrypoint-bash-pattern" title="Permanent link">&para;</a></h3>
+<p>The orchestrator's Dockerfile defines:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;uv&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;run&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;crucible&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p>This means <code>docker compose run orchestrator &lt;args&gt;</code> runs <code>uv run crucible &lt;args&gt;</code>. To run shell commands (like <code>rm</code> or chaining multiple crucible commands), you <strong>must</strong> override the entrypoint:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># [ok] CORRECT — override entrypoint to bash</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="s2">  rm -f states/*.meta.json &amp;&amp; \</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s2">  uv run crucible fork --topology single &amp;&amp; \</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s2">  uv run crucible experiment run experiments/nomad_replay.yaml --no-baseline</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s2">&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># [fail] WRONG — this tries to run crucible sh -c &quot;...&quot;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>orchestrator<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;...&quot;</span>
+</code></pre></div>
+<h3 id="2-stale-meta-files">2. Stale Meta Files<a class="headerlink" href="#2-stale-meta-files" title="Permanent link">&para;</a></h3>
+<p>The <code>states_data</code> Docker volume persists chain metadata (<code>.meta.json</code> files) across container runs. Each time <code>crucible fork</code> starts a chain, it writes a meta file like <code>states/ethereum.meta.json</code>. If you switch topologies (e.g., from <code>poly_network</code> to <code>single</code>), the old meta files for chains that no longer exist (e.g., <code>bsc.meta.json</code>) cause errors:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ERROR: RPC call failed for anvil_dumpState at http://127.0.0.1:8547: Connection refused
+</code></pre></div>
+<p><strong>Solution:</strong> Always clean meta files before forking:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>rm<span class="w"> </span>-f<span class="w"> </span>states/*.meta.json
+</code></pre></div>
+<p>This is safe — meta files only track running Anvil processes. They're regenerated on the next fork.</p>
+<h3 id="3-daemon-anvil-fork-block-mismatch">3. Daemon Anvil Fork Block Mismatch<a class="headerlink" href="#3-daemon-anvil-fork-block-mismatch" title="Permanent link">&para;</a></h3>
+<p>When using daemon Anvil containers (<code>docker compose up -d anvil-ethereum</code>), the fork block is set in <code>docker-compose.yml</code> via environment variables:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">anvil-ethereum</span><span class="p">:</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">command</span><span class="p">:</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anvil</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--fork-block-number</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${ETH_FORK_BLOCK:-14211979}</span>
+</code></pre></div>
+<p>If <code>testbed.yaml</code> has a different <code>fork_block</code> for the same chain, the scenario runs against the daemon's block (e.g., 14,211,979) while the attack expects a different block (e.g., 15,259,100 for Nomad). This mismatch causes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Attack verification failed: Contract has no code at fork block
+</code></pre></div>
+<p><strong>Solution:</strong> Use <strong>single-container mode</strong> (default) where <code>crucible fork</code> starts a fresh Anvil with the correct fork block from <code>testbed.yaml</code>. This avoids any configuration drift.</p>
+<h3 id="4-rpc-url-configuration">4. RPC URL Configuration<a class="headerlink" href="#4-rpc-url-configuration" title="Permanent link">&para;</a></h3>
+<p>The daemon Anvil containers use <code>${ETH_RPC_URL}</code> from the <code>.env</code> file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">anvil-ethereum</span><span class="p">:</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">command</span><span class="p">:</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anvil</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--fork-url</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${ETH_RPC_URL}</span>
+</code></pre></div>
+<p>But the single-container mode also uses <code>testbed.yaml</code>'s <code>rpc_url</code> field:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">chains</span><span class="p">:</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">ethereum</span><span class="p">:</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="nt">rpc_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${ETH_RPC_URL}&quot;</span><span class="w">  </span><span class="c1"># Also uses envar</span>
+</code></pre></div>
+<p>Both modes read from <code>.env</code>. If the env var is unset, Anvil fails:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ERROR: chain ethereum did not become ready within 30s on http://127.0.0.1:8545
+</code></pre></div>
+<p><strong>Solution:</strong> Verify environment variables before running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo &quot;ETH_RPC_URL=$ETH_RPC_URL&quot;&#39;</span>
+</code></pre></div>
+<h3 id="5-fork-block-management">5. Fork Block Management<a class="headerlink" href="#5-fork-block-management" title="Permanent link">&para;</a></h3>
+<p><code>testbed.yaml</code> has a global <code>fork_block</code> per chain. Each experiment needs a different block:</p>
 <table>
 <thead>
 <tr>
 <th>Attack</th>
-<th>Chains Forked</th>
-<th>Fork Block</th>
-<th>Archive Required?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Nomad Bridge</strong></td>
-<td>Ethereum + Polygon</td>
-<td>15,259,100 / —</td>
-<td>[ok] Ethereum [ok] Polygon</td>
-</tr>
-<tr>
-<td><strong>Wormhole Guardian</strong></td>
-<td>Ethereum</td>
-<td>14,125,553</td>
-<td>[ok] Ethereum</td>
-</tr>
-<tr>
-<td><strong>Poly Network</strong></td>
-<td>Ethereum (only)</td>
-<td>12,996,693</td>
-<td>[ok] Ethereum</td>
-</tr>
-<tr>
-<td><strong>Poly Network (full multi-chain)</strong></td>
-<td>Ethereum + BSC + Polygon</td>
-<td>12,996,693 / 9,755,172 / 16,332,982</td>
-<td>[ok] All 3 chains</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Key insight:</strong> All three attacks need Ethereum archive. Ethereum has the best free archive support. For multi-chain (BSC + Polygon at 2021-era blocks), <strong>paid archive providers are required</strong>.</p>
-<hr />
-<h2 id="provider-comparison">Provider Comparison<a class="headerlink" href="#provider-comparison" title="Permanent link">&para;</a></h2>
-<h3 id="ethereum-free-archive-available-ok">Ethereum (Free Archive Available [ok])<a class="headerlink" href="#ethereum-free-archive-available-ok" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Provider</th>
-<th>Archive Depth</th>
-<th>Rate Limit</th>
-<th>Cost</th>
-<th>Works with Crucible?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Ankr (rpc.ankr.com/eth)</strong></td>
-<td>Full archive (with API key)</td>
-<td>300M CU/month</td>
-<td>Free tier</td>
-<td>[ok] Best free option — sign up at app.ankr.com</td>
-</tr>
-<tr>
-<td><strong>LlamaNodes (eth.llamarpc.com)</strong></td>
-<td>Full archive</td>
-<td>25 req/s</td>
-<td>Free</td>
-<td>[warn] Rate-limits Anvil's heavy requests</td>
-</tr>
-<tr>
-<td><strong>PublicNode (ethereum.publicnode.com)</strong></td>
-<td>Limited (~128 blocks)</td>
-<td>10 req/s</td>
-<td>Free</td>
-<td>[fail] Fails for old blocks</td>
-</tr>
-<tr>
-<td><strong>Alchemy</strong></td>
-<td>Full archive</td>
-<td>Varies</td>
-<td>Free tier + paid</td>
-<td>[ok] (set ETH_RPC_URL in .env)</td>
-</tr>
-<tr>
-<td><strong>QuickNode</strong></td>
-<td>Full archive</td>
-<td>Varies</td>
-<td>Paid</td>
-<td>[ok] (set ETH_RPC_URL in .env)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="bsc-no-free-archive-fail">BSC (No Free Archive [fail])<a class="headerlink" href="#bsc-no-free-archive-fail" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Provider</th>
-<th>Archive Depth</th>
-<th>Rate Limit</th>
-<th>Cost</th>
-<th>Works with Crucible?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>GetBlock (go.getblock.io)</strong></td>
-<td>Full archive</td>
-<td>20 RPS</td>
-<td><strong>$39/mo</strong> (Starter)</td>
-<td>[ok] Tested via curl</td>
-</tr>
-<tr>
-<td><strong>PublicNode (bsc.publicnode.com)</strong></td>
-<td>Limited (~128 blocks)</td>
-<td>10 req/s</td>
-<td>Free</td>
-<td>[fail] Fails at block 9,755,172</td>
-</tr>
-<tr>
-<td><strong>meowrpc (bsc.meowrpc.com)</strong></td>
-<td>Limited</td>
-<td>15 req/s</td>
-<td>Free</td>
-<td>[fail] eth_getBlockByNumber fails</td>
-</tr>
-<tr>
-<td><strong>QuickNode</strong></td>
-<td>Full archive</td>
-<td>Varies</td>
-<td>Paid</td>
-<td>[ok]</td>
-</tr>
-<tr>
-<td><strong>Chainstack</strong></td>
-<td>Full archive</td>
-<td>Varies</td>
-<td>Paid</td>
-<td>[ok]</td>
-</tr>
-<tr>
-<td><strong>Ankr (rpc.ankr.com/bsc)</strong></td>
-<td>Full archive (with key)</td>
-<td>Varies</td>
-<td>Free tier + paid</td>
-<td>[warn] Requires Ankr API key</td>
-</tr>
-</tbody>
-</table>
-<h3 id="polygon-no-free-archive-fail">Polygon (No Free Archive [fail])<a class="headerlink" href="#polygon-no-free-archive-fail" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Provider</th>
-<th>Archive Depth</th>
-<th>Rate Limit</th>
-<th>Cost</th>
-<th>Works with Crucible?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>GetBlock (go.getblock.io)</strong></td>
-<td>Full archive</td>
-<td>20 RPS</td>
-<td><strong>$39/mo</strong> (Starter)</td>
-<td>[ok] Included in same plan</td>
-</tr>
-<tr>
-<td><strong>LlamaNodes (polygon.llamarpc.com)</strong></td>
-<td>Limited</td>
-<td>25 req/s</td>
-<td>Free</td>
-<td>[fail] Fails at block 16,332,982</td>
-</tr>
-<tr>
-<td><strong>PublicNode (polygon-bor.publicnode.com)</strong></td>
-<td>Limited (~128 blocks)</td>
-<td>10 req/s</td>
-<td>Free</td>
-<td>[fail] Fails at block 16,332,982</td>
-</tr>
-<tr>
-<td><strong>QuickNode</strong></td>
-<td>Full archive</td>
-<td>Varies</td>
-<td>Paid</td>
-<td>[ok]</td>
-</tr>
-<tr>
-<td><strong>Chainstack</strong></td>
-<td>Full archive</td>
-<td>Varies</td>
-<td>Paid</td>
-<td>[ok]</td>
-</tr>
-<tr>
-<td><strong>Ankr (rpc.ankr.com/polygon)</strong></td>
-<td>Full archive (with key)</td>
-<td>Varies</td>
-<td>Free tier + paid</td>
-<td>[warn] Requires Ankr API key</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="recommended-provider-getblock">Recommended Provider: GetBlock<a class="headerlink" href="#recommended-provider-getblock" title="Permanent link">&para;</a></h2>
-<p>Based on testing, <strong>GetBlock</strong> is the most practical option for our needs:</p>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>GetBlock Starter ($39/mo)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>BSC Archive</strong></td>
-<td>[ok] Full archive</td>
-</tr>
-<tr>
-<td><strong>Polygon Archive</strong></td>
-<td>[ok] Full archive</td>
-</tr>
-<tr>
-<td><strong>Ethereum Archive</strong></td>
-<td>[ok] (but we already have free)</td>
-</tr>
-<tr>
-<td><strong>Requests</strong></td>
-<td>50,000 CU/day</td>
-</tr>
-<tr>
-<td><strong>Rate Limit</strong></td>
-<td>20 RPS</td>
-</tr>
-<tr>
-<td><strong>Endpoints</strong></td>
-<td>2 (use for BSC + Polygon)</td>
-</tr>
-<tr>
-<td><strong>Setup Time</strong></td>
-<td>Minutes — just generate API key</td>
-</tr>
-<tr>
-<td><strong>Endpoint Format</strong></td>
-<td><code>https://go.getblock.io/&lt;ACCESS-TOKEN&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="alternatives-if-getblock-doesnt-fit">Alternatives (if GetBlock doesn't fit)<a class="headerlink" href="#alternatives-if-getblock-doesnt-fit" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Provider</th>
-<th>BSC Archive</th>
-<th>Polygon Archive</th>
-<th>Min Cost</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>QuickNode</strong></td>
-<td>[ok]</td>
-<td>[ok]</td>
-<td>~$29/mo</td>
-<td>Per-chain pricing</td>
-</tr>
-<tr>
-<td><strong>Chainstack</strong></td>
-<td>[ok]</td>
-<td>[ok]</td>
-<td>~$39/mo</td>
-<td>Good archive support</td>
-</tr>
-<tr>
-<td><strong>Alchemy</strong></td>
-<td>[warn] Growth tier</td>
-<td>[warn] Growth tier</td>
-<td>~$49/mo</td>
-<td>Ethereum-focused</td>
-</tr>
-<tr>
-<td><strong>Ankr</strong></td>
-<td>[ok] (with key)</td>
-<td>[ok] (with key)</td>
-<td>Free tier</td>
-<td>Premium tier may be needed</td>
-</tr>
-<tr>
-<td><strong>dRPC</strong></td>
-<td>[warn] Free tier</td>
-<td>[warn] Free tier</td>
-<td>Free</td>
-<td>Didn't work at our blocks</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="configuration-in-crucible">Configuration in Crucible<a class="headerlink" href="#configuration-in-crucible" title="Permanent link">&para;</a></h2>
-<h3 id="step-1-get-an-api-key">Step 1: Get an API Key<a class="headerlink" href="#step-1-get-an-api-key" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Sign up at <a href="https://getblock.io/">GetBlock</a></li>
-<li>Go to Dashboard → Create Access Token</li>
-<li>Select BSC Mainnet and Polygon Mainnet</li>
-<li>Copy the provided endpoint URLs</li>
-</ol>
-<h3 id="step-2-set-environment-variables">Step 2: Set Environment Variables<a class="headerlink" href="#step-2-set-environment-variables" title="Permanent link">&para;</a></h3>
-<p>Add to your <code>.env</code> file:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># Ethereum archive — ANKR free tier (sign up at https://app.ankr.com)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a># LlamaNodes (eth.llamarpc.com) also works but may rate-limit Anvil
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ETH_RPC_URL=https://rpc.ankr.com/eth/YOUR_ANKR_API_KEY
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a># BSC Archive (GetBlock or your provider)
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>BSC_RPC_URL=https://go.getblock.io/YOUR_ACCESS_TOKEN
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a># Polygon Archive (GetBlock or your provider)
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>POLYGON_RPC_URL=https://go.getblock.io/YOUR_ACCESS_TOKEN
-</code></pre></div>
-<h3 id="step-3-configure-rate-limiting">Step 3: Configure Rate Limiting<a class="headerlink" href="#step-3-configure-rate-limiting" title="Permanent link">&para;</a></h3>
-<p>Crucible uses an internal <code>TokenBucket</code> algorithm to ensure Anvil does not exceed your provider's rate limits (which would cause <code>429 Too Many Requests</code> errors and experiment failures).</p>
-<p>You can configure rate limits per-provider in <code>testbed.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">rpc_providers</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">ethereum</span><span class="p">:</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ankr_free</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${ETH_RPC_URL}&quot;</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">rate_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w">       </span><span class="c1"># 30 requests per second</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">burst_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span><span class="w">      </span><span class="c1"># Allow temporary bursts up to 50</span>
-</code></pre></div>
-<p>If Anvil requests data faster than the <code>rate_limit</code>, the proxy will pause the request until tokens replenish.</p>
-<h3 id="step-4-verify-connectivity">Step 4: Verify Connectivity<a class="headerlink" href="#step-4-verify-connectivity" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Quick test from orchestrator container</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s1">curl -s -X POST -H &quot;Content-Type: application/json&quot; \</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s1">  -d &quot;{\&quot;jsonrpc\&quot;:\&quot;2.0\&quot;,\&quot;id\&quot;:1,\&quot;method\&quot;:\&quot;eth_blockNumber\&quot;,\&quot;params\&quot;:[]}&quot; \</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s1">  https://go.getblock.io/YOUR_ACCESS_TOKEN</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s1">&#39;</span>
-</code></pre></div>
-<h3 id="step-4-run-multi-chain-experiment">Step 4: Run Multi-Chain Experiment<a class="headerlink" href="#step-4-run-multi-chain-experiment" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Update fork blocks in testbed.yaml first (or use testbed.local.yaml)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="s2">  rm -f states/*.meta.json</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s2">  uv run crucible fork --topology poly_network</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s2">  uv run crucible experiment run experiments/poly_network_replay.yaml --no-baseline</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s2">&quot;</span>
-</code></pre></div>
-<hr />
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="historical-state-not-available-error">"Historical state not available" Error<a class="headerlink" href="#historical-state-not-available-error" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Error: Failed to get block for block number: 9755172
-</code></pre></div>
-<p><strong>Cause:</strong> The RPC endpoint is a full node, not an archive node. It doesn't store historical state.</p>
-<p><strong>Fix:</strong> Switch to an archive-capable provider (GetBlock, QuickNode, etc.).</p>
-<h3 id="anvil_setbalance-fails-with-historical-state-not-available">"anvil_setBalance" Fails with "Historical State Not Available"<a class="headerlink" href="#anvil_setbalance-fails-with-historical-state-not-available" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>RPC error for anvil_setBalance: failed to get account for 0xDeaDDeaD...:
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>server returned an error response: error code -32000:
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>state 0x34f7657d... is not available
-</code></pre></div>
-<p><strong>Cause:</strong> When <code>anvil_setBalance</code> is called on an address that <strong>doesn't exist</strong> in the forked state, Anvil tries to look up the address in the remote archive. If the archive node doesn't have full historical state at the fork block, it returns "state not available". This is most common on <strong>Polygon</strong> and <strong>BSC</strong> archives at older blocks (2021-2022).</p>
-<p><strong>Why it happens:</strong>
-1. Crucible starts Anvil with <code>--accounts 0 --balance 0</code> (no prefunded test accounts)
-2. The bridge plugin calls <code>anvil_setBalance(deployer, amount)</code> to fund a deployer address
-3. Since the deployer address doesn't exist in the forked state, Anvil queries the remote archive
-4. If the archive has pruned historical state (common with free Polygon/BSC providers), the query fails</p>
-<p><strong>Note:</strong> This also affects <code>eth_sendTransaction</code> — even with <code>gasPrice=0</code>, Anvil checks if the sender account exists in the forked state, which triggers the same remote lookup.</p>
-<p><strong>Fix (already applied to all 3 bridge plugins):</strong> Per-chain deployment is wrapped in <code>try/except</code> in <code>bridges/nomad_bridge/nomad_bridge.py</code>, <code>bridges/poly_network_bridge/poly_network_bridge.py</code>, and <code>bridges/wormhole_bridge/wormhole_bridge.py</code>. If a chain's archive can't serve state, it's skipped gracefully with a warning.</p>
-<p><strong>Workaround:</strong>
-- Use a different RPC provider with better archive depth (GetBlock typically works for all 3 chains)
-- Test archive depth with:
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># This queries an address that definitely exists at the fork block</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;method&quot;:&quot;eth_getBalance&quot;,&quot;params&quot;:[&quot;0x838bf9E95CB12Dd76a54C9f9D2E3082EAF928270&quot;, &quot;0xE7E30C&quot;]}&#39;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>https://your-rpc-provider
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># 0xE7E30C = 15197964 (Poly Network fork block on Ethereum)</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Returns &quot;0x...&quot; if archive works, error if not</span>
-</code></pre></div>
-- If a chain's archive is unreliable, run experiments with only the chains that work (use a topology without the problematic chain)</p>
-<h3 id="eth_sendtransaction-from-new-address-fails">"eth_sendTransaction" From New Address Fails<a class="headerlink" href="#eth_sendtransaction-from-new-address-fails" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>RPC error for eth_sendTransaction: failed to get account for 0xDeaDDeaD...:
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>historical state ... is not available
-</code></pre></div>
-<p><strong>Cause:</strong> Same root cause as the <code>anvil_setBalance</code> error above. Even sending a transaction with <code>gasPrice=0</code> from a new (non-existent) address triggers a remote archive lookup.</p>
-<p><strong>Fix:</strong> Same as above — the bridge plugins handle this gracefully now. For custom code, use an address that already exists in the forked state (like a real contract address) instead of a new random EOA.</p>
-<h3 id="how-to-test-archive-depth">How To Test Archive Depth<a class="headerlink" href="#how-to-test-archive-depth" title="Permanent link">&para;</a></h3>
-<p>Run this from the orchestrator container to verify a provider has the required historical state:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="s1">  # Use the hex block number for the chain you are testing:</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="s1">  #   Ethereum (Nomad):   0xE8DB9C  (15,259,100)</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="s1">  #   Ethereum (PolyNet): 0xC654B5  (12,996,693)</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="s1">  #   Polygon:            0xF91D96  (16,332,982)</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="s1">  #   BSC:                0x94E334  (9,755,172)</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="s1">  HEX_BLOCK=0xE8DB9C</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="s1">  RPC_URL=&quot;$ETH_RPC_URL&quot;</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="s1">  # Test 1: Can the provider serve a block by number?</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="s1">  echo &quot;=== Test 1: Block exists ===&quot;</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="s1">  curl -s --max-time 10 -X POST -H &quot;Content-Type: application/json&quot; \</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="s1">    -d &quot;{\&quot;jsonrpc\&quot;:\&quot;2.0\&quot;,\&quot;id\&quot;:1,\&quot;method\&quot;:\&quot;eth_getBlockByNumber\&quot;,\&quot;params\&quot;:[\&quot;$HEX_BLOCK\&quot;,false]}&quot; \</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="s1">    &quot;$RPC_URL&quot; | head -c 200</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="s1">  echo</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="s1">  # Test 2: Can the provider serve a balance at that block?</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="s1">  echo &quot;=== Test 2: Balance at block ===&quot;</span>
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="s1">  curl -s --max-time 10 -X POST -H &quot;Content-Type: application/json&quot; \</span>
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="s1">    -d &quot;{\&quot;jsonrpc\&quot;:\&quot;2.0\&quot;,\&quot;id\&quot;:1,\&quot;method\&quot;:\&quot;eth_getBalance\&quot;,\&quot;params\&quot;:[\&quot;0x0000000000000000000000000000000000000000\&quot;,\&quot;$HEX_BLOCK\&quot;]}&quot; \</span>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="s1">    &quot;$RPC_URL&quot; | head -c 200</span>
-<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="s1">  echo</span>
-<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>
-<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="s1">  # Test 3: Can eth_getCode at the fork block?</span>
-<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="s1">  echo &quot;=== Test 3: Code at block ===&quot;</span>
-<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="s1">  curl -s --max-time 10 -X POST -H &quot;Content-Type: application/json&quot; \</span>
-<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="s1">    -d &quot;{\&quot;jsonrpc\&quot;:\&quot;2.0\&quot;,\&quot;id\&quot;:1,\&quot;method\&quot;:\&quot;eth_getCode\&quot;,\&quot;params\&quot;:[\&quot;0x838bf9E95CB12Dd76a54C9f9D2E3082EAF928270\&quot;,\&quot;$HEX_BLOCK\&quot;]}&quot; \</span>
-<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="s1">    &quot;$RPC_URL&quot; | head -c 200</span>
-<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="s1">  echo</span>
-<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="s1">&#39;</span>
-</code></pre></div>
-<p>If Test 1 passes but Test 2 or 3 fail, the provider doesn't have true archive state — it can serve block headers but not historical state queries. Switch to a paid archive provider.</p>
-<h3 id="fork-block-depth-reference">Fork Block Depth Reference<a class="headerlink" href="#fork-block-depth-reference" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Attack</th>
-<th>Ethereum Block</th>
-<th>Polygon Block</th>
-<th>BSC Block</th>
+<th>Ethereum Fork Block</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Nomad Bridge</td>
 <td>15,259,100</td>
-<td>—</td>
-<td>—</td>
 </tr>
 <tr>
 <td>Wormhole Guardian</td>
 <td>14,125,553</td>
-<td>—</td>
-<td>—</td>
 </tr>
 <tr>
 <td>Poly Network</td>
 <td>12,996,693</td>
-<td>16,332,982</td>
-<td>9,755,172</td>
-</tr>
-<tr>
-<td>Horizon Multisig</td>
-<td>15,005,526</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>BNB Token Hub</td>
-<td>—</td>
-<td>—</td>
-<td>22,166,659</td>
-</tr>
-<tr>
-<td>Multichain Router</td>
-<td>16,329,241</td>
-<td>—</td>
-<td>—</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Archive availability at these blocks:</strong></p>
+<p>These blocks differ. The safest approach is to use <code>testbed.local.yaml</code> for per-experiment overrides (this file is gitignored and deep-merged with <code>testbed.yaml</code>):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># testbed.local.yaml</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nt">chains</span><span class="p">:</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nt">ethereum</span><span class="p">:</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="nt">fork_block</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15259100</span><span class="w">  </span><span class="c1"># Nomad fork</span>
+</code></pre></div>
+<h3 id="6-volume-persistence">6. Volume Persistence<a class="headerlink" href="#6-volume-persistence" title="Permanent link">&para;</a></h3>
+<p>Three Docker volumes persist data across container runs:</p>
 <table>
 <thead>
 <tr>
-<th>Provider</th>
-<th>Ethereum (12-16M)</th>
-<th>Polygon (16M)</th>
-<th>BSC (9-22M)</th>
+<th>Volume</th>
+<th>Mount</th>
+<th>Contains</th>
+<th>Cleanup Command</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Ankr (free)</td>
-<td>✅ Full archive</td>
-<td>⚠️ May fail on non-existent addresses</td>
-<td>⚠️ May fail on non-existent addresses</td>
+<td><code>states_data</code></td>
+<td><code>/workspace/states</code></td>
+<td>Anvil meta files (<code>.meta.json</code>)</td>
+<td><code>rm -f states/*.meta.json</code></td>
 </tr>
 <tr>
-<td>GetBlock (paid $39/mo)</td>
-<td>✅ Full archive</td>
-<td>✅ Full archive</td>
-<td>✅ Full archive</td>
+<td><code>logs_data</code></td>
+<td><code>/workspace/logs</code></td>
+<td>Experiment run artifacts</td>
+<td><code>crucible clean --logs-older-than 30</code></td>
 </tr>
 <tr>
-<td>LlamaNodes (free)</td>
-<td>✅ Full archive</td>
-<td>❌ No archive at 16M</td>
-<td>❌ No archive</td>
-</tr>
-<tr>
-<td>PublicNode (free)</td>
-<td>❌ No archive</td>
-<td>❌ No archive at 16M</td>
-<td>❌ No archive at 9M</td>
-</tr>
-<tr>
-<td>QuickNode (paid)</td>
-<td>✅ Full archive</td>
-<td>✅ Full archive</td>
-<td>✅ Full archive</td>
+<td><code>fork_cache</code></td>
+<td><code>/workspace/.fork_cache</code></td>
+<td>Cached RPC fork data</td>
+<td><code>crucible cache clean --all</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Key finding:</strong> Even "archive" providers like Ankr may have incomplete historical state for Polygon/BSC when querying <strong>non-existent addresses</strong> at old blocks. The state root for the fork block is stored, but the full state trie for addresses that didn't exist at that block is not available. This causes <code>anvil_setBalance</code> to fail when creating new addresses.</p>
-<p><strong>Recommended provider setup for multi-chain:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># testbed.yaml</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nt">rpc_providers</span><span class="p">:</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">ethereum</span><span class="p">:</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ankr_free</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${ETH_RPC_URL}&quot;</span><span class="w">  </span><span class="c1"># Ankr free tier — reliable for Ethereum</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="nt">polygon</span><span class="p">:</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">getblock</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${POLYGON_RPC_URL}&quot;</span><span class="w">  </span><span class="c1"># GetBlock paid — reliable archive</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ankr</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://rpc.ankr.com/polygon&quot;</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">      </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w">  </span><span class="c1"># fallback</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">  </span><span class="nt">bsc</span><span class="p">:</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">getblock</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${BSC_RPC_URL}&quot;</span><span class="w">  </span><span class="c1"># GetBlock paid — reliable archive</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ankr</span>
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://rpc.ankr.com/bsc&quot;</span>
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">      </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w">  </span><span class="c1"># fallback</span>
+<p>To completely reset:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>-v<span class="w">   </span><span class="c1"># removes ALL volumes ([warn] deletes logs too)</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>build<span class="w">      </span><span class="c1"># rebuild images</span>
 </code></pre></div>
-<h3 id="connection-refused-on-fork">"Connection refused" on Fork<a class="headerlink" href="#connection-refused-on-fork" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ERROR: chain bsc did not become ready within 30s on http://127.0.0.1:8547
-</code></pre></div>
-<p><strong>Cause 1:</strong> The <code>${BSC_RPC_URL}</code> env var is empty or points to an unreachable endpoint.</p>
-<p><strong>Fix:</strong> Verify the URL in <code>.env</code> and test with curl.</p>
-<p><strong>Cause 2:</strong> The fork block is too old for the configured provider.</p>
-<p><strong>Fix:</strong> Check the provider's archive depth. For BSC block 9,755,172 (2021), you need a paid archive provider.</p>
-<h3 id="rate-limited">Rate Limited<a class="headerlink" href="#rate-limited" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>error code: -32000: rate limit exceeded
-</code></pre></div>
-<p><strong>Cause:</strong> Free tier rate limits (typically 10-25 req/s).</p>
-<p><strong>Fix:</strong> Add more providers as fallbacks in <code>testbed.yaml</code> under <code>rpc_providers.bsc</code>. Crucible will automatically retry with the next provider.</p>
 <hr />
-<h2 id="summary-what-we-need-vs-whats-free">Summary: What We Need vs What's Free<a class="headerlink" href="#summary-what-we-need-vs-whats-free" title="Permanent link">&para;</a></h2>
+<h2 id="building">Building<a class="headerlink" href="#building" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># Standard build</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>build
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1"># Build without cache (if issues)</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>build<span class="w"> </span>--no-cache
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="c1"># Build specific service</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>docker<span class="w"> </span>compose<span class="w"> </span>build<span class="w"> </span>orchestrator
+</code></pre></div>
+<p>The build:
+1. Installs Python 3.12 + uv
+2. Installs Foundry via <code>foundryup --install nightly</code>
+3. Installs Python dependencies via <code>uv sync</code>
+4. Copies source code</p>
+<p><strong>Note:</strong> The full project directory is mounted at runtime, so Python code changes don't need a rebuild. Only rebuild if <code>Dockerfile</code>, <code>pyproject.toml</code>, or <code>uv.lock</code> changes.</p>
+<hr />
+<h2 id="running-experiments">Running Experiments<a class="headerlink" href="#running-experiments" title="Permanent link">&para;</a></h2>
+<h3 id="single-experiment">Single Experiment<a class="headerlink" href="#single-experiment" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="s2">  rm -f states/*.meta.json &amp;&amp; \</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="s2">  uv run crucible fork --topology single &amp;&amp; \</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="s2">  uv run crucible experiment run experiments/nomad_replay.yaml --no-baseline</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="s2">&quot;</span>
+</code></pre></div>
+<h3 id="determinism-check-two-runs-diff">Determinism Check (Two Runs + Diff)<a class="headerlink" href="#determinism-check-two-runs-diff" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Run 1</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="s2">  rm -f states/*.meta.json &amp;&amp; \</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="s2">  uv run crucible fork --topology single &amp;&amp; \</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="s2">  uv run crucible experiment run experiments/nomad_replay.yaml --no-baseline</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="s2">&quot;</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="c1"># Run 2</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="s2">  rm -f states/*.meta.json &amp;&amp; \</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="s2">  uv run crucible fork --topology single &amp;&amp; \</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="s2">  uv run crucible experiment run experiments/nomad_replay.yaml --no-baseline</span>
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="s2">&quot;</span>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="c1"># Compare</span>
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>orchestrator<span class="w"> </span>diff<span class="w"> </span>&lt;run-a&gt;<span class="w"> </span>&lt;run-b&gt;
+</code></pre></div>
+<h3 id="full-validation-all-3-attacks">Full Validation (All 3 Attacks)<a class="headerlink" href="#full-validation-all-3-attacks" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Nomad (fork block 15259100)</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="s2">  rm -f states/*.meta.json &amp;&amp; \</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="s2">  uv run crucible fork --topology single &amp;&amp; \</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="s2">  uv run crucible experiment run experiments/nomad_replay.yaml --no-baseline</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="s2">&quot;</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="c1"># Wormhole (fork block 14125553)</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="s2">  rm -f states/*.meta.json &amp;&amp; \</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="s2">  uv run crucible fork --topology single &amp;&amp; \</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="s2">  uv run crucible experiment run experiments/wormhole_replay.yaml --no-baseline</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="s2">&quot;</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="c1"># Poly Network (fork block 12996693)</span>
+<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="s2">  rm -f states/*.meta.json &amp;&amp; \</span>
+<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="s2">  uv run crucible fork --topology single &amp;&amp; \</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="s2">  uv run crucible experiment run experiments/poly_network_replay.yaml --no-baseline</span>
+<a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="s2">&quot;</span>
+</code></pre></div>
+<blockquote>
+<p><strong>[warn] Remember:</strong> Update <code>testbed.local.yaml</code> (or <code>testbed.yaml</code>) with the correct <code>fork_block</code> before each experiment.</p>
+</blockquote>
+<h3 id="multi-chain-topology-requires-paid-archive-rpcs">Multi-Chain Topology (Requires Paid Archive RPCs)<a class="headerlink" href="#multi-chain-topology-requires-paid-archive-rpcs" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="c1"># Requires BSC_RPC_URL and POLYGON_RPC_URL pointing to paid archive providers</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="s2">  rm -f states/*.meta.json &amp;&amp; \</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="s2">  uv run crucible fork --topology poly_network &amp;&amp; \</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="s2">  uv run crucible experiment run experiments/poly_network_replay.yaml --no-baseline</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="s2">&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="sh-c-fails"><code>sh -c</code> Fails<a class="headerlink" href="#sh-c-fails" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>$ docker compose run --rm orchestrator sh -c &quot;...&quot;
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>crucible: error: argument command: invalid choice: &#39;sh&#39;
+</code></pre></div>
+<p><strong>Cause:</strong> Entrypoint is <code>crucible</code>, not a shell. Fix: use <code>--entrypoint bash</code>.</p>
+<h3 id="stale-meta-file-errors">Stale Meta File Errors<a class="headerlink" href="#stale-meta-file-errors" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>ERROR: RPC call failed for anvil_dumpState at http://127.0.0.1:8547
+</code></pre></div>
+<p><strong>Cause:</strong> Volume-persisted <code>.meta.json</code> from a previous topology references a chain on a port that's not running. Fix: <code>rm -f states/*.meta.json</code>.</p>
+<h3 id="chain-not-ready">Chain Not Ready<a class="headerlink" href="#chain-not-ready" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>ERROR: chain bsc did not become ready within 30s on http://127.0.0.1:8547: Connection refused
+</code></pre></div>
+<p><strong>Cause 1:</strong> Env var <code>${BSC_RPC_URL}</code> is empty. Fix: set it in <code>.env</code>.
+<strong>Cause 2:</strong> RPC provider doesn't support archive at the fork block. Fix: use a paid archive provider for old blocks.</p>
+<h3 id="contract-has-no-code">Contract Has No Code<a class="headerlink" href="#contract-has-no-code" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>Attack verification failed: EthCrossChainManager has no code at fork block 12996062
+</code></pre></div>
+<p><strong>Cause:</strong> Wrong fork block or wrong contract address. Fix: update the fork block in <code>testbed.yaml</code> or verify the contract address on Etherscan.</p>
+<h3 id="contract-address-is-an-eoa">Contract Address Is An EOA<a class="headerlink" href="#contract-address-is-an-eoa" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>Address 0x... appears to be an EOA (externally owned account), not a contract
+</code></pre></div>
+<p><strong>Cause:</strong> Several attack packs had incorrect contract addresses that were actually EOAs. Fix: Always verify addresses on <a href="https://etherscan.io/">Etherscan</a> before using them in attack packs.</p>
+<h3 id="foundry-not-found">Foundry Not Found<a class="headerlink" href="#foundry-not-found" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>crucible: error: anvil not found on PATH
+</code></pre></div>
+<p><strong>Inside Docker:</strong> Foundry should be pre-installed. Rebuild:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>build
+</code></pre></div></p>
+<p><strong>Locally:</strong> Install Foundry:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>curl<span class="w"> </span>-L<span class="w"> </span>https://foundry.paradigm.xyz<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>foundryup
+</code></pre></div></p>
+<hr />
+<h2 id="comparison-single-container-vs-daemon-approach">Comparison: Single-Container vs Daemon Approach<a class="headerlink" href="#comparison-single-container-vs-daemon-approach" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Chain</th>
-<th>Block Needed</th>
-<th>Free Available?</th>
-<th>Paid Option</th>
+<th>Aspect</th>
+<th>Single-Container (<code>--entrypoint bash</code>)</th>
+<th>Daemon (<code>docker compose up -d</code>)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Ethereum</strong></td>
-<td>12,996,693 - 15,259,100</td>
-<td>[ok] ANKR free tier (sign up)</td>
-<td>GetBlock/QuickNode</td>
+<td><strong>Setup complexity</strong></td>
+<td>Minimal — one command</td>
+<td>More complex — start daemons first</td>
 </tr>
 <tr>
-<td><strong>BSC</strong></td>
-<td>9,755,172</td>
-<td>[fail] No free provider</td>
-<td>GetBlock $39/mo</td>
+<td><strong>Fork block drift</strong></td>
+<td>None — fresh Anvil per run</td>
+<td>Risk of mismatch with testbed.yaml</td>
 </tr>
 <tr>
-<td><strong>Polygon</strong></td>
-<td>16,332,982</td>
-<td>[fail] No free provider</td>
-<td>GetBlock $39/mo</td>
+<td><strong>Chain persistence</strong></td>
+<td>No — Anvil dies with container</td>
+<td>Yes — chains survive between runs</td>
+</tr>
+<tr>
+<td><strong>Isolation</strong></td>
+<td>Full — each run is clean</td>
+<td>Shared state across runs</td>
+</tr>
+<tr>
+<td><strong>Docker Desktop visibility</strong></td>
+<td>Containers auto-delete (invisible)</td>
+<td>Containers visible in Docker Desktop</td>
+</tr>
+<tr>
+<td><strong>When to use</strong></td>
+<td><strong>Default — use this</strong></td>
+<td>Multi-session workflows only</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Minimum viable paid plan:</strong> <strong>GetBlock Starter ($39/month)</strong> gives access to all 3 chains with archive depth.</p>
+<hr />
 
 
 
