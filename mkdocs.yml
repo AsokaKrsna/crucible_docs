@@ -32,11 +32,9 @@ theme:
   features:
     - navigation.instant
     - navigation.tracking
-    - navigation.tabs
-    - navigation.tabs.sticky
-    - navigation.sections
     - navigation.top
     - navigation.indexes
+    - navigation.footer
     - search.suggest
     - search.highlight
     - content.tabs.link
@@ -86,57 +84,65 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
 
+plugins:
+  - search
+  - panzoom:
+      full_screen: True
+
 nav:
   - Home: index.md
   
   - Getting Started:
-    - User Guide: USER_GUIDE.md
+    - Quick Reference: QUICK_REFERENCE.md
     - 10-Minute Tutorial: TUTORIAL.md
+    - Deployment & Setup: DEPLOYMENT.md
+    - Docker Guide: DOCKER_GUIDE.md
+    - RPC Provider Guide: RPC_PROVIDER_GUIDE.md
     
   - How-To Guides:
     - Deploying Contracts: CUSTOM_CONTRACT_TESTING.md
-    - Running LLM Agents: RUNNING_LLM_AGENTS.md
-    - Authoring Plugins: PLUGIN_DEVELOPMENT.md
     - Authoring Scenarios: SCENARIO_AUTHORING.md
     - Writing Attack Packs: ATTACK_PACK_GUIDE.md
+    - Authoring Plugins: PLUGIN_DEVELOPMENT.md
+    - Running LLM Agents: RUNNING_LLM_AGENTS.md
     
-  - Core Concepts (Explanation):
+  - Architecture & Design:
     - Technical Overview: TECHNICAL_OVERVIEW.md
     - System Architecture: ARCHITECTURE.md
+    - Design Decisions: DESIGN_DECISIONS.md
     - Instrumentation Architecture: INSTRUMENTATION_ARCHITECTURE.md
-    - Scope & Capabilities: CAPABILITIES.md
-    - Feature Guide: FEATURE_GUIDE.md
-    - Bridge Limitations: BRIDGE_LIMITATIONS.md
     - Research Workflow: RESEARCH_WORKFLOW.md
-    - Researcher Observability: RESEARCHER_OBSERVABILITY.md
-    - Implementation Spec: design/crucible_implementation_spec.md
-    - Research Overview: design/crucible_research_overview.md
     
-  - Reference:
-    - CLI Reference: CLI_REFERENCE.md
-    - Benchmarks: BENCHMARKS.md
-    - Reproducibility: REPRODUCIBILITY.md
-    - Analysis Notebooks: ANALYSIS_NOTEBOOKS.md
-    - Dashboard Guide: DASHBOARD_GUIDE.md
-    - Deployment & Setup: DEPLOYMENT.md
-    - Docker Guide: DOCKER_GUIDE.md
-    - Lab Deployment: LAB_DEPLOYMENT.md
-    - RPC Provider Guide: RPC_PROVIDER_GUIDE.md
-    - Maintenance: MAINTENANCE.md
-    - Troubleshooting: TROUBLESHOOTING.md
-    - Operations Runbook: OPERATIONS_RUNBOOK.md
-    - Simple Operations: SIMPLE_OPERATIONS.md
-    - Quick Reference: QUICK_REFERENCE.md
+  - Scope & Fidelity:
+    - Capabilities: CAPABILITIES.md
+    - Feature Guide: FEATURE_GUIDE.md
     - Fidelity Guide: FIDELITY_GUIDE.md
     - Reproduction Scope: REPRODUCTION_SCOPE.md
     - Testbed Scope Guide: TESTBED_SCOPE_GUIDE.md
+    - Bridge Limitations: BRIDGE_LIMITATIONS.md
     
-  - Publication & Case Studies:
-    - AE Walkthrough: AE_WALKTHROUGH.md
-    - Zenodo Archive Guide: ZENODO_ARCHIVE_GUIDE.md
+  - Tools & Analysis:
+    - CLI Reference: CLI_REFERENCE.md
+    - Dashboard Guide: DASHBOARD_GUIDE.md
+    - Analysis Notebooks: ANALYSIS_NOTEBOOKS.md
+    - Plugin Registry: PLUGIN_REFERENCE.md
+    - Benchmarks: BENCHMARKS.md
+    - Simple Operations: SIMPLE_OPERATIONS.md
+    
+  - Operations:
+    - Maintenance: MAINTENANCE.md
+    - Troubleshooting: TROUBLESHOOTING.md
+    - Reproducibility: REPRODUCIBILITY.md
+    
+  - Case Studies:
     - Nomad Replica Fraud: case_studies/nomad_replica_fraud.md
     - Wormhole Guardian Bypass: case_studies/wormhole_guardian_bypass.md
     - Poly Network Privilege Escalation: case_studies/poly_network_privkey.md
     - Horizon Multisig Drain: case_studies/horizon_multisig_drain.md
     - BNB Token Hub Proof Bypass: case_studies/bnb_token_hub_proof.md
     - Multichain MPC Compromise: case_studies/multichain_router_permit.md
+    
+  - Publication:
+    - AE Walkthrough: AE_WALKTHROUGH.md
+    - Zenodo Archive Guide: ZENODO_ARCHIVE_GUIDE.md
+
