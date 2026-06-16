@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../CUSTOM_CONTRACT_TESTING/">
+        <link rel="prev" href="../PLUGIN_DEVELOPMENT/">
       
       
-        <link rel="next" href="../PLUGIN_DEVELOPMENT/">
+        <link rel="next" href="../TECHNICAL_OVERVIEW/">
       
       
         
@@ -55,13 +55,16 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../assets/stylesheets/panzoom.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  </head>
+  <meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -80,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#running-llm-agents-in-crucible" class="md-skip">
+        <a href="#autonomous-agents-architecture" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +97,7 @@
 
   
 
-<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Crucible Docs" class="md-header__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -211,153 +214,13 @@
     
   </nav>
   
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../USER_GUIDE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Getting Started
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../CUSTOM_CONTRACT_TESTING/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  How-To Guides
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../TECHNICAL_OVERVIEW/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Core Concepts (Explanation)
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../CLI_REFERENCE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../AE_WALKTHROUGH/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Publication & Case Studies
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-    
-  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -371,10 +234,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Crucible Docs" class="md-nav__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -439,13 +300,14 @@
       
         
       
-    
-    
-    
-      
+        
       
         
       
+        
+      
+    
+    
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -491,14 +353,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../USER_GUIDE/" class="md-nav__link">
+      <a href="../QUICK_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    User Guide
+    Quick Reference
   
 
     
@@ -527,6 +389,90 @@
     
   
     10-Minute Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DOCKER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC Provider Guide
   
 
     
@@ -571,23 +517,15 @@
     
     
     
-      
-        
-        
-      
-      
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -631,6 +569,90 @@
     
   
     Deploying Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SCENARIO_AUTHORING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Scenarios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ATTACK_PACK_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing Attack Packs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Plugins
   
 
     
@@ -711,10 +733,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#1-agent-lifecycle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        1. Agent Lifecycle
       
     </span>
   </a>
@@ -722,33 +744,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#2-configuration-specification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How It Works
+        2. Configuration Specification
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#experiment-yaml-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Experiment YAML Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Experiment YAML Configuration">
+    <nav class="md-nav" aria-label="2. Configuration Specification">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#provider-types" class="md-nav__link">
+  <a href="#11-supported-providers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provider Types
+        1.1. Supported Providers
       
     </span>
   </a>
@@ -756,10 +767,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#privilege-levels" class="md-nav__link">
+  <a href="#12-privilege-capabilities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Privilege Levels
+        1.2. Privilege Capabilities
       
     </span>
   </a>
@@ -767,10 +778,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#advanced-configuration" class="md-nav__link">
+  <a href="#13-advanced-constraint-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Advanced Configuration
+        1.3. Advanced Constraint Management
       
     </span>
   </a>
@@ -783,10 +794,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#provider-auto-configuration-from_run_config" class="md-nav__link">
+  <a href="#3-provider-auto-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provider Auto-Configuration (from_run_config)
+        3. Provider Auto-Configuration
       
     </span>
   </a>
@@ -794,22 +805,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#included-agent-packs" class="md-nav__link">
+  <a href="#4-built-in-agent-packs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Included Agent Packs
+        4. Built-In Agent Packs
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Included Agent Packs">
+    <nav class="md-nav" aria-label="4. Built-In Agent Packs">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#attacksdemo_agent-simple-chain-explorer" class="md-nav__link">
+  <a href="#31-demo-agent-attacksdemo_agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        attacks/demo_agent/ — Simple Chain Explorer
+        3.1. Demo Agent (attacks/demo_agent/)
       
     </span>
   </a>
@@ -817,10 +828,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#attacksllm_exploit_agent-nomad-bridge-exploit-agent" class="md-nav__link">
+  <a href="#32-nomad-exploit-agent-attacksllm_exploit_agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        attacks/llm_exploit_agent/ — Nomad Bridge Exploit Agent
+        3.2. Nomad Exploit Agent (attacks/llm_exploit_agent/)
       
     </span>
   </a>
@@ -833,22 +844,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-a-custom-agent-plugin" class="md-nav__link">
+  <a href="#5-developing-custom-agents" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating a Custom Agent Plugin
+        5. Developing Custom Agents
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Creating a Custom Agent Plugin">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-operational-telemetry-and-replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Operational Telemetry and Replay
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Operational Telemetry and Replay">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#available-override-points" class="md-nav__link">
+  <a href="#51-reasoning-telemetry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Available Override Points
+        5.1. Reasoning Telemetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-hermetic-rpc-recording" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. Hermetic RPC Recording
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-isolated-testing-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3. Isolated Testing Validation
       
     </span>
   </a>
@@ -857,72 +901,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reasoning-chain-logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reasoning Chain Logging
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rpc-recording-for-deterministic-replay" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RPC Recording for Deterministic Replay
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#budget-and-token-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Budget and Token Management
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#offline-testing-without-an-llm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Offline / Testing Without an LLM
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
-      
-    </span>
-  </a>
   
 </li>
       
@@ -930,90 +908,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authoring Plugins
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SCENARIO_AUTHORING/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authoring Scenarios
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ATTACK_PACK_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Writing Attack Packs
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1045,23 +939,8 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1078,7 +957,7 @@
   <span class="md-ellipsis">
     
   
-    Core Concepts (Explanation)
+    Architecture & Design
   
 
     
@@ -1094,7 +973,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Core Concepts (Explanation)
+    Architecture & Design
   
 
           </label>
@@ -1163,6 +1042,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../DESIGN_DECISIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
         
   
@@ -1171,90 +1078,6 @@
     
   
     Instrumentation Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CAPABILITIES/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scope & Capabilities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FEATURE_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Feature Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Bridge Limitations
   
 
     
@@ -1296,90 +1119,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RESEARCHER_OBSERVABILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Researcher Observability
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_implementation_spec/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementation Spec
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_research_overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Research Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1408,35 +1147,8 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1453,7 +1165,7 @@
   <span class="md-ellipsis">
     
   
-    Reference
+    Scope & Fidelity
   
 
     
@@ -1469,7 +1181,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Reference
+    Scope & Fidelity
   
 
           </label>
@@ -1482,14 +1194,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../CLI_REFERENCE/" class="md-nav__link">
+      <a href="../CAPABILITIES/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CLI Reference
+    Capabilities
   
 
     
@@ -1510,350 +1222,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../BENCHMARKS/" class="md-nav__link">
+      <a href="../FEATURE_GUIDE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Benchmarks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../REPRODUCIBILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reproducibility
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Analysis Notebooks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dashboard Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DEPLOYMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deployment & Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DOCKER_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Docker Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../LAB_DEPLOYMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lab Deployment
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RPC Provider Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../MAINTENANCE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Maintenance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../TROUBLESHOOTING/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Troubleshooting
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../OPERATIONS_RUNBOOK/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Operations Runbook
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Simple Operations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../QUICK_REFERENCE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quick Reference
+    Feature Guide
   
 
     
@@ -1951,6 +1327,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1979,17 +1383,8 @@
       
         
       
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2006,7 +1401,7 @@
   <span class="md-ellipsis">
     
   
-    Publication & Case Studies
+    Tools & Analysis
   
 
     
@@ -2022,7 +1417,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Publication & Case Studies
+    Tools & Analysis
   
 
           </label>
@@ -2035,14 +1430,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+      <a href="../CLI_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AE Walkthrough
+    CLI Reference
   
 
     
@@ -2063,14 +1458,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Zenodo Archive Guide
+    Dashboard Guide
   
 
     
@@ -2083,6 +1478,332 @@
   
 
               
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BENCHMARKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAINTENANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TROUBLESHOOTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCIBILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Studies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Case Studies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2259,6 +1980,122 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publication
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publication
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AE Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zenodo Archive Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2286,10 +2123,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#1-agent-lifecycle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Quick Start
+        1. Agent Lifecycle
       
     </span>
   </a>
@@ -2297,33 +2134,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#2-configuration-specification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How It Works
+        2. Configuration Specification
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#experiment-yaml-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Experiment YAML Configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Experiment YAML Configuration">
+    <nav class="md-nav" aria-label="2. Configuration Specification">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#provider-types" class="md-nav__link">
+  <a href="#11-supported-providers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provider Types
+        1.1. Supported Providers
       
     </span>
   </a>
@@ -2331,10 +2157,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#privilege-levels" class="md-nav__link">
+  <a href="#12-privilege-capabilities" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Privilege Levels
+        1.2. Privilege Capabilities
       
     </span>
   </a>
@@ -2342,10 +2168,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#advanced-configuration" class="md-nav__link">
+  <a href="#13-advanced-constraint-management" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Advanced Configuration
+        1.3. Advanced Constraint Management
       
     </span>
   </a>
@@ -2358,10 +2184,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#provider-auto-configuration-from_run_config" class="md-nav__link">
+  <a href="#3-provider-auto-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provider Auto-Configuration (from_run_config)
+        3. Provider Auto-Configuration
       
     </span>
   </a>
@@ -2369,22 +2195,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#included-agent-packs" class="md-nav__link">
+  <a href="#4-built-in-agent-packs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Included Agent Packs
+        4. Built-In Agent Packs
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Included Agent Packs">
+    <nav class="md-nav" aria-label="4. Built-In Agent Packs">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#attacksdemo_agent-simple-chain-explorer" class="md-nav__link">
+  <a href="#31-demo-agent-attacksdemo_agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        attacks/demo_agent/ — Simple Chain Explorer
+        3.1. Demo Agent (attacks/demo_agent/)
       
     </span>
   </a>
@@ -2392,10 +2218,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#attacksllm_exploit_agent-nomad-bridge-exploit-agent" class="md-nav__link">
+  <a href="#32-nomad-exploit-agent-attacksllm_exploit_agent" class="md-nav__link">
     <span class="md-ellipsis">
       
-        attacks/llm_exploit_agent/ — Nomad Bridge Exploit Agent
+        3.2. Nomad Exploit Agent (attacks/llm_exploit_agent/)
       
     </span>
   </a>
@@ -2408,22 +2234,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#creating-a-custom-agent-plugin" class="md-nav__link">
+  <a href="#5-developing-custom-agents" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating a Custom Agent Plugin
+        5. Developing Custom Agents
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Creating a Custom Agent Plugin">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-operational-telemetry-and-replay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Operational Telemetry and Replay
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Operational Telemetry and Replay">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#available-override-points" class="md-nav__link">
+  <a href="#51-reasoning-telemetry" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Available Override Points
+        5.1. Reasoning Telemetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-hermetic-rpc-recording" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. Hermetic RPC Recording
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-isolated-testing-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3. Isolated Testing Validation
       
     </span>
   </a>
@@ -2432,72 +2291,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reasoning-chain-logging" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reasoning Chain Logging
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rpc-recording-for-deterministic-replay" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        RPC Recording for Deterministic Replay
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#budget-and-token-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Budget and Token Management
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#offline-testing-without-an-llm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Offline / Testing Without an LLM
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
-      
-    </span>
-  </a>
   
 </li>
       
@@ -2518,69 +2311,57 @@
 
 
 
-<h1 id="running-llm-agents-in-crucible">Running LLM Agents in Crucible<a class="headerlink" href="#running-llm-agents-in-crucible" title="Permanent link">&para;</a></h1>
-<p>This guide explains how to configure and run LLM-driven autonomous agents in the Crucible testbed. Agents replace traditional hand-coded attack plugins with an AI loop: the agent observes the forked chain environment, decides which tools to call, executes them, and repeats until done.</p>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 1. Ensure your .env has the API key for your chosen provider</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1">#    (Ollama users: no key needed — just have Ollama running locally)</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 2. Run the demo agent experiment (simple chain exploration)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/demo_agent.yaml
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># 3. Or run the Nomad exploit agent (targets a real bridge vulnerability)</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/llm_exploit_agent.yaml
-</code></pre></div>
-<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
-<p>The agent lifecycle has five stages:</p>
+<h1 id="autonomous-agents-architecture">Autonomous Agents Architecture<a class="headerlink" href="#autonomous-agents-architecture" title="Permanent link">&para;</a></h1>
+<h2 id="1-agent-lifecycle">1. Agent Lifecycle<a class="headerlink" href="#1-agent-lifecycle" title="Permanent link">&para;</a></h2>
+<p>The autonomous evaluation loop consists of six distinct phases:</p>
 <ol>
-<li><strong>Prepare</strong> — The agent loads its configuration from the experiment YAML's <code>run:</code> block, including the LLM provider, model, privilege level, task, and objective. Provider is auto-configured via the <code>from_run_config()</code> factory (see below).</li>
-<li><strong>Observe</strong> — The agent gathers the current state: tool history, available tools, and recent results.</li>
-<li><strong>Think</strong> — The agent sends the current state + conversation history to the LLM provider. The LLM decides which tool to call next (or signals completion).</li>
-<li><strong>Act</strong> — The agent executes the chosen tool via the Crucible RPC layer (impersonation, balance checks, storage reads, etc.).</li>
-<li><strong>Repeat</strong> — Steps 2–4 loop until <code>is_done()</code> returns True or the agent signals completion.</li>
-<li><strong>Verify</strong> — The agent verifies the outcome (by default, always passes).</li>
+<li><strong>Prepare</strong> — The agent initializes configuration parameters from the <code>run:</code> block of the experiment YAML, defining the LLM provider, inference model, capability scope (privilege), and primary objective. The provider is dynamically instantiated via the <code>from_run_config()</code> factory.</li>
+<li><strong>Observe</strong> — The agent systematically reads the environment state, assessing the execution history, available tool sets, and outputs of recent operations.</li>
+<li><strong>Think</strong> — The agent transmits the environment state and execution history to the LLM provider. The model evaluates the state and yields the subsequent operational directive.</li>
+<li><strong>Act</strong> — The agent executes the prescribed tool via the Crucible RPC proxy layer (facilitating operations such as impersonation, balance assertions, and storage queries).</li>
+<li><strong>Repeat</strong> — Iterations of steps 2-4 continue until the <code>is_done()</code> constraint returns True, or the agent explicitly signals objective completion.</li>
+<li><strong>Verify</strong> — A final verification pass is executed against the outcome constraints.</li>
 </ol>
-<h2 id="experiment-yaml-configuration">Experiment YAML Configuration<a class="headerlink" href="#experiment-yaml-configuration" title="Permanent link">&para;</a></h2>
-<p>Create an experiment YAML file with the following structure:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_agent_experiment</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">scenario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo_scenario</span><span class="w">          </span><span class="c1"># any scenario with a single-chain topology</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">attack</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo_agent</span><span class="w">               </span><span class="c1"># plugin name from attacks/&lt;name&gt;/plugin.yaml</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">topology</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nt">run</span><span class="p">:</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="c1"># ── Provider Configuration ────────────────────────────────────</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="nt">agent_provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span><span class="w">         </span><span class="c1"># openai | anthropic | ollama | local | custom</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="nt">agent_model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gpt-4o</span><span class="w">            </span><span class="c1"># model name for the chosen provider</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="c1"># agent_base_url: ...          # optional: override the provider&#39;s default base URL</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="c1"># ── Agent Runtime Configuration ───────────────────────────────</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="nt">agent_privilege</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">medium</span><span class="w">        </span><span class="c1"># low | medium | high</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="nt">agent_temperature</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.3</span><span class="w">         </span><span class="c1"># Lower = more deterministic (default: 0.7)</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="nt">agent_max_iterations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w">       </span><span class="c1"># Max tool calls before timeout (default: 50)</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="nt">agent_llm_budget</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10000</span><span class="w">        </span><span class="c1"># Max total tokens (stops agent if exceeded)</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="nt">agent_task</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Explore</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">forked</span><span class="nv"> </span><span class="s">chain</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">report</span><span class="nv"> </span><span class="s">findings&quot;</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="nt">agent_objective</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Use</span><span class="nv"> </span><span class="s">available</span><span class="nv"> </span><span class="s">tools</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">check</span><span class="nv"> </span><span class="s">chain</span><span class="nv"> </span><span class="s">ID,</span><span class="nv"> </span><span class="s">balances,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">contract</span><span class="nv"> </span><span class="s">code&quot;</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="nt">agent_allowed_accounts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w">     </span><span class="c1"># empty = no address restriction</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">  </span><span class="c1"># ── Recording for Deterministic Replay ──────────────────────</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">  </span><span class="c1"># record_path: tests/fixtures/my_agent.jsonl  # uncomment to capture RPC fixture</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">  </span><span class="c1"># ── Standard Experiment Config ────────────────────────────────</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">  </span><span class="nt">traces</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">  </span><span class="nt">storage_diffs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">  </span><span class="nt">gas_profiling</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="nt">tags</span><span class="p">:</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">agent</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo</span>
+<h2 id="2-configuration-specification">2. Configuration Specification<a class="headerlink" href="#2-configuration-specification" title="Permanent link">&para;</a></h2>
+<p>Experiment YAML files require the following structural declarations for agent deployment:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_agent_experiment</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">scenario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo_scenario</span><span class="w">          </span><span class="c1"># Any scenario supporting a single-chain topology</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">attack</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">demo_agent</span><span class="w">               </span><span class="c1"># Target plugin directory: attacks/&lt;name&gt;/plugin.yaml</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">topology</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">run</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="c1"># ── Provider Parameters ───────────────────────────────────────</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">agent_provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span><span class="w">         </span><span class="c1"># Supported variants: openai | anthropic | ollama | local | custom</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">agent_model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gpt-4o</span><span class="w">            </span><span class="c1"># Model identifier supported by the declared provider</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="c1"># agent_base_url: ...          # Optional: Override the default provider endpoint URL</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="c1"># ── Runtime Constraints ───────────────────────────────────────</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="nt">agent_privilege</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">medium</span><span class="w">        </span><span class="c1"># Privilege boundary: low | medium | high</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="nt">agent_temperature</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.3</span><span class="w">         </span><span class="c1"># Determinism parameter (Default: 0.7; Lower represents stricter determinism)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="nt">agent_max_iterations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w">       </span><span class="c1"># Iteration boundary preventing runaway evaluation (Default: 50)</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="nt">agent_llm_budget</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10000</span><span class="w">        </span><span class="c1"># Maximum cumulative token consumption limit</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="nt">agent_task</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Explore</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">forked</span><span class="nv"> </span><span class="s">chain</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">report</span><span class="nv"> </span><span class="s">findings&quot;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="nt">agent_objective</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Use</span><span class="nv"> </span><span class="s">available</span><span class="nv"> </span><span class="s">tools</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">check</span><span class="nv"> </span><span class="s">chain</span><span class="nv"> </span><span class="s">ID,</span><span class="nv"> </span><span class="s">balances,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">contract</span><span class="nv"> </span><span class="s">code&quot;</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="nt">agent_allowed_accounts</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span><span class="w">     </span><span class="c1"># Allowed Ethereum addresses (Empty evaluates to unconstrained)</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="c1"># ── Deterministic Recording ───────────────────────────────────</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="c1"># record_path: tests/fixtures/my_agent.jsonl  # Path to capture RPC telemetry</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="c1"># ── Base Experiment Parameters ────────────────────────────────</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">  </span><span class="nt">traces</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">  </span><span class="nt">storage_diffs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">  </span><span class="nt">gas_profiling</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="nt">tags</span><span class="p">:</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">agent</span>
 </code></pre></div>
-<h3 id="provider-types">Provider Types<a class="headerlink" href="#provider-types" title="Permanent link">&para;</a></h3>
+<h3 id="11-supported-providers">1.1. Supported Providers<a class="headerlink" href="#11-supported-providers" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
 <th>Type</th>
 <th>Default Model</th>
-<th>API Key Required</th>
+<th>Authentication Required</th>
 <th>Notes</th>
 </tr>
 </thead>
@@ -2588,63 +2369,63 @@
 <tr>
 <td><code>openai</code></td>
 <td><code>gpt-4o</code></td>
-<td><code>OPENAI_API_KEY</code> in <code>.env</code></td>
-<td>Also works with Azure, vLLM, etc. via <code>agent_base_url</code></td>
+<td><code>OPENAI_API_KEY</code> (<code>.env</code>)</td>
+<td>Compatible with Azure and vLLM proxying via <code>agent_base_url</code>.</td>
 </tr>
 <tr>
 <td><code>anthropic</code></td>
 <td><code>claude-sonnet-4-20250514</code></td>
-<td><code>ANTHROPIC_API_KEY</code> in <code>.env</code></td>
-<td>Uses Anthropic Messages API</td>
+<td><code>ANTHROPIC_API_KEY</code> (<code>.env</code>)</td>
+<td>Connects via the Anthropic Messages API.</td>
 </tr>
 <tr>
 <td><code>ollama</code></td>
 <td><code>llama3.1</code></td>
 <td>No</td>
-<td>Auto-connects to <code>http://localhost:11434/v1</code></td>
+<td>Automatically establishes connection to <code>http://localhost:11434/v1</code>.</td>
 </tr>
 <tr>
 <td><code>local</code></td>
 <td><code>local-model</code></td>
 <td>Optional</td>
-<td>Requires explicit <code>agent_base_url</code></td>
+<td>Mandates explicit <code>agent_base_url</code> configuration.</td>
 </tr>
 <tr>
 <td><code>custom</code></td>
 <td><code>local-model</code></td>
 <td>Optional</td>
-<td>Requires explicit <code>agent_base_url</code></td>
+<td>Mandates explicit <code>agent_base_url</code> configuration.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="privilege-levels">Privilege Levels<a class="headerlink" href="#privilege-levels" title="Permanent link">&para;</a></h3>
+<h3 id="12-privilege-capabilities">1.2. Privilege Capabilities<a class="headerlink" href="#12-privilege-capabilities" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Level</th>
-<th>Tools Available</th>
-<th>Description</th>
+<th>Boundary Level</th>
+<th>Capabilities</th>
+<th>Tools Granted</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>low</code></td>
-<td>6 tools (read-only)</td>
+<td>Read-only</td>
 <td><code>chain_id</code>, <code>get_balance</code>, <code>get_code</code>, <code>get_storage</code>, <code>call_contract</code>, <code>get_logs</code></td>
 </tr>
 <tr>
 <td><code>medium</code></td>
-<td>8 tools</td>
-<td>Low tools + <code>impersonate</code>, <code>send_transaction</code></td>
+<td>Execution</td>
+<td>Base tools + <code>impersonate</code>, <code>send_transaction</code></td>
 </tr>
 <tr>
 <td><code>high</code></td>
-<td>9 tools</td>
-<td>Medium tools + <code>advance_time</code></td>
+<td>Manipulation</td>
+<td>Base and Execution tools + <code>advance_time</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="advanced-configuration">Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link">&para;</a></h3>
+<h3 id="13-advanced-constraint-management">1.3. Advanced Constraint Management<a class="headerlink" href="#13-advanced-constraint-management" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2657,318 +2438,89 @@
 <tr>
 <td><code>agent_temperature</code></td>
 <td><code>0.7</code></td>
-<td>LLM sampling temperature. Lower values (0.1–0.3) produce more deterministic, focused behaviour. Higher values encourage creativity.</td>
+<td>Model sampling parameter. Configurations between 0.1-0.3 enforce strict deterministic progression.</td>
 </tr>
 <tr>
 <td><code>agent_max_iterations</code></td>
 <td><code>50</code></td>
-<td>Maximum number of tool calls before the agent loop stops. Prevents runaway agents.</td>
+<td>Failsafe mechanism bounding maximum sequential tool calls before strict termination.</td>
 </tr>
 <tr>
 <td><code>agent_llm_budget</code></td>
-<td><code>None</code> (unlimited)</td>
-<td>Maximum total tokens the LLM provider can consume. When the budget is exceeded, the agent stops and logs a <code>budget_exceeded</code> warning. A 90% threshold warning is also logged. Set to a reasonable value like <code>10000</code> to cap costs.</td>
+<td><code>None</code></td>
+<td>Caps cumulative token consumption to prevent runaway costs. Yields a warning at the 90% threshold and enforces a hard stop upon breach.</td>
 </tr>
 <tr>
 <td><code>agent_allowed_accounts</code></td>
-<td><code>[]</code> (all)</td>
-<td>List of allowed Ethereum addresses the agent can interact with. Empty = no restriction.</td>
+<td><code>[]</code></td>
+<td>White-list of Ethereum addresses permitted for agent interaction.</td>
 </tr>
 <tr>
 <td><code>record_path</code></td>
 <td><code>None</code></td>
-<td>Path to a JSONL file where all RPC calls are recorded for later replay. See <a href="#rpc-recording-for-deterministic-replay">RPC Recording</a>.</td>
+<td>JSONL path to persist all JSON-RPC calls for subsequent hermetic evaluation.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="provider-auto-configuration-from_run_config">Provider Auto-Configuration (<code>from_run_config</code>)<a class="headerlink" href="#provider-auto-configuration-from_run_config" title="Permanent link">&para;</a></h2>
-<p>When you run <code>crucible experiment run</code>, the experiment runner automatically detects <code>agent_provider</code> in the experiment YAML's <code>run:</code> block and creates the correct LLM provider via the <code>from_run_config()</code> factory on <code>LLMAgentPlugin</code>.</p>
-<p>This means you <strong>don't need to modify Python code</strong> to change providers — just edit the YAML:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Switch from Ollama to OpenAI:</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">agent_provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">agent_model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gpt-4o</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># Or use Anthropic:</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nt">agent_provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anthropic</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nt">agent_model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">claude-sonnet-4-20250514</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># Or a custom OpenAI-compatible endpoint:</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nt">agent_provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nt">agent_model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-model</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nt">agent_base_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://my-proxy:8080/v1</span>
+<h2 id="3-provider-auto-configuration">3. Provider Auto-Configuration<a class="headerlink" href="#3-provider-auto-configuration" title="Permanent link">&para;</a></h2>
+<p>During execution, <code>crucible experiment run</code> evaluates the <code>agent_provider</code> parameter within the YAML configuration and automatically leverages the <code>from_run_config()</code> factory defined on <code>LLMAgentPlugin</code>.</p>
+<p>This architectural pattern externalizes provider orchestration entirely to the YAML schema, removing the necessity to alter Python source code when substituting models:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Provider Substitution: OpenAI</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">agent_provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">agent_model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gpt-4o</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Provider Substitution: Anthropic</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nt">agent_provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">anthropic</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="nt">agent_model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">claude-sonnet-4-20250514</span>
 </code></pre></div>
-<p>The <code>prepare()</code> method in <code>LLMAgentPlugin</code> checks the <code>_configured_from_run_config</code> flag and skips redundant provider re-creation when the factory was used.</p>
-<h2 id="included-agent-packs">Included Agent Packs<a class="headerlink" href="#included-agent-packs" title="Permanent link">&para;</a></h2>
-<p>Crucible ships with two agent packs:</p>
-<h3 id="attacksdemo_agent-simple-chain-explorer"><code>attacks/demo_agent/</code> — Simple Chain Explorer<a class="headerlink" href="#attacksdemo_agent-simple-chain-explorer" title="Permanent link">&para;</a></h3>
-<p>A minimal example that explores a forked chain, checks chain ID, balances, and contract code. Best starting point for understanding the agent system.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/demo_agent.yaml
+<p>Redundant provider re-initialization is prevented within <code>LLMAgentPlugin.prepare()</code> via the internal <code>_configured_from_run_config</code> flag.</p>
+<h2 id="4-built-in-agent-packs">4. Built-In Agent Packs<a class="headerlink" href="#4-built-in-agent-packs" title="Permanent link">&para;</a></h2>
+<p>Crucible provides primary agent reference implementations within the local <code>attacks/</code> directory:</p>
+<h3 id="31-demo-agent-attacksdemo_agent">3.1. Demo Agent (<code>attacks/demo_agent/</code>)<a class="headerlink" href="#31-demo-agent-attacksdemo_agent" title="Permanent link">&para;</a></h3>
+<p>A foundational reference implementation designed for environment traversal. The agent verifies block attributes, contract initialization, and account configurations.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/demo_agent.yaml
 </code></pre></div>
-<h3 id="attacksllm_exploit_agent-nomad-bridge-exploit-agent"><code>attacks/llm_exploit_agent/</code> — Nomad Bridge Exploit Agent<a class="headerlink" href="#attacksllm_exploit_agent-nomad-bridge-exploit-agent" title="Permanent link">&para;</a></h3>
-<p>A more sophisticated agent targeting the <strong>Nomad bridge Replica contract</strong> (<code>0xB923...</code>). The agent:</p>
+<h3 id="32-nomad-exploit-agent-attacksllm_exploit_agent">3.2. Nomad Exploit Agent (<code>attacks/llm_exploit_agent/</code>)<a class="headerlink" href="#32-nomad-exploit-agent-attacksllm_exploit_agent" title="Permanent link">&para;</a></h3>
+<p>An advanced adversarial implementation explicitly targeting the Nomad bridge <code>Replica</code> contract (<code>0xB923...</code>). Operational sequence:</p>
 <ol>
-<li>Verifies the Replica contract exists and has code</li>
-<li>Reads the current <code>committedRoot</code> (storage slot <code>0x1</code>)</li>
-<li>Constructs a forged <code>process(bytes,bytes)</code> call using the function selector <code>0x61bd0e46</code></li>
-<li>Sends the transaction to exploit the authentication bypass</li>
-<li>Verifies the committedRoot changed</li>
+<li>Verification of Replica contract code availability.</li>
+<li>Retrieval of the internal <code>committedRoot</code> mapping.</li>
+<li>Forgery of a <code>process(bytes,bytes)</code> function call manipulating selector <code>0x61bd0e46</code>.</li>
+<li>Transaction transmission exploiting the vulnerability bypass.</li>
+<li>Assertion verification on post-exploit root transitions.</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/llm_exploit_agent.yaml
+<h2 id="5-developing-custom-agents">5. Developing Custom Agents<a class="headerlink" href="#5-developing-custom-agents" title="Permanent link">&para;</a></h2>
+<p>Custom agent implementations necessitate subclassing <code>LLMAgentPlugin</code> and implementing necessary interface overrides:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.agent_loop</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLMAgentPlugin</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.agent_tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">AgentContext</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyAgent</span><span class="p">(</span><span class="n">LLMAgentPlugin</span><span class="p">):</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my_agent&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;agent&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>        <span class="p">}</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">build_objective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_ctx</span><span class="p">:</span> <span class="n">AgentContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Formalize the objective constraint for the LLM.&quot;&quot;&quot;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>        <span class="k">return</span> <span class="s2">&quot;Your custom objective here.&quot;</span>
 </code></pre></div>
-<p><strong>Requires:</strong> A running LLM provider (Ollama by default) and an archive RPC URL for Ethereum at fork block 15,259,100 (the Nomad pre-exploit block).</p>
-<h2 id="creating-a-custom-agent-plugin">Creating a Custom Agent Plugin<a class="headerlink" href="#creating-a-custom-agent-plugin" title="Permanent link">&para;</a></h2>
-<p>To create a custom agent, subclass <code>LLMAgentPlugin</code> and override the methods you need:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.agent_loop</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLMAgentPlugin</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.agent_tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">AgentContext</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyAgent</span><span class="p">(</span><span class="n">LLMAgentPlugin</span><span class="p">):</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">metadata</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        <span class="k">return</span> <span class="p">{</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my_agent&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>            <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;agent&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="p">}</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">build_objective</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_ctx</span><span class="p">:</span> <span class="n">AgentContext</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Custom objective for your agent.&quot;&quot;&quot;</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        <span class="k">return</span> <span class="s2">&quot;Your custom objective here.&quot;</span>
+<p>Configuration requires explicit plugin registration within <code>attacks/&lt;name&gt;/plugin.yaml</code>.</p>
+<h2 id="6-operational-telemetry-and-replay">6. Operational Telemetry and Replay<a class="headerlink" href="#6-operational-telemetry-and-replay" title="Permanent link">&para;</a></h2>
+<h3 id="51-reasoning-telemetry">5.1. Reasoning Telemetry<a class="headerlink" href="#51-reasoning-telemetry" title="Permanent link">&para;</a></h3>
+<p>Agent operations produce an <code>agent_reasoning.jsonl</code> log. Each recorded transaction preserves the execution context, tool parameterization, and conversational history facilitating post-run review.</p>
+<h3 id="52-hermetic-rpc-recording">5.2. Hermetic RPC Recording<a class="headerlink" href="#52-hermetic-rpc-recording" title="Permanent link">&para;</a></h3>
+<p>For deterministic reproduction without external RPC dependencies, agents can record local network interactions:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/llm_exploit_agent.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>--record<span class="w"> </span>tests/fixtures/llm_exploit_agent.jsonl
 </code></pre></div>
-<p>Then register it in <code>attacks/&lt;name&gt;/plugin.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_agent</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">agent</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nt">entry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_agent.py</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyAgent</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nt">requires</span><span class="p">:</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="nt">crucible</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&gt;=1.0.0&quot;</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="nt">chains</span><span class="p">:</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="nt">topology</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single</span>
-</code></pre></div>
-<h3 id="available-override-points">Available Override Points<a class="headerlink" href="#available-override-points" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Method</th>
-<th>Purpose</th>
-<th>Called When</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>metadata()</code></td>
-<td>Return plugin metadata (name, version, type)</td>
-<td>Plugin loading</td>
-</tr>
-<tr>
-<td><code>build_objective(ctx)</code></td>
-<td>Return the objective string for the LLM</td>
-<td>Each <code>think()</code> cycle</td>
-</tr>
-<tr>
-<td><code>build_system_prompt(ctx)</code></td>
-<td>Return the full system prompt (override for full control)</td>
-<td>First <code>think()</code> cycle</td>
-</tr>
-<tr>
-<td><code>prepare(context, agent_ctx)</code></td>
-<td>Set up agent state before the main loop</td>
-<td>Before the agent loop starts</td>
-</tr>
-<tr>
-<td><code>observe(context, agent_ctx)</code></td>
-<td>Gather observations from the environment</td>
-<td>Each loop iteration</td>
-</tr>
-<tr>
-<td><code>think(observation, context, agent_ctx)</code></td>
-<td>Decide the next action given the observation</td>
-<td>Each loop iteration</td>
-</tr>
-<tr>
-<td><code>respond(result, context, agent_ctx)</code></td>
-<td>Process the result of a tool call</td>
-<td>After each tool execution</td>
-</tr>
-<tr>
-<td><code>is_done(context, agent_ctx)</code></td>
-<td>Check if the agent should stop</td>
-<td>Each loop iteration</td>
-</tr>
-<tr>
-<td><code>verify(context, agent_ctx)</code></td>
-<td>Verify the agent's outcome</td>
-<td>After the loop ends</td>
-</tr>
-</tbody>
-</table>
-<h2 id="reasoning-chain-logging">Reasoning Chain Logging<a class="headerlink" href="#reasoning-chain-logging" title="Permanent link">&para;</a></h2>
-<p>Every agent run produces an <code>agent_reasoning.jsonl</code> file in the run's log directory. Each line is a JSON record containing:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;step&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;observation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;## Current State\n  Privilege: medium\n  Tools available: 8\n  Total tool calls so far: 4\n\n## Most Recent Tool Results\n\n  \u2713 chain_id:\n    {\&quot;chain_id\&quot;: 1337}\n\n  \u2713 get_balance:\n    {\&quot;balance\&quot;: \&quot;1000000000000000000\&quot;}\n&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_code&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nt">&quot;params&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0xB92336759618F55bd0F8313bd843604592E27bd8&quot;</span><span class="p">}</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="nt">&quot;conversation_snapshot&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;system&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You are an autonomous security research agent...&quot;</span><span class="p">},</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;## Current State...&quot;</span><span class="p">},</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="p">{</span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;I will check the contract code at...&quot;</span><span class="p">}</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="p">}</span>
-</code></pre></div>
-<p>This provides a full reasoning trace for reproducibility and review.</p>
-<h2 id="rpc-recording-for-deterministic-replay">RPC Recording for Deterministic Replay<a class="headerlink" href="#rpc-recording-for-deterministic-replay" title="Permanent link">&para;</a></h2>
-<p>Agent runs can be recorded to a fixture file for deterministic replay:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Run the agent experiment with recording enabled</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/llm_exploit_agent.yaml<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>--record<span class="w"> </span>tests/fixtures/llm_exploit_agent.jsonl
-</code></pre></div>
-<p>Or set <code>record_path</code> in the experiment YAML's <code>run:</code> block:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">run</span><span class="p">:</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">record_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tests/fixtures/llm_exploit_agent.jsonl</span>
-</code></pre></div>
-<p>The recorded fixture can then be served by the <code>ReplayServer</code> (from <code>crucible.recording</code>) for hermetic tests that don't need network access. See the existing <code>tests/e2e/test_hermetic_nomad.py</code> for a complete example.</p>
-<h2 id="budget-and-token-management">Budget and Token Management<a class="headerlink" href="#budget-and-token-management" title="Permanent link">&para;</a></h2>
-<p>The <code>agent_llm_budget</code> config caps total token consumption:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">run</span><span class="p">:</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">agent_llm_budget</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5000</span><span class="w">        </span><span class="c1"># Hard stop at 5000 total tokens</span>
-</code></pre></div>
-<p>When the budget is configured:</p>
-<ul>
-<li>The agent checks the budget before each LLM call and stops if exceeded</li>
-<li>A <strong>warning</strong> is logged at 90% of the budget</li>
-<li>The budget status is reported in <code>verify()</code> output</li>
-<li>The agent loop's <code>is_done()</code> also checks the budget every iteration</li>
-</ul>
-<p>Budget takes precedence from the constructor if both constructor and run_config set it.</p>
-<h2 id="offline-testing-without-an-llm">Offline / Testing Without an LLM<a class="headerlink" href="#offline-testing-without-an-llm" title="Permanent link">&para;</a></h2>
-<p>To test the agent lifecycle without an actual LLM call, create a subclass that overrides <code>think()</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">TestAgent</span><span class="p">(</span><span class="n">LLMAgentPlugin</span><span class="p">):</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">think</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">observation</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">agent_ctx</span><span class="p">):</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a fixed action for testing.&quot;&quot;&quot;</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">crucible.agent_tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">AgentAction</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        <span class="k">return</span> <span class="n">AgentAction</span><span class="p">(</span><span class="n">tool</span><span class="o">=</span><span class="s2">&quot;chain_id&quot;</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{})</span>
-</code></pre></div>
-<p>You can also use a mock provider (see <code>tests/unit/test_llm_providers.py</code> for examples):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">unittest.mock</span><span class="w"> </span><span class="kn">import</span> <span class="n">MagicMock</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.llm_providers</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLMProvider</span><span class="p">,</span> <span class="n">LLMResponse</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">mock</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">(</span><span class="n">spec</span><span class="o">=</span><span class="n">LLMProvider</span><span class="p">)</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">mock</span><span class="o">.</span><span class="n">model_name</span> <span class="o">=</span> <span class="s2">&quot;mock-model&quot;</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">mock</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="n">LLMResponse</span><span class="p">(</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    <span class="n">content</span><span class="o">=</span><span class="s1">&#39;{&quot;status&quot;: &quot;done&quot;, &quot;summary&quot;: &quot;test&quot;}&#39;</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="p">)</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="n">agent</span> <span class="o">=</span> <span class="n">LLMAgentPlugin</span><span class="p">(</span><span class="n">provider</span><span class="o">=</span><span class="n">mock</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Symptom</th>
-<th>Likely Cause</th>
-<th>Fix</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>OpenAI API key not set</code></td>
-<td>Missing <code>OPENAI_API_KEY</code> in <code>.env</code></td>
-<td>Add the key or switch provider to <code>ollama</code></td>
-</tr>
-<tr>
-<td><code>Anthropic API key not set</code></td>
-<td>Missing <code>ANTHROPIC_API_KEY</code> in <code>.env</code></td>
-<td>Add the key</td>
-</tr>
-<tr>
-<td><code>Agent plugin 'xyz' not found</code></td>
-<td>Plugin YAML has wrong <code>type:</code> or path</td>
-<td>Ensure <code>type: agent</code> in plugin.yaml</td>
-</tr>
-<tr>
-<td>Agent loops without making progress</td>
-<td>Model too small or objective too vague</td>
-<td>Use a capable model (gpt-4o, claude-sonnet-4) and a specific objective. Lower <code>agent_temperature</code> to 0.1–0.3 for more focused behaviour.</td>
-</tr>
-<tr>
-<td>Agent stops immediately with <code>budget_exceeded</code></td>
-<td>Budget is too low for the objective</td>
-<td>Increase <code>agent_llm_budget</code> or disable it (remove the key)</td>
-</tr>
-<tr>
-<td><code>can't connect to localhost:11434</code></td>
-<td>Ollama not running or reachable</td>
-<td>Start Ollama (<code>ollama serve</code>) and pull the model (<code>ollama pull llama3.1</code>). For a remote Ollama instance, set <code>agent_base_url: http://&lt;remote-ip&gt;:11434/v1</code> in the experiment YAML.</td>
-</tr>
-<tr>
-<td>Ollama returns empty tool calls</td>
-<td>Model doesn't support function calling</td>
-<td>Use a model with tool-calling support (llama3.1:70b, mistral:7b, qwen2.5:7b)</td>
-</tr>
-<tr>
-<td><code>llama-server process has terminated: signal: segmentation fault</code></td>
-<td>CPU-only compatibility issue with some Intel Xeon/older processors</td>
-<td>Update Ollama to the latest version (<code>curl -fsSL https://ollama.com/install.sh | sh</code>), or try <code>qwen2:0.5b</code> (352MB, lower CPU requirements). If it still segfaults, use a remote Ollama instance or switch to an OpenAI/Anthropic provider with an API key.</td>
-</tr>
-<tr>
-<td>Ollama segfaults on model load (CPU-only)</td>
-<td>Specific CPU architectures may have llama.cpp compatibility issues</td>
-<td>Workarounds: (1) Run Ollama on a different machine and set <code>agent_base_url</code> to its URL. (2) Add <code>num_threads: 2</code> to the generate options. (3) Switch to a cloud API provider (OpenAI, Anthropic — add API key to <code>.env</code>).</td>
-</tr>
-<tr>
-<td><code>experiment run</code> doesn't load agent config</td>
-<td><code>agent_provider</code> not set in YAML</td>
-<td>Add <code>agent_provider: ollama</code> to the <code>run:</code> block</td>
-</tr>
-<tr>
-<td>Agent ignores the objective</td>
-<td>Prompt engineering issue</td>
-<td>Make the objective concrete and step-by-step. See <code>attacks/llm_exploit_agent/llm_exploit_agent.py</code> for a detailed example.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Doc</th>
-<th>What It Covers</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../USER_GUIDE/"><code>docs/USER_GUIDE.md</code></a></td>
-<td>General Crucible usage and setup</td>
-</tr>
-<tr>
-<td><a href="../ATTACK_PACK_GUIDE/"><code>docs/ATTACK_PACK_GUIDE.md</code></a></td>
-<td>Creating attack plugins (the <code>attacks/&lt;name&gt;/</code> directory)</td>
-</tr>
-<tr>
-<td><a href="../SCENARIO_AUTHORING/"><code>docs/SCENARIO_AUTHORING.md</code></a></td>
-<td>Writing scenario YAML files</td>
-</tr>
-<tr>
-<td><a href="../CLI_REFERENCE/"><code>docs/CLI_REFERENCE.md</code></a></td>
-<td>All CLI commands and options</td>
-</tr>
-<tr>
-<td><a href="../REPRODUCIBILITY/"><code>docs/REPRODUCIBILITY.md</code></a></td>
-<td>Provenance and determinism</td>
-</tr>
-<tr>
-<td><a href="https://github.com/your-org/crucible/blob/main/tests/unit/test_llm_providers.py"><code>tests/unit/test_llm_providers.py</code></a></td>
-<td>75+ unit tests for LLM providers, agent loop, and the <code>from_run_config</code> factory</td>
-</tr>
-<tr>
-<td><a href="https://github.com/your-org/crucible/blob/main/tests/unit/test_agent.py"><code>tests/unit/test_agent.py</code></a></td>
-<td>52 unit tests for AgentContext, privilege enforcement, and AgentPlugin lifecycle</td>
-</tr>
-</tbody>
-</table>
+<h3 id="53-isolated-testing-validation">5.3. Isolated Testing Validation<a class="headerlink" href="#53-isolated-testing-validation" title="Permanent link">&para;</a></h3>
+<p>To perform isolated lifecycle validation without external LLM dependencies, standard classes may override the <code>think()</code> evaluation routine or pass a mock provider architecture natively during configuration.</p>
+<hr />
+<blockquote>
+<p><strong>Note:</strong> For diagnostic parameters and troubleshooting workflows pertaining to LLM agents (e.g., token limits, Ollama connectivity, model segfaults), please refer directly to the centralized <a href="../TROUBLESHOOTING/">Crucible Troubleshooting Guide</a>.</p>
+</blockquote>
 
 
 
@@ -3000,6 +2552,46 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../PLUGIN_DEVELOPMENT/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Authoring Plugins">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Authoring Plugins
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../TECHNICAL_OVERVIEW/" class="md-footer__link md-footer__link--next" aria-label="Next: Technical Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Technical Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3037,12 +2629,16 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../javascripts/extra.js"></script>
+      
+        <script src="../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../assets/javascripts/zoompan.js"></script>
       
     
   </body>

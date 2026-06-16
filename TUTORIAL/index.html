@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../USER_GUIDE/">
+        <link rel="prev" href="../QUICK_REFERENCE/">
       
       
-        <link rel="next" href="../CUSTOM_CONTRACT_TESTING/">
+        <link rel="next" href="../DEPLOYMENT/">
       
       
         
@@ -55,13 +55,16 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../assets/stylesheets/panzoom.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  </head>
+  <meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -94,7 +97,7 @@
 
   
 
-<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Crucible Docs" class="md-header__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -211,153 +214,13 @@
     
   </nav>
   
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../USER_GUIDE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Getting Started
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../CUSTOM_CONTRACT_TESTING/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  How-To Guides
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../TECHNICAL_OVERVIEW/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Core Concepts (Explanation)
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../CLI_REFERENCE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../AE_WALKTHROUGH/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Publication & Case Studies
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-    
-  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -371,10 +234,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Crucible Docs" class="md-nav__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -441,26 +302,24 @@
       
         
       
-    
-    
-    
-      
-        
         
       
+        
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
             
   
   
@@ -496,14 +355,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../USER_GUIDE/" class="md-nav__link">
+      <a href="../QUICK_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    User Guide
+    Quick Reference
   
 
     
@@ -591,23 +450,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Before You Start">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-caveats" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Docker Caveats
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -819,6 +661,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DOCKER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC Provider Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -847,11 +773,6 @@
       
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -925,62 +846,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running LLM Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authoring Plugins
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../SCENARIO_AUTHORING/" class="md-nav__link">
         
   
@@ -1030,6 +895,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running LLM Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1056,23 +977,8 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1089,7 +995,7 @@
   <span class="md-ellipsis">
     
   
-    Core Concepts (Explanation)
+    Architecture & Design
   
 
     
@@ -1105,7 +1011,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Core Concepts (Explanation)
+    Architecture & Design
   
 
           </label>
@@ -1174,6 +1080,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../DESIGN_DECISIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
         
   
@@ -1182,90 +1116,6 @@
     
   
     Instrumentation Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CAPABILITIES/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scope & Capabilities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FEATURE_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Feature Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Bridge Limitations
   
 
     
@@ -1307,90 +1157,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RESEARCHER_OBSERVABILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Researcher Observability
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_implementation_spec/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementation Spec
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_research_overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Research Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1419,35 +1185,8 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1464,7 +1203,7 @@
   <span class="md-ellipsis">
     
   
-    Reference
+    Scope & Fidelity
   
 
     
@@ -1480,7 +1219,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Reference
+    Scope & Fidelity
   
 
           </label>
@@ -1493,14 +1232,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../CLI_REFERENCE/" class="md-nav__link">
+      <a href="../CAPABILITIES/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CLI Reference
+    Capabilities
   
 
     
@@ -1521,350 +1260,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../BENCHMARKS/" class="md-nav__link">
+      <a href="../FEATURE_GUIDE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Benchmarks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../REPRODUCIBILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reproducibility
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Analysis Notebooks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dashboard Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DEPLOYMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deployment & Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DOCKER_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Docker Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../LAB_DEPLOYMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lab Deployment
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RPC Provider Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../MAINTENANCE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Maintenance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../TROUBLESHOOTING/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Troubleshooting
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../OPERATIONS_RUNBOOK/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Operations Runbook
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Simple Operations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../QUICK_REFERENCE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quick Reference
+    Feature Guide
   
 
     
@@ -1962,6 +1365,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1990,17 +1421,8 @@
       
         
       
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2017,7 +1439,7 @@
   <span class="md-ellipsis">
     
   
-    Publication & Case Studies
+    Tools & Analysis
   
 
     
@@ -2033,7 +1455,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Publication & Case Studies
+    Tools & Analysis
   
 
           </label>
@@ -2046,14 +1468,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+      <a href="../CLI_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AE Walkthrough
+    CLI Reference
   
 
     
@@ -2074,14 +1496,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Zenodo Archive Guide
+    Dashboard Guide
   
 
     
@@ -2094,6 +1516,332 @@
   
 
               
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BENCHMARKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAINTENANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TROUBLESHOOTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCIBILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Studies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Case Studies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2270,6 +2018,122 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publication
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publication
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AE Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zenodo Archive Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2304,23 +2168,6 @@
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Before You Start">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#docker-caveats" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Docker Caveats
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2547,74 +2394,29 @@ Bridge Replica exploit, verify the forged transaction was accepted, confirm
 the reproduction is deterministic across two runs, and export a verifiable
 publication bundle.</p>
 <p><strong>Total time:</strong> ~10 minutes (2 min setup + 5 min first run + 3 min second run)
-<strong>Dependencies:</strong> Docker (or Python 3.11+ + Foundry)</p>
+<strong>Dependencies:</strong> Python 3.11+ + Foundry (or Docker)</p>
 </blockquote>
 <hr />
 <h2 id="before-you-start">Before You Start<a class="headerlink" href="#before-you-start" title="Permanent link">&para;</a></h2>
-<p>Make sure you have an Ethereum archive RPC endpoint. If you don't have one,
-create a free account at <a href="https://llamanodes.com/">LlamaNodes</a> — their free
-tier works for all Crucible experiments.</p>
-<ol>
-<li><strong>Clone the repo and configure RPC</strong></li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>&lt;repo-url&gt;<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>crucible
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
-</code></pre></div>
-<ol>
-<li><strong>Edit <code>.env</code></strong> and set your archive RPC URL:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">ETH_RPC_URL</span><span class="o">=</span><span class="s">https://eth.llamarpc.com</span><span class="w">   </span><span class="c1"># or your provider</span>
-</code></pre></div>
-<ol>
-<li><strong>Build the Docker image</strong> (one-time, ~3 min):</li>
-</ol>
-<p><code>bash
-   docker compose build</code>&gt; <strong>Local alternative:</strong> If you have Python 3.11+ and Foundry installed,</p>
+<p>Make sure you have completely followed the <a href="../DEPLOYMENT/">Deployment Guide</a>. </p>
+<p>You should have:
+1. Cloned the repository and installed dependencies natively (<code>uv sync</code>) or built the Docker images.
+2. An Ethereum archive RPC endpoint configured in your <code>.env</code> file (e.g., <a href="https://llamanodes.com/">LlamaNodes</a> free tier is sufficient for this experiment).</p>
 <blockquote>
-<p>run <code>uv sync &amp;&amp; source .venv/bin/activate &amp;&amp; crucible init</code> instead.</p>
+<p><strong>Using Docker?</strong> This tutorial uses the native CLI commands (<code>uv run crucible &lt;cmd&gt;</code>). If you are using Docker, prepend commands with <code>docker compose run --rm orchestrator &lt;cmd&gt;</code>, or see the Docker Caveats section in the Deployment Guide for chained commands.</p>
 </blockquote>
-<h3 id="docker-caveats">Docker Caveats<a class="headerlink" href="#docker-caveats" title="Permanent link">&para;</a></h3>
-<p><strong>Fork block management:</strong> Different experiments need different fork blocks.
-The shared <code>testbed.yaml</code> has one block per chain. Override per experiment
-using <code>testbed.local.yaml</code> (gitignored, deep-merged):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># testbed.local.yaml — overrides testbed.yaml chains section</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">chains</span><span class="p">:</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">ethereum</span><span class="p">:</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">fork_block</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15259100</span><span class="w">  </span><span class="c1"># Nomad Bridge fork block</span>
-</code></pre></div>
-<p><strong>Stale Anvil meta files:</strong> When switching topologies or re-forking, old
-<code>.meta.json</code> files in the <code>states/</code> Docker volume cause connection errors.
-Always clean before forking:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>rm<span class="w"> </span>-f<span class="w"> </span>states/*.meta.json
-</code></pre></div>
-<p><strong>Chaining commands requires <code>--entrypoint bash</code>:</strong> The orchestrator's entrypoint
-is <code>uv run crucible</code>, not a shell. To run multiple commands (fork + experiment),
-use:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="s2">  rm -f states/*.meta.json &amp;&amp; \</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="s2">  uv run crucible fork --topology single &amp;&amp; \</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="s2">  uv run crucible experiment run experiments/nomad_replay.yaml --no-baseline</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="s2">&quot;</span>
-</code></pre></div>
-<p><strong>Streamlit not available in orchestrator:</strong> The <code>crucible doctor</code> check for
-<code>streamlit</code> will fail — this is expected. Streamlit runs in a separate
-<code>dashboard</code> service (<code>docker compose up -d dashboard</code>), not in the orchestrator.</p>
-<p><strong><code>.venv/CACHEDIR.TAG</code> warning:</strong> A benign error about removing
-<code>/workspace/.venv/CACHEDIR.TAG</code> may appear on startup. It occurs because the
-host's <code>.venv</code> is mounted into the container. Safe to ignore.</p>
 <hr />
 <h2 id="step-by-step-commands">Step-by-Step Commands<a class="headerlink" href="#step-by-step-commands" title="Permanent link">&para;</a></h2>
 <h3 id="step-1-validate-your-environment">Step 1: Validate your environment<a class="headerlink" href="#step-1-validate-your-environment" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>orchestrator<span class="w"> </span>doctor
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uv<span class="w"> </span>run<span class="w"> </span>crucible<span class="w"> </span>doctor
 </code></pre></div>
 <p><strong>Expected output</strong> (all checks pass):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Checks:
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>  [ok] Python imports — all present
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>  [ok] Foundry — forge 1.0.0 (stable)
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>  [ok] Config — testbed.yaml loaded
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>  [ok] RPC — ETH_RPC_URL resolves
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>  [ok] Directories — workspace, logs, datasets, states
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>  [ok] Docker — running
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Checks:
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  [ok] Python imports — all present
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  [ok] Foundry — forge 1.0.0 (stable)
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  [ok] Config — testbed.yaml loaded
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>  [ok] RPC — ETH_RPC_URL resolves
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  [ok] Directories — workspace, logs, datasets, states
 </code></pre></div>
 <p>If any check fails, fix the issue before continuing. The most common failure
 is a missing or incorrect <code>ETH_RPC_URL</code> in your <code>.env</code> file.</p>
@@ -2626,36 +2428,34 @@ the L2 verification: <code>uv run crucible experiment run experiments/nomad_repl
 </blockquote>
 <hr />
 <h3 id="step-2-fork-ethereum-and-run-the-exploit">Step 2: Fork Ethereum and run the exploit<a class="headerlink" href="#step-2-fork-ethereum-and-run-the-exploit" title="Permanent link">&para;</a></h3>
-<p>This is the <strong>core command</strong> — it forks the chain and runs the experiment in
-one container. The <code>--rm</code> flag destroys the container after it exits, so both
-operations must be in the same <code>--entrypoint bash</code> chain.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="s2">  rm -f states/*.meta.json &amp;&amp; \</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="s2">  uv run crucible fork --topology single &amp;&amp; \</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s2">  uv run crucible experiment run experiments/nomad_replay.yaml --no-baseline</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s2">&quot;</span>
+<p>This is the <strong>core command</strong> — it forks the chain and runs the experiment.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 1. Start the fork in the background (or in a separate terminal window)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>uv<span class="w"> </span>run<span class="w"> </span>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>single<span class="w"> </span><span class="p">&amp;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 2. Run the experiment</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>uv<span class="w"> </span>run<span class="w"> </span>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/nomad_replay.yaml<span class="w"> </span>--no-baseline
 </code></pre></div>
 <p><strong>Expected output:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>[ok] Starting chain &#39;ethereum&#39; (fork block 15259100)...
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>   Forking Ethereum at block 15,259,100...
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>[ok] Chain &#39;ethereum&#39; ready on http://127.0.0.1:8545
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>📡 Loading experiment: nomad_replay
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>📡 Starting scenario: nomad_pre_exploit
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>   🔹 Starting Nomad replica fraud reproduction at fork block 15259100
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>   🔹 Replica contract: 0xB92336759618F55bd0F8313bd843604592E27bd8
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>📡 Starting attack: nomad_replica_fraud
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>   🔹 Starting Nomad Replica fraud reproduction (auto-instrumented)
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>   🔹 committedRoot check complete — [ok] 0x00 == 0x00
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>   🔹 Attacker funded — 0x0000...0001 has 0.5 ETH
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>   🔹 Sending forged process() transaction...
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>   🔹 Exploit transaction sent — tx 0x5ea1...519c
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>📡 Attack result: [ok] success
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>📡 Verifying reproduction...
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>   [ok] committedRoot_is_zero — passed
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>   [ok] process_call_succeeds — passed
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>   [ok] message_accepted — passed
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>📡 Writing manifest...
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>📡 Completed: DS-2026-00001   (experiment run time: 5.2s)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[ok] Starting chain &#39;ethereum&#39; (fork block 15259100)...
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>   Forking Ethereum at block 15,259,100...
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>[ok] Chain &#39;ethereum&#39; ready on http://127.0.0.1:8545
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>📡 Loading experiment: nomad_replay
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>📡 Starting scenario: nomad_pre_exploit
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>   🔹 Starting Nomad replica fraud reproduction at fork block 15259100
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>   🔹 Replica contract: 0xB92336759618F55bd0F8313bd843604592E27bd8
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>📡 Starting attack: nomad_replica_fraud
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>   🔹 Starting Nomad Replica fraud reproduction (auto-instrumented)
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>   🔹 committedRoot check complete — [ok] 0x00 == 0x00
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>   🔹 Attacker funded — 0x0000...0001 has 0.5 ETH
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>   🔹 Sending forged process() transaction...
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>   🔹 Exploit transaction sent — tx 0x5ea1...519c
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>📡 Attack result: [ok] success
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>📡 Verifying reproduction...
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>   [ok] committedRoot_is_zero — passed
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>   [ok] process_call_succeeds — passed
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>   [ok] message_accepted — passed
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>📡 Writing manifest...
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>📡 Completed: DS-2026-00001   (experiment run time: 5.2s)
 </code></pre></div>
 <p>Key points:
 - <code>committedRoot</code> is <code>0x00</code> — the vulnerability precondition is met
@@ -2663,142 +2463,130 @@ operations must be in the same <code>--entrypoint bash</code> chain.</p>
 - All 3 assertions pass
 - Your run ID will differ — note it down as <code>RUN_A</code> (e.g., <code>DS-2026-00001</code>).</p>
 <p>To give your run a human-readable label, add the <code>--name</code> flag:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="s2">  rm -f states/*.meta.json &amp;&amp; \</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="s2">  uv run crucible fork --topology single &amp;&amp; \</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="s2">  uv run crucible experiment run experiments/nomad_replay.yaml --no-baseline --name nomad-v2-repro</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uv<span class="w"> </span>run<span class="w"> </span>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/nomad_replay.yaml<span class="w"> </span>--no-baseline<span class="w"> </span>--name<span class="w"> </span>nomad-v2-repro
 </code></pre></div>
 <p>This alias appears in <code>crucible history</code>, the run manifest, and experiment dashboards.</p>
 <hr />
 <h3 id="step-3-read-the-experiment-report">Step 3: Read the experiment report<a class="headerlink" href="#step-3-read-the-experiment-report" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="s2">  LAST=\$(ls -t logs/nomad_replay/ | head -1) &amp;&amp; \</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="s2">  echo \&quot;=== Most recent run: \$LAST ===\&quot; &amp;&amp; \</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="s2">  cat \&quot;logs/nomad_replay/\$LAST/report.md\&quot; | head -30</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">LAST</span><span class="o">=</span><span class="k">$(</span>ls<span class="w"> </span>-t<span class="w"> </span>logs/nomad_replay/<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1<span class="k">)</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;=== Most recent run: </span><span class="nv">$LAST</span><span class="s2"> ===&quot;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>cat<span class="w"> </span><span class="s2">&quot;logs/nomad_replay/</span><span class="nv">$LAST</span><span class="s2">/report.md&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-30
 </code></pre></div>
 <p><strong>Expected output</strong> (summary section):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a># Experiment Report — DS-2026-00001
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>## Summary
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>| Metric | Value |
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>|---|---|
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>| Experiment | nomad_replay |
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>| Scenario | nomad_pre_exploit |
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>| Attack | nomad_replica_fraud |
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>| Outcome | success [ok] |
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>| Duration | 5.2s |
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>| Log entries | 18 |
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>| Transactions | 1 |
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>| Contract events | 2 |
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>| Storage diffs | 2 |
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>| Gas used | 25,150 |
-<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>| Balances changed | 2 |
-<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
-<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a>## Assertions
-<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a>| Assertion | Result |
-<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>|---|---|
-<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>| committedRoot_is_zero | [ok] Pass |
-<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>| process_call_succeeds | [ok] Pass |
-<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a>| message_accepted | [ok] Pass |
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Experiment Report — DS-2026-00001
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>## Summary
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>| Metric | Value |
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>|---|---|
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>| Experiment | nomad_replay |
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>| Scenario | nomad_pre_exploit |
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>| Attack | nomad_replica_fraud |
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>| Outcome | success [ok] |
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>| Duration | 5.2s |
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>| Log entries | 18 |
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>| Transactions | 1 |
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>| Contract events | 2 |
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>| Storage diffs | 2 |
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>| Gas used | 25,150 |
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>| Balances changed | 2 |
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>## Assertions
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>| Assertion | Result |
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>|---|---|
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>| committedRoot_is_zero | [ok] Pass |
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>| process_call_succeeds | [ok] Pass |
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>| message_accepted | [ok] Pass |
 </code></pre></div>
 <hr />
 <h3 id="step-4-inspect-the-raw-artifact-files">Step 4: Inspect the raw artifact files<a class="headerlink" href="#step-4-inspect-the-raw-artifact-files" title="Permanent link">&para;</a></h3>
 <p>The artifact streams contain the machine-readable record. Check what was captured:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="s2">  LAST=\$(ls -t logs/nomad_replay/ | head -1) &amp;&amp; \</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="s2">  echo &#39;=== Events ===&#39; &amp;&amp; \</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="s2">  cat \&quot;logs/nomad_replay/\$LAST/chain_ethereum/events.jsonl\&quot; &amp;&amp; \</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="s2">  echo &#39;&#39; &amp;&amp; \</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="s2">  echo &#39;=== Storage diffs ===&#39; &amp;&amp; \</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="s2">  cat \&quot;logs/nomad_replay/\$LAST/chain_ethereum/storage_diffs.jsonl\&quot; &amp;&amp; \</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="s2">  echo &#39;&#39; &amp;&amp; \</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="s2">  echo &#39;=== Gas profile ===&#39; &amp;&amp; \</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="s2">  cat \&quot;logs/nomad_replay/\$LAST/chain_ethereum/gas_profile.jsonl\&quot;</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">LAST</span><span class="o">=</span><span class="k">$(</span>ls<span class="w"> </span>-t<span class="w"> </span>logs/nomad_replay/<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-1<span class="k">)</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;=== Events ===&#39;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>cat<span class="w"> </span><span class="s2">&quot;logs/nomad_replay/</span><span class="nv">$LAST</span><span class="s2">/chain_ethereum/events.jsonl&quot;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;=== Storage diffs ===&#39;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>cat<span class="w"> </span><span class="s2">&quot;logs/nomad_replay/</span><span class="nv">$LAST</span><span class="s2">/chain_ethereum/storage_diffs.jsonl&quot;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;&#39;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;=== Gas profile ===&#39;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>cat<span class="w"> </span><span class="s2">&quot;logs/nomad_replay/</span><span class="nv">$LAST</span><span class="s2">/chain_ethereum/gas_profile.jsonl&quot;</span>
 </code></pre></div>
 <p><strong>Expected output:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>=== Events ===
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>{&quot;chain&quot;:&quot;ethereum&quot;,&quot;event_name&quot;:&quot;MessageAccepted&quot;,&quot;address&quot;:&quot;0xB92336759618F55bd0F8313bd843604592E27bd8&quot;,&quot;topics&quot;:[&quot;0x8b7c1a1f...&quot;]}
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>=== Storage diffs ===
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>{&quot;chain&quot;:&quot;ethereum&quot;,&quot;contract&quot;:&quot;0xB92336759618F55bd0F8313bd843604592E27bd8&quot;,&quot;slot&quot;:&quot;0x...&quot;,&quot;before&quot;:&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,&quot;after&quot;:&quot;0x0000000000000000000000000000000000000000000000000000000000000001&quot;}
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>=== Gas profile ===
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>{&quot;chain&quot;:&quot;ethereum&quot;,&quot;step&quot;:&quot;auto_tx&quot;,&quot;gas_used&quot;:25150,&quot;tx_hash&quot;:&quot;0x5ea16a4f9104b901a75662f3900ca8d3d92209d846310237ca65675e2f2e519c&quot;}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>=== Events ===
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>{&quot;chain&quot;:&quot;ethereum&quot;,&quot;event_name&quot;:&quot;MessageAccepted&quot;,&quot;address&quot;:&quot;0xB92336759618F55bd0F8313bd843604592E27bd8&quot;,&quot;topics&quot;:[&quot;0x8b7c1a1f...&quot;]}
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>=== Storage diffs ===
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>{&quot;chain&quot;:&quot;ethereum&quot;,&quot;contract&quot;:&quot;0xB92336759618F55bd0F8313bd843604592E27bd8&quot;,&quot;slot&quot;:&quot;0x...&quot;,&quot;before&quot;:&quot;0x0000000000000000000000000000000000000000000000000000000000000000&quot;,&quot;after&quot;:&quot;0x0000000000000000000000000000000000000000000000000000000000000001&quot;}
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>=== Gas profile ===
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>{&quot;chain&quot;:&quot;ethereum&quot;,&quot;step&quot;:&quot;auto_tx&quot;,&quot;gas_used&quot;:25150,&quot;tx_hash&quot;:&quot;0x5ea16a4f9104b901a75662f3900ca8d3d92209d846310237ca65675e2f2e519c&quot;}
 </code></pre></div>
 <p>The storage diff confirms the forged message status changed from <code>0</code> (NONE)
 to <code>1</code> (ACCEPTED/PROCESSED). The gas profile shows exactly 25,150 gas
 consumed — identical every run.</p>
 <hr />
 <h3 id="step-5-run-a-second-time-prove-determinism">Step 5: Run a second time (prove determinism)<a class="headerlink" href="#step-5-run-a-second-time-prove-determinism" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="s2">  rm -f states/*.meta.json &amp;&amp; \</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="s2">  uv run crucible fork --topology single &amp;&amp; \</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="s2">  uv run crucible experiment run experiments/nomad_replay.yaml --no-baseline</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>uv<span class="w"> </span>run<span class="w"> </span>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/nomad_replay.yaml<span class="w"> </span>--no-baseline
 </code></pre></div>
 <p><strong>Expected output:</strong> Same as Step 2 — identical artifact stream, but with a
 different run ID. Note it down as <code>RUN_B</code> (e.g., <code>DS-2026-00002</code>):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>📡 Completed: DS-2026-00002   (experiment run time: 4.9s)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>📡 Completed: DS-2026-00002   (experiment run time: 4.9s)
 </code></pre></div>
 <p>The gas (25,150), storage diffs, events, and balance changes should be
-<strong>identical</strong> to the first run. Let's prove it.</p>
+<strong>identical</strong> to the first run. The following procedure validates this assertion.</p>
 <hr />
 <h3 id="step-6-diff-the-two-runs">Step 6: Diff the two runs<a class="headerlink" href="#step-6-diff-the-two-runs" title="Permanent link">&para;</a></h3>
 <p>Replace <code>DS-2026-00001</code> and <code>DS-2026-00002</code> with your actual run IDs:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>orchestrator<span class="w"> </span>diff<span class="w"> </span>DS-2026-00001<span class="w"> </span>DS-2026-00002
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>uv<span class="w"> </span>run<span class="w"> </span>crucible<span class="w"> </span>diff<span class="w"> </span>DS-2026-00001<span class="w"> </span>DS-2026-00002
 </code></pre></div>
 <p><strong>Expected output:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">&quot;storage_equal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="nt">&quot;events_equal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="nt">&quot;gas_equal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="nt">&quot;balances_equal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">  </span><span class="nt">&quot;gas&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;run_a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25150</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;run_b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25150</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;delta&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">  </span><span class="nt">&quot;storage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;run_a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;run_b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">  </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;run_a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;run_b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">  </span><span class="nt">&quot;balances&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;run_a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;run_b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">&quot;storage_equal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">&quot;events_equal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nt">&quot;gas_equal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="nt">&quot;balances_equal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="nt">&quot;gas&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;run_a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25150</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;run_b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">25150</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;delta&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="nt">&quot;storage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;run_a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;run_b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span><span class="nt">&quot;events&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;run_a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;run_b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">  </span><span class="nt">&quot;balances&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;run_a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;run_b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="p">}</span>
 </code></pre></div>
 <p>All four must be <code>true</code> for a deterministic reproduction. If any are <code>false</code>,
 the reproduction is non-deterministic (file a bug).</p>
 <hr />
 <h3 id="step-7-export-the-publication-bundle">Step 7: Export the publication bundle<a class="headerlink" href="#step-7-export-the-publication-bundle" title="Permanent link">&para;</a></h3>
 <p>Replace <code>DS-2026-00001</code> with your first run ID:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>orchestrator<span class="w"> </span><span class="nb">export</span><span class="w"> </span>DS-2026-00001
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>uv<span class="w"> </span>run<span class="w"> </span>crucible<span class="w"> </span><span class="nb">export</span><span class="w"> </span>DS-2026-00001
 </code></pre></div>
 <p><strong>Expected output:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>📦 Exporting dataset DS-2026-00001...
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>[ok] Manifest: datasets/DS-2026-00001/run_manifest.json
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>[ok] Report:   datasets/DS-2026-00001/report.md
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>[ok] Events:   datasets/DS-2026-00001/chain_ethereum/events.jsonl
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>[ok] Gas:      datasets/DS-2026-00001/chain_ethereum/gas_profile.jsonl
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>[ok] Storage:  datasets/DS-2026-00001/chain_ethereum/storage_diffs.jsonl
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>[ok] Balances: datasets/DS-2026-00001/chain_ethereum/balance_diffs.jsonl
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>[ok] Citation: datasets/DS-2026-00001/CITATION.cff
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>[ok] REPRODUCE.md written
-<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>[ok] artifact_bundle_manifest.json written
-<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>📦 Export complete: datasets/DS-2026-00001/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>📦 Exporting dataset DS-2026-00001...
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>[ok] Manifest: datasets/DS-2026-00001/run_manifest.json
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>[ok] Report:   datasets/DS-2026-00001/report.md
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>[ok] Events:   datasets/DS-2026-00001/chain_ethereum/events.jsonl
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>[ok] Gas:      datasets/DS-2026-00001/chain_ethereum/gas_profile.jsonl
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>[ok] Storage:  datasets/DS-2026-00001/chain_ethereum/storage_diffs.jsonl
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>[ok] Balances: datasets/DS-2026-00001/chain_ethereum/balance_diffs.jsonl
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>[ok] Citation: datasets/DS-2026-00001/CITATION.cff
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>[ok] REPRODUCE.md written
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>[ok] artifact_bundle_manifest.json written
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>📦 Export complete: datasets/DS-2026-00001/
 </code></pre></div>
 <hr />
 <h3 id="step-8-verify-the-bundle-integrity">Step 8: Verify the bundle integrity<a class="headerlink" href="#step-8-verify-the-bundle-integrity" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>orchestrator<span class="w"> </span>verify<span class="w"> </span>datasets/DS-2026-00001
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>uv<span class="w"> </span>run<span class="w"> </span>crucible<span class="w"> </span>verify<span class="w"> </span>datasets/DS-2026-00001
 </code></pre></div>
 <p><strong>Expected output:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>[ok] Verification: PASS (2 checks)
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>   [ok]  Run integrity    (log_integrity.json)
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>        4 file(s) verified
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>   [ok]  Bundle integrity (artifact_bundle_manifest.json)
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>        12 file(s) verified
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>All artifacts intact at: ...datasets/DS-2026-00001
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>[ok] Verification: PASS (2 checks)
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>   [ok]  Run integrity    (log_integrity.json)
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>        4 file(s) verified
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>   [ok]  Bundle integrity (artifact_bundle_manifest.json)
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>        12 file(s) verified
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>All artifacts intact at: ...datasets/DS-2026-00001
 </code></pre></div>
 <p>The <code>crucible verify</code> command runs <strong>two checks</strong> automatically:
 1. <strong>Run integrity</strong> — re-computes SHA-256 hashes against the original <code>log_integrity.json</code>
 2. <strong>Bundle integrity</strong> — re-computes SHA-256 hashes against <code>artifact_bundle_manifest.json</code></p>
 <p>To see which specific files were hashed, add the <code>--verbose</code> flag:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>orchestrator<span class="w"> </span>verify<span class="w"> </span>datasets/DS-2026-00001<span class="w"> </span>--verbose
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>uv<span class="w"> </span>run<span class="w"> </span>crucible<span class="w"> </span>verify<span class="w"> </span>datasets/DS-2026-00001<span class="w"> </span>--verbose
 </code></pre></div>
 <p>This proves the exported artifacts haven't been tampered with. Anyone who runs
 <code>crucible verify</code> on this directory will get the same result — any hash mismatch,
@@ -2810,12 +2598,12 @@ missing file, or extra file is reported immediately.</p>
 was deployed with its <code>committedRoot</code> (storage slot 1) initialized to <code>0x00</code>.
 The <code>process(bytes message, bytes proof)</code> function verifies message authenticity
 by checking a Merkle proof against this root:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="kt">function</span><span class="w"> </span><span class="nv">process</span><span class="p">(</span><span class="kt">bytes</span><span class="w"> </span><span class="nv">memory</span><span class="w"> </span>_message<span class="p">,</span><span class="w"> </span><span class="kt">bytes</span><span class="w"> </span><span class="nv">memory</span><span class="w"> </span>_proof<span class="p">)</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">    </span><span class="kt">bytes32</span><span class="w"> </span><span class="nv">_messageHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">keccak256</span><span class="p">(</span>abi<span class="p">.</span>encodePacked<span class="p">(</span>_message<span class="p">));</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="kt">require</span><span class="p">(</span>messages<span class="p">[</span>_messageHash<span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>MessageStatus<span class="p">.</span>NONE<span class="p">,</span><span class="w"> </span><span class="s2">&quot;Replica: message already processed&quot;</span><span class="p">);</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">    </span><span class="kt">require</span><span class="p">(</span>MerkleProof<span class="p">.</span>verify<span class="p">(</span>_proof<span class="p">,</span><span class="w"> </span>committedRoot<span class="p">,</span><span class="w"> </span>_messageHash<span class="p">),</span><span class="w"> </span><span class="s2">&quot;Replica: proof verification failed&quot;</span><span class="p">);</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">    </span><span class="c1">// ... execute the message</span>
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kt">function</span><span class="w"> </span><span class="nv">process</span><span class="p">(</span><span class="kt">bytes</span><span class="w"> </span><span class="nv">memory</span><span class="w"> </span>_message<span class="p">,</span><span class="w"> </span><span class="kt">bytes</span><span class="w"> </span><span class="nv">memory</span><span class="w"> </span>_proof<span class="p">)</span><span class="w"> </span><span class="kt">external</span><span class="w"> </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="kt">bytes32</span><span class="w"> </span><span class="nv">_messageHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">keccak256</span><span class="p">(</span>abi<span class="p">.</span>encodePacked<span class="p">(</span>_message<span class="p">));</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="kt">require</span><span class="p">(</span>messages<span class="p">[</span>_messageHash<span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span>MessageStatus<span class="p">.</span>NONE<span class="p">,</span><span class="w"> </span><span class="s2">&quot;Replica: message already processed&quot;</span><span class="p">);</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="kt">require</span><span class="p">(</span>MerkleProof<span class="p">.</span>verify<span class="p">(</span>_proof<span class="p">,</span><span class="w"> </span>committedRoot<span class="p">,</span><span class="w"> </span>_messageHash<span class="p">),</span><span class="w"> </span><span class="s2">&quot;Replica: proof verification failed&quot;</span><span class="p">);</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="c1">// ... execute the message</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="p">}</span>
 </code></pre></div>
 <p>Since a Merkle proof with an all-zeros root still passes verification (a
 hash-chain of 32 zero bytes remains <code>0x00</code>), <strong>any message can be forged.</strong></p>
@@ -2904,11 +2692,11 @@ hash-chain of 32 zero bytes remains <code>0x00</code>), <strong>any message can 
 </table>
 <hr />
 <h2 id="cleanup">Cleanup<a class="headerlink" href="#cleanup" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># Stop any running chains and remove temp files</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>orchestrator<span class="w"> </span>clean<span class="w"> </span>--all
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="c1"># Remove Docker volumes (deletes all logs and datasets)</span>
-<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>down<span class="w"> </span>-v
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># Stop any background chains (if you ran fork with &amp;)</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>pkill<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;crucible fork&quot;</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># Clean temp files</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>uv<span class="w"> </span>run<span class="w"> </span>crucible<span class="w"> </span>clean<span class="w"> </span>--all
 </code></pre></div>
 <hr />
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
@@ -2925,10 +2713,6 @@ hash-chain of 32 zero bytes remains <code>0x00</code>), <strong>any message can 
 <td><a href="../BENCHMARKS/"><code>docs/BENCHMARKS.md</code></a></td>
 </tr>
 <tr>
-<td>Quick reference (cheat sheet)</td>
-<td><a href="../QUICK_REFERENCE/"><code>docs/QUICK_REFERENCE.md</code></a></td>
-</tr>
-<tr>
 <td>Understand the architecture</td>
 <td><a href="../ARCHITECTURE/"><code>docs/ARCHITECTURE.md</code></a></td>
 </tr>
@@ -2936,26 +2720,13 @@ hash-chain of 32 zero bytes remains <code>0x00</code>), <strong>any message can 
 <td>Create your own attack plugin</td>
 <td><a href="../ATTACK_PACK_GUIDE/"><code>docs/ATTACK_PACK_GUIDE.md</code></a></td>
 </tr>
-<tr>
-<td>Run with publication-mode gates</td>
-<td><a href="../REPRODUCIBILITY/"><code>docs/REPRODUCIBILITY.md</code></a></td>
-</tr>
-<tr>
-<td>Verify an exported bundle</td>
-<td><a href="../CLI_REFERENCE/"><code>docs/CLI_REFERENCE.md</code></a> — <code>crucible verify</code></td>
-</tr>
-<tr>
-<td>Get the full CLI reference</td>
-<td><a href="../CLI_REFERENCE/"><code>docs/CLI_REFERENCE.md</code></a></td>
-</tr>
 </tbody>
 </table>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://www.nomad.xyz/blog/root-0-status">Nomad Bridge Post-Mortem</a></li>
-<li><a href="https://immunefi.com/blog/nomad-bridge-post-mortem/">Immunefi Analysis</a></li>
-<li><a href="https://www.halborn.com/blog/post/nomad-bridge-exploit-analysis">Halborn Analysis</a></li>
-<li><a href="https://etherscan.io/tx/0x5ea16a4f9104b901a75662f3900ca8d3d92209d846310237ca65675e2f2e519c">Etherscan: First Exploit Tx</a></li>
+<li><a href="https://immunefi.com/blog/bug-fix-reviews/hack-analysis-nomad-bridge-august-2022/">Immunefi Analysis</a></li>
+<li><a href="https://www.halborn.com/blog/post/the-nomad-bridge-hack-a-deeper-dive">Halborn Analysis</a></li>
+<li><a href="https://github.com/SunWeb3Sec/DeFiHackLabs/blob/main/past/2022/README.md#20220802-nomad-bridge---business-logic-flaw--incorrect-acceptable-merkle-root-checks">DeFiHackLabs</a></li>
 </ul>
 
 
@@ -2988,6 +2759,46 @@ hash-chain of 32 zero bytes remains <code>0x00</code>), <strong>any message can 
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../QUICK_REFERENCE/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quick Reference">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Quick Reference
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../DEPLOYMENT/" class="md-footer__link md-footer__link--next" aria-label="Next: Deployment &amp; Setup">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Deployment & Setup
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3025,12 +2836,16 @@ hash-chain of 32 zero bytes remains <code>0x00</code>), <strong>any message can 
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../javascripts/extra.js"></script>
+      
+        <script src="../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../assets/javascripts/zoompan.js"></script>
       
     
   </body>

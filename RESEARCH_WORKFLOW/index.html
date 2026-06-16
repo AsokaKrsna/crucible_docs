@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../BRIDGE_LIMITATIONS/">
+        <link rel="prev" href="../INSTRUMENTATION_ARCHITECTURE/">
       
       
-        <link rel="next" href="../RESEARCHER_OBSERVABILITY/">
+        <link rel="next" href="../CAPABILITIES/">
       
       
         
@@ -55,13 +55,16 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../assets/stylesheets/panzoom.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  </head>
+  <meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -94,7 +97,7 @@
 
   
 
-<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Crucible Docs" class="md-header__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -211,153 +214,13 @@
     
   </nav>
   
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../USER_GUIDE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Getting Started
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../CUSTOM_CONTRACT_TESTING/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  How-To Guides
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../TECHNICAL_OVERVIEW/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Core Concepts (Explanation)
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../CLI_REFERENCE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../AE_WALKTHROUGH/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Publication & Case Studies
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-    
-  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -371,10 +234,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Crucible Docs" class="md-nav__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -439,13 +300,14 @@
       
         
       
-    
-    
-    
-      
+        
       
         
       
+        
+      
+    
+    
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -491,14 +353,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../USER_GUIDE/" class="md-nav__link">
+      <a href="../QUICK_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    User Guide
+    Quick Reference
   
 
     
@@ -540,6 +402,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DOCKER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC Provider Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -568,11 +514,6 @@
       
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -646,62 +587,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running LLM Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authoring Plugins
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../SCENARIO_AUTHORING/" class="md-nav__link">
         
   
@@ -751,6 +636,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running LLM Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -779,43 +720,25 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
     
-      
-        
-        
-      
-      
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Core Concepts (Explanation)
+    Architecture & Design
   
 
     
@@ -831,7 +754,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Core Concepts (Explanation)
+    Architecture & Design
   
 
           </label>
@@ -900,6 +823,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../DESIGN_DECISIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
         
   
@@ -908,90 +859,6 @@
     
   
     Instrumentation Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CAPABILITIES/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scope & Capabilities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FEATURE_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Feature Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Bridge Limitations
   
 
     
@@ -1072,10 +939,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reproduction-standard" class="md-nav__link">
+  <a href="#1-reproduction-standard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reproduction Standard
+        1. Reproduction Standard
       
     </span>
   </a>
@@ -1083,33 +950,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fidelity-levels" class="md-nav__link">
+  <a href="#2-attack-pack-lifecycle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fidelity Levels
+        2. Attack Pack Lifecycle
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#attack-pack-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Attack Pack Lifecycle
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Attack Pack Lifecycle">
+    <nav class="md-nav" aria-label="2. Attack Pack Lifecycle">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-scaffold" class="md-nav__link">
+  <a href="#phase-a-scaffold-generation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Scaffold
+        Phase A: Scaffold Generation
       
     </span>
   </a>
@@ -1117,10 +973,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-evidence-fill" class="md-nav__link">
+  <a href="#phase-b-evidence-aggregation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Evidence Fill
+        Phase B: Evidence Aggregation
       
     </span>
   </a>
@@ -1128,10 +984,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-scenario-fill" class="md-nav__link">
+  <a href="#phase-c-scenario-definition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Scenario Fill
+        Phase C: Scenario Definition
       
     </span>
   </a>
@@ -1139,10 +995,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-baseline-capture" class="md-nav__link">
+  <a href="#phase-d-baseline-capture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Baseline Capture
+        Phase D: Baseline Capture
       
     </span>
   </a>
@@ -1150,10 +1006,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-formal-run" class="md-nav__link">
+  <a href="#phase-e-formal-execution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Formal Run
+        Phase E: Formal Execution
       
     </span>
   </a>
@@ -1161,10 +1017,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-export-verify" class="md-nav__link">
+  <a href="#phase-f-export-verification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Export &amp; Verify
+        Phase F: Export &amp; Verification
       
     </span>
   </a>
@@ -1177,17 +1033,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#determinism-check" class="md-nav__link">
+  <a href="#3-validation-verification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Determinism Check
+        3. Validation &amp; Verification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Validation &amp; Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determinism-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determinism Verification
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#patch-validation-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1197,95 +1065,16 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
     </ul>
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RESEARCHER_OBSERVABILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Researcher Observability
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_implementation_spec/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementation Spec
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_research_overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Research Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1319,35 +1108,8 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1364,7 +1126,7 @@
   <span class="md-ellipsis">
     
   
-    Reference
+    Scope & Fidelity
   
 
     
@@ -1380,7 +1142,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Reference
+    Scope & Fidelity
   
 
           </label>
@@ -1393,14 +1155,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../CLI_REFERENCE/" class="md-nav__link">
+      <a href="../CAPABILITIES/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CLI Reference
+    Capabilities
   
 
     
@@ -1421,350 +1183,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../BENCHMARKS/" class="md-nav__link">
+      <a href="../FEATURE_GUIDE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Benchmarks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../REPRODUCIBILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reproducibility
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Analysis Notebooks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dashboard Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DEPLOYMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deployment & Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DOCKER_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Docker Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../LAB_DEPLOYMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lab Deployment
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RPC Provider Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../MAINTENANCE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Maintenance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../TROUBLESHOOTING/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Troubleshooting
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../OPERATIONS_RUNBOOK/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Operations Runbook
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Simple Operations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../QUICK_REFERENCE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quick Reference
+    Feature Guide
   
 
     
@@ -1862,6 +1288,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1890,17 +1344,8 @@
       
         
       
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1917,7 +1362,7 @@
   <span class="md-ellipsis">
     
   
-    Publication & Case Studies
+    Tools & Analysis
   
 
     
@@ -1933,7 +1378,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Publication & Case Studies
+    Tools & Analysis
   
 
           </label>
@@ -1946,14 +1391,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+      <a href="../CLI_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AE Walkthrough
+    CLI Reference
   
 
     
@@ -1974,14 +1419,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Zenodo Archive Guide
+    Dashboard Guide
   
 
     
@@ -1994,6 +1439,332 @@
   
 
               
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BENCHMARKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAINTENANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TROUBLESHOOTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCIBILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Studies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Case Studies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2170,6 +1941,122 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publication
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publication
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AE Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zenodo Archive Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2197,10 +2084,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#reproduction-standard" class="md-nav__link">
+  <a href="#1-reproduction-standard" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reproduction Standard
+        1. Reproduction Standard
       
     </span>
   </a>
@@ -2208,33 +2095,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fidelity-levels" class="md-nav__link">
+  <a href="#2-attack-pack-lifecycle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Fidelity Levels
+        2. Attack Pack Lifecycle
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#attack-pack-lifecycle" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Attack Pack Lifecycle
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Attack Pack Lifecycle">
+    <nav class="md-nav" aria-label="2. Attack Pack Lifecycle">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-scaffold" class="md-nav__link">
+  <a href="#phase-a-scaffold-generation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Scaffold
+        Phase A: Scaffold Generation
       
     </span>
   </a>
@@ -2242,10 +2118,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-evidence-fill" class="md-nav__link">
+  <a href="#phase-b-evidence-aggregation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Evidence Fill
+        Phase B: Evidence Aggregation
       
     </span>
   </a>
@@ -2253,10 +2129,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-scenario-fill" class="md-nav__link">
+  <a href="#phase-c-scenario-definition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Scenario Fill
+        Phase C: Scenario Definition
       
     </span>
   </a>
@@ -2264,10 +2140,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-baseline-capture" class="md-nav__link">
+  <a href="#phase-d-baseline-capture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Baseline Capture
+        Phase D: Baseline Capture
       
     </span>
   </a>
@@ -2275,10 +2151,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-formal-run" class="md-nav__link">
+  <a href="#phase-e-formal-execution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Formal Run
+        Phase E: Formal Execution
       
     </span>
   </a>
@@ -2286,10 +2162,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-export-verify" class="md-nav__link">
+  <a href="#phase-f-export-verification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Export &amp; Verify
+        Phase F: Export &amp; Verification
       
     </span>
   </a>
@@ -2302,17 +2178,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#determinism-check" class="md-nav__link">
+  <a href="#3-validation-verification" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Determinism Check
+        3. Validation &amp; Verification
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Validation &amp; Verification">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determinism-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determinism Verification
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#patch-validation-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2320,6 +2208,11 @@
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2341,151 +2234,112 @@
 
 
 <h1 id="research-workflow">Research Workflow<a class="headerlink" href="#research-workflow" title="Permanent link">&para;</a></h1>
-<p>This document describes how Crucible should be used for academic bridge exploit reproduction.</p>
-<h2 id="reproduction-standard">Reproduction Standard<a class="headerlink" href="#reproduction-standard" title="Permanent link">&para;</a></h2>
-<p>Do not describe a benchmark as "historically reproduced" until the attack pack has:</p>
+<h2 id="1-reproduction-standard">1. Reproduction Standard<a class="headerlink" href="#1-reproduction-standard" title="Permanent link">&para;</a></h2>
+<p>A benchmark is typically classified as "historically reproduced" once the corresponding attack pack exhibits:</p>
 <ol>
 <li>A declared fidelity level.</li>
-<li>A complete <code>evidence.yaml</code>.</li>
+<li>A complete <code>evidence.yaml</code> manifest.</li>
 <li>Explicit fork blocks.</li>
 <li>Affected contract addresses.</li>
-<li>Historical exploit transactions, if the target fidelity is L3 or L4.</li>
+<li>Historical exploit transactions (if the target fidelity is L3 or L4).</li>
 <li>Expected state, balance, and event assertions.</li>
 <li>A deterministic rerun comparison.</li>
 <li>An exported artifact bundle.</li>
 </ol>
-<p>Crucible can run scaffold packs before those fields are complete, but scaffold runs are engineering validation, not research evidence.</p>
-<h2 id="fidelity-levels">Fidelity Levels<a class="headerlink" href="#fidelity-levels" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Meaning</th>
-<th>Requirements</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>L0</td>
-<td>Narrative simulation only</td>
-<td>None (description only)</td>
-</tr>
-<tr>
-<td>L1</td>
-<td>Local contract-level reproduction</td>
-<td>Attack plugin returns a result</td>
-</tr>
-<tr>
-<td>L2</td>
-<td>Historical fork-state reproduction</td>
-<td>Chains exist in topology, trace artifacts present</td>
-</tr>
-<tr>
-<td>L3</td>
-<td>Historical transaction-path reconstruction</td>
-<td>All L2 + <code>exact_tx_replay=true</code>, exploit transactions non-empty</td>
-</tr>
-<tr>
-<td>L4</td>
-<td>Cross-chain causal reconstruction</td>
-<td>All L3 + multi-chain topology + bridge plugin + excluded components declared</td>
-</tr>
-</tbody>
-</table>
-<p><strong>L4 bridge plugins available:</strong>
-| Plugin | Topology | Chains | Vulnerability |
-|---|---|---|---|
-| <code>nomad_bridge</code> | <code>topologies/nomad_bridge.yaml</code> | ethereum + polygon | <code>committedRoot == 0x00</code> |
-| <code>poly_network_bridge</code> | <code>topologies/poly_network_bridge.yaml</code> | ethereum + polygon + bsc | Hash collision selector |
-| <code>wormhole_bridge</code> | <code>topologies/wormhole_bridge.yaml</code> | ethereum + polygon | Guardian bypass |</p>
-<p><strong>Enforcing fidelity levels at runtime:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/nomad_replay.yaml
-</code></pre></div></p>
-<p>Fidelity enforcement is <strong>enabled by default</strong>. Use <code>--no-fidelity</code> to skip.</p>
-<h2 id="attack-pack-lifecycle">Attack Pack Lifecycle<a class="headerlink" href="#attack-pack-lifecycle" title="Permanent link">&para;</a></h2>
-<h3 id="1-scaffold">1. Scaffold<a class="headerlink" href="#1-scaffold" title="Permanent link">&para;</a></h3>
-<p>For a complete step-by-step guide covering research, evidence filling, plugin writing, and validation, see <a href="../ATTACK_PACK_GUIDE/"><code>docs/ATTACK_PACK_GUIDE.md</code></a>.</p>
-<p><strong>Quick path (from tx hash — 10 seconds):</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>crucible<span class="w"> </span>attack<span class="w"> </span>extract<span class="w"> </span>&lt;tx_hash&gt;<span class="w"> </span>--name<span class="w"> </span>my_attack<span class="w"> </span>--chain<span class="w"> </span>ethereum
+<p>While Crucible is capable of executing scaffold packs prior to the completion of these fields, such executions constitute engineering validation rather than rigorous research evidence.</p>
+<blockquote>
+<p><strong>Fidelity Note:</strong> Crucible enforces strict adherence to a 5-level fidelity system (L0-L4). Please refer to the <a href="../FIDELITY_GUIDE/">Fidelity Guide</a> for detailed definitions of each level and the <a href="../CAPABILITIES/">Capabilities Matrix</a> for supported topologies and bridge plugins. Fidelity enforcement is <strong>enabled by default</strong>. The <code>--no-fidelity</code> flag may be utilized to bypass this check during early development.</p>
+</blockquote>
+<hr />
+<h2 id="2-attack-pack-lifecycle">2. Attack Pack Lifecycle<a class="headerlink" href="#2-attack-pack-lifecycle" title="Permanent link">&para;</a></h2>
+<p>The development of a robust reproduction follows a sequential lifecycle. For comprehensive instructions regarding research, evidence attribution, plugin development, and validation, refer to the <a href="../ATTACK_PACK_GUIDE/">Attack Pack Guide</a>.</p>
+<h3 id="phase-a-scaffold-generation">Phase A: Scaffold Generation<a class="headerlink" href="#phase-a-scaffold-generation" title="Permanent link">&para;</a></h3>
+<p><strong>Accelerated Generation (via Transaction Hash):</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>crucible<span class="w"> </span>attack<span class="w"> </span>extract<span class="w"> </span>&lt;tx_hash&gt;<span class="w"> </span>--name<span class="w"> </span>my_attack<span class="w"> </span>--chain<span class="w"> </span>ethereum
 </code></pre></div>
-<p>This generates the complete scaffold (plugin.yaml, evidence.yaml, attack.py, scenario.yaml, ABI mapping).</p>
-<p><strong>Manual path:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>attacks/&lt;attack&gt;/
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  plugin.yaml
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  evidence.yaml
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  &lt;attack&gt;.py
+<p>This procedure automatically generates the complete scaffold structure (<code>plugin.yaml</code>, <code>evidence.yaml</code>, <code>attack.py</code>, <code>scenario.yaml</code>, ABI mapping).</p>
+<p><strong>Manual Generation:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>attacks/&lt;attack&gt;/
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  plugin.yaml
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  evidence.yaml
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  &lt;attack&gt;.py
 </code></pre></div>
-<p>Validation:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>crucible<span class="w"> </span>plugin<span class="w"> </span>validate<span class="w"> </span>attacks/&lt;attack&gt;
+<p>Validate the structural integrity of the scaffold:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>crucible<span class="w"> </span>plugin<span class="w"> </span>validate<span class="w"> </span>attacks/&lt;attack&gt;
 </code></pre></div>
-<h3 id="2-evidence-fill">2. Evidence Fill<a class="headerlink" href="#2-evidence-fill" title="Permanent link">&para;</a></h3>
-<p>Add verified:</p>
+<h3 id="phase-b-evidence-aggregation">Phase B: Evidence Aggregation<a class="headerlink" href="#phase-b-evidence-aggregation" title="Permanent link">&para;</a></h3>
+<p>Evidence aggregation is a strictly <strong>manual intelligence-gathering process</strong>. Researchers typically conduct off-chain analysis to ascertain the exact parameters of the historical exploit. </p>
+<p>This verified data is then manually incorporated into <code>evidence.yaml</code>, which generally includes:</p>
 <ul>
-<li>postmortems</li>
-<li>explorer links</li>
-<li>contract addresses</li>
-<li>vulnerable function names</li>
-<li>fork block numbers</li>
-<li>exploit transaction hashes</li>
-<li>state/balance expectations</li>
+<li><strong>Official Postmortems:</strong> Links to Rekt News, BlockSec, or protocol postmortems.</li>
+<li><strong>Block Explorer References:</strong> Etherscan (or equivalent) links to the attacker's wallet and the vulnerable contracts.</li>
+<li><strong>Contract Addresses:</strong> The exact deployment addresses of the exploited contracts.</li>
+<li><strong>Vulnerable Function Selectors:</strong> The specific function signatures utilized to trigger the exploit.</li>
+<li><strong>Fork Block Numbers:</strong> The specific block number immediately preceding the attack transaction (used by Anvil to initialize the fork state).</li>
+<li><strong>Exploit Transaction Hashes:</strong> The authoritative transaction(s) that executed the attack.</li>
+<li><strong>State and Balance Expectations:</strong> The anticipated financial impact (e.g., token drain amounts).</li>
 </ul>
-<h3 id="3-scenario-fill">3. Scenario Fill<a class="headerlink" href="#3-scenario-fill" title="Permanent link">&para;</a></h3>
-<p>Update <code>scenarios/&lt;scenario&gt;/scenario.yaml</code> with concrete assertions.</p>
-<p>At minimum, every real attack should prove:</p>
+<h3 id="phase-c-scenario-definition">Phase C: Scenario Definition<a class="headerlink" href="#phase-c-scenario-definition" title="Permanent link">&para;</a></h3>
+<p>Populate <code>scenarios/&lt;scenario&gt;/scenario.yaml</code> with concrete state assertions.</p>
+<p>A comprehensive reproduction typically demonstrates:</p>
 <ul>
-<li>the vulnerable path succeeds</li>
-<li>the attacker position improves</li>
-<li>protected bridge state changes</li>
-<li>the same action should fail after a patch, if patch validation is in scope</li>
+<li>The vulnerable execution path succeeds.</li>
+<li>The attacker's on-chain position improves.</li>
+<li>Protected state (e.g., bridge vaults) is materially altered.</li>
 </ul>
-<h3 id="4-baseline-capture">4. Baseline Capture<a class="headerlink" href="#4-baseline-capture" title="Permanent link">&para;</a></h3>
-<p>Start the topology (or use <code>setup</code> for fork + bootstrap in one step):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>crucible<span class="w"> </span>setup<span class="w"> </span>--topology<span class="w"> </span>bridge<span class="w">              </span><span class="c1"># fork + bootstrap + prepare</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># or manually:</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>bridge
+<h3 id="phase-d-baseline-capture">Phase D: Baseline Capture<a class="headerlink" href="#phase-d-baseline-capture" title="Permanent link">&para;</a></h3>
+<p>Initialize the topology (the <code>setup</code> command may be used to execute the fork and bootstrap phases concurrently):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>crucible<span class="w"> </span>setup<span class="w"> </span>--topology<span class="w"> </span>bridge
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># OR manually:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>bridge
 </code></pre></div>
-<p>Capture:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>crucible<span class="w"> </span>baseline<span class="w"> </span>capture<span class="w"> </span>&lt;scenario&gt;<span class="w"> </span>--topology<span class="w"> </span>bridge
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>crucible<span class="w"> </span>baseline<span class="w"> </span>verify<span class="w"> </span>&lt;scenario&gt;
+<p>Capture and verify the environmental baseline:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>crucible<span class="w"> </span>baseline<span class="w"> </span>capture<span class="w"> </span>&lt;scenario&gt;<span class="w"> </span>--topology<span class="w"> </span>bridge
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>crucible<span class="w"> </span>baseline<span class="w"> </span>verify<span class="w"> </span>&lt;scenario&gt;
 </code></pre></div>
-<h3 id="5-formal-run">5. Formal Run<a class="headerlink" href="#5-formal-run" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">crucible</span> <span class="n">experiment</span> <span class="n">run</span> <span class="n">experiments</span><span class="p">/&lt;</span><span class="n">attack</span><span class="p">&gt;</span><span class="n">_replay</span><span class="p">.</span><span class="n">yaml</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">crucible</span> <span class="nb">history </span><span class="p">-</span><span class="n">-rebuild</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">crucible</span> <span class="n">logs</span> <span class="n">list</span>
+<h3 id="phase-e-formal-execution">Phase E: Formal Execution<a class="headerlink" href="#phase-e-formal-execution" title="Permanent link">&para;</a></h3>
+<p>Execute the experiment against the deterministic baseline:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/&lt;attack&gt;_replay.yaml
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>crucible<span class="w"> </span><span class="nb">history</span><span class="w"> </span>--rebuild
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>crucible<span class="w"> </span>logs<span class="w"> </span>list
 </code></pre></div>
-<h3 id="6-export-verify">6. Export &amp; Verify<a class="headerlink" href="#6-export-verify" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>crucible<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&lt;run_id&gt;<span class="w">                          </span><span class="c1"># export as directory</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>crucible<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&lt;run_id&gt;<span class="w"> </span>--format<span class="w"> </span>tar-gz<span class="w">          </span><span class="c1"># export as compressed archive</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>crucible<span class="w"> </span>verify<span class="w"> </span>datasets/&lt;run_id&gt;<span class="w">                  </span><span class="c1"># verify bundle integrity (auto-detects bundle vs run)</span>
+<h3 id="phase-f-export-verification">Phase F: Export &amp; Verification<a class="headerlink" href="#phase-f-export-verification" title="Permanent link">&para;</a></h3>
+<p>Export the resulting telemetry and artifacts for publication:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>crucible<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&lt;run_id&gt;<span class="w">                          </span><span class="c1"># Export as directory</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>crucible<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&lt;run_id&gt;<span class="w"> </span>--format<span class="w"> </span>tar-gz<span class="w">          </span><span class="c1"># Export as compressed archive</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>crucible<span class="w"> </span>verify<span class="w"> </span>datasets/&lt;run_id&gt;<span class="w">                 </span><span class="c1"># Verify bundle integrity</span>
 </code></pre></div>
-<p>Archive <code>datasets/&lt;run_id&gt;/</code> or the <code>.tar.gz</code>/<code>.zip</code> file.</p>
-<h2 id="determinism-check">Determinism Check<a class="headerlink" href="#determinism-check" title="Permanent link">&para;</a></h2>
-<p>Run the same experiment twice after restoring the same baseline:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">crucible</span> <span class="n">reset</span> <span class="p">-</span><span class="n">-scenario</span> <span class="p">&lt;</span><span class="n">scenario</span><span class="p">&gt;</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">crucible</span> <span class="n">experiment</span> <span class="n">run</span> <span class="n">experiments</span><span class="p">/&lt;</span><span class="n">attack</span><span class="p">&gt;</span><span class="n">_replay</span><span class="p">.</span><span class="n">yaml</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">crucible</span> <span class="n">reset</span> <span class="p">-</span><span class="n">-scenario</span> <span class="p">&lt;</span><span class="n">scenario</span><span class="p">&gt;</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">crucible</span> <span class="n">experiment</span> <span class="n">run</span> <span class="n">experiments</span><span class="p">/&lt;</span><span class="n">attack</span><span class="p">&gt;</span><span class="n">_replay</span><span class="p">.</span><span class="n">yaml</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">crucible</span> <span class="nb">diff </span><span class="p">&lt;</span><span class="n">run_a</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">run_b</span><span class="p">&gt;</span>
+<hr />
+<h2 id="3-validation-verification">3. Validation &amp; Verification<a class="headerlink" href="#3-validation-verification" title="Permanent link">&para;</a></h2>
+<h3 id="determinism-verification">Determinism Verification<a class="headerlink" href="#determinism-verification" title="Permanent link">&para;</a></h3>
+<p>Execute the identical experiment twice following the restoration of the exact baseline:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>crucible<span class="w"> </span>reset<span class="w"> </span>--scenario<span class="w"> </span>&lt;scenario&gt;
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/&lt;attack&gt;_replay.yaml
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>crucible<span class="w"> </span>reset<span class="w"> </span>--scenario<span class="w"> </span>&lt;scenario&gt;
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/&lt;attack&gt;_replay.yaml
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>crucible<span class="w"> </span>diff<span class="w"> </span>&lt;run_a&gt;<span class="w"> </span>&lt;run_b&gt;
 </code></pre></div>
-<p>The diff result should show:</p>
+<p>The diff result should ideally display:</p>
 <ul>
 <li><code>storage_equal: true</code></li>
 <li><code>events_equal: true</code></li>
-<li><code>gas_equal: true</code>, unless the experiment declares a gas tolerance</li>
+<li><code>gas_equal: true</code> (unless the experiment explicitly declares a gas tolerance)</li>
 </ul>
-<h2 id="patch-validation-workflow">Patch Validation Workflow<a class="headerlink" href="#patch-validation-workflow" title="Permanent link">&para;</a></h2>
-<p>Patch validation should use two experiments:</p>
+<h3 id="patch-validation-workflow">Patch Validation Workflow<a class="headerlink" href="#patch-validation-workflow" title="Permanent link">&para;</a></h3>
+<p>If evaluating a patch, validation necessitates two parallel experiments:</p>
 <ol>
-<li>Vulnerable replay: exploit succeeds.</li>
-<li>Patched replay: exploit fails and normal bridge behavior still passes.</li>
+<li><strong>Vulnerable Replay:</strong> The historical exploit succeeds.</li>
+<li><strong>Patched Replay:</strong> The exploit fails, but standard protocol operations remain functional.</li>
 </ol>
-<p>The patch artifact should include:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>patches/&lt;name&gt;/
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  patch.yaml
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  validation.yaml
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  contracts-or-scripts/
+<p>The patch artifact should be structured as follows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>patches/&lt;name&gt;/
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>  patch.yaml
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>  validation.yaml
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  contracts-or-scripts/
 </code></pre></div>
-<p>Formal patch acceptance requires both positive and negative assertions.</p>
+<p>A complete patch evaluation generally includes both positive assertions (normal behavior succeeds) and negative assertions (exploit behavior fails).</p>
 
 
 
@@ -2517,6 +2371,46 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Instrumentation Architecture">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Instrumentation Architecture
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../CAPABILITIES/" class="md-footer__link md-footer__link--next" aria-label="Next: Capabilities">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Capabilities
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -2554,12 +2448,16 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../javascripts/extra.js"></script>
+      
+        <script src="../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../assets/javascripts/zoompan.js"></script>
       
     
   </body>

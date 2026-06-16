@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="../PLUGIN_DEVELOPMENT/">
+        <link rel="prev" href="../CUSTOM_CONTRACT_TESTING/">
       
       
         <link rel="next" href="../ATTACK_PACK_GUIDE/">
@@ -55,13 +55,16 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../assets/stylesheets/panzoom.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  </head>
+  <meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -94,7 +97,7 @@
 
   
 
-<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Crucible Docs" class="md-header__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -211,153 +214,13 @@
     
   </nav>
   
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../USER_GUIDE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Getting Started
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../CUSTOM_CONTRACT_TESTING/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  How-To Guides
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../TECHNICAL_OVERVIEW/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Core Concepts (Explanation)
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../CLI_REFERENCE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../AE_WALKTHROUGH/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Publication & Case Studies
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-    
-  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -371,10 +234,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Crucible Docs" class="md-nav__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -439,13 +300,14 @@
       
         
       
-    
-    
-    
-      
+        
       
         
       
+        
+      
+    
+    
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -491,14 +353,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../USER_GUIDE/" class="md-nav__link">
+      <a href="../QUICK_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    User Guide
+    Quick Reference
   
 
     
@@ -527,6 +389,90 @@
     
   
     10-Minute Tutorial
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DOCKER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC Provider Guide
   
 
     
@@ -571,23 +517,15 @@
     
     
     
-      
-        
-        
-      
-      
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -631,62 +569,6 @@
     
   
     Deploying Contracts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running LLM Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authoring Plugins
   
 
     
@@ -767,22 +649,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-a-scenario" class="md-nav__link">
+  <a href="#core-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What Is A Scenario?
+        Core Concepts
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What Is A Scenario?">
+    <nav class="md-nav" aria-label="Core Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-are-scenarios-separate-from-attack-plugins" class="md-nav__link">
+  <a href="#architectural-separation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why Are Scenarios Separate From Attack Plugins?
+        Architectural Separation
       
     </span>
   </a>
@@ -795,22 +677,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#anatomy-of-a-scenario" class="md-nav__link">
+  <a href="#scenario-definition-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Anatomy Of A Scenario
+        Scenario Definition Structure
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Anatomy Of A Scenario">
+    <nav class="md-nav" aria-label="Scenario Definition Structure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#alternative-top-level-steps-simple-format" class="md-nav__link">
+  <a href="#unstructured-execution-simple-format" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alternative: Top-Level Steps (Simple Format)
+        Unstructured Execution (Simple Format)
       
     </span>
   </a>
@@ -818,10 +700,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#directory-structure" class="md-nav__link">
+  <a href="#directory-hierarchy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Directory Structure
+        Directory Hierarchy
       
     </span>
   </a>
@@ -834,22 +716,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#phases-and-execution-order" class="md-nav__link">
+  <a href="#phase-execution-and-checkpointing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Phases And Execution Order
+        Phase Execution and Checkpointing
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Phases And Execution Order">
+    <nav class="md-nav" aria-label="Phase Execution and Checkpointing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#checkpoint-system-per-phase-snapshots" class="md-nav__link">
+  <a href="#phase-checkpoints" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checkpoint System: Per-Phase Snapshots
+        Phase Checkpoints
       
     </span>
   </a>
@@ -862,22 +744,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-types-complete-reference" class="md-nav__link">
+  <a href="#scenario-step-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step Types (Complete Reference)
+        Scenario Step Reference
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step Types (Complete Reference)">
+    <nav class="md-nav" aria-label="Scenario Step Reference">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-log-record-a-message" class="md-nav__link">
+  <a href="#1-log" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. log — Record A Message
+        1. log
       
     </span>
   </a>
@@ -885,10 +767,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-assert-verify-a-condition" class="md-nav__link">
+  <a href="#2-assert" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. assert — Verify A Condition
+        2. assert
       
     </span>
   </a>
@@ -896,10 +778,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-impersonate-impersonate-an-account" class="md-nav__link">
+  <a href="#3-impersonate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. impersonate — Impersonate An Account
+        3. impersonate
       
     </span>
   </a>
@@ -907,10 +789,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-send_tx-send-a-transaction" class="md-nav__link">
+  <a href="#4-send_tx" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. send_tx — Send A Transaction
+        4. send_tx
       
     </span>
   </a>
@@ -918,10 +800,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-advance_time-skip-time-forward" class="md-nav__link">
+  <a href="#5-advance_time" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. advance_time — Skip Time Forward
+        5. advance_time
       
     </span>
   </a>
@@ -929,10 +811,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-assert_balance-check-account-balance" class="md-nav__link">
+  <a href="#6-assert_balance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. assert_balance — Check Account Balance
+        6. assert_balance
       
     </span>
   </a>
@@ -940,10 +822,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#7-forge_script-run-a-foundry-script" class="md-nav__link">
+  <a href="#7-forge_script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. forge_script — Run A Foundry Script
+        7. forge_script
       
     </span>
   </a>
@@ -951,10 +833,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#8-python_script-run-a-python-script" class="md-nav__link">
+  <a href="#8-python_script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. python_script — Run A Python Script
+        8. python_script
       
     </span>
   </a>
@@ -962,10 +844,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#9-verify_tracing-verify-transaction-trace-capture" class="md-nav__link">
+  <a href="#9-verify_tracing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. verify_tracing — Verify Transaction Trace Capture
+        9. verify_tracing
       
     </span>
   </a>
@@ -973,21 +855,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#10-bridge_action-execute-a-bridge-protocol-action" class="md-nav__link">
+  <a href="#10-bridge_action" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. bridge_action — Execute A Bridge Protocol Action
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-plugin-run-a-plugin-step-deprecated" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11. plugin — Run A Plugin Step (Deprecated)
+        10. bridge_action
       
     </span>
   </a>
@@ -1000,71 +871,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-scenarios-relate-to-experiments" class="md-nav__link">
+  <a href="#experiment-orchestration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How Scenarios Relate To Experiments
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common Patterns
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pattern-1-simple-only-logs-attack-plugin-does-everything" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 1: Simple — Only Logs (Attack Plugin Does Everything)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pattern-2-pre-exploit-state-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 2: Pre-Exploit State Setup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pattern-3-post-exploit-verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 3: Post-Exploit Verification
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
+        Experiment Orchestration
       
     </span>
   </a>
@@ -1130,6 +940,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running LLM Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1156,23 +1022,8 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1189,7 +1040,7 @@
   <span class="md-ellipsis">
     
   
-    Core Concepts (Explanation)
+    Architecture & Design
   
 
     
@@ -1205,7 +1056,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Core Concepts (Explanation)
+    Architecture & Design
   
 
           </label>
@@ -1274,6 +1125,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../DESIGN_DECISIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
         
   
@@ -1282,90 +1161,6 @@
     
   
     Instrumentation Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CAPABILITIES/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scope & Capabilities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FEATURE_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Feature Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Bridge Limitations
   
 
     
@@ -1407,90 +1202,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RESEARCHER_OBSERVABILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Researcher Observability
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_implementation_spec/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementation Spec
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_research_overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Research Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -1519,35 +1230,8 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -1564,7 +1248,7 @@
   <span class="md-ellipsis">
     
   
-    Reference
+    Scope & Fidelity
   
 
     
@@ -1580,7 +1264,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Reference
+    Scope & Fidelity
   
 
           </label>
@@ -1593,14 +1277,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../CLI_REFERENCE/" class="md-nav__link">
+      <a href="../CAPABILITIES/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    CLI Reference
+    Capabilities
   
 
     
@@ -1621,350 +1305,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../BENCHMARKS/" class="md-nav__link">
+      <a href="../FEATURE_GUIDE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Benchmarks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../REPRODUCIBILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reproducibility
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Analysis Notebooks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dashboard Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DEPLOYMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deployment & Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DOCKER_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Docker Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../LAB_DEPLOYMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lab Deployment
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RPC Provider Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../MAINTENANCE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Maintenance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../TROUBLESHOOTING/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Troubleshooting
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../OPERATIONS_RUNBOOK/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Operations Runbook
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Simple Operations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../QUICK_REFERENCE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quick Reference
+    Feature Guide
   
 
     
@@ -2062,6 +1410,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2090,17 +1466,8 @@
       
         
       
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2117,7 +1484,7 @@
   <span class="md-ellipsis">
     
   
-    Publication & Case Studies
+    Tools & Analysis
   
 
     
@@ -2133,7 +1500,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Publication & Case Studies
+    Tools & Analysis
   
 
           </label>
@@ -2146,14 +1513,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+      <a href="../CLI_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AE Walkthrough
+    CLI Reference
   
 
     
@@ -2174,14 +1541,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Zenodo Archive Guide
+    Dashboard Guide
   
 
     
@@ -2194,6 +1561,332 @@
   
 
               
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BENCHMARKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAINTENANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TROUBLESHOOTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCIBILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Studies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Case Studies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2370,6 +2063,122 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publication
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publication
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AE Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zenodo Archive Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2397,22 +2206,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-a-scenario" class="md-nav__link">
+  <a href="#core-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What Is A Scenario?
+        Core Concepts
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What Is A Scenario?">
+    <nav class="md-nav" aria-label="Core Concepts">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-are-scenarios-separate-from-attack-plugins" class="md-nav__link">
+  <a href="#architectural-separation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why Are Scenarios Separate From Attack Plugins?
+        Architectural Separation
       
     </span>
   </a>
@@ -2425,22 +2234,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#anatomy-of-a-scenario" class="md-nav__link">
+  <a href="#scenario-definition-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Anatomy Of A Scenario
+        Scenario Definition Structure
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Anatomy Of A Scenario">
+    <nav class="md-nav" aria-label="Scenario Definition Structure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#alternative-top-level-steps-simple-format" class="md-nav__link">
+  <a href="#unstructured-execution-simple-format" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Alternative: Top-Level Steps (Simple Format)
+        Unstructured Execution (Simple Format)
       
     </span>
   </a>
@@ -2448,10 +2257,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#directory-structure" class="md-nav__link">
+  <a href="#directory-hierarchy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Directory Structure
+        Directory Hierarchy
       
     </span>
   </a>
@@ -2464,22 +2273,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#phases-and-execution-order" class="md-nav__link">
+  <a href="#phase-execution-and-checkpointing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Phases And Execution Order
+        Phase Execution and Checkpointing
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Phases And Execution Order">
+    <nav class="md-nav" aria-label="Phase Execution and Checkpointing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#checkpoint-system-per-phase-snapshots" class="md-nav__link">
+  <a href="#phase-checkpoints" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Checkpoint System: Per-Phase Snapshots
+        Phase Checkpoints
       
     </span>
   </a>
@@ -2492,22 +2301,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-types-complete-reference" class="md-nav__link">
+  <a href="#scenario-step-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step Types (Complete Reference)
+        Scenario Step Reference
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step Types (Complete Reference)">
+    <nav class="md-nav" aria-label="Scenario Step Reference">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-log-record-a-message" class="md-nav__link">
+  <a href="#1-log" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. log — Record A Message
+        1. log
       
     </span>
   </a>
@@ -2515,10 +2324,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-assert-verify-a-condition" class="md-nav__link">
+  <a href="#2-assert" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. assert — Verify A Condition
+        2. assert
       
     </span>
   </a>
@@ -2526,10 +2335,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-impersonate-impersonate-an-account" class="md-nav__link">
+  <a href="#3-impersonate" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. impersonate — Impersonate An Account
+        3. impersonate
       
     </span>
   </a>
@@ -2537,10 +2346,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-send_tx-send-a-transaction" class="md-nav__link">
+  <a href="#4-send_tx" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. send_tx — Send A Transaction
+        4. send_tx
       
     </span>
   </a>
@@ -2548,10 +2357,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-advance_time-skip-time-forward" class="md-nav__link">
+  <a href="#5-advance_time" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. advance_time — Skip Time Forward
+        5. advance_time
       
     </span>
   </a>
@@ -2559,10 +2368,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#6-assert_balance-check-account-balance" class="md-nav__link">
+  <a href="#6-assert_balance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. assert_balance — Check Account Balance
+        6. assert_balance
       
     </span>
   </a>
@@ -2570,10 +2379,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#7-forge_script-run-a-foundry-script" class="md-nav__link">
+  <a href="#7-forge_script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. forge_script — Run A Foundry Script
+        7. forge_script
       
     </span>
   </a>
@@ -2581,10 +2390,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#8-python_script-run-a-python-script" class="md-nav__link">
+  <a href="#8-python_script" class="md-nav__link">
     <span class="md-ellipsis">
       
-        8. python_script — Run A Python Script
+        8. python_script
       
     </span>
   </a>
@@ -2592,10 +2401,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#9-verify_tracing-verify-transaction-trace-capture" class="md-nav__link">
+  <a href="#9-verify_tracing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        9. verify_tracing — Verify Transaction Trace Capture
+        9. verify_tracing
       
     </span>
   </a>
@@ -2603,21 +2412,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#10-bridge_action-execute-a-bridge-protocol-action" class="md-nav__link">
+  <a href="#10-bridge_action" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. bridge_action — Execute A Bridge Protocol Action
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#11-plugin-run-a-plugin-step-deprecated" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        11. plugin — Run A Plugin Step (Deprecated)
+        10. bridge_action
       
     </span>
   </a>
@@ -2630,71 +2428,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-scenarios-relate-to-experiments" class="md-nav__link">
+  <a href="#experiment-orchestration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How Scenarios Relate To Experiments
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common Patterns
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pattern-1-simple-only-logs-attack-plugin-does-everything" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 1: Simple — Only Logs (Attack Plugin Does Everything)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pattern-2-pre-exploit-state-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 2: Pre-Exploit State Setup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pattern-3-post-exploit-verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Pattern 3: Post-Exploit Verification
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Best Practices
+        Experiment Orchestration
       
     </span>
   </a>
@@ -2741,458 +2478,348 @@
 
 
 <h1 id="scenario-authoring-guide">Scenario Authoring Guide<a class="headerlink" href="#scenario-authoring-guide" title="Permanent link">&para;</a></h1>
-<h2 id="what-is-a-scenario">What Is A Scenario?<a class="headerlink" href="#what-is-a-scenario" title="Permanent link">&para;</a></h2>
-<p>A <strong>scenario</strong> defines the blockchain environment at a specific point in time — usually moments before a known exploit. It tells Crucible:</p>
+<h2 id="core-concepts">Core Concepts<a class="headerlink" href="#core-concepts" title="Permanent link">&para;</a></h2>
+<p>A <strong>scenario</strong> defines the deterministic blockchain environment prior to the execution of an experiment. It provides the execution context for the attack plugin by specifying:</p>
 <ol>
-<li><strong>Which chain(s) to fork</strong> (e.g., Ethereum at block 15,259,100)</li>
-<li><strong>What state to verify</strong> (e.g., check that a storage slot is at a specific value)</li>
-<li><strong>What setup steps to run</strong> (e.g., deploy a helper contract, fund an account)</li>
-<li><strong>What assertions to make</strong> (e.g., the exploit succeeds, state changes as expected)</li>
+<li><strong>Target Chains:</strong> The EVM networks to be forked.</li>
+<li><strong>State Verification:</strong> Pre-execution assertions on storage slots or contract existence.</li>
+<li><strong>Preconditions:</strong> Setup operations (e.g., helper contract deployment, account funding).</li>
+<li><strong>Postconditions:</strong> Assertions validating the outcome of the experiment.</li>
 </ol>
-<p>Think of a scenario as the <strong>"before" snapshot</strong> — it sets up the chessboard so the attack plugin can make its move.</p>
-<h3 id="why-are-scenarios-separate-from-attack-plugins">Why Are Scenarios Separate From Attack Plugins?<a class="headerlink" href="#why-are-scenarios-separate-from-attack-plugins" title="Permanent link">&para;</a></h3>
+<h3 id="architectural-separation">Architectural Separation<a class="headerlink" href="#architectural-separation" title="Permanent link">&para;</a></h3>
+<p>The testbed decouples environment setup from exploit execution to maximize reusability:</p>
 <table>
 <thead>
 <tr>
 <th>Component</th>
 <th>Purpose</th>
-<th>Responsible For</th>
+<th>Format</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Scenario</strong> (<code>scenarios/&lt;name&gt;/scenario.yaml</code>)</td>
-<td><strong>Environment setup</strong> — fork the chain, prepare state, run preconditions</td>
+<td>Environment initialization, state preparation, and precondition enforcement.</td>
 <td>Declarative YAML</td>
 </tr>
 <tr>
 <td><strong>Attack Plugin</strong> (<code>attacks/&lt;name&gt;/&lt;name&gt;.py</code>)</td>
-<td><strong>Exploit execution</strong> — forge calldata, send transactions, verify success</td>
-<td>Python code</td>
+<td>Exploit execution (calldata forging, transaction submission).</td>
+<td>Python</td>
 </tr>
 <tr>
 <td><strong>Experiment</strong> (<code>experiments/&lt;name&gt;_replay.yaml</code>)</td>
-<td><strong>Orchestration</strong> — wires scenario + attack plugin + topology together</td>
+<td>Orchestration layer binding the scenario, attack plugin, and topology.</td>
 <td>Declarative YAML</td>
 </tr>
 </tbody>
 </table>
-<p>This separation means you can:
-- <strong>Reuse the same scenario</strong> with different attack plugins (test variations)
-- <strong>Reuse the same attack plugin</strong> with different scenarios (test on different fork blocks)
-- <strong>Swap topologies</strong> without changing the attack code</p>
+<p>This decoupling allows researchers to:
+- Test the same attack plugin against multiple scenarios (e.g., different fork blocks or state variations).
+- Apply different attack variations within the same predefined scenario.
+- Swap underlying network topologies without modifying the attack implementation.</p>
 <hr />
-<h2 id="anatomy-of-a-scenario">Anatomy Of A Scenario<a class="headerlink" href="#anatomy-of-a-scenario" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_attack_pre_exploit</span><span class="w">                        </span><span class="c1"># Must match directory name</span>
+<h2 id="scenario-definition-structure">Scenario Definition Structure<a class="headerlink" href="#scenario-definition-structure" title="Permanent link">&para;</a></h2>
+<p>Scenarios are defined in YAML. A standard scenario organizes operations into ordered phases.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_attack_pre_exploit</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="no">One or two paragraphs explaining what this scenario does.</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="no">What chain is being forked? At what block? What state</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="no">is being verified? What contract is the target?</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">chains</span><span class="p">:</span><span class="w">                                              </span><span class="c1"># Which chains to fork</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nt">phases</span><span class="p">:</span><span class="w">                                              </span><span class="c1"># Ordered list of phases</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setup</span><span class="w">                                      </span><span class="c1"># Phase 1: setup</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Forking</span><span class="nv"> </span><span class="s">Ethereum</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">block</span><span class="nv"> </span><span class="s">15259100</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Nomad</span><span class="nv"> </span><span class="s">reproduction&quot;</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attack</span><span class="w">                                     </span><span class="c1"># Phase 2: attack (plugin runs here)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Attack</span><span class="nv"> </span><span class="s">plugin</span><span class="nv"> </span><span class="s">will</span><span class="nv"> </span><span class="s">be</span><span class="nv"> </span><span class="s">executed</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">experiment</span><span class="nv"> </span><span class="s">runner&quot;</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">verify</span><span class="w">                                     </span><span class="c1"># Phase 3: verification</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exploit_succeeds</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="nt">expected</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="nt">actual</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="no">Initializes the Ethereum fork at block 15259100.</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="no">Verifies vulnerable contract state prior to exploit execution.</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">chains</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="nt">phases</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setup</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Initializing</span><span class="nv"> </span><span class="s">Ethereum</span><span class="nv"> </span><span class="s">fork</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">block</span><span class="nv"> </span><span class="s">15259100&quot;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attack</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Yielding</span><span class="nv"> </span><span class="s">execution</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">attack</span><span class="nv"> </span><span class="s">plugin&quot;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">verify</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">exploit_succeeds</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="nt">expected</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="nt">actual</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-<h3 id="alternative-top-level-steps-simple-format">Alternative: Top-Level Steps (Simple Format)<a class="headerlink" href="#alternative-top-level-steps-simple-format" title="Permanent link">&para;</a></h3>
-<p>For simpler scenarios that don't need distinct <code>setup</code>, <code>attack</code>, and <code>verify</code> phases, Crucible supports a flat list of steps at the root level using the <code>steps:</code> key:</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">simple_scenario</span>
+<h3 id="unstructured-execution-simple-format">Unstructured Execution (Simple Format)<a class="headerlink" href="#unstructured-execution-simple-format" title="Permanent link">&para;</a></h3>
+<p>For scenarios that do not require explicit <code>setup</code>, <code>attack</code>, and <code>verify</code> phases, Crucible supports a flat execution model using the <code>steps:</code> array. In this format, all scenario steps execute sequentially prior to the attack plugin.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">simple_scenario</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">chains</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ethereum</span><span class="p p-Indicator">]</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">steps</span><span class="p">:</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;This</span><span class="nv"> </span><span class="s">scenario</span><span class="nv"> </span><span class="s">runs</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">single</span><span class="nv"> </span><span class="s">block</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">steps&quot;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Executing</span><span class="nv"> </span><span class="s">preconditions&quot;</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">impersonate</span>
 <a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xAttacker&quot;</span>
 </code></pre></div>
-When using this format, the scenario runs entirely before the attack plugin executes.</p>
-<h3 id="directory-structure">Directory Structure<a class="headerlink" href="#directory-structure" title="Permanent link">&para;</a></h3>
+<h3 id="directory-hierarchy">Directory Hierarchy<a class="headerlink" href="#directory-hierarchy" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>scenarios/
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  my_attack_pre_exploit/
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    scenario.yaml          # The scenario definition (required)
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    steps.py               # Optional Python steps (only if using python_script step type)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    scenario.yaml          # Scenario definition manifest
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    steps.py               # Optional Python extensions (for python_script steps)
 </code></pre></div>
 <hr />
-<h2 id="phases-and-execution-order">Phases And Execution Order<a class="headerlink" href="#phases-and-execution-order" title="Permanent link">&para;</a></h2>
-<p>Scenarios run in <strong>ordered phases</strong>. Each phase contains one or more steps that execute sequentially.</p>
-<pre class="mermaid"><code>flowchart LR
-    P1["Phase 1: setup&lt;br&gt;Run setup steps&lt;br&gt;(log, impersonate, send_tx, etc.)"]
-    P2["Phase 2: attack&lt;br&gt;Experiment runner loads and executes&lt;br&gt;the attack plugin between phases"]
-    P3["Phase 3: verify&lt;br&gt;Run verify steps&lt;br&gt;(assert, log)"]
+<h2 id="phase-execution-and-checkpointing">Phase Execution and Checkpointing<a class="headerlink" href="#phase-execution-and-checkpointing" title="Permanent link">&para;</a></h2>
+<p>Scenarios execute in ordered phases. The attack plugin's execution is automatically interleaved between the scenario's phases by the <code>ExperimentRunner</code>.</p>
+<div class="panzoom-box" data-key="alt" id="panzoom0" oncontextmenu="return false;">
+    
+    <nav class="panzoom-nav">
+    <button class="panzoom-info panzoom-button">
+    <svg class="panzoom-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3l58.3 0c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24l0-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1l-58.3 0c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"></path>
+    </svg>
+</button><button class="panzoom-reset panzoom-button">
+    <svg class="panzoom-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M125.7 160l50.3 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L48 224c-17.7 0-32-14.3-32-32L16 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 51.2L97.6 97.6c87.5-87.5 229.3-87.5 316.8 0s87.5 229.3 0 316.8s-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3s-163.8-62.5-226.3 0L125.7 160z"></path>
+    </svg>
+</button><button class="panzoom-max panzoom-button">
+    <svg class="panzoom-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 32C14.3 32 0 46.3 0 64l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-64 64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 32zM64 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-64zM320 32c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0 0 64c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-96 0zM448 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32l0-96z"></path>
+    </svg>
+</button><button class="panzoom-min panzoom-button panzoom-hidden">
+    <svg class="panzoom-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M160 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32l0-96zM32 320c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0 0 64c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-96 0zM352 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-64zM320 320c-17.7 0-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-64 64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0z"></path>
+    </svg>
+</button>
+    </nav>
+    <pre class="mermaid"><code>flowchart LR
+    P1["Phase 1: setup&lt;br&gt;Precondition steps executed"]
+    P2["Phase 2: attack&lt;br&gt;Attack plugin execute() method invoked"]
+    P3["Phase 3: verify&lt;br&gt;Postcondition steps executed"]
 
     P1 --&gt; P2
-    P2 --&gt; P3</code></pre>
-<p><strong>Important:</strong> The attack plugin runs <strong>between</strong> the scenario phases, not inside them. The experiment runner:
-1. Executes <code>setup</code> phase steps
-2. Loads and runs the attack plugin (<code>execute()</code> method)
-3. Runs the attack plugin's <code>verify()</code> method
-4. Executes the remaining phase steps</p>
-<h3 id="checkpoint-system-per-phase-snapshots">Checkpoint System: Per-Phase Snapshots<a class="headerlink" href="#checkpoint-system-per-phase-snapshots" title="Permanent link">&para;</a></h3>
-<p>As each phase completes, Crucible's <code>CheckpointManager</code> saves a <strong>phase checkpoint</strong> — a full EVM state snapshot for each running chain, hashed for integrity verification.</p>
-<p><strong>What gets saved:</strong>
+    P2 --&gt; P3</code></pre> 
+    <div class="panzoom-info-box panzoom-info-box-bottom panzoom-hidden">
+Hold "Alt" / "Option" to enable pan &amp; zoom
+</div>
+</div>
+<h3 id="phase-checkpoints">Phase Checkpoints<a class="headerlink" href="#phase-checkpoints" title="Permanent link">&para;</a></h3>
+<p>The <code>CheckpointManager</code> captures a deterministic EVM state snapshot upon the completion of each phase.</p>
+<p><strong>Artifact Structure:</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>states/checkpoints/
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  &lt;run_id&gt;/
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    checkpoint.json             # Manifest: run_id, experiment, attack, completed_phases, timestamps
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    integrity.json              # SHA-256 hashes of all snapshot files
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    setup.ethereum.json         # EVM state snapshot after &#39;setup&#39; phase
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    attack.ethereum.json        # EVM state snapshot after &#39;attack&#39; phase
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    verify.ethereum.json        # EVM state snapshot after &#39;verify&#39; phase
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    checkpoint.json             # Execution manifest (phases, timestamps)
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    integrity.json              # SHA-256 integrity hashes
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    setup.ethereum.json         # EVM state snapshot post-setup
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    attack.ethereum.json        # EVM state snapshot post-attack
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    verify.ethereum.json        # EVM state snapshot post-verify
 </code></pre></div></p>
-<p><strong>How it works:</strong>
-1. After each phase completes, <code>CheckpointManager.save_phase_checkpoint()</code> dumps <code>anvil_dumpState</code> for each chain in the active topology
-2. Each snapshot is validated (JSON parse + re-serialize) before being hashed
-3. All SHA-256 hashes are written to <code>integrity.json</code> — the authoritative record of snapshot integrity
-4. The <code>checkpoint.json</code> manifest tracks which phases are complete</p>
-<p><strong>On resume:</strong>
-1. <code>CheckpointManager.verify_checkpoint()</code> loads the manifest and verifies ALL snapshot file hashes against <code>integrity.json</code>
-2. If any file is missing or corrupt, <code>CheckpointIntegrityError</code> is raised — preventing silent data corruption
-3. The experiment runner restores each chain's state from the most recent phase snapshot via <code>anvil_loadState</code> — this is done by <code>ExperimentRunner.resume()</code>, not by the <code>CheckpointManager</code> itself
-4. Execution continues from the next uncompleted phase</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Resume an interrupted experiment</span>
+<p><strong>Mechanics:</strong>
+1. Upon phase completion, <code>anvil_dumpState</code> captures the EVM state for all chains in the active topology.
+2. Snapshots are structurally validated and hashed (SHA-256).
+3. <code>integrity.json</code> maintains the authoritative hash record to prevent silent data corruption.
+4. If execution is interrupted, <code>ExperimentRunner.resume()</code> restores the latest valid snapshot via <code>anvil_loadState</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Resume an interrupted experiment from the latest checkpoint</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>resume<span class="w"> </span>DS-2026-00155
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># List all available checkpoints</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Enumerate available checkpoints</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>checkpoints
 </code></pre></div>
-<blockquote>
-<p><strong>Note:</strong> Checkpoint snapshots only capture chains in the <strong>active topology</strong>. Stale <code>.meta.json</code> files from previous topologies are skipped automatically — see <a href="../TROUBLESHOOTING/#stale-meta-files">Troubleshooting — Stale Meta Files</a>.</p>
-</blockquote>
-<p><strong>When to use checkpoints:</strong>
-- <strong>Long-running experiments</strong> — if a multi-hour experiment crashes at phase 3 of 5, you don't need to re-run phases 1-2
-- <strong>L4 cross-chain experiments</strong> — bridge deployment + configuration can take several minutes; checkpointing saves that work
-- <strong>Multiple attack attempts</strong> — run attack variant A, <code>reset --mode soft</code> to checkpoint state, run attack variant B</p>
-<p><strong>Checkpoint storage limits:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># testbed.yaml</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">cleanup</span><span class="p">:</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">max_checkpoints</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w">            </span><span class="c1"># Max checkpoint runs to keep (oldest removed)</span>
-</code></pre></div></p>
-<p>Checkpoints are cleaned by <code>crucible clean --checkpoints</code> or <code>crucible clean --all</code>. See <a href="../CLI_REFERENCE/#workspace">CLI Reference — Clean</a> for details.</p>
+<p><em>Note: Checkpoints are scoped to the active topology. Stale <code>.meta.json</code> artifacts from previous topologies are automatically excluded.</em></p>
 <hr />
-<h2 id="step-types-complete-reference">Step Types (Complete Reference)<a class="headerlink" href="#step-types-complete-reference" title="Permanent link">&para;</a></h2>
-<h3 id="1-log-record-a-message">1. <code>log</code> — Record A Message<a class="headerlink" href="#1-log-record-a-message" title="Permanent link">&para;</a></h3>
-<p>Logs a message to the experiment run log. Useful for documenting what's happening.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Fork</span><span class="nv"> </span><span class="s">block</span><span class="nv"> </span><span class="s">verified</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">contract</span><span class="nv"> </span><span class="s">exists</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">expected</span><span class="nv"> </span><span class="s">address&quot;</span>
+<h2 id="scenario-step-reference">Scenario Step Reference<a class="headerlink" href="#scenario-step-reference" title="Permanent link">&para;</a></h2>
+<p>The following step types are supported within scenario phases.</p>
+<h3 id="1-log">1. <code>log</code><a class="headerlink" href="#1-log" title="Permanent link">&para;</a></h3>
+<p>Records an informational message to the experiment execution log (<code>run.jsonl</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Contract</span><span class="nv"> </span><span class="s">state</span><span class="nv"> </span><span class="s">verified</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">fork</span><span class="nv"> </span><span class="s">block&quot;</span>
 </code></pre></div>
-<p><strong>Purpose:</strong> Provides human-readable documentation in the experiment report. Every important step should be logged.</p>
-<h3 id="2-assert-verify-a-condition">2. <code>assert</code> — Verify A Condition<a class="headerlink" href="#2-assert-verify-a-condition" title="Permanent link">&para;</a></h3>
-<p>Asserts that a condition is true. Fails the experiment if the condition is false.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vulnerability_exists</span><span class="w">          </span><span class="c1"># Unique name for this assertion</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">expected</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                      </span><span class="c1"># What we expect</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">actual</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                        </span><span class="c1"># What we observe (can reference state)</span>
+<h3 id="2-assert">2. <code>assert</code><a class="headerlink" href="#2-assert" title="Permanent link">&para;</a></h3>
+<p>Evaluates a boolean condition. Execution halts and the experiment is marked as a failure if the condition is false.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vulnerability_exists</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="nt">expected</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="nt">actual</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </code></pre></div>
-<p><strong>Purpose:</strong> Formal verification that the exploit state or outcome meets expectations. These appear in the experiment report as pass/fail.</p>
-<h3 id="3-impersonate-impersonate-an-account">3. <code>impersonate</code> — Impersonate An Account<a class="headerlink" href="#3-impersonate-impersonate-an-account" title="Permanent link">&para;</a></h3>
-<p>Instructs Anvil to impersonate an account (bypass private key checks). Useful for sending transactions from accounts you don't control.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">impersonate</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span><span class="w">                     </span><span class="c1"># Which chain</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xRelayerAddress...&quot;</span><span class="w">      </span><span class="c1"># Address to impersonate</span>
+<h3 id="3-impersonate">3. <code>impersonate</code><a class="headerlink" href="#3-impersonate" title="Permanent link">&para;</a></h3>
+<p>Instructs the Anvil node to bypass private key validation for a specific address.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">impersonate</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xRelayerAddress&quot;</span>
 </code></pre></div>
-<p><strong>Purpose:</strong> Allows the scenario to send transactions from privileged addresses (relayers, governors, keepers) that are controlled by the protocol, not by you.</p>
-<h3 id="4-send_tx-send-a-transaction">4. <code>send_tx</code> — Send A Transaction<a class="headerlink" href="#4-send_tx-send-a-transaction" title="Permanent link">&para;</a></h3>
-<p>Sends a transaction to a contract. Supports symbolic address resolution for bridge contracts.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">send_tx</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span><span class="w">                     </span><span class="c1"># Which chain</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xAttackerAddress...&quot;</span><span class="w">        </span><span class="c1"># Sender (must be impersonated first if not yours)</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bridge.ethereum&quot;</span><span class="w">               </span><span class="c1"># Recipient (can use symbolic name like &quot;bridge.ethereum&quot;)</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000000000000000000</span><span class="w">          </span><span class="c1"># Value in wei (1 ETH = 10^18 wei)</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="nt">data</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x123456...&quot;</span><span class="w">                 </span><span class="c1"># Calldata (hex-encoded)</span>
+<h3 id="4-send_tx">4. <code>send_tx</code><a class="headerlink" href="#4-send_tx" title="Permanent link">&para;</a></h3>
+<p>Dispatches a transaction to the specified chain. Supports symbolic address resolution.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">send_tx</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xAttackerAddress&quot;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bridge.ethereum&quot;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000000000000000000</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span><span class="nt">data</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x123456&quot;</span>
 </code></pre></div>
-<p><strong>Purpose:</strong> Execute a transaction on the forked chain. Used to trigger contract functions, send funds, etc.</p>
-<h3 id="5-advance_time-skip-time-forward">5. <code>advance_time</code> — Skip Time Forward<a class="headerlink" href="#5-advance_time-skip-time-forward" title="Permanent link">&para;</a></h3>
-<p>Increases the EVM timestamp and mines a new block. Used to bypass time-based restrictions (challenge windows, vesting periods, etc.).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">advance_time</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">polygon</span><span class="w">                      </span><span class="c1"># Which chain</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3600</span><span class="w">                       </span><span class="c1"># Number of seconds to advance (3600 = 1 hour)</span>
+<h3 id="5-advance_time">5. <code>advance_time</code><a class="headerlink" href="#5-advance_time" title="Permanent link">&para;</a></h3>
+<p>Advances the EVM timestamp and forces block generation.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">advance_time</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">polygon</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3600</span>
 </code></pre></div>
-<p><strong>Purpose:</strong> Simulate the passage of time in the EVM. Useful for exploits that rely on time-based state changes.</p>
-<h3 id="6-assert_balance-check-account-balance">6. <code>assert_balance</code> — Check Account Balance<a class="headerlink" href="#6-assert_balance-check-account-balance" title="Permanent link">&para;</a></h3>
-<p>Asserts that an account's balance meets a minimum threshold. Fails if the balance is below the expected value.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert_balance</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span><span class="w">                     </span><span class="c1"># Which chain</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xVaultAddress...&quot;</span><span class="w">        </span><span class="c1"># Account to check</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nt">min_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">                        </span><span class="c1"># Minimum balance in wei</span>
+<h3 id="6-assert_balance">6. <code>assert_balance</code><a class="headerlink" href="#6-assert_balance" title="Permanent link">&para;</a></h3>
+<p>Verifies that the native token balance of an address meets specific constraints.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert_balance</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xVaultAddress&quot;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">min_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000000000000000000</span><span class="w">  </span><span class="c1"># Optional: Minimum balance in wei</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="nt">exact_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">                  </span><span class="c1"># Optional: Exact expected balance</span>
 </code></pre></div>
-<p><strong>Purpose:</strong> Verify that funds moved as expected after an exploit. For example, assert that the attacker's balance increased.</p>
-<h3 id="7-forge_script-run-a-foundry-script">7. <code>forge_script</code> — Run A Foundry Script<a class="headerlink" href="#7-forge_script-run-a-foundry-script" title="Permanent link">&para;</a></h3>
-<p>Executes a Foundry (Solidity) script via subprocess. The RPC URL is automatically injected.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">forge_script</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span><span class="w">                     </span><span class="c1"># Which chain to target</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Exploit.s.sol:ExploitScript&quot;</span><span class="w">  </span><span class="c1"># Foundry script path</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nt">extra_args</span><span class="p">:</span><span class="w">                         </span><span class="c1"># Optional arguments</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--sender&quot;</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;0xAttackerAddress...&quot;</span>
+<h3 id="7-forge_script">7. <code>forge_script</code><a class="headerlink" href="#7-forge_script" title="Permanent link">&para;</a></h3>
+<p>Executes a Foundry Solidity script via subprocess, injecting the current RPC URL. The script must reside in <code>scenarios/&lt;name&gt;/</code> or <code>scripts/</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">forge_script</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Exploit.s.sol:ExploitScript&quot;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nt">extra_args</span><span class="p">:</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;--sender&quot;</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;0xAttackerAddress&quot;</span>
 </code></pre></div>
-<p><strong>Purpose:</strong> Run sophisticated exploit logic written in Solidity. Use this when the exploit logic is too complex for simple YAML steps.</p>
-<p><strong>Requirements:</strong> The Foundry script must be in the <code>scenarios/&lt;name&gt;/</code> directory (or a <code>scripts/</code> directory in the project root).</p>
-<h3 id="8-python_script-run-a-python-script">8. <code>python_script</code> — Run A Python Script<a class="headerlink" href="#8-python_script-run-a-python-script" title="Permanent link">&para;</a></h3>
-<p>Dynamically imports and executes a <code>steps.py</code> file located in the scenario directory.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_script</span>
+<h3 id="8-python_script">8. <code>python_script</code><a class="headerlink" href="#8-python_script" title="Permanent link">&para;</a></h3>
+<p>Dynamically loads and executes a Python script. By default, it searches for <code>steps.py</code> within the scenario directory, though a custom path may be specified to execute shared scripts.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_script</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scripts/shared_setup.py&quot;</span><span class="w">  </span><span class="c1"># Optional: Defaults to &quot;steps.py&quot;</span>
 </code></pre></div>
-<p>Your <code>steps.py</code> must define a <code>run(context: ExperimentContext)</code> function:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonRpcClient</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExperimentContext</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">ExperimentContext</span><span class="p">):</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="c1"># Get the RPC URL for the forked chain</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="n">rpc_url</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">chains</span><span class="o">.</span><span class="n">runtime_for</span><span class="p">(</span><span class="s2">&quot;ethereum&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rpc_url</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">JsonRpcClient</span><span class="p">(</span><span class="n">rpc_url</span><span class="p">)</span>
-<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
-<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    <span class="c1"># Custom logic goes here</span>
-<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    <span class="c1"># ...</span>
-<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>
-<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    <span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="s2">&quot;Custom Python step executed&quot;</span><span class="p">,</span>
-<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>                     <span class="n">phase</span><span class="o">=</span><span class="s2">&quot;attack&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;custom&quot;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="p">)</span>
+<p>The <code>script</code> path is resolved in the following order:
+1. Relative to the workspace root (e.g., for shared scripts).
+2. Relative to the scenario directory (<code>scenarios/&lt;name&gt;/</code>).</p>
+<p>The script must implement a <code>run(context: ExperimentContext)</code> entrypoint:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.rpc</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonRpcClient</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">crucible.sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExperimentContext</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">ExperimentContext</span><span class="p">):</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    <span class="n">rpc_url</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">chains</span><span class="o">.</span><span class="n">runtime_for</span><span class="p">(</span><span class="s2">&quot;ethereum&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rpc_url</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">JsonRpcClient</span><span class="p">(</span><span class="n">rpc_url</span><span class="p">)</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="c1"># Implementation logic</span>
 </code></pre></div>
-<p><strong>Purpose:</strong> Execute arbitrary Python logic that can't be expressed in YAML steps alone.</p>
-<h3 id="9-verify_tracing-verify-transaction-trace-capture">9. <code>verify_tracing</code> — Verify Transaction Trace Capture<a class="headerlink" href="#9-verify_tracing-verify-transaction-trace-capture" title="Permanent link">&para;</a></h3>
-<p>Triggers a verification that the instrumentation proxy correctly captured transaction traces for a given chain. Raises an error if trace artifacts are missing or incomplete.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">verify_tracing</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">chains</span><span class="p">:</span><span class="w">                             </span><span class="c1"># Which chain(s) to verify traces for (list; defaults to all chains if omitted)</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">polygon</span>
+<h3 id="9-verify_tracing">9. <code>verify_tracing</code><a class="headerlink" href="#9-verify_tracing" title="Permanent link">&para;</a></h3>
+<p>Validates that the instrumentation proxy has successfully captured transaction traces for the specified chains. Minimum threshold constraints may be enforced to ensure sufficient artifact generation.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">verify_tracing</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">chains</span><span class="p">:</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">polygon</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">  </span><span class="nt">min_events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">               </span><span class="c1"># Optional: Require at least 1 event emitted</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">  </span><span class="nt">min_gas_entries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">          </span><span class="c1"># Optional: Require at least 1 gas profile entry</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">  </span><span class="nt">min_storage_diffs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">        </span><span class="c1"># Optional: Require minimum storage slots changed</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">  </span><span class="nt">min_balance_diffs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">        </span><span class="c1"># Optional: Require minimum balance changes</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">  </span><span class="nt">check_consistency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">     </span><span class="c1"># Optional: Ensure gas entries exist for every event tx</span>
 </code></pre></div>
-<p><strong>Purpose:</strong> Ensures that all transactions sent during a phase were captured by the instrumentation proxy. Useful in multi-phase scenarios where each phase must produce complete artifacts.</p>
-<h3 id="10-bridge_action-execute-a-bridge-protocol-action">10. <code>bridge_action</code> — Execute A Bridge Protocol Action<a class="headerlink" href="#10-bridge_action-execute-a-bridge-protocol-action" title="Permanent link">&para;</a></h3>
-<p>Performs a bridge-specific action through the active bridge plugin. The available actions depend on the bridge plugin loaded for the topology.</p>
+<h3 id="10-bridge_action">10. <code>bridge_action</code><a class="headerlink" href="#10-bridge_action" title="Permanent link">&para;</a></h3>
+<p>Executes a protocol-specific action via the active bridge plugin configured in the topology. Supported actions include: <code>send_message</code>, <code>relay_messages</code>, <code>check_delivery</code>, and <code>verify_state</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge_action</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">send_message</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="nt">source_chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span><span class="nt">dest_chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">polygon</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="nt">data</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x...&quot;</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="w">  </span><span class="nt">correlation_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;msg-001&quot;</span><span class="w">   </span><span class="c1"># Optional: Tag for cross-chain correlation</span>
+</code></pre></div>
+<p>For checking delivery:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge_action</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">send_message</span><span class="w">                </span><span class="c1"># Bridge action name (e.g. send_message, relay_messages, check_delivery, verify_state)</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nt">source_chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span><span class="w">              </span><span class="c1"># Source chain</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="nt">dest_chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">polygon</span><span class="w">                 </span><span class="c1"># Destination chain</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">  </span><span class="nt">data</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x...&quot;</span><span class="w">                       </span><span class="c1"># Action-specific data</span>
-</code></pre></div>
-<p><strong>Purpose:</strong> Interact with bridge plugins from within a scenario. Used for cross-chain workflows where bridge state needs to be set up before or verified after an attack.</p>
-<p><strong>L4 bridge workflow example:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># scenarios/my_bridge_scenario/scenario.yaml</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_bridge_scenario</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nt">chains</span><span class="p">:</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">polygon</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
-<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="nt">phases</span><span class="p">:</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setup</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Bridge</span><span class="nv"> </span><span class="s">deployed</span><span class="nv"> </span><span class="s">automatically</span><span class="nv"> </span><span class="s">via</span><span class="nv"> </span><span class="s">lifecycle</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">ready</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">attack&quot;</span>
-<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>
-<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attack</span>
-<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Attack</span><span class="nv"> </span><span class="s">plugin</span><span class="nv"> </span><span class="s">runs</span><span class="nv"> </span><span class="s">here</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">both</span><span class="nv"> </span><span class="s">chains</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">bridge</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">ready&quot;</span>
-<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>
-<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">verify</span>
-<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge_action</span>
-<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a><span class="w">        </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">verify_state</span>
-<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a><span class="w">        </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
-<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Cross-chain</span><span class="nv"> </span><span class="s">state</span><span class="nv"> </span><span class="s">verified&quot;</span>
-</code></pre></div>
-<p><strong>Topology for L4:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># topologies/nomad_bridge.yaml</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_bridge</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="nt">chains</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ethereum</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">polygon</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="nt">bridge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_bridge</span><span class="w">    </span><span class="c1"># Points to bridges/nomad_bridge/</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># experiments/my_l4_experiment.yaml</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_l4_experiment</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nt">scenario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_bridge_scenario</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="nt">attack</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_l4_attack</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nt">topology</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_bridge</span>
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="nt">run</span><span class="p">:</span>
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">  </span><span class="nt">traces</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">  </span><span class="nt">storage_diffs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">l4</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">bridge</span><span class="p p-Indicator">]</span>
-</code></pre></div>
-<p><strong>Available bridge plugins:</strong>
-| Plugin | Chains | Vulnerability Model |
-|---|---|---|
-| <code>nomad_bridge</code> | ethereum + polygon | <code>committedRoot == 0x00</code> — forged message accepted |
-| <code>poly_network_bridge</code> | ethereum + polygon + bsc | Hash collision in <code>_executeCrossChainTx</code> |
-| <code>wormhole_bridge</code> | ethereum + polygon | Guardian bypass — forged VAA accepted |</p>
-<h3 id="11-plugin-run-a-plugin-step-deprecated">11. <code>plugin</code> — Run A Plugin Step (Deprecated)<a class="headerlink" href="#11-plugin-run-a-plugin-step-deprecated" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p><strong>Note:</strong> This step type is currently a no-op — it only logs a "skipped" status.
-The documented dispatch behavior (<code>method:</code>/<code>phase:</code>) is not yet implemented.</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">plugin</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;prepare&quot;</span><span class="w">                   </span><span class="c1"># Not yet dispatched</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="nt">phase</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w">                            </span><span class="c1"># Not yet handled</span>
-</code></pre></div>
-<h2 id="how-scenarios-relate-to-experiments">How Scenarios Relate To Experiments<a class="headerlink" href="#how-scenarios-relate-to-experiments" title="Permanent link">&para;</a></h2>
-<p>The experiment file wires everything together:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># experiments/my_attack_replay.yaml</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_attack_replay</span><span class="w">              </span><span class="c1"># Experiment name (used in log directory path)</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="nt">scenario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_attack_pre_exploit</span><span class="w">      </span><span class="c1"># Which scenario to use (from scenarios/&lt;name&gt;/)</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="nt">attack</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_attack</span><span class="w">                    </span><span class="c1"># Which attack plugin to load (from attacks/&lt;name&gt;/)</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="nt">topology</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single</span><span class="w">                     </span><span class="c1"># Which topology to use (from topologies/&lt;name&gt;.yaml)</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="nt">run</span><span class="p">:</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">  </span><span class="nt">traces</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                       </span><span class="c1"># Enable transaction tracing</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="w">  </span><span class="nt">storage_diffs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">               </span><span class="c1"># Enable storage diff capture</span>
-<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="w">  </span><span class="nt">gas_profiling</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">               </span><span class="c1"># Enable gas profiling</span>
-<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">my_attack</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">l2</span><span class="p p-Indicator">]</span><span class="w">              </span><span class="c1"># Tags for filtering in history queries</span>
-</code></pre></div>
-<p><strong>What happens when you run <code>crucible experiment run experiments/my_attack_replay.yaml</code>:</strong></p>
-<ol>
-<li>Load the topology (e.g., <code>single</code> = Ethereum only)</li>
-<li>Load the scenario (from <code>scenarios/my_attack_pre_exploit/</code>)</li>
-<li>Load the attack plugin (from <code>attacks/my_attack/</code>)</li>
-<li>Fork the chain(s) at the <strong>fork block auto-merged from <code>evidence.yaml</code></strong> — the attack's <code>evidence.yaml</code> <code>historical_scope.fork_blocks</code> drives the fork block automatically. Check the experiment output for: <code>fork_block updated from X to Y (from evidence.yaml)</code>.</li>
-<li>Run the scenario's <code>setup</code> phase steps</li>
-<li>Start instrumentation (trace capture)</li>
-<li>Run the attack plugin's <code>execute()</code> method</li>
-<li>Run the attack plugin's <code>verify()</code> method</li>
-<li>Run the remaining scenario phase steps</li>
-<li>Save artifacts and generate report</li>
-</ol>
-<blockquote>
-<p><strong>[ok] Auto-merge:</strong> The fork block is now <strong>automatically merged from <code>evidence.yaml</code></strong> at runtime. When you run <code>crucible experiment run</code>, it reads <code>attacks/&lt;name&gt;/evidence.yaml</code> and updates the config's <code>fork_block</code> to match what evidence.yaml specifies. You no longer need to manually edit <code>testbed.local.yaml</code> to change fork blocks between experiments.</p>
-<p>If the chain is already running at a different block, the stale chain is terminated and re-forked at the correct block automatically.</p>
-<p><strong>Only override manually if you need</strong> a different fork block than what evidence.yaml declares (e.g., testing a patch at a different block).</p>
-<p><strong>To bypass auto-merge entirely:</strong> use the <code>--no-auto-merge</code> flag:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/my_replay.yaml<span class="w"> </span>--no-auto-merge
-</code></pre></div>
-This keeps the current fork block unchanged, even if <code>evidence.yaml</code> specifies a different one.</p>
-</blockquote>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">check_delivery</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nt">correlation_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;msg-001&quot;</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="nt">source_tx_hash</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x...&quot;</span><span class="w">     </span><span class="c1"># Match against the source transaction hash</span>
+</code></pre></div></p>
 <hr />
-<h2 id="common-patterns">Common Patterns<a class="headerlink" href="#common-patterns" title="Permanent link">&para;</a></h2>
-<h3 id="pattern-1-simple-only-logs-attack-plugin-does-everything">Pattern 1: Simple — Only Logs (Attack Plugin Does Everything)<a class="headerlink" href="#pattern-1-simple-only-logs-attack-plugin-does-everything" title="Permanent link">&para;</a></h3>
-<p>When the attack plugin handles all exploit logic, the scenario just documents what's happening:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_pre_exploit</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;-</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="no">Fork Ethereum at block 15259100 for Nomad bridge reproduction.</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span><span class="no">The attack plugin handles all exploit logic.</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="nt">chains</span><span class="p">:</span>
-<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
-<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="nt">phases</span><span class="p">:</span>
-<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setup</span>
-<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Starting</span><span class="nv"> </span><span class="s">Nomad</span><span class="nv"> </span><span class="s">replica</span><span class="nv"> </span><span class="s">fraud</span><span class="nv"> </span><span class="s">reproduction</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">fork</span><span class="nv"> </span><span class="s">block</span><span class="nv"> </span><span class="s">15259100&quot;</span>
-<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attack</span>
-<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Attack</span><span class="nv"> </span><span class="s">plugin</span><span class="nv"> </span><span class="s">executed</span><span class="nv"> </span><span class="s">by</span><span class="nv"> </span><span class="s">experiment</span><span class="nv"> </span><span class="s">runner&quot;</span>
+<h2 id="experiment-orchestration">Experiment Orchestration<a class="headerlink" href="#experiment-orchestration" title="Permanent link">&para;</a></h2>
+<p>The experiment YAML definition binds the scenario, attack plugin, and topology.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># experiments/my_attack_replay.yaml</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_attack_replay</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="nt">scenario</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_attack_pre_exploit</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="nt">attack</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my_attack</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="nt">topology</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="nt">run</span><span class="p">:</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">  </span><span class="nt">traces</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">  </span><span class="nt">storage_diffs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">  </span><span class="nt">gas_profiling</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">my_attack</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">l2</span><span class="p p-Indicator">]</span>
 </code></pre></div>
-<h3 id="pattern-2-pre-exploit-state-setup">Pattern 2: Pre-Exploit State Setup<a class="headerlink" href="#pattern-2-pre-exploit-state-setup" title="Permanent link">&para;</a></h3>
-<p>When the exploit requires setting up state before running the attack:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge_exploit_pre_exploit</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nt">chains</span><span class="p">:</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
-<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">polygon</span>
-<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="nt">phases</span><span class="p">:</span>
-<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setup</span>
-<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Setting</span><span class="nv"> </span><span class="s">up</span><span class="nv"> </span><span class="s">pre-exploit</span><span class="nv"> </span><span class="s">state&quot;</span>
-<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">impersonate</span>
-<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="w">        </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
-<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="w">        </span><span class="nt">account</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xRelayerAddress&quot;</span>
-<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">send_tx</span>
-<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="w">        </span><span class="nt">chain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ethereum</span>
-<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="w">        </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xRelayerAddress&quot;</span>
-<a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="w">        </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xBridgeContract&quot;</span>
-<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="w">        </span><span class="nt">data</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x...&quot;</span>
-<a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attack</span>
-<a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Ready</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">attack</span><span class="nv"> </span><span class="s">plugin</span><span class="nv"> </span><span class="s">execution&quot;</span>
-</code></pre></div>
-<h3 id="pattern-3-post-exploit-verification">Pattern 3: Post-Exploit Verification<a class="headerlink" href="#pattern-3-post-exploit-verification" title="Permanent link">&para;</a></h3>
-<p>When the scenario needs to verify state after the attack:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nt">phases</span><span class="p">:</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setup</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Setup</span><span class="nv"> </span><span class="s">complete&quot;</span>
-<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attack</span>
-<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Attack</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">progress&quot;</span>
-<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">verify</span>
-<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assert</span>
-<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attacker_balance_increased</span>
-<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="w">        </span><span class="nt">expected</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="w">        </span><span class="nt">actual</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">log</span>
-<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a><span class="w">        </span><span class="nt">message</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Verification</span><span class="nv"> </span><span class="s">passed&quot;</span>
-</code></pre></div>
-<hr />
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<ol>
-<li>
-<p><strong>Log every meaningful step</strong> — Each <code>log</code> step becomes a line in the experiment report. This is how reviewers understand what happened.</p>
-</li>
-<li>
-<p><strong>Use descriptive assertion names</strong> — Names like <code>exploit_succeeds</code> or <code>keeper_key_replaced</code> are much more useful than <code>assertion_1</code>.</p>
-</li>
-<li>
-<p><strong>Keep scenarios declarative</strong> — Prefer YAML steps over <code>python_script</code> or <code>forge_script</code> when possible. YAML is self-documenting.</p>
-</li>
-<li>
-<p><strong>Set fork blocks in evidence.yaml</strong> — The <code>fork_blocks</code> field in <code>attacks/&lt;name&gt;/evidence.yaml</code> is now the source of truth. Crucible auto-merges it at runtime. No need to edit <code>testbed.yaml</code> or <code>testbed.local.yaml</code> unless you need to override.</p>
-</li>
-<li>
-<p><strong>One scenario per attack</strong> — Don't reuse scenarios for different attacks unless they're truly identical environments.</p>
-</li>
-<li>
-<p><strong>Verify fork block auto-merge</strong> — When you run <code>crucible experiment run</code>, the fork block is auto-merged from <code>attacks/&lt;name&gt;/evidence.yaml</code>. Check the output for: <code>fork_block updated from X to Y (from evidence.yaml)</code>. If the wrong block is used, update <code>evidence.yaml</code>'s <code>fork_blocks</code>, not <code>testbed.yaml</code>.</p>
-</li>
-<li>
-<p><strong>Document multi-chain scenarios</strong> — If your scenario uses multiple chains, list all of them in <code>chains:</code> and explain why each is needed.</p>
-</li>
-</ol>
+<p><strong>Execution Pipeline:</strong></p>
+<div class="panzoom-box" data-key="alt" id="panzoom0" oncontextmenu="return false;">
+    
+    <nav class="panzoom-nav">
+    <button class="panzoom-info panzoom-button">
+    <svg class="panzoom-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3l58.3 0c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24l0-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1l-58.3 0c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"></path>
+    </svg>
+</button><button class="panzoom-reset panzoom-button">
+    <svg class="panzoom-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M125.7 160l50.3 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L48 224c-17.7 0-32-14.3-32-32L16 64c0-17.7 14.3-32 32-32s32 14.3 32 32l0 51.2L97.6 97.6c87.5-87.5 229.3-87.5 316.8 0s87.5 229.3 0 316.8s-229.3 87.5-316.8 0c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0c62.5 62.5 163.8 62.5 226.3 0s62.5-163.8 0-226.3s-163.8-62.5-226.3 0L125.7 160z"></path>
+    </svg>
+</button><button class="panzoom-max panzoom-button">
+    <svg class="panzoom-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 32C14.3 32 0 46.3 0 64l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-64 64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 32zM64 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-64zM320 32c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0 0 64c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-96 0zM448 352c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32l0-96z"></path>
+    </svg>
+</button><button class="panzoom-min panzoom-button panzoom-hidden">
+    <svg class="panzoom-icon" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+        <path d="M160 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 64-64 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c17.7 0 32-14.3 32-32l0-96zM32 320c-17.7 0-32 14.3-32 32s14.3 32 32 32l64 0 0 64c0 17.7 14.3 32 32 32s32-14.3 32-32l0-96c0-17.7-14.3-32-32-32l-96 0zM352 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32l96 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0 0-64zM320 320c-17.7 0-32 14.3-32 32l0 96c0 17.7 14.3 32 32 32s32-14.3 32-32l0-64 64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0z"></path>
+    </svg>
+</button>
+    </nav>
+    <pre class="mermaid"><code>sequenceDiagram
+    participant CLI as crucible CLI
+    participant Config as testbed.yaml &amp; evidence.yaml
+    participant Runner as ExperimentRunner
+    participant Anvil as Anvil Forks
+    participant Scenario as Scenario Phases
+    participant Attack as Attack Plugin
+
+    CLI-&gt;&gt;Runner: Request experiment execution
+    Runner-&gt;&gt;Config: Merge fork_blocks from evidence.yaml
+    Runner-&gt;&gt;Anvil: Spawn forks at target block heights
+    Runner-&gt;&gt;Scenario: Execute `setup` phase steps
+    Runner-&gt;&gt;Runner: Initialize artifact capture (tracing)
+    Runner-&gt;&gt;Attack: Invoke `execute()` method (Exploit runs)
+    Runner-&gt;&gt;Attack: Invoke `verify()` method
+    Runner-&gt;&gt;Scenario: Execute `verify` phase steps
+    Runner-&gt;&gt;Runner: Finalize and hash artifacts (run.jsonl, etc.)
+    Runner-&gt;&gt;CLI: Return execution report</code></pre> 
+    <div class="panzoom-info-box panzoom-info-box-bottom panzoom-hidden">
+Hold "Alt" / "Option" to enable pan &amp; zoom
+</div>
+</div>
+<p><strong>Step-by-Step Flow:</strong>
+1. The <code>fork_blocks</code> configuration is automatically merged from <code>attacks/&lt;name&gt;/evidence.yaml</code>.
+2. Target chains are forked at the merged block heights.
+3. Scenario <code>setup</code> phase steps are executed.
+4. The instrumentation proxy initiates trace capture.
+5. The attack plugin's <code>execute()</code> method is invoked.
+6. The attack plugin's <code>verify()</code> method is invoked.
+7. Scenario <code>verify</code> phase steps are executed.
+8. Artifacts (<code>events.jsonl</code>, <code>run.jsonl</code>, etc.) are finalized and hashed.</p>
+<p><em>Note: To bypass fork block auto-merging from <code>evidence.yaml</code>, use the <code>--no-auto-merge</code> CLI flag.</em></p>
 <hr />
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Symptom</th>
-<th>Likely Cause</th>
-<th>Fix</th>
+<th>Error Condition</th>
+<th>Root Cause</th>
+<th>Remediation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>Scenario not found</code></td>
-<td>Wrong directory name</td>
-<td>Check <code>scenarios/&lt;name&gt;/scenario.yaml</code> exists</td>
+<td>Directory structure mismatch</td>
+<td>Ensure <code>scenarios/&lt;name&gt;/scenario.yaml</code> exists</td>
 </tr>
 <tr>
 <td><code>Unknown step type</code></td>
-<td>Typo in step type</td>
-<td>Use one of the 11 types above</td>
+<td>Invalid step declaration</td>
+<td>Refer to the Step Reference section</td>
 </tr>
 <tr>
 <td><code>python_script missing steps.py</code></td>
-<td>No <code>steps.py</code> in scenario directory</td>
-<td>Create <code>scenarios/&lt;name&gt;/steps.py</code> or use a different step type</td>
+<td>Missing Python extension file</td>
+<td>Ensure <code>steps.py</code> exists alongside <code>scenario.yaml</code></td>
 </tr>
 <tr>
 <td><code>Chain X not in topology</code></td>
-<td>Scenario references a chain not in the topology</td>
-<td>Add the chain to the topology or remove it from the scenario</td>
+<td>Scenario requests an unconfigured chain</td>
+<td>Update the scenario <code>chains</code> array or topology definition</td>
 </tr>
 <tr>
 <td><code>Fork block mismatch</code></td>
-<td><code>testbed.yaml</code> has wrong fork_block</td>
-<td>Update <code>evidence.yaml</code>'s <code>fork_blocks</code> (auto-merged), or use <code>testbed.local.yaml</code> to override</td>
+<td><code>testbed.yaml</code> out of sync</td>
+<td>Update <code>attacks/&lt;name&gt;/evidence.yaml</code> (auto-merged at runtime)</td>
 </tr>
 </tbody>
 </table>
@@ -3201,34 +2828,22 @@ This keeps the current fork block unchanged, even if <code>evidence.yaml</code> 
 <table>
 <thead>
 <tr>
-<th>Doc</th>
-<th>What It Covers</th>
+<th>Reference</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="../ATTACK_PACK_GUIDE/"><code>docs/ATTACK_PACK_GUIDE.md</code></a></td>
-<td>Creating attack plugins (the <code>attacks/&lt;name&gt;/</code> directory)</td>
-</tr>
-<tr>
-<td><a href="../RESEARCH_WORKFLOW/"><code>docs/RESEARCH_WORKFLOW.md</code></a></td>
-<td>Full academic reproduction workflow from research to publication</td>
+<td>Attack plugin development guidelines</td>
 </tr>
 <tr>
 <td><a href="../CLI_REFERENCE/"><code>docs/CLI_REFERENCE.md</code></a></td>
-<td>All CLI commands and options</td>
-</tr>
-<tr>
-<td><a href="../internal/DOCKER_IMPLEMENTATION/"><code>docs/internal/DOCKER_IMPLEMENTATION.md</code></a></td>
-<td>Running scenarios in Docker</td>
-</tr>
-<tr>
-<td><a href="../RPC_PROVIDER_GUIDE/"><code>docs/RPC_PROVIDER_GUIDE.md</code></a></td>
-<td>Archive RPC provider comparison and costs</td>
+<td>Command-line interface documentation</td>
 </tr>
 <tr>
 <td><a href="../REPRODUCIBILITY/"><code>docs/REPRODUCIBILITY.md</code></a></td>
-<td>Provenance and determinism</td>
+<td>Determinism and provenance architectures</td>
 </tr>
 </tbody>
 </table>
@@ -3263,6 +2878,46 @@ This keeps the current fork block unchanged, even if <code>evidence.yaml</code> 
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../CUSTOM_CONTRACT_TESTING/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deploying Contracts">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Deploying Contracts
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../ATTACK_PACK_GUIDE/" class="md-footer__link md-footer__link--next" aria-label="Next: Writing Attack Packs">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Writing Attack Packs
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3300,12 +2955,16 @@ This keeps the current fork block unchanged, even if <code>evidence.yaml</code> 
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../javascripts/extra.js"></script>
+      
+        <script src="../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../assets/javascripts/zoompan.js"></script>
       
     
   </body>

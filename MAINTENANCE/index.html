@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="../RPC_PROVIDER_GUIDE/">
+        <link rel="prev" href="../SIMPLE_OPERATIONS/">
       
       
         <link rel="next" href="../TROUBLESHOOTING/">
@@ -55,13 +55,16 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../assets/stylesheets/panzoom.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  </head>
+  <meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -80,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#crucible-project-guide" class="md-skip">
+        <a href="#system-maintenance-architecture-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +97,7 @@
 
   
 
-<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Crucible Docs" class="md-header__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -211,153 +214,13 @@
     
   </nav>
   
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../USER_GUIDE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Getting Started
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../CUSTOM_CONTRACT_TESTING/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  How-To Guides
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../TECHNICAL_OVERVIEW/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Core Concepts (Explanation)
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../CLI_REFERENCE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../AE_WALKTHROUGH/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Publication & Case Studies
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-    
-  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -371,10 +234,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Crucible Docs" class="md-nav__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -439,13 +300,14 @@
       
         
       
-    
-    
-    
-      
+        
       
         
       
+        
+      
+    
+    
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -491,14 +353,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../USER_GUIDE/" class="md-nav__link">
+      <a href="../QUICK_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    User Guide
+    Quick Reference
   
 
     
@@ -527,818 +389,6 @@
     
   
     10-Minute Tutorial
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    How-To Guides
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    How-To Guides
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CUSTOM_CONTRACT_TESTING/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deploying Contracts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running LLM Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authoring Plugins
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SCENARIO_AUTHORING/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authoring Scenarios
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ATTACK_PACK_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Writing Attack Packs
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Core Concepts (Explanation)
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Core Concepts (Explanation)
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../TECHNICAL_OVERVIEW/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Technical Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ARCHITECTURE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    System Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Instrumentation Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CAPABILITIES/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scope & Capabilities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FEATURE_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Feature Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Bridge Limitations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RESEARCH_WORKFLOW/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Research Workflow
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RESEARCHER_OBSERVABILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Researcher Observability
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_implementation_spec/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementation Spec
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_research_overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Research Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reference
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Reference
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CLI_REFERENCE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CLI Reference
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BENCHMARKS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Benchmarks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../REPRODUCIBILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reproducibility
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Analysis Notebooks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dashboard Guide
   
 
     
@@ -1415,34 +465,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../LAB_DEPLOYMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lab Deployment
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
         
   
@@ -1464,30 +486,51 @@
 
               
             
-              
-                
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
   
   
     
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
+    
       
         
       
+        
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
           
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
     
   
-    Maintenance
+    How-To Guides
   
 
     
@@ -1495,431 +538,19 @@
   
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
   
-  
-  <span class="md-ellipsis">
-    
-  
-    Maintenance
+    How-To Guides
   
 
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Table of Contents
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-project-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Project Overview
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Project Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#architecture-at-a-glance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Architecture at a Glance
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#key-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-directory-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Directory Structure
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Directory Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#root-directory" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Root Directory
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#docs-directory-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Docs Directory Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#attack-pack-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Attack Pack Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-running-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Running Tests
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-adding-new-content" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Adding New Content
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Adding New Content">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#adding-a-new-attack-quick-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding a New Attack (Quick Path)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-a-new-attack-manual-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding a New Attack (Manual Path)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-a-new-chain" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding a New Chain
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-a-new-topology" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding a New Topology
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-a-new-bridge-plugin" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding a New Bridge Plugin
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#authoring-a-new-attack-pack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authoring a New Attack Pack
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-cli-reference-quick" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. CLI Reference (Quick)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-dashboard-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Dashboard Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-publication-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Publication Workflow
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-stray-directories-explained" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Stray Directories Explained
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-known-limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Known Limitations
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="9. Known Limitations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#technical" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Technical
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#research-content" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Research Content
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Code
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-future-work-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Future Work Guide
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="10. Future Work Guide">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#priority-1-author-new-attack-packs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority 1: Author New Attack Packs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#priority-2-live-anvil-fork-validation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority 2: Live Anvil Fork Validation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#priority-3-cross-provider-reproduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority 3: Cross-Provider Reproduction
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#priority-4-type-checking-linting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority 4: Type Checking &amp; Linting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#priority-5-documentation-improvements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority 5: Documentation Improvements
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-was-cleaned-up" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What Was Cleaned Up
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1928,14 +559,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../TROUBLESHOOTING/" class="md-nav__link">
+      <a href="../CUSTOM_CONTRACT_TESTING/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Troubleshooting
+    Deploying Contracts
   
 
     
@@ -1956,14 +587,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../OPERATIONS_RUNBOOK/" class="md-nav__link">
+      <a href="../SCENARIO_AUTHORING/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Operations Runbook
+    Authoring Scenarios
   
 
     
@@ -1984,14 +615,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
+      <a href="../ATTACK_PACK_GUIDE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Simple Operations
+    Writing Attack Packs
   
 
     
@@ -2012,14 +643,372 @@
   
   
     <li class="md-nav__item">
-      <a href="../QUICK_REFERENCE/" class="md-nav__link">
+      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quick Reference
+    Authoring Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running LLM Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture & Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture & Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TECHNICAL_OVERVIEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DESIGN_DECISIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instrumentation Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RESEARCH_WORKFLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope & Fidelity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scope & Fidelity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CAPABILITIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FEATURE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Guide
   
 
     
@@ -2117,6 +1106,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2145,17 +1162,8 @@
       
         
       
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2172,7 +1180,7 @@
   <span class="md-ellipsis">
     
   
-    Publication & Case Studies
+    Tools & Analysis
   
 
     
@@ -2188,7 +1196,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Publication & Case Studies
+    Tools & Analysis
   
 
           </label>
@@ -2201,14 +1209,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+      <a href="../CLI_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AE Walkthrough
+    CLI Reference
   
 
     
@@ -2229,14 +1237,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Zenodo Archive Guide
+    Dashboard Guide
   
 
     
@@ -2249,6 +1257,509 @@
   
 
               
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BENCHMARKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Project Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Project Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#architecture-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture at a Glance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-subsystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Subsystems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Directory Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Directory Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#root-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Root Directory
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-testing-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Testing Procedures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-extension-and-authoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Extension and Authoring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-system-constraints-technical-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. System Constraints &amp; Technical Boundaries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. System Constraints &amp; Technical Boundaries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operational-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operational Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TROUBLESHOOTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCIBILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Studies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Case Studies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2425,6 +1936,122 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publication
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publication
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AE Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zenodo Archive Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2452,17 +2079,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#table-of-contents" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Table of Contents
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1-project-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2486,10 +2102,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#key-files" class="md-nav__link">
+  <a href="#key-subsystems" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Files
+        Key Subsystems
       
     </span>
   </a>
@@ -2524,49 +2140,16 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#docs-directory-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Docs Directory Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#attack-pack-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Attack Pack Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#scenario-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Scenario Structure
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-running-tests" class="md-nav__link">
+  <a href="#3-testing-procedures" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Running Tests
+        3. Testing Procedures
       
     </span>
   </a>
@@ -2574,22 +2157,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-adding-new-content" class="md-nav__link">
+  <a href="#4-extension-and-authoring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Adding New Content
+        4. Extension and Authoring
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="4. Adding New Content">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-system-constraints-technical-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. System Constraints &amp; Technical Boundaries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. System Constraints &amp; Technical Boundaries">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#adding-a-new-attack-quick-path" class="md-nav__link">
+  <a href="#infrastructure-limitations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding a New Attack (Quick Path)
+        Infrastructure Limitations
       
     </span>
   </a>
@@ -2597,54 +2191,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#adding-a-new-attack-manual-path" class="md-nav__link">
+  <a href="#operational-boundaries" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding a New Attack (Manual Path)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-a-new-chain" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding a New Chain
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-a-new-topology" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding a New Topology
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-a-new-bridge-plugin" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding a New Bridge Plugin
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#authoring-a-new-attack-pack" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Authoring a New Attack Pack
+        Operational Boundaries
       
     </span>
   </a>
@@ -2653,183 +2203,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-cli-reference-quick" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. CLI Reference (Quick)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-dashboard-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Dashboard Overview
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-publication-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. Publication Workflow
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-stray-directories-explained" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. Stray Directories Explained
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-known-limitations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. Known Limitations
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="9. Known Limitations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#technical" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Technical
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#research-content" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Research Content
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#code" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Code
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10-future-work-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        10. Future Work Guide
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="10. Future Work Guide">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#priority-1-author-new-attack-packs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority 1: Author New Attack Packs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#priority-2-live-anvil-fork-validation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority 2: Live Anvil Fork Validation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#priority-3-cross-provider-reproduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority 3: Cross-Provider Reproduction
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#priority-4-type-checking-linting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority 4: Type Checking &amp; Linting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#priority-5-documentation-improvements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Priority 5: Documentation Improvements
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-was-cleaned-up" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What Was Cleaned Up
-      
-    </span>
-  </a>
   
 </li>
       
@@ -2850,616 +2223,205 @@
 
 
 
-<h1 id="crucible-project-guide">Crucible Project Guide<a class="headerlink" href="#crucible-project-guide" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p><strong>How to understand, manage, maintain, and extend the Crucible codebase.</strong>
-Last updated: June 2026</p>
-</blockquote>
-<hr />
-<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
-<ol>
-<li><a href="#1-project-overview">Project Overview</a></li>
-<li><a href="#2-directory-structure">Directory Structure</a></li>
-<li><a href="#3-running-tests">Running Tests</a></li>
-<li><a href="#4-adding-new-content">Adding New Content</a></li>
-<li><a href="#5-cli-reference-quick">CLI Reference (Quick)</a></li>
-<li><a href="#6-dashboard-overview">Dashboard Overview</a></li>
-<li><a href="#7-publication-workflow">Publication Workflow</a></li>
-<li><a href="#8-stray-directories-explained">Stray Directories Explained</a></li>
-<li><a href="#9-known-limitations">Known Limitations</a></li>
-<li><a href="#10-future-work-guide">Future Work Guide</a></li>
-</ol>
-<hr />
+<h1 id="system-maintenance-architecture-guide">System Maintenance &amp; Architecture Guide<a class="headerlink" href="#system-maintenance-architecture-guide" title="Permanent link">&para;</a></h1>
+<p>This document outlines the architectural map, internal directory structure, testing procedures, and technical boundaries for the Crucible testbed. It serves as the authoritative reference for maintaining and extending the core system.</p>
 <h2 id="1-project-overview">1. Project Overview<a class="headerlink" href="#1-project-overview" title="Permanent link">&para;</a></h2>
-<p>Crucible is a CLI-first, modular EVM bridge security research testbed. It allows researchers to:</p>
+<p>Crucible is a modular EVM bridge security research testbed designed for deterministic exploit reproduction and rigorous artifact collection. Its primary capabilities include:</p>
 <ul>
-<li><strong>Fork any EVM chain at any block</strong> using Foundry/Anvil</li>
-<li><strong>Replay historical bridge exploits</strong> deterministically</li>
-<li><strong>Collect structured research artifacts</strong> (JSONL logs, state diffs, gas profiles)</li>
-<li><strong>Reset environments in seconds</strong> (3-tier reset: soft &lt;5s → medium &lt;30s → hard &lt;5min)</li>
-<li><strong>Validate patches</strong> against known attack vectors</li>
-<li><strong>Publish exportable artifact bundles</strong> with integrity guarantees</li>
+<li><strong>EVM State Forking</strong>: Forking any EVM chain at any historical block via Foundry/Anvil.</li>
+<li><strong>Deterministic Replay</strong>: Executing historical bridge exploits in a controlled, isolated environment.</li>
+<li><strong>Structured Artifact Collection</strong>: Emitting canonical JSONL logs, state diffs, and gas profiles.</li>
+<li><strong>Rapid Environment Reset</strong>: Utilizing a 3-tier state reset (soft, medium, hard) for rapid iteration.</li>
+<li><strong>Baseline Verification</strong>: Capturing and verifying golden baseline fingerprints to prevent environmental drift.</li>
 </ul>
 <h3 id="architecture-at-a-glance">Architecture at a Glance<a class="headerlink" href="#architecture-at-a-glance" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>CLI (crucible/cli.py → crucible/commands/*.py)
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  │
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  ├── Chain Manager — starts/stops Anvil subprocesses, manages lifecycle
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  ├── Scenario Engine — loads and executes attack scenarios
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  ├── Experiment Runner — orchestrates formal research runs
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  ├── Plugin Registry — discovers and validates plugins
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  ├── Baseline System — golden baseline capture and fingerprint verification
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  ├── Structured Logger — writes 5 JSONL streams per run
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  └── Dashboard (Streamlit) — browser UI for all of the above
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  ├── Chain Manager — Orchestrates Anvil subprocesses and node lifecycle
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  ├── Scenario Engine — Parses and executes discrete scenario steps
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  ├── Experiment Runner — Manages formal research runs and baseline enforcement
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  ├── Plugin Registry — Discovers, loads, and validates plugins
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  ├── Baseline System — Captures golden baselines and verifies environment integrity
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  ├── Structured Logger — Streams 5 distinct JSONL research artifacts
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  └── Dashboard (Streamlit) — Provides a graphical interface for orchestration
 </code></pre></div>
-<h3 id="key-files">Key Files<a class="headerlink" href="#key-files" title="Permanent link">&para;</a></h3>
+<h3 id="key-subsystems">Key Subsystems<a class="headerlink" href="#key-subsystems" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>File</th>
-<th>Purpose</th>
+<th>File / Module</th>
+<th>Responsibility</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>crucible/cli.py</code></td>
-<td>Thin entry point, delegates to <code>commands/</code></td>
+<td>Command-line interface entry point.</td>
 </tr>
 <tr>
 <td><code>crucible/config.py</code></td>
-<td>YAML config parsing with Pydantic models</td>
+<td>Strict YAML configuration parsing via Pydantic.</td>
 </tr>
 <tr>
 <td><code>crucible/chain_manager.py</code></td>
-<td>Anvil process lifecycle</td>
+<td>Local blockchain (Anvil) process and state lifecycle management.</td>
 </tr>
 <tr>
 <td><code>crucible/rpc.py</code></td>
-<td>JSON-RPC client + provider fallback + rate limiting</td>
+<td>Resilient JSON-RPC client featuring provider failover and rate limiting.</td>
 </tr>
 <tr>
 <td><code>crucible/baseline.py</code></td>
-<td>Baseline capture, fingerprint, restore</td>
+<td>Baseline capture, fingerprint computation, and state restoration.</td>
 </tr>
 <tr>
 <td><code>crucible/scenario.py</code></td>
-<td>Scenario loading and YAML-step execution</td>
+<td>Scenario YAML parsing and discrete step execution.</td>
 </tr>
 <tr>
 <td><code>crucible/experiment.py</code></td>
-<td>Formal experiment runner, matrix, resume</td>
+<td>Formal experiment orchestration, matrix running, and checkpoint resumption.</td>
 </tr>
 <tr>
 <td><code>crucible/logging.py</code></td>
-<td>JSONL emitter for 5 log streams</td>
+<td>JSONL emitter for deterministic artifact generation.</td>
 </tr>
 <tr>
 <td><code>crucible/plugin.py</code></td>
-<td>Plugin discovery and validation</td>
+<td>Dynamic plugin discovery and schema validation.</td>
 </tr>
 <tr>
 <td><code>crucible/sdk.py</code></td>
-<td>Plugin interfaces (AttackPlugin, BridgePlugin)</td>
-</tr>
-<tr>
-<td><code>crucible/rpc.py</code></td>
-<td>JSON-RPC client with provider failover + rate limiting</td>
-</tr>
-<tr>
-<td><code>crucible/interfaces/__init__.py</code></td>
-<td>Public API re-exports (AttackPlugin, BridgePlugin, etc.)</td>
-</tr>
-<tr>
-<td><code>crucible/checkpoint.py</code></td>
-<td>Phase-level checkpoint/resume</td>
+<td>Plugin interface definitions (<code>AttackPlugin</code>, <code>BridgePlugin</code>, etc.).</td>
 </tr>
 <tr>
 <td><code>crucible/diff.py</code></td>
-<td>Canonicalized run comparison</td>
-</tr>
-<tr>
-<td><code>crucible/history.py</code></td>
-<td>SQLite experiment index</td>
+<td>Canonicalized comparison of experiment runs.</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h2 id="2-directory-structure">2. Directory Structure<a class="headerlink" href="#2-directory-structure" title="Permanent link">&para;</a></h2>
+<p>The repository is organized into distinct domains separating core execution logic from research artifacts and operational configurations.</p>
 <h3 id="root-directory">Root Directory<a class="headerlink" href="#root-directory" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>File/Dir</th>
-<th>Keep?</th>
+<th>Directory / File</th>
 <th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>crucible/</code></td>
-<td>[ok] Core</td>
-<td>Python package — all CLI and orchestration logic</td>
+<td>Core Python package containing orchestration, execution, and instrumentation logic.</td>
 </tr>
 <tr>
 <td><code>dashboard/</code></td>
-<td>[ok] Dashboard</td>
-<td>Streamlit app (<code>app.py</code> + <code>panels/</code>)</td>
+<td>Streamlit browser application and UI panels.</td>
 </tr>
 <tr>
 <td><code>docs/</code></td>
-<td>[ok] Docs</td>
-<td>All documentation (see below for structure)</td>
+<td>Formal project documentation and design specifications.</td>
 </tr>
 <tr>
 <td><code>attacks/</code></td>
-<td>[ok] Attacks</td>
-<td>6 benchmark attack packs + demo</td>
+<td>Concrete attack plugins and exploit reproductions.</td>
 </tr>
 <tr>
 <td><code>scenarios/</code></td>
-<td>[ok] Scenarios</td>
-<td>7 scenario definitions (1 per attack + demo)</td>
+<td>Scenario definitions (setup and pre-exploit state configurations).</td>
 </tr>
 <tr>
 <td><code>experiments/</code></td>
-<td>[ok] Experiments</td>
-<td>Experiment YAML files for each attack</td>
+<td>Formal experiment YAML files linking topologies, scenarios, and attacks.</td>
 </tr>
 <tr>
 <td><code>topologies/</code></td>
-<td>[ok] Topologies</td>
-<td>9 topology profiles (single, dual, bridge, wormhole_bridge, nomad_bridge, etc.)</td>
+<td>Network topology profiles (e.g., single-chain, dual-chain, multi-chain bridge).</td>
 </tr>
 <tr>
 <td><code>abis/</code></td>
-<td>[ok] ABIs</td>
-<td>Contract ABIs organized by protocol</td>
+<td>Contract ABIs organized by protocol.</td>
 </tr>
 <tr>
 <td><code>bridges/</code></td>
-<td>[ok] Bridges</td>
-<td>Bridge plugin implementations (demo_bridge, nomad_bridge, poly_network_bridge, wormhole_bridge)</td>
+<td>Infrastructure plugins modeling cross-chain message passing (e.g., Nomad, Wormhole).</td>
 </tr>
 <tr>
 <td><code>tests/</code></td>
-<td>[ok] Tests</td>
-<td>Unit tests</td>
-</tr>
-<tr>
-<td><code>notebooks/</code></td>
-<td>[ok] Keep</td>
-<td>Jupyter analysis notebook</td>
+<td>Unit and integration test suites.</td>
 </tr>
 <tr>
 <td><code>scripts/</code></td>
-<td>[ok] Keep</td>
-<td>AE reproducibility shell scripts</td>
-</tr>
-<tr>
-<td><code>patches/</code></td>
-<td>[ok] Keep</td>
-<td>Patch validation directory (future use)</td>
-</tr>
-<tr>
-<td><code>plugins/</code></td>
-<td>[ok] Keep</td>
-<td>Plugin directory (future use)</td>
-</tr>
-<tr>
-<td><code>bootstrap.py</code></td>
-<td>[ok] Keep</td>
-<td>Optional state preparation script</td>
-</tr>
-<tr>
-<td><code>.env.example</code></td>
-<td>[ok] Keep</td>
-<td>Environment variable template</td>
-</tr>
-<tr>
-<td><code>pyproject.toml</code></td>
-<td>[ok] Keep</td>
-<td>Python package config + dependencies</td>
-</tr>
-<tr>
-<td><code>uv.lock</code></td>
-<td>[ok] Keep</td>
-<td>Lockfile — committed for reproducibility</td>
-</tr>
-<tr>
-<td><code>foundry.toml</code></td>
-<td>[ok] Keep</td>
-<td>Foundry configuration</td>
-</tr>
-<tr>
-<td><code>testbed.yaml</code></td>
-<td>[ok] Keep</td>
-<td>Main workspace configuration</td>
-</tr>
-<tr>
-<td><code>docker-compose.yml</code></td>
-<td>[ok] Keep</td>
-<td>Docker Compose setup</td>
-</tr>
-<tr>
-<td><code>Dockerfile</code></td>
-<td>[ok] Keep</td>
-<td>Docker image definition</td>
-</tr>
-<tr>
-<td><code>README.md</code></td>
-<td>[ok] Keep</td>
-<td>Project README</td>
-</tr>
-<tr>
-<td><code>LICENSE</code></td>
-<td>[ok] Keep</td>
-<td>MIT License</td>
-</tr>
-<tr>
-<td><code>CITATION.cff</code></td>
-<td>[ok] Keep</td>
-<td>Citation metadata</td>
-</tr>
-<tr>
-<td><code>streamlit_app.py</code></td>
-<td>[fail] Removed</td>
-<td>Deprecated — redirects to <code>dashboard/app.py</code></td>
-</tr>
-<tr>
-<td><code>crucible_*.md</code> (root)</td>
-<td>[fail] Moved</td>
-<td>Moved to <code>docs/design/</code></td>
-</tr>
-<tr>
-<td><code>*_review.md</code> (root)</td>
-<td>[fail] Removed</td>
-<td>Internal review docs — not for publication</td>
-</tr>
-</tbody>
-</table>
-<h3 id="docs-directory-structure">Docs Directory Structure<a class="headerlink" href="#docs-directory-structure" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docs/
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── USER_GUIDE.md                 # Quick-start and daily usage
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── CLI_REFERENCE.md              # All commands and options
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── ARCHITECTURE.md               # System design overview
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── SCENARIO_AUTHORING.md         # Writing scenario YAML
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── ATTACK_PACK_GUIDE.md          # Step-by-step attack creation
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>├── RESEARCH_WORKFLOW.md          # Academic reproduction process
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>├── REPRODUCIBILITY.md            # Provenance and verification
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>├── BENCHMARKS.md                 # 6 benchmark attack packs
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>├── MAINTENANCE.md                # ← You are here
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>├── OPERATIONS_RUNBOOK.md         # Daily ops and troubleshooting
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>├── RPC_PROVIDER_GUIDE.md         # Archive RPC setup and comparison
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>├── DOCKER_IMPLEMENTATION.md      # Docker setup and architecture
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>├── SECURITY_AUDIT.md             # Trust assumptions and threat boundaries
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>├── INSTRUMENTATION_ARCHITECTURE.md  # Auto artifact capture via RPC proxy
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>├── DASHBOARD_GUIDE.md            # Streamlit dashboard panels and usage
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>├── ANALYSIS_NOTEBOOKS.md         # Jupyter-based experiment analysis
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>├── RUNNING_LLM_AGENTS.md         # Configure autonomous agent experiments
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>├── RESEARCHER_OBSERVABILITY.md   # Day-to-day cast/forge commands
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>├── DEVELOPER_HANDOFF.md          # Internal development guide
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>├── DEVELOPER_HANDOFF_SUMMARY.md  # A-Z validation results and fixes
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>├── IMPLEMENTATION_STATUS.md      # What&#39;s done and what&#39;s left
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>├── IMPLEMENTATION_PLAN.md        # Development roadmap and decisions
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>├── FUTURE_ARCHITECTURE_PLAN.md   # Upcoming features and roadmap
-<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>├── ROADMAP_TO_100.md             # Plan to reach USENIX-grade testbed
-<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>├── AGENT_SYSTEM_REVIEW.md        # LLM agent system peer review
-<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>├── USENIX_SUBMISSION_NOTES.md    # Artifact evaluation notes
-<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>├── AE_WALKTHROUGH.md             # Step-by-step AE reproduction guide
-<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>├── ZENODO_ARCHIVE_GUIDE.md       # Archiving on Zenodo
-<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>│
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>├── design/                       # Design specifications
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>│   ├── crucible_implementation_spec.md  # Full implementation spec (127K)
-<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>│   └── crucible_research_overview.md    # Research overview
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>│
-<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>└── case_studies/                 # Completed exploit reproductions (6 studies)
-<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>    ├── bnb_token_hub_proof.md
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>    ├── horizon_multisig_drain.md
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>    ├── multichain_router_permit.md
-<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>    ├── nomad_replica_fraud.md
-<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>    ├── poly_network_privkey.md
-<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>    └── wormhole_guardian_bypass.md
-</code></pre></div>
-<h3 id="attack-pack-structure">Attack Pack Structure<a class="headerlink" href="#attack-pack-structure" title="Permanent link">&para;</a></h3>
-<p>Each attack in <code>attacks/&lt;name&gt;/</code> is a self-contained directory:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>attacks/&lt;name&gt;/
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── plugin.yaml          # Plugin manifest (name, type, class, version)
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── evidence.yaml        # Historical basis, scope, and assumptions
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>├── &lt;name&gt;.py            # Attack logic (implements AttackPlugin)
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>└── (optional) *.sol     # Foundry scripts
-</code></pre></div>
-<h3 id="scenario-structure">Scenario Structure<a class="headerlink" href="#scenario-structure" title="Permanent link">&para;</a></h3>
-<p>Each scenario in <code>scenarios/&lt;name&gt;/</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>scenarios/&lt;name&gt;/
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>└── scenario.yaml        # Environment definition (chains, steps, assertions)
-</code></pre></div>
-<hr />
-<h2 id="3-running-tests">3. Running Tests<a class="headerlink" href="#3-running-tests" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Run all unit tests (fast — no external deps needed)</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pytest<span class="w"> </span>tests/unit/<span class="w"> </span>-q
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># Run with verbose output</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>pytest<span class="w"> </span>tests/unit/<span class="w"> </span>-v
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Run a specific test file</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>pytest<span class="w"> </span>tests/unit/test_config.py<span class="w"> </span>-v
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># Run with coverage</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>pytest<span class="w"> </span>tests/unit/<span class="w"> </span>--cov<span class="o">=</span>crucible
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="c1"># Run docs link validation (checks all internal .md links resolve)</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>pytest<span class="w"> </span>tests/unit/test_docs_links.py<span class="w"> </span>-v
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="c1"># Run dashboard e2e tests (if Streamlit installed)</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>pytest<span class="w"> </span>tests/unit/test_dashboard_e2e.py<span class="w"> </span>-v
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="c1"># Run integration tests (requires Foundry)</span>
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>pytest<span class="w"> </span>tests/integration/<span class="w"> </span>-m<span class="w"> </span>requires_foundry
-</code></pre></div>
-<p><strong>Current test count: 782 passing</strong> (all unit tests).</p>
-<hr />
-<h2 id="4-adding-new-content">4. Adding New Content<a class="headerlink" href="#4-adding-new-content" title="Permanent link">&para;</a></h2>
-<h3 id="adding-a-new-attack-quick-path">Adding a New Attack (Quick Path)<a class="headerlink" href="#adding-a-new-attack-quick-path" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>crucible<span class="w"> </span>attack<span class="w"> </span>extract<span class="w"> </span>&lt;tx_hash&gt;<span class="w"> </span>--name<span class="w"> </span>my_attack<span class="w"> </span>--chain<span class="w"> </span>ethereum
-</code></pre></div>
-<p>This auto-generates the complete scaffold:
-- <code>attacks/my_attack/plugin.yaml</code>
-- <code>attacks/my_attack/evidence.yaml</code>
-- <code>attacks/my_attack/my_attack.py</code>
-- <code>scenarios/my_attack_pre_exploit/scenario.yaml</code></p>
-<h3 id="adding-a-new-attack-manual-path">Adding a New Attack (Manual Path)<a class="headerlink" href="#adding-a-new-attack-manual-path" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>attacks/my_attack
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># Create plugin.yaml, my_attack.py, evidence.yaml</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>scenarios/my_attack_pre_exploit
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Create scenario.yaml</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>crucible<span class="w"> </span>plugin<span class="w"> </span>validate<span class="w"> </span>attacks/my_attack
-</code></pre></div>
-<h3 id="adding-a-new-chain">Adding a New Chain<a class="headerlink" href="#adding-a-new-chain" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Add the chain to <code>testbed.yaml</code> under <code>chains:</code> (see <code>ethereum</code> for reference)</li>
-<li>Add RPC providers under <code>rpc_providers:</code> (at least one archive node)</li>
-<li>Create or update a topology file in <code>topologies/</code> that references the new chain</li>
-</ol>
-<h3 id="adding-a-new-topology">Adding a New Topology<a class="headerlink" href="#adding-a-new-topology" title="Permanent link">&para;</a></h3>
-<p>Create <code>topologies/&lt;name&gt;.yaml</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">custom</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">chains</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ethereum</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">polygon</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nt">bridge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span>
-</code></pre></div>
-<h3 id="adding-a-new-bridge-plugin">Adding a New Bridge Plugin<a class="headerlink" href="#adding-a-new-bridge-plugin" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Create <code>bridges/&lt;name&gt;/</code> with <code>plugin.yaml</code> + implementation</li>
-<li>Implement <code>BridgePlugin</code> interface from <code>crucible.sdk</code></li>
-<li>Add bridge address map to <code>abis/&lt;name&gt;/</code></li>
-</ol>
-<h3 id="authoring-a-new-attack-pack">Authoring a New Attack Pack<a class="headerlink" href="#authoring-a-new-attack-pack" title="Permanent link">&para;</a></h3>
-<p>All 6 benchmark packs are now complete at their respective fidelity levels. To author a new attack:</p>
-<ol>
-<li>Find exploit transaction hash on Etherscan/BscScan</li>
-<li>Set <code>fork_block</code> = exploit block - 1 in scenario</li>
-<li>Verify affected contract addresses are contracts (not EOAs) on Etherscan!</li>
-<li>Use <code>crucible attack extract &lt;tx_hash&gt; --name &lt;name&gt;</code> to auto-generate the scaffold</li>
-<li>Add concrete steps to scenario.yaml</li>
-<li>Run determinism check: run twice, <code>crucible diff &lt;run_a&gt; &lt;run_b&gt;</code></li>
-</ol>
-<hr />
-<h2 id="5-cli-reference-quick">5. CLI Reference (Quick)<a class="headerlink" href="#5-cli-reference-quick" title="Permanent link">&para;</a></h2>
-<p>For a one-page cheat sheet covering all common Crucible commands — setup, forking, experiments, cast interactions, state management, artifacts, and cleanup — see the <a href="../QUICK_REFERENCE/">Quick Reference</a>.</p>
-<p>For the full CLI reference with all flags and options: <a href="../CLI_REFERENCE/">CLI Reference</a>.</p>
-<hr />
-<h2 id="6-dashboard-overview">6. Dashboard Overview<a class="headerlink" href="#6-dashboard-overview" title="Permanent link">&para;</a></h2>
-<p>The Streamlit dashboard (<code>dashboard/app.py</code>) provides a browser UI for all CLI capabilities:</p>
-<p><strong>Panels (19 total):</strong></p>
-<table>
-<thead>
-<tr>
-<th>Panel Category</th>
-<th>Panels</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Overview</strong></td>
-<td>🔬 Overview</td>
-<td>Project summary and quick actions</td>
-</tr>
-<tr>
-<td><strong>Experiments</strong></td>
-<td>[bolt] Run Experiment, 🎛️ Control Panel, 📊 Experiment History</td>
-<td>Run and manage experiments</td>
-</tr>
-<tr>
-<td><strong>Monitoring</strong></td>
-<td>📡 Chain Monitor, 🌐 Topology View, 🧠 Agent Reasoning</td>
-<td>Observe chain/environment state</td>
-</tr>
-<tr>
-<td><strong>Analysis</strong></td>
-<td>🔍 Run Details, 📐 Compare Runs, 📜 Log Browser, 💰 Estimates</td>
-<td>Analyze experiment results</td>
-</tr>
-<tr>
-<td><strong>Diagnostics</strong></td>
-<td>🩺 Doctor, 📋 Evidence</td>
-<td>Validate environment and evidence</td>
-</tr>
-<tr>
-<td><strong>Tools</strong></td>
-<td>💾 Checkpoints, [bolt] Attack Extract, 📦 Bundle Management, 🗃️ Cache Management, 📚 ABI Registry, 🔌 Plugin Validation</td>
-<td>Maintenance utilities</td>
-</tr>
-</tbody>
-</table>
-<p><strong>To launch:</strong> <code>crucible dashboard</code> or <code>streamlit run dashboard/app.py</code></p>
-<p>For full panel documentation: <code>docs/DASHBOARD_GUIDE.md</code></p>
-<hr />
-<h2 id="7-publication-workflow">7. Publication Workflow<a class="headerlink" href="#7-publication-workflow" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 1. Run with publication gates enabled</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/attack.yaml<span class="w"> </span>--publication-mode
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># 2. Export the bundle</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>crucible<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&lt;run_id&gt;<span class="w"> </span>--format<span class="w"> </span>tar-gz
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># 3. Verify the export</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>crucible<span class="w"> </span>verify<span class="w"> </span>datasets/&lt;run_id&gt;
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c1"># 4. Archive on Zenodo</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="c1"># See docs/ZENODO_ARCHIVE_GUIDE.md for details</span>
-</code></pre></div>
-<p>Each export bundle is self-contained with:
-- <code>run_manifest.json</code> (full provenance record)
-- <code>run.jsonl</code>, <code>events.jsonl</code>, <code>storage_diffs.jsonl</code>, <code>gas_profile.jsonl</code>
-- <code>log_integrity.json</code> (SHA-256 hashes)
-- <code>REPRODUCE.md</code> (exact commands to reproduce)</p>
-<hr />
-<h2 id="8-stray-directories-explained">8. Stray Directories Explained<a class="headerlink" href="#8-stray-directories-explained" title="Permanent link">&para;</a></h2>
-<p>These directories are intentionally kept in the project root:</p>
-<table>
-<thead>
-<tr>
-<th>Directory</th>
-<th>Contents</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>scripts/</code></td>
-<td>8 shell scripts</td>
-<td>Artifact evaluation, Docker validation, cross-provider reproduction</td>
-</tr>
-<tr>
-<td><code>notebooks/</code></td>
-<td><code>experiment_analysis.ipynb</code></td>
-<td>Jupyter notebook for post-run analysis</td>
-</tr>
-<tr>
-<td><code>patches/</code></td>
-<td><code>README.md</code> (empty scaffold)</td>
-<td>Future patch validation packs</td>
-</tr>
-<tr>
-<td><code>plugins/</code></td>
-<td>(empty)</td>
-<td>Future plugin development</td>
-</tr>
-<tr>
-<td><code>cache/</code></td>
-<td><code>solidity-files-cache.json</code></td>
-<td>Foundry solc cache (gitignored)</td>
+<td>Shell utilities for artifact evaluation and cross-provider reproduction.</td>
 </tr>
 <tr>
 <td><code>datasets/</code></td>
-<td>(empty)</td>
-<td>Exported publication bundles (gitignored)</td>
-</tr>
-<tr>
-<td><code>states/</code></td>
-<td>Anvil state files</td>
-<td>Runtime state (gitignored except baseline YAML)</td>
+<td>Exported publication bundles and verifiable artifact archives (gitignored).</td>
 </tr>
 <tr>
 <td><code>logs/</code></td>
-<td>Experiment run logs</td>
-<td>Generated per run (gitignored)</td>
+<td>Ephemeral experiment run logs and traces (gitignored).</td>
+</tr>
+<tr>
+<td><code>states/</code></td>
+<td>Serialized Anvil state files for baseline management (gitignored except golden baselines).</td>
 </tr>
 <tr>
 <td><code>.fork_cache/</code></td>
-<td>Anvil RPC cache</td>
-<td>Cached RPC responses (gitignored)</td>
+<td>Local RPC response caching to minimize external provider load (gitignored).</td>
 </tr>
 <tr>
-<td><code>lib/</code></td>
-<td><code>forge-std/</code></td>
-<td>Foundry standard library (git submodule)</td>
-</tr>
-<tr>
-<td><code>out/</code></td>
-<td>Compiled contracts</td>
-<td>Foundry build output (gitignored)</td>
+<td><code>bootstrap.py</code></td>
+<td>Custom state preparation and deterministic seeding logic.</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="9-known-limitations">9. Known Limitations<a class="headerlink" href="#9-known-limitations" title="Permanent link">&para;</a></h2>
-<h3 id="technical">Technical<a class="headerlink" href="#technical" title="Permanent link">&para;</a></h3>
+<h2 id="3-testing-procedures">3. Testing Procedures<a class="headerlink" href="#3-testing-procedures" title="Permanent link">&para;</a></h2>
+<p>The testbed includes comprehensive unit testing to ensure deterministic behavior and core system integrity.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Execute standard unit test suite</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>pytest<span class="w"> </span>tests/unit/<span class="w"> </span>-q
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Execute with verbose output</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>pytest<span class="w"> </span>tests/unit/<span class="w"> </span>-v
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Execute specific subsystems</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>pytest<span class="w"> </span>tests/unit/test_config.py<span class="w"> </span>-v
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Execute with coverage reporting</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>pytest<span class="w"> </span>tests/unit/<span class="w"> </span>--cov<span class="o">=</span>crucible
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Validate internal documentation link integrity</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>pytest<span class="w"> </span>tests/unit/test_docs_links.py<span class="w"> </span>-v
+</code></pre></div>
+<blockquote>
+<p><strong>Note on Integration Testing:</strong> Integration and scenario tests housed in <code>tests/integration/</code> require a live Anvil instance and valid RPC provider configuration. They are deliberately segregated from the fast unit test suite.</p>
+</blockquote>
+<hr />
+<h2 id="4-extension-and-authoring">4. Extension and Authoring<a class="headerlink" href="#4-extension-and-authoring" title="Permanent link">&para;</a></h2>
+<p>The testbed is designed for extensibility. Refer to the specific guides for step-by-step authoring procedures:</p>
 <ul>
-<li><strong>Windows compatibility:</strong> Bash scripts in <code>scripts/</code> require Git Bash or WSL. The <code>crucible</code> CLI works on Windows via <code>uv run crucible</code>.</li>
-<li><strong>Free-tier RPC limits:</strong> Archive-node RPC providers (LlamaRPC, Ankr, PublicNode) have rate limits of 10-25 req/s. Paid providers (Alchemy, Infura) are recommended for multi-chain benchmarks.</li>
-<li><strong>BSC/Polygon archive RPCs:</strong> Some multi-chain attack packs (Poly Network) require paid archive RPCs for BSC or Polygon. The Ethereum-only portions work on free tier.</li>
-<li><strong>Docker on Windows:</strong> Docker Compose networking may require additional configuration on Windows. See <code>docs/internal/DOCKER_IMPLEMENTATION.md</code>.</li>
-</ul>
-<h3 id="research-content">Research Content<a class="headerlink" href="#research-content" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>6/6 benchmark packs at target fidelity:</strong> All attacks are complete at their declared fidelity levels. Horizon and BNB Token Hub were upgraded from scaffolds to L2. Multichain correctly classified as L1 (MPC infrastructure compromise, beyond EVM scope).</li>
-<li><strong>3 bridge plugins:</strong> Nomad (ethereum + polygon), Poly Network (ethereum + polygon + bsc), Wormhole (ethereum + polygon). Each deploys real Solidity contracts with vulnerability pre-configured.</li>
-<li><strong>Poly Network multi-chain:</strong> 3-chain topology available (Ethereum + Polygon + BSC); determinism proven across all 3 chains. BSC/Polygon archive nodes at exploit blocks require paid RPCs.</li>
-<li><strong>No Foundry integration tests:</strong> The <code>tests/integration/</code> directory exists as a scaffold but requires a live Anvil instance to run.</li>
-</ul>
-<h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>No type checking enforced:</strong> <code>pyproject.toml</code> has <code>pyright</code> config but it's not part of the regular test suite.</li>
-<li><strong>No integration tests running:</strong> Only unit tests are run in the main test suite. Integration and scenario tests require Foundry and/or RPC access.</li>
+<li><strong>Adding Attack Packs:</strong> Refer to the <a href="../ATTACK_PACK_GUIDE/"><code>Attack Pack Guide</code></a> and use the <code>crucible attack extract &lt;tx_hash&gt;</code> utility.</li>
+<li><strong>Adding Plugins:</strong> Refer to the <a href="../PLUGIN_DEVELOPMENT/"><code>Plugin Development Guide</code></a> for implementing the <code>AttackPlugin</code> or <code>BridgePlugin</code> interfaces.</li>
+<li><strong>Adding Topologies:</strong> Define new <code>.yaml</code> profiles in the <code>topologies/</code> directory.</li>
+<li><strong>CLI Usage</strong>: Refer to the <a href="../CLI_REFERENCE/"><code>CLI Reference</code></a> for operational commands.</li>
 </ul>
 <hr />
-<h2 id="10-future-work-guide">10. Future Work Guide<a class="headerlink" href="#10-future-work-guide" title="Permanent link">&para;</a></h2>
-<h3 id="priority-1-author-new-attack-packs">Priority 1: Author New Attack Packs<a class="headerlink" href="#priority-1-author-new-attack-packs" title="Permanent link">&para;</a></h3>
-<p>All 6 benchmark packs are complete. To author new attacks:</p>
-<ol>
-<li><strong>Use <code>crucible attack extract &lt;tx_hash&gt;</code></strong> to auto-generate a scaffold</li>
-<li><strong>Verify contract addresses</strong> on Etherscan (confirmed contracts, not EOAs)</li>
-<li><strong>Write the exploit plugin</strong> following patterns in existing packs</li>
-<li><strong>Run determinism check</strong> — run twice, compare with <code>crucible diff</code></li>
-</ol>
-<h3 id="priority-2-live-anvil-fork-validation">Priority 2: Live Anvil Fork Validation<a class="headerlink" href="#priority-2-live-anvil-fork-validation" title="Permanent link">&para;</a></h3>
-<p>Run the 3 completed benchmark packs (Wormhole, Nomad, Poly Network) against actual Anvil forks:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>crucible<span class="w"> </span>setup<span class="w"> </span>--topology<span class="w"> </span>single
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/wormhole_replay.yaml
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>crucible<span class="w"> </span>reset
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/wormhole_replay.yaml
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>crucible<span class="w"> </span>diff<span class="w"> </span>DS-2026-XXXXX<span class="w"> </span>DS-2026-XXXXX
-</code></pre></div>
-<p>Verify: storage diffs match, events match, gas matches, outcome matches.</p>
-<h3 id="priority-3-cross-provider-reproduction">Priority 3: Cross-Provider Reproduction<a class="headerlink" href="#priority-3-cross-provider-reproduction" title="Permanent link">&para;</a></h3>
-<p>Run the full pipeline on a second machine/environment to claim the USENIX AE "Reproduced" badge:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># On machine 2:</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>clone<span class="w"> </span>&lt;repo&gt;
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>uv<span class="w"> </span>sync
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env<span class="w">  </span><span class="c1"># fill in RPC URLs</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>crucible<span class="w"> </span>doctor
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>crucible<span class="w"> </span>verify<span class="w"> </span>datasets/&lt;run_id&gt;
-</code></pre></div>
-<h3 id="priority-4-type-checking-linting">Priority 4: Type Checking &amp; Linting<a class="headerlink" href="#priority-4-type-checking-linting" title="Permanent link">&para;</a></h3>
-<p>Run type checking and linting locally as part of development:
-- <code>ruff check crucible/ tests/</code> — linting
-- <code>pyright crucible/</code> — type checking (optional, may not pass cleanly)</p>
-<h3 id="priority-5-documentation-improvements">Priority 5: Documentation Improvements<a class="headerlink" href="#priority-5-documentation-improvements" title="Permanent link">&para;</a></h3>
+<h2 id="5-system-constraints-technical-boundaries">5. System Constraints &amp; Technical Boundaries<a class="headerlink" href="#5-system-constraints-technical-boundaries" title="Permanent link">&para;</a></h2>
+<p>Transparency regarding the testbed's limitations is a critical requirement for rigorous research.</p>
+<h3 id="infrastructure-limitations">Infrastructure Limitations<a class="headerlink" href="#infrastructure-limitations" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Add more case studies to <code>docs/case_studies/</code> as packs are completed</li>
-<li>Keep <code>docs/internal/IMPLEMENTATION_STATUS.md</code> updated as packs progress</li>
-<li>Update <code>README.md</code> badge links when CI is configured</li>
+<li><strong>EVM-Only Execution</strong>: The Crucible testbed explicitly models the Ethereum Virtual Machine. Attacks involving non-EVM execution environments (e.g., Solana, Harmony) are restricted to modeling the EVM-side consequences (e.g., forged VAA acceptance).</li>
+<li><strong>Archive Node Depth</strong>: Free-tier archive RPC providers strictly limit historical block depth. Simulating deep historical exploits on high-throughput chains (e.g., BSC, Polygon) necessitates paid provider tiers.</li>
+<li><strong>Provider Rate Limits</strong>: Standard multi-chain setups will quickly encounter HTTP 429 errors on free-tier providers. The testbed's <code>crucible.rpc</code> subsystem employs exponential backoff, but dedicated API keys are recommended for complex matrix runs.</li>
 </ul>
-<hr />
-<h2 id="what-was-cleaned-up">What Was Cleaned Up<a class="headerlink" href="#what-was-cleaned-up" title="Permanent link">&para;</a></h2>
-<p>This section documents what was removed or moved during the June 2026 cleanup:</p>
-<p><strong>Removed (not for publication):</strong>
-- <code>streamlit_app.py</code> — deprecated entry point (replaced by <code>dashboard/app.py</code>)
-- <code>crucible_assessment_and_critique.md</code> — internal review
-- <code>crucible_code_quality_review.md</code> — internal review
-- <code>final_architecture_review.md</code> — internal review
-- <code>final_review.md</code> — internal review
-- <code>somandteam_review2.md</code> — internal review
-- <code>CODEBASE_REVIEW.md</code> — internal review
-- <code>REMEDIATION_PLAN.md</code> — internal remediation plan
-<strong>Moved to <code>docs/design/</code>:</strong>
-- <code>crucible_implementation_spec.md</code> (127K canonical design spec)
-- <code>crucible_research_overview.md</code> (research overview)</p>
-<p><strong>Fixed:</strong>
-- <code>docker-compose.yml</code>: <code>streamlit_app.py</code> → <code>dashboard/app.py</code>
-- <code>README.md</code>: test count 277 → 798, comprehensive doc table
-- <code>.env.example</code>: updated with clean template and comments
-- <code>tests/unit/test_docs_links.py</code>: handles subdirectories properly</p>
+<h3 id="operational-boundaries">Operational Boundaries<a class="headerlink" href="#operational-boundaries" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Publication Workflows</strong>: Ensuring full reproducibility requires formal baseline verification. Utilizing <code>--no-baseline</code> invalidates the deterministic guarantee and should only be used during local development.</li>
+<li><strong>Cross-Platform Compatibility</strong>: While the <code>crucible</code> Python CLI is cross-platform, certain artifact evaluation workflows housed in <code>scripts/</code> utilize Bash and necessitate a POSIX-compliant environment (Linux, macOS, or WSL).</li>
+</ul>
 
 
 
@@ -3491,6 +2453,46 @@ Last updated: June 2026</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../SIMPLE_OPERATIONS/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Simple Operations">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Simple Operations
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../TROUBLESHOOTING/" class="md-footer__link md-footer__link--next" aria-label="Next: Troubleshooting">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Troubleshooting
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3528,12 +2530,16 @@ Last updated: June 2026</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../javascripts/extra.js"></script>
+      
+        <script src="../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../assets/javascripts/zoompan.js"></script>
       
     
   </body>

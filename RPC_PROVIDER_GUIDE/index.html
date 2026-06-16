@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../LAB_DEPLOYMENT/">
+        <link rel="prev" href="../DOCKER_GUIDE/">
       
       
-        <link rel="next" href="../MAINTENANCE/">
+        <link rel="next" href="../CUSTOM_CONTRACT_TESTING/">
       
       
         
@@ -55,13 +55,16 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../assets/stylesheets/panzoom.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  </head>
+  <meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -94,7 +97,7 @@
 
   
 
-<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Crucible Docs" class="md-header__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -211,153 +214,13 @@
     
   </nav>
   
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../USER_GUIDE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Getting Started
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../CUSTOM_CONTRACT_TESTING/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  How-To Guides
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../TECHNICAL_OVERVIEW/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Core Concepts (Explanation)
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../CLI_REFERENCE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../AE_WALKTHROUGH/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Publication & Case Studies
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-    
-  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -371,10 +234,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Crucible Docs" class="md-nav__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -430,8 +291,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -439,20 +302,21 @@
       
         
       
-    
-    
-    
+        
       
+        
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -473,7 +337,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -491,14 +355,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../USER_GUIDE/" class="md-nav__link">
+      <a href="../QUICK_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    User Guide
+    Quick Reference
   
 
     
@@ -527,818 +391,6 @@
     
   
     10-Minute Tutorial
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    How-To Guides
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    How-To Guides
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CUSTOM_CONTRACT_TESTING/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deploying Contracts
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running LLM Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authoring Plugins
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SCENARIO_AUTHORING/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authoring Scenarios
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ATTACK_PACK_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Writing Attack Packs
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Core Concepts (Explanation)
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Core Concepts (Explanation)
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../TECHNICAL_OVERVIEW/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Technical Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ARCHITECTURE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    System Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Instrumentation Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CAPABILITIES/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Scope & Capabilities
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FEATURE_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Feature Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Bridge Limitations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RESEARCH_WORKFLOW/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Research Workflow
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RESEARCHER_OBSERVABILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Researcher Observability
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_implementation_spec/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementation Spec
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_research_overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Research Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reference
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Reference
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../CLI_REFERENCE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CLI Reference
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BENCHMARKS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Benchmarks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../REPRODUCIBILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reproducibility
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Analysis Notebooks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dashboard Guide
   
 
     
@@ -1395,34 +447,6 @@
     
   
     Docker Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../LAB_DEPLOYMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lab Deployment
   
 
     
@@ -1503,22 +527,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-archive-nodes-are-required" class="md-nav__link">
+  <a href="#1-archive-vs-full-node" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why Archive Nodes Are Required
+        1. Archive vs Full Node
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Why Archive Nodes Are Required">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-provider-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Provider Comparison
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Provider Comparison">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#archive-vs-full-node" class="md-nav__link">
+  <a href="#ethereum-free-archive-available" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Archive vs Full Node
+        Ethereum (Free Archive Available)
       
     </span>
   </a>
@@ -1526,10 +561,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#which-chains-need-archive-access" class="md-nav__link">
+  <a href="#bsc-polygon-paid-archive-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Which Chains Need Archive Access
+        BSC &amp; Polygon (Paid Archive Recommended)
       
     </span>
   </a>
@@ -1542,22 +577,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#provider-comparison" class="md-nav__link">
+  <a href="#3-recommended-provider-getblock" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provider Comparison
+        3. Recommended Provider: GetBlock
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Provider Comparison">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configuration-in-crucible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configuration in Crucible
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configuration in Crucible">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ethereum-free-archive-available-ok" class="md-nav__link">
+  <a href="#step-1-set-environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ethereum (Free Archive Available [ok])
+        Step 1: Set Environment Variables
       
     </span>
   </a>
@@ -1565,21 +611,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bsc-no-free-archive-fail" class="md-nav__link">
+  <a href="#step-2-configure-rate-limiting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BSC (No Free Archive [fail])
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#polygon-no-free-archive-fail" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Polygon (No Free Archive [fail])
+        Step 2: Configure Rate Limiting
       
     </span>
   </a>
@@ -1588,211 +623,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recommended-provider-getblock" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended Provider: GetBlock
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Recommended Provider: GetBlock">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alternatives-if-getblock-doesnt-fit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alternatives (if GetBlock doesn't fit)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-in-crucible" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration in Crucible
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration in Crucible">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-get-an-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 1: Get an API Key
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-set-environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2: Set Environment Variables
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-configure-rate-limiting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3: Configure Rate Limiting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-verify-connectivity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Verify Connectivity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-run-multi-chain-experiment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Run Multi-Chain Experiment
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#historical-state-not-available-error" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "Historical state not available" Error
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anvil_setbalance-fails-with-historical-state-not-available" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "anvil_setBalance" Fails with "Historical State Not Available"
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eth_sendtransaction-from-new-address-fails" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "eth_sendTransaction" From New Address Fails
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-test-archive-depth" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How To Test Archive Depth
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fork-block-depth-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fork Block Depth Reference
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connection-refused-on-fork" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "Connection refused" on Fork
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rate-limited" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rate Limited
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary-what-we-need-vs-whats-free" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary: What We Need vs What's Free
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1805,6 +635,72 @@
 
               
             
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How-To Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    How-To Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
               
                 
   
@@ -1812,14 +708,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../MAINTENANCE/" class="md-nav__link">
+      <a href="../CUSTOM_CONTRACT_TESTING/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Maintenance
+    Deploying Contracts
   
 
     
@@ -1840,14 +736,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../TROUBLESHOOTING/" class="md-nav__link">
+      <a href="../SCENARIO_AUTHORING/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Troubleshooting
+    Authoring Scenarios
   
 
     
@@ -1868,14 +764,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../OPERATIONS_RUNBOOK/" class="md-nav__link">
+      <a href="../ATTACK_PACK_GUIDE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Operations Runbook
+    Writing Attack Packs
   
 
     
@@ -1896,14 +792,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
+      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Simple Operations
+    Authoring Plugins
   
 
     
@@ -1924,14 +820,344 @@
   
   
     <li class="md-nav__item">
-      <a href="../QUICK_REFERENCE/" class="md-nav__link">
+      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quick Reference
+    Running LLM Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture & Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture & Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TECHNICAL_OVERVIEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DESIGN_DECISIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instrumentation Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RESEARCH_WORKFLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope & Fidelity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scope & Fidelity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CAPABILITIES/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FEATURE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Guide
   
 
     
@@ -2029,6 +1255,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bridge Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2057,17 +1311,8 @@
       
         
       
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -2084,7 +1329,7 @@
   <span class="md-ellipsis">
     
   
-    Publication & Case Studies
+    Tools & Analysis
   
 
     
@@ -2100,7 +1345,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Publication & Case Studies
+    Tools & Analysis
   
 
           </label>
@@ -2113,14 +1358,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+      <a href="../CLI_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AE Walkthrough
+    CLI Reference
   
 
     
@@ -2141,14 +1386,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Zenodo Archive Guide
+    Dashboard Guide
   
 
     
@@ -2161,6 +1406,332 @@
   
 
               
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BENCHMARKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAINTENANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TROUBLESHOOTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCIBILITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproducibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case Studies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Case Studies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2337,6 +1908,122 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publication
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publication
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AE Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zenodo Archive Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2364,22 +2051,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-archive-nodes-are-required" class="md-nav__link">
+  <a href="#1-archive-vs-full-node" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why Archive Nodes Are Required
+        1. Archive vs Full Node
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Why Archive Nodes Are Required">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-provider-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Provider Comparison
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Provider Comparison">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#archive-vs-full-node" class="md-nav__link">
+  <a href="#ethereum-free-archive-available" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Archive vs Full Node
+        Ethereum (Free Archive Available)
       
     </span>
   </a>
@@ -2387,10 +2085,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#which-chains-need-archive-access" class="md-nav__link">
+  <a href="#bsc-polygon-paid-archive-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Which Chains Need Archive Access
+        BSC &amp; Polygon (Paid Archive Recommended)
       
     </span>
   </a>
@@ -2403,22 +2101,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#provider-comparison" class="md-nav__link">
+  <a href="#3-recommended-provider-getblock" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provider Comparison
+        3. Recommended Provider: GetBlock
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Provider Comparison">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-configuration-in-crucible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configuration in Crucible
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Configuration in Crucible">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ethereum-free-archive-available-ok" class="md-nav__link">
+  <a href="#step-1-set-environment-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ethereum (Free Archive Available [ok])
+        Step 1: Set Environment Variables
       
     </span>
   </a>
@@ -2426,21 +2135,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#bsc-no-free-archive-fail" class="md-nav__link">
+  <a href="#step-2-configure-rate-limiting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        BSC (No Free Archive [fail])
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#polygon-no-free-archive-fail" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Polygon (No Free Archive [fail])
+        Step 2: Configure Rate Limiting
       
     </span>
   </a>
@@ -2449,211 +2147,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recommended-provider-getblock" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended Provider: GetBlock
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Recommended Provider: GetBlock">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#alternatives-if-getblock-doesnt-fit" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Alternatives (if GetBlock doesn't fit)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-in-crucible" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration in Crucible
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration in Crucible">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step-1-get-an-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 1: Get an API Key
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-set-environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2: Set Environment Variables
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-configure-rate-limiting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3: Configure Rate Limiting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-verify-connectivity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Verify Connectivity
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-run-multi-chain-experiment" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Run Multi-Chain Experiment
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#historical-state-not-available-error" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "Historical state not available" Error
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#anvil_setbalance-fails-with-historical-state-not-available" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "anvil_setBalance" Fails with "Historical State Not Available"
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eth_sendtransaction-from-new-address-fails" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "eth_sendTransaction" From New Address Fails
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#how-to-test-archive-depth" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How To Test Archive Depth
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fork-block-depth-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fork Block Depth Reference
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connection-refused-on-fork" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "Connection refused" on Fork
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rate-limited" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rate Limited
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary-what-we-need-vs-whats-free" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary: What We Need vs What's Free
-      
-    </span>
-  </a>
   
 </li>
       
@@ -2675,9 +2168,9 @@
 
 
 <h1 id="rpc-provider-guide">RPC Provider Guide<a class="headerlink" href="#rpc-provider-guide" title="Permanent link">&para;</a></h1>
-<h2 id="why-archive-nodes-are-required">Why Archive Nodes Are Required<a class="headerlink" href="#why-archive-nodes-are-required" title="Permanent link">&para;</a></h2>
-<p>Crucible reproduces historical blockchain exploits by <strong>forking the chain at a specific block</strong> using Foundry's <code>anvil</code>. To do this, <code>anvil</code> needs an <strong>archive node</strong> (also called a "full archive node") that can serve historical state data.</p>
-<h3 id="archive-vs-full-node">Archive vs Full Node<a class="headerlink" href="#archive-vs-full-node" title="Permanent link">&para;</a></h3>
+<p>Crucible reproduces historical blockchain exploits by <strong>forking the chain at a specific block</strong> using Foundry's <code>anvil</code>. To accomplish this, <code>anvil</code> necessitates an <strong>archive node</strong> (or "full archive node") capable of serving historical state data.</p>
+<h2 id="1-archive-vs-full-node">1. Archive vs Full Node<a class="headerlink" href="#1-archive-vs-full-node" title="Permanent link">&para;</a></h2>
+<p>Full nodes aggressively prune state data. Archive nodes retain the entire state trie since genesis.</p>
 <table>
 <thead>
 <tr>
@@ -2689,23 +2182,23 @@
 <tbody>
 <tr>
 <td>Latest block state</td>
-<td>[ok]</td>
-<td>[ok]</td>
+<td>Supported</td>
+<td>Supported</td>
 </tr>
 <tr>
-<td>Historical state (eth_getBalance at old block)</td>
-<td>[fail] (pruned after ~128 blocks)</td>
-<td>[ok] (stores ALL state since genesis)</td>
+<td>Historical state (<code>eth_getBalance</code> at old block)</td>
+<td>Fails (pruned after ~128 blocks)</td>
+<td>Supported (stores all state since genesis)</td>
 </tr>
 <tr>
-<td>eth_getBlockByNumber (old blocks)</td>
-<td>[ok] (block headers kept)</td>
-<td>[ok]</td>
+<td><code>eth_getBlockByNumber</code> (old blocks)</td>
+<td>Supported (block headers kept)</td>
+<td>Supported</td>
 </tr>
 <tr>
-<td>eth_getCode / eth_call (old blocks)</td>
-<td>[fail]</td>
-<td>[ok]</td>
+<td><code>eth_getCode</code> / <code>eth_call</code> (old blocks)</td>
+<td>Fails</td>
+<td>Supported</td>
 </tr>
 <tr>
 <td>Disk space (Ethereum)</td>
@@ -2719,47 +2212,12 @@
 </tr>
 </tbody>
 </table>
-<h3 id="which-chains-need-archive-access">Which Chains Need Archive Access<a class="headerlink" href="#which-chains-need-archive-access" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Attack</th>
-<th>Chains Forked</th>
-<th>Fork Block</th>
-<th>Archive Required?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Nomad Bridge</strong></td>
-<td>Ethereum + Polygon</td>
-<td>15,259,100 / —</td>
-<td>[ok] Ethereum [ok] Polygon</td>
-</tr>
-<tr>
-<td><strong>Wormhole Guardian</strong></td>
-<td>Ethereum</td>
-<td>14,125,553</td>
-<td>[ok] Ethereum</td>
-</tr>
-<tr>
-<td><strong>Poly Network</strong></td>
-<td>Ethereum (only)</td>
-<td>12,996,693</td>
-<td>[ok] Ethereum</td>
-</tr>
-<tr>
-<td><strong>Poly Network (full multi-chain)</strong></td>
-<td>Ethereum + BSC + Polygon</td>
-<td>12,996,693 / 9,755,172 / 16,332,982</td>
-<td>[ok] All 3 chains</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Key insight:</strong> All three attacks need Ethereum archive. Ethereum has the best free archive support. For multi-chain (BSC + Polygon at 2021-era blocks), <strong>paid archive providers are required</strong>.</p>
+<blockquote>
+<p><strong>Crucial Requirement:</strong> For multi-chain exploits involving BSC or Polygon at 2021-era blocks, <strong>paid archive providers are almost always required</strong> as free providers aggressively prune non-Ethereum chains.</p>
+</blockquote>
 <hr />
-<h2 id="provider-comparison">Provider Comparison<a class="headerlink" href="#provider-comparison" title="Permanent link">&para;</a></h2>
-<h3 id="ethereum-free-archive-available-ok">Ethereum (Free Archive Available [ok])<a class="headerlink" href="#ethereum-free-archive-available-ok" title="Permanent link">&para;</a></h3>
+<h2 id="2-provider-comparison">2. Provider Comparison<a class="headerlink" href="#2-provider-comparison" title="Permanent link">&para;</a></h2>
+<h3 id="ethereum-free-archive-available">Ethereum (Free Archive Available)<a class="headerlink" href="#ethereum-free-archive-available" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2767,7 +2225,7 @@
 <th>Archive Depth</th>
 <th>Rate Limit</th>
 <th>Cost</th>
-<th>Works with Crucible?</th>
+<th>Practicality for Testbed</th>
 </tr>
 </thead>
 <tbody>
@@ -2776,268 +2234,106 @@
 <td>Full archive (with API key)</td>
 <td>300M CU/month</td>
 <td>Free tier</td>
-<td>[ok] Best free option — sign up at app.ankr.com</td>
+<td>Best free option — sign up at app.ankr.com</td>
 </tr>
 <tr>
 <td><strong>LlamaNodes (eth.llamarpc.com)</strong></td>
 <td>Full archive</td>
 <td>25 req/s</td>
 <td>Free</td>
-<td>[warn] Rate-limits Anvil's heavy requests</td>
+<td>Usable, but frequently rate-limits Anvil</td>
 </tr>
 <tr>
-<td><strong>PublicNode (ethereum.publicnode.com)</strong></td>
+<td><strong>PublicNode</strong></td>
 <td>Limited (~128 blocks)</td>
 <td>10 req/s</td>
 <td>Free</td>
-<td>[fail] Fails for old blocks</td>
+<td>Fails for deep historical blocks</td>
 </tr>
 <tr>
 <td><strong>Alchemy</strong></td>
 <td>Full archive</td>
 <td>Varies</td>
 <td>Free tier + paid</td>
-<td>[ok] (set ETH_RPC_URL in .env)</td>
+<td>Excellent</td>
 </tr>
 <tr>
 <td><strong>QuickNode</strong></td>
 <td>Full archive</td>
 <td>Varies</td>
 <td>Paid</td>
-<td>[ok] (set ETH_RPC_URL in .env)</td>
+<td>Excellent</td>
 </tr>
 </tbody>
 </table>
-<h3 id="bsc-no-free-archive-fail">BSC (No Free Archive [fail])<a class="headerlink" href="#bsc-no-free-archive-fail" title="Permanent link">&para;</a></h3>
+<h3 id="bsc-polygon-paid-archive-recommended">BSC &amp; Polygon (Paid Archive Recommended)<a class="headerlink" href="#bsc-polygon-paid-archive-recommended" title="Permanent link">&para;</a></h3>
+<p>Free tiers for BSC and Polygon routinely fail to serve complete state queries (e.g., <code>anvil_setBalance</code>) at older blocks. </p>
 <table>
 <thead>
 <tr>
 <th>Provider</th>
 <th>Archive Depth</th>
-<th>Rate Limit</th>
 <th>Cost</th>
-<th>Works with Crucible?</th>
+<th>Practicality for Testbed</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>GetBlock (go.getblock.io)</strong></td>
 <td>Full archive</td>
-<td>20 RPS</td>
-<td><strong>$39/mo</strong> (Starter)</td>
-<td>[ok] Tested via curl</td>
-</tr>
-<tr>
-<td><strong>PublicNode (bsc.publicnode.com)</strong></td>
-<td>Limited (~128 blocks)</td>
-<td>10 req/s</td>
-<td>Free</td>
-<td>[fail] Fails at block 9,755,172</td>
-</tr>
-<tr>
-<td><strong>meowrpc (bsc.meowrpc.com)</strong></td>
-<td>Limited</td>
-<td>15 req/s</td>
-<td>Free</td>
-<td>[fail] eth_getBlockByNumber fails</td>
-</tr>
-<tr>
-<td><strong>QuickNode</strong></td>
-<td>Full archive</td>
-<td>Varies</td>
-<td>Paid</td>
-<td>[ok]</td>
-</tr>
-<tr>
-<td><strong>Chainstack</strong></td>
-<td>Full archive</td>
-<td>Varies</td>
-<td>Paid</td>
-<td>[ok]</td>
-</tr>
-<tr>
-<td><strong>Ankr (rpc.ankr.com/bsc)</strong></td>
-<td>Full archive (with key)</td>
-<td>Varies</td>
-<td>Free tier + paid</td>
-<td>[warn] Requires Ankr API key</td>
-</tr>
-</tbody>
-</table>
-<h3 id="polygon-no-free-archive-fail">Polygon (No Free Archive [fail])<a class="headerlink" href="#polygon-no-free-archive-fail" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Provider</th>
-<th>Archive Depth</th>
-<th>Rate Limit</th>
-<th>Cost</th>
-<th>Works with Crucible?</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>GetBlock (go.getblock.io)</strong></td>
-<td>Full archive</td>
-<td>20 RPS</td>
-<td><strong>$39/mo</strong> (Starter)</td>
-<td>[ok] Included in same plan</td>
-</tr>
-<tr>
-<td><strong>LlamaNodes (polygon.llamarpc.com)</strong></td>
-<td>Limited</td>
-<td>25 req/s</td>
-<td>Free</td>
-<td>[fail] Fails at block 16,332,982</td>
-</tr>
-<tr>
-<td><strong>PublicNode (polygon-bor.publicnode.com)</strong></td>
-<td>Limited (~128 blocks)</td>
-<td>10 req/s</td>
-<td>Free</td>
-<td>[fail] Fails at block 16,332,982</td>
-</tr>
-<tr>
-<td><strong>QuickNode</strong></td>
-<td>Full archive</td>
-<td>Varies</td>
-<td>Paid</td>
-<td>[ok]</td>
-</tr>
-<tr>
-<td><strong>Chainstack</strong></td>
-<td>Full archive</td>
-<td>Varies</td>
-<td>Paid</td>
-<td>[ok]</td>
-</tr>
-<tr>
-<td><strong>Ankr (rpc.ankr.com/polygon)</strong></td>
-<td>Full archive (with key)</td>
-<td>Varies</td>
-<td>Free tier + paid</td>
-<td>[warn] Requires Ankr API key</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="recommended-provider-getblock">Recommended Provider: GetBlock<a class="headerlink" href="#recommended-provider-getblock" title="Permanent link">&para;</a></h2>
-<p>Based on testing, <strong>GetBlock</strong> is the most practical option for our needs:</p>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>GetBlock Starter ($39/mo)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>BSC Archive</strong></td>
-<td>[ok] Full archive</td>
-</tr>
-<tr>
-<td><strong>Polygon Archive</strong></td>
-<td>[ok] Full archive</td>
-</tr>
-<tr>
-<td><strong>Ethereum Archive</strong></td>
-<td>[ok] (but we already have free)</td>
-</tr>
-<tr>
-<td><strong>Requests</strong></td>
-<td>50,000 CU/day</td>
-</tr>
-<tr>
-<td><strong>Rate Limit</strong></td>
-<td>20 RPS</td>
-</tr>
-<tr>
-<td><strong>Endpoints</strong></td>
-<td>2 (use for BSC + Polygon)</td>
-</tr>
-<tr>
-<td><strong>Setup Time</strong></td>
-<td>Minutes — just generate API key</td>
-</tr>
-<tr>
-<td><strong>Endpoint Format</strong></td>
-<td><code>https://go.getblock.io/&lt;ACCESS-TOKEN&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="alternatives-if-getblock-doesnt-fit">Alternatives (if GetBlock doesn't fit)<a class="headerlink" href="#alternatives-if-getblock-doesnt-fit" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Provider</th>
-<th>BSC Archive</th>
-<th>Polygon Archive</th>
-<th>Min Cost</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>QuickNode</strong></td>
-<td>[ok]</td>
-<td>[ok]</td>
-<td>~$29/mo</td>
-<td>Per-chain pricing</td>
-</tr>
-<tr>
-<td><strong>Chainstack</strong></td>
-<td>[ok]</td>
-<td>[ok]</td>
 <td>~$39/mo</td>
-<td>Good archive support</td>
+<td>Highly Recommended (Tested)</td>
 </tr>
 <tr>
-<td><strong>Alchemy</strong></td>
-<td>[warn] Growth tier</td>
-<td>[warn] Growth tier</td>
-<td>~$49/mo</td>
-<td>Ethereum-focused</td>
+<td><strong>QuickNode</strong></td>
+<td>Full archive</td>
+<td>Varies</td>
+<td>Excellent (Per-chain pricing)</td>
+</tr>
+<tr>
+<td><strong>Chainstack</strong></td>
+<td>Full archive</td>
+<td>Varies</td>
+<td>Excellent</td>
 </tr>
 <tr>
 <td><strong>Ankr</strong></td>
-<td>[ok] (with key)</td>
-<td>[ok] (with key)</td>
-<td>Free tier</td>
-<td>Premium tier may be needed</td>
+<td>Full archive</td>
+<td>Varies</td>
+<td>Good (Requires Premium tier for L2s)</td>
 </tr>
 <tr>
-<td><strong>dRPC</strong></td>
-<td>[warn] Free tier</td>
-<td>[warn] Free tier</td>
+<td><strong>LlamaNodes</strong> / <strong>PublicNode</strong></td>
+<td>Pruned</td>
 <td>Free</td>
-<td>Didn't work at our blocks</td>
+<td>Fails for historical exploit reproduction</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="configuration-in-crucible">Configuration in Crucible<a class="headerlink" href="#configuration-in-crucible" title="Permanent link">&para;</a></h2>
-<h3 id="step-1-get-an-api-key">Step 1: Get an API Key<a class="headerlink" href="#step-1-get-an-api-key" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Sign up at <a href="https://getblock.io/">GetBlock</a></li>
-<li>Go to Dashboard → Create Access Token</li>
-<li>Select BSC Mainnet and Polygon Mainnet</li>
-<li>Copy the provided endpoint URLs</li>
-</ol>
-<h3 id="step-2-set-environment-variables">Step 2: Set Environment Variables<a class="headerlink" href="#step-2-set-environment-variables" title="Permanent link">&para;</a></h3>
-<p>Add to your <code>.env</code> file:</p>
+<h2 id="3-recommended-provider-getblock">3. Recommended Provider: GetBlock<a class="headerlink" href="#3-recommended-provider-getblock" title="Permanent link">&para;</a></h2>
+<p>Based on extensive operational testing, <strong>GetBlock</strong> (Starter Plan) is the most practical option for multi-chain research:</p>
+<ul>
+<li><strong>Coverage</strong>: Full Archive for BSC, Polygon, and Ethereum.</li>
+<li><strong>Rate Limit</strong>: 20 RPS (sufficient for Anvil's throttled fetching).</li>
+<li><strong>Cost</strong>: ~$39/mo (supports 2 endpoints simultaneously, covering BSC + Polygon).</li>
+</ul>
+<hr />
+<h2 id="4-configuration-in-crucible">4. Configuration in Crucible<a class="headerlink" href="#4-configuration-in-crucible" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-set-environment-variables">Step 1: Set Environment Variables<a class="headerlink" href="#step-1-set-environment-variables" title="Permanent link">&para;</a></h3>
+<p>Configure your provider credentials in the <code>.env</code> file at the root of the testbed:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># Ethereum archive — ANKR free tier (sign up at https://app.ankr.com)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a># LlamaNodes (eth.llamarpc.com) also works but may rate-limit Anvil
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ETH_RPC_URL=https://rpc.ankr.com/eth/YOUR_ANKR_API_KEY
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a># BSC Archive (GetBlock or your provider)
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>BSC_RPC_URL=https://go.getblock.io/YOUR_ACCESS_TOKEN
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a># Polygon Archive (GetBlock or your provider)
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>POLYGON_RPC_URL=https://go.getblock.io/YOUR_ACCESS_TOKEN
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ETH_RPC_URL=https://rpc.ankr.com/eth/YOUR_ANKR_API_KEY
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># BSC Archive (GetBlock or your premium provider)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>BSC_RPC_URL=https://go.getblock.io/YOUR_ACCESS_TOKEN
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a># Polygon Archive (GetBlock or your premium provider)
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>POLYGON_RPC_URL=https://go.getblock.io/YOUR_ACCESS_TOKEN
 </code></pre></div>
-<h3 id="step-3-configure-rate-limiting">Step 3: Configure Rate Limiting<a class="headerlink" href="#step-3-configure-rate-limiting" title="Permanent link">&para;</a></h3>
-<p>Crucible uses an internal <code>TokenBucket</code> algorithm to ensure Anvil does not exceed your provider's rate limits (which would cause <code>429 Too Many Requests</code> errors and experiment failures).</p>
-<p>You can configure rate limits per-provider in <code>testbed.yaml</code>:</p>
+<h3 id="step-2-configure-rate-limiting">Step 2: Configure Rate Limiting<a class="headerlink" href="#step-2-configure-rate-limiting" title="Permanent link">&para;</a></h3>
+<p>Crucible employs a robust <code>TokenBucket</code> algorithm to ensure Anvil's heavy parallel fetching does not exceed your provider's rate limits (mitigating <code>HTTP 429 Too Many Requests</code> errors).</p>
+<p>Configure these limits per-provider within <code>testbed.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">rpc_providers</span><span class="p">:</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">ethereum</span><span class="p">:</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ankr_free</span>
@@ -3045,251 +2341,9 @@
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="nt">rate_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w">       </span><span class="c1"># 30 requests per second</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="nt">burst_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span><span class="w">      </span><span class="c1"># Allow temporary bursts up to 50</span>
 </code></pre></div>
-<p>If Anvil requests data faster than the <code>rate_limit</code>, the proxy will pause the request until tokens replenish.</p>
-<h3 id="step-4-verify-connectivity">Step 4: Verify Connectivity<a class="headerlink" href="#step-4-verify-connectivity" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Quick test from orchestrator container</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s1">curl -s -X POST -H &quot;Content-Type: application/json&quot; \</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s1">  -d &quot;{\&quot;jsonrpc\&quot;:\&quot;2.0\&quot;,\&quot;id\&quot;:1,\&quot;method\&quot;:\&quot;eth_blockNumber\&quot;,\&quot;params\&quot;:[]}&quot; \</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s1">  https://go.getblock.io/YOUR_ACCESS_TOKEN</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s1">&#39;</span>
-</code></pre></div>
-<h3 id="step-4-run-multi-chain-experiment">Step 4: Run Multi-Chain Experiment<a class="headerlink" href="#step-4-run-multi-chain-experiment" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Update fork blocks in testbed.yaml first (or use testbed.local.yaml)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="s2">  rm -f states/*.meta.json</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s2">  uv run crucible fork --topology poly_network</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s2">  uv run crucible experiment run experiments/poly_network_replay.yaml --no-baseline</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="s2">&quot;</span>
-</code></pre></div>
-<hr />
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="historical-state-not-available-error">"Historical state not available" Error<a class="headerlink" href="#historical-state-not-available-error" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Error: Failed to get block for block number: 9755172
-</code></pre></div>
-<p><strong>Cause:</strong> The RPC endpoint is a full node, not an archive node. It doesn't store historical state.</p>
-<p><strong>Fix:</strong> Switch to an archive-capable provider (GetBlock, QuickNode, etc.).</p>
-<h3 id="anvil_setbalance-fails-with-historical-state-not-available">"anvil_setBalance" Fails with "Historical State Not Available"<a class="headerlink" href="#anvil_setbalance-fails-with-historical-state-not-available" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>RPC error for anvil_setBalance: failed to get account for 0xDeaDDeaD...:
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>server returned an error response: error code -32000:
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>state 0x34f7657d... is not available
-</code></pre></div>
-<p><strong>Cause:</strong> When <code>anvil_setBalance</code> is called on an address that <strong>doesn't exist</strong> in the forked state, Anvil tries to look up the address in the remote archive. If the archive node doesn't have full historical state at the fork block, it returns "state not available". This is most common on <strong>Polygon</strong> and <strong>BSC</strong> archives at older blocks (2021-2022).</p>
-<p><strong>Why it happens:</strong>
-1. Crucible starts Anvil with <code>--accounts 0 --balance 0</code> (no prefunded test accounts)
-2. The bridge plugin calls <code>anvil_setBalance(deployer, amount)</code> to fund a deployer address
-3. Since the deployer address doesn't exist in the forked state, Anvil queries the remote archive
-4. If the archive has pruned historical state (common with free Polygon/BSC providers), the query fails</p>
-<p><strong>Note:</strong> This also affects <code>eth_sendTransaction</code> — even with <code>gasPrice=0</code>, Anvil checks if the sender account exists in the forked state, which triggers the same remote lookup.</p>
-<p><strong>Fix (already applied to all 3 bridge plugins):</strong> Per-chain deployment is wrapped in <code>try/except</code> in <code>bridges/nomad_bridge/nomad_bridge.py</code>, <code>bridges/poly_network_bridge/poly_network_bridge.py</code>, and <code>bridges/wormhole_bridge/wormhole_bridge.py</code>. If a chain's archive can't serve state, it's skipped gracefully with a warning.</p>
-<p><strong>Workaround:</strong>
-- Use a different RPC provider with better archive depth (GetBlock typically works for all 3 chains)
-- Test archive depth with:
-  <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># This queries an address that definitely exists at the fork block</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>curl<span class="w"> </span>-s<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;method&quot;:&quot;eth_getBalance&quot;,&quot;params&quot;:[&quot;0x838bf9E95CB12Dd76a54C9f9D2E3082EAF928270&quot;, &quot;0xE7E30C&quot;]}&#39;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>https://your-rpc-provider
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># 0xE7E30C = 15197964 (Poly Network fork block on Ethereum)</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Returns &quot;0x...&quot; if archive works, error if not</span>
-</code></pre></div>
-- If a chain's archive is unreliable, run experiments with only the chains that work (use a topology without the problematic chain)</p>
-<h3 id="eth_sendtransaction-from-new-address-fails">"eth_sendTransaction" From New Address Fails<a class="headerlink" href="#eth_sendtransaction-from-new-address-fails" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>RPC error for eth_sendTransaction: failed to get account for 0xDeaDDeaD...:
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>historical state ... is not available
-</code></pre></div>
-<p><strong>Cause:</strong> Same root cause as the <code>anvil_setBalance</code> error above. Even sending a transaction with <code>gasPrice=0</code> from a new (non-existent) address triggers a remote archive lookup.</p>
-<p><strong>Fix:</strong> Same as above — the bridge plugins handle this gracefully now. For custom code, use an address that already exists in the forked state (like a real contract address) instead of a new random EOA.</p>
-<h3 id="how-to-test-archive-depth">How To Test Archive Depth<a class="headerlink" href="#how-to-test-archive-depth" title="Permanent link">&para;</a></h3>
-<p>Run this from the orchestrator container to verify a provider has the required historical state:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--entrypoint<span class="w"> </span>bash<span class="w"> </span>orchestrator<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="s1">  # Use the hex block number for the chain you are testing:</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="s1">  #   Ethereum (Nomad):   0xE8DB9C  (15,259,100)</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="s1">  #   Ethereum (PolyNet): 0xC654B5  (12,996,693)</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="s1">  #   Polygon:            0xF91D96  (16,332,982)</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="s1">  #   BSC:                0x94E334  (9,755,172)</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="s1">  HEX_BLOCK=0xE8DB9C</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="s1">  RPC_URL=&quot;$ETH_RPC_URL&quot;</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="s1">  # Test 1: Can the provider serve a block by number?</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="s1">  echo &quot;=== Test 1: Block exists ===&quot;</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="s1">  curl -s --max-time 10 -X POST -H &quot;Content-Type: application/json&quot; \</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="s1">    -d &quot;{\&quot;jsonrpc\&quot;:\&quot;2.0\&quot;,\&quot;id\&quot;:1,\&quot;method\&quot;:\&quot;eth_getBlockByNumber\&quot;,\&quot;params\&quot;:[\&quot;$HEX_BLOCK\&quot;,false]}&quot; \</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="s1">    &quot;$RPC_URL&quot; | head -c 200</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="s1">  echo</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>
-<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="s1">  # Test 2: Can the provider serve a balance at that block?</span>
-<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="s1">  echo &quot;=== Test 2: Balance at block ===&quot;</span>
-<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="s1">  curl -s --max-time 10 -X POST -H &quot;Content-Type: application/json&quot; \</span>
-<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="s1">    -d &quot;{\&quot;jsonrpc\&quot;:\&quot;2.0\&quot;,\&quot;id\&quot;:1,\&quot;method\&quot;:\&quot;eth_getBalance\&quot;,\&quot;params\&quot;:[\&quot;0x0000000000000000000000000000000000000000\&quot;,\&quot;$HEX_BLOCK\&quot;]}&quot; \</span>
-<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="s1">    &quot;$RPC_URL&quot; | head -c 200</span>
-<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="s1">  echo</span>
-<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>
-<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="s1">  # Test 3: Can eth_getCode at the fork block?</span>
-<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="s1">  echo &quot;=== Test 3: Code at block ===&quot;</span>
-<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="s1">  curl -s --max-time 10 -X POST -H &quot;Content-Type: application/json&quot; \</span>
-<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="s1">    -d &quot;{\&quot;jsonrpc\&quot;:\&quot;2.0\&quot;,\&quot;id\&quot;:1,\&quot;method\&quot;:\&quot;eth_getCode\&quot;,\&quot;params\&quot;:[\&quot;0x838bf9E95CB12Dd76a54C9f9D2E3082EAF928270\&quot;,\&quot;$HEX_BLOCK\&quot;]}&quot; \</span>
-<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="s1">    &quot;$RPC_URL&quot; | head -c 200</span>
-<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="s1">  echo</span>
-<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="s1">&#39;</span>
-</code></pre></div>
-<p>If Test 1 passes but Test 2 or 3 fail, the provider doesn't have true archive state — it can serve block headers but not historical state queries. Switch to a paid archive provider.</p>
-<h3 id="fork-block-depth-reference">Fork Block Depth Reference<a class="headerlink" href="#fork-block-depth-reference" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Attack</th>
-<th>Ethereum Block</th>
-<th>Polygon Block</th>
-<th>BSC Block</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Nomad Bridge</td>
-<td>15,259,100</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Wormhole Guardian</td>
-<td>14,125,553</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Poly Network</td>
-<td>12,996,693</td>
-<td>16,332,982</td>
-<td>9,755,172</td>
-</tr>
-<tr>
-<td>Horizon Multisig</td>
-<td>15,005,526</td>
-<td>—</td>
-<td>—</td>
-</tr>
-<tr>
-<td>BNB Token Hub</td>
-<td>—</td>
-<td>—</td>
-<td>22,166,659</td>
-</tr>
-<tr>
-<td>Multichain Router</td>
-<td>16,329,241</td>
-<td>—</td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Archive availability at these blocks:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Provider</th>
-<th>Ethereum (12-16M)</th>
-<th>Polygon (16M)</th>
-<th>BSC (9-22M)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ankr (free)</td>
-<td>✅ Full archive</td>
-<td>⚠️ May fail on non-existent addresses</td>
-<td>⚠️ May fail on non-existent addresses</td>
-</tr>
-<tr>
-<td>GetBlock (paid $39/mo)</td>
-<td>✅ Full archive</td>
-<td>✅ Full archive</td>
-<td>✅ Full archive</td>
-</tr>
-<tr>
-<td>LlamaNodes (free)</td>
-<td>✅ Full archive</td>
-<td>❌ No archive at 16M</td>
-<td>❌ No archive</td>
-</tr>
-<tr>
-<td>PublicNode (free)</td>
-<td>❌ No archive</td>
-<td>❌ No archive at 16M</td>
-<td>❌ No archive at 9M</td>
-</tr>
-<tr>
-<td>QuickNode (paid)</td>
-<td>✅ Full archive</td>
-<td>✅ Full archive</td>
-<td>✅ Full archive</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Key finding:</strong> Even "archive" providers like Ankr may have incomplete historical state for Polygon/BSC when querying <strong>non-existent addresses</strong> at old blocks. The state root for the fork block is stored, but the full state trie for addresses that didn't exist at that block is not available. This causes <code>anvil_setBalance</code> to fail when creating new addresses.</p>
-<p><strong>Recommended provider setup for multi-chain:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># testbed.yaml</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nt">rpc_providers</span><span class="p">:</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">ethereum</span><span class="p">:</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ankr_free</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${ETH_RPC_URL}&quot;</span><span class="w">  </span><span class="c1"># Ankr free tier — reliable for Ethereum</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="nt">polygon</span><span class="p">:</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">getblock</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${POLYGON_RPC_URL}&quot;</span><span class="w">  </span><span class="c1"># GetBlock paid — reliable archive</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ankr</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://rpc.ankr.com/polygon&quot;</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">      </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w">  </span><span class="c1"># fallback</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">  </span><span class="nt">bsc</span><span class="p">:</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">getblock</span>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;${BSC_RPC_URL}&quot;</span><span class="w">  </span><span class="c1"># GetBlock paid — reliable archive</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ankr</span>
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://rpc.ankr.com/bsc&quot;</span>
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">      </span><span class="nt">priority</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w">  </span><span class="c1"># fallback</span>
-</code></pre></div>
-<h3 id="connection-refused-on-fork">"Connection refused" on Fork<a class="headerlink" href="#connection-refused-on-fork" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ERROR: chain bsc did not become ready within 30s on http://127.0.0.1:8547
-</code></pre></div>
-<p><strong>Cause 1:</strong> The <code>${BSC_RPC_URL}</code> env var is empty or points to an unreachable endpoint.</p>
-<p><strong>Fix:</strong> Verify the URL in <code>.env</code> and test with curl.</p>
-<p><strong>Cause 2:</strong> The fork block is too old for the configured provider.</p>
-<p><strong>Fix:</strong> Check the provider's archive depth. For BSC block 9,755,172 (2021), you need a paid archive provider.</p>
-<h3 id="rate-limited">Rate Limited<a class="headerlink" href="#rate-limited" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>error code: -32000: rate limit exceeded
-</code></pre></div>
-<p><strong>Cause:</strong> Free tier rate limits (typically 10-25 req/s).</p>
-<p><strong>Fix:</strong> Add more providers as fallbacks in <code>testbed.yaml</code> under <code>rpc_providers.bsc</code>. Crucible will automatically retry with the next provider.</p>
-<hr />
-<h2 id="summary-what-we-need-vs-whats-free">Summary: What We Need vs What's Free<a class="headerlink" href="#summary-what-we-need-vs-whats-free" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Chain</th>
-<th>Block Needed</th>
-<th>Free Available?</th>
-<th>Paid Option</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Ethereum</strong></td>
-<td>12,996,693 - 15,259,100</td>
-<td>[ok] ANKR free tier (sign up)</td>
-<td>GetBlock/QuickNode</td>
-</tr>
-<tr>
-<td><strong>BSC</strong></td>
-<td>9,755,172</td>
-<td>[fail] No free provider</td>
-<td>GetBlock $39/mo</td>
-</tr>
-<tr>
-<td><strong>Polygon</strong></td>
-<td>16,332,982</td>
-<td>[fail] No free provider</td>
-<td>GetBlock $39/mo</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Minimum viable paid plan:</strong> <strong>GetBlock Starter ($39/month)</strong> gives access to all 3 chains with archive depth.</p>
+<blockquote>
+<p><strong>Fallback Providers</strong>: You may define multiple providers per chain. If a provider reaches its rate limit or encounters an outage, the testbed will automatically failover to the next configured endpoint.</p>
+</blockquote>
 
 
 
@@ -3321,6 +2375,46 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../DOCKER_GUIDE/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Docker Guide">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Docker Guide
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../CUSTOM_CONTRACT_TESTING/" class="md-footer__link md-footer__link--next" aria-label="Next: Deploying Contracts">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Deploying Contracts
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3358,12 +2452,16 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../javascripts/extra.js"></script>
+      
+        <script src="../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../assets/javascripts/zoompan.js"></script>
       
     
   </body>

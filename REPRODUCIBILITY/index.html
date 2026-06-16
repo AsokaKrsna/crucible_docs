@@ -13,10 +13,10 @@
       
       
       
-        <link rel="prev" href="../BENCHMARKS/">
+        <link rel="prev" href="../TROUBLESHOOTING/">
       
       
-        <link rel="next" href="../ANALYSIS_NOTEBOOKS/">
+        <link rel="next" href="../case_studies/nomad_replica_fraud/">
       
       
         
@@ -55,13 +55,16 @@
     
       <link rel="stylesheet" href="../stylesheets/extra.css">
     
+      <link rel="stylesheet" href="../assets/stylesheets/panzoom.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  </head>
+  <meta name="panzoom-theme" content="material">
+<meta name="panzoom-data" content='{"selectors": [".d2", ".mermaid"], "initial_zoom_level": 1.0}'> </head>
   
   
     
@@ -94,7 +97,7 @@
 
   
 
-<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Crucible Docs" class="md-header__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -211,153 +214,13 @@
     
   </nav>
   
-    
-      
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  Home
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../USER_GUIDE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Getting Started
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../CUSTOM_CONTRACT_TESTING/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  How-To Guides
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../TECHNICAL_OVERVIEW/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Core Concepts (Explanation)
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../CLI_REFERENCE/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Reference
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../AE_WALKTHROUGH/" class="md-tabs__link">
-          
-  
-  
-    
-  
-  Publication & Case Studies
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-    
-  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -371,10 +234,8 @@
                     
 
 
-  
 
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Crucible Docs" class="md-nav__button md-logo" aria-label="Crucible Docs" data-md-component="logo">
       
@@ -439,13 +300,14 @@
       
         
       
-    
-    
-    
-      
+        
       
         
       
+        
+      
+    
+    
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -491,14 +353,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../USER_GUIDE/" class="md-nav__link">
+      <a href="../QUICK_REFERENCE/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    User Guide
+    Quick Reference
   
 
     
@@ -540,6 +402,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DEPLOYMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment & Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DOCKER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RPC Provider Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -568,11 +514,6 @@
       
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -646,62 +587,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running LLM Agents
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authoring Plugins
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../SCENARIO_AUTHORING/" class="md-nav__link">
         
   
@@ -751,6 +636,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_DEVELOPMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authoring Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RUNNING_LLM_AGENTS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running LLM Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -777,23 +718,8 @@
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
@@ -810,7 +736,7 @@
   <span class="md-ellipsis">
     
   
-    Core Concepts (Explanation)
+    Architecture & Design
   
 
     
@@ -826,7 +752,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Core Concepts (Explanation)
+    Architecture & Design
   
 
           </label>
@@ -895,6 +821,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../DESIGN_DECISIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Decisions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../INSTRUMENTATION_ARCHITECTURE/" class="md-nav__link">
         
   
@@ -923,6 +877,102 @@
   
   
     <li class="md-nav__item">
+      <a href="../RESEARCH_WORKFLOW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scope & Fidelity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Scope & Fidelity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../CAPABILITIES/" class="md-nav__link">
         
   
@@ -930,7 +980,7 @@
   <span class="md-ellipsis">
     
   
-    Scope & Capabilities
+    Capabilities
   
 
     
@@ -979,6 +1029,90 @@
   
   
     <li class="md-nav__item">
+      <a href="../FIDELITY_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fidelity Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../REPRODUCTION_SCOPE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reproduction Scope
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TESTBED_SCOPE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testbed Scope Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../BRIDGE_LIMITATIONS/" class="md-nav__link">
         
   
@@ -987,118 +1121,6 @@
     
   
     Bridge Limitations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RESEARCH_WORKFLOW/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Research Workflow
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RESEARCHER_OBSERVABILITY/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Researcher Observability
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_implementation_spec/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Implementation Spec
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../design/crucible_research_overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Research Overview
   
 
     
@@ -1123,34 +1145,10 @@
       
   
   
-    
   
   
-  
     
     
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
       
         
       
@@ -1167,30 +1165,22 @@
     
     
     
-      
-        
-        
-      
-      
-        
-      
     
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Reference
+    Tools & Analysis
   
 
     
@@ -1201,12 +1191,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Reference
+    Tools & Analysis
   
 
           </label>
@@ -1247,6 +1237,90 @@
   
   
     <li class="md-nav__item">
+      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analysis Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PLUGIN_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugin Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../BENCHMARKS/" class="md-nav__link">
         
   
@@ -1255,6 +1329,154 @@
     
   
     Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simple Operations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MAINTENANCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TROUBLESHOOTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
   
 
     
@@ -1407,34 +1629,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lessons-learned-from-validation-june-2026" class="md-nav__link">
+  <a href="#common-reproducibility-pitfalls" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lessons Learned From Validation (June 2026)
+        Common Reproducibility Pitfalls
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Lessons Learned From Validation (June 2026)">
+    <nav class="md-nav" aria-label="Common Reproducibility Pitfalls">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#round-1-initial-validation-13-bugs" class="md-nav__link">
+  <a href="#infrastructure-environment-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Round 1: Initial Validation (13 bugs)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Round 1: Initial Validation (13 bugs)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#infrastructure-docker-issues-6-bugs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Infrastructure &amp; Docker Issues (6 bugs)
+        Infrastructure &amp; Environment Issues
       
     </span>
   </a>
@@ -1442,10 +1652,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#code-bugs-3-bugs" class="md-nav__link">
+  <a href="#research-data-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Code Bugs (3 bugs)
+        Research Data Errors
       
     </span>
   </a>
@@ -1453,76 +1663,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#research-data-errors-a-contract-addresses-fork-blocks-4-bugs" class="md-nav__link">
+  <a href="#verification-checklist-for-new-attacks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Research Data Errors â€” Contract Addresses &amp; Fork Blocks (4 bugs)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#round-2-full-attack-pack-testing-7-bugs-1-enhancement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Round 2: Full Attack-Pack Testing (7 bugs + 1 enhancement)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Round 2: Full Attack-Pack Testing (7 bugs + 1 enhancement)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#framework-bugs-4-bugs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Framework Bugs (4 bugs)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bridge-deployment-bugs-3-bugs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bridge Deployment Bugs (3 bugs)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cli-enhancement-1-feature" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI Enhancement (1 feature)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#root-cause-analysis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Root Cause Analysis
+        Verification Checklist for New Attacks
       
     </span>
   </a>
@@ -1726,398 +1870,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ANALYSIS_NOTEBOOKS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Analysis Notebooks
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DASHBOARD_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Dashboard Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DEPLOYMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Deployment & Setup
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DOCKER_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Docker Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../LAB_DEPLOYMENT/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Lab Deployment
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RPC_PROVIDER_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    RPC Provider Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../MAINTENANCE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Maintenance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../TROUBLESHOOTING/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Troubleshooting
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../OPERATIONS_RUNBOOK/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Operations Runbook
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SIMPLE_OPERATIONS/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Simple Operations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../QUICK_REFERENCE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quick Reference
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FIDELITY_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Fidelity Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../REPRODUCTION_SCOPE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Reproduction Scope
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../TESTBED_SCOPE_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Testbed Scope Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -2146,34 +1898,25 @@
       
         
       
-        
-      
-        
-      
     
     
-    
-      
-      
-        
-      
     
     
     <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
     
   
-    Publication & Case Studies
+    Case Studies
   
 
     
@@ -2184,72 +1927,16 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Publication & Case Studies
+    Case Studies
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AE Walkthrough
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Zenodo Archive Guide
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -2426,6 +2113,122 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publication
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Publication
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AE_WALKTHROUGH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AE Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ZENODO_ARCHIVE_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zenodo Archive Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2525,34 +2328,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lessons-learned-from-validation-june-2026" class="md-nav__link">
+  <a href="#common-reproducibility-pitfalls" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lessons Learned From Validation (June 2026)
+        Common Reproducibility Pitfalls
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Lessons Learned From Validation (June 2026)">
+    <nav class="md-nav" aria-label="Common Reproducibility Pitfalls">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#round-1-initial-validation-13-bugs" class="md-nav__link">
+  <a href="#infrastructure-environment-issues" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Round 1: Initial Validation (13 bugs)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Round 1: Initial Validation (13 bugs)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#infrastructure-docker-issues-6-bugs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Infrastructure &amp; Docker Issues (6 bugs)
+        Infrastructure &amp; Environment Issues
       
     </span>
   </a>
@@ -2560,10 +2351,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#code-bugs-3-bugs" class="md-nav__link">
+  <a href="#research-data-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Code Bugs (3 bugs)
+        Research Data Errors
       
     </span>
   </a>
@@ -2571,76 +2362,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#research-data-errors-a-contract-addresses-fork-blocks-4-bugs" class="md-nav__link">
+  <a href="#verification-checklist-for-new-attacks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Research Data Errors â€” Contract Addresses &amp; Fork Blocks (4 bugs)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#round-2-full-attack-pack-testing-7-bugs-1-enhancement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Round 2: Full Attack-Pack Testing (7 bugs + 1 enhancement)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Round 2: Full Attack-Pack Testing (7 bugs + 1 enhancement)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#framework-bugs-4-bugs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Framework Bugs (4 bugs)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bridge-deployment-bugs-3-bugs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bridge Deployment Bugs (3 bugs)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cli-enhancement-1-feature" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        CLI Enhancement (1 feature)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#root-cause-analysis" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Root Cause Analysis
+        Verification Checklist for New Attacks
       
     </span>
   </a>
@@ -2854,7 +2579,7 @@
 
 <h1 id="reproducibility-guide">Reproducibility Guide<a class="headerlink" href="#reproducibility-guide" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>New to Crucible?</strong> Reproducibility is baked into the testbed's core design. The <a href="../TECHNICAL_OVERVIEW/">Technical Overview</a> explains the philosophy behind determinism-by-default, cache fingerprinting, and fidelity enforcement. For the design rationale behind each reproducibility mechanism, see the <a href="../internal/DESIGN_DECISIONS/">Design Decisions</a> document.</p>
+<p>Reproducibility is integral to the Crucible testbed's architectural design. The <a href="../TECHNICAL_OVERVIEW/">Technical Overview</a> explains the philosophy behind determinism-by-default, cache fingerprinting, and fidelity enforcement. For the design rationale behind each reproducibility mechanism, see the <a href="../DESIGN_DECISIONS/">Design Decisions</a> document.</p>
 </blockquote>
 <h2 id="what-makes-a-crucible-run-reproducible">What Makes A Crucible Run Reproducible<a class="headerlink" href="#what-makes-a-crucible-run-reproducible" title="Permanent link">&para;</a></h2>
 <p>Every <code>crucible experiment run</code> pins the following in <code>run_manifest.json</code>:</p>
@@ -2991,8 +2716,8 @@
 <a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>crucible<span class="w"> </span>verify<span class="w"> </span>datasets/&lt;run_id&gt;
 </code></pre></div>
 <h2 id="cache-policy-determinism">Cache Policy &amp; Determinism<a class="headerlink" href="#cache-policy-determinism" title="Permanent link">&para;</a></h2>
-<p>Cache state affects timing but NOT results. Strict policy ensures cache
-fingerprints match the current config:</p>
+<p>Cache state impacts execution latency but does not alter deterministic outcomes. A strict policy ensures cache
+fingerprints align with the current configuration:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># testbed.yaml</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">fork_cache</span><span class="p">:</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -3014,8 +2739,8 @@ fingerprints match the current config:</p>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>crucible<span class="w"> </span>verify<span class="w"> </span>datasets/&lt;run_id&gt;
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>cat<span class="w"> </span>datasets/&lt;run_id&gt;/bundle_hash.txt
 </code></pre></div>
-<p>The export bundle is self-contained â€” copy it anywhere and verify
-integrity without the original workspace.</p>
+<p>The export bundle is entirely self-contained; it may be transferred and verified
+independently of the original workspace.</p>
 <h3 id="export-bundle-structure">Export Bundle Structure<a class="headerlink" href="#export-bundle-structure" title="Permanent link">&para;</a></h3>
 <p>The exported bundle (<code>.tar.gz</code> or uncompressed directory) built by <code>crucible.export.ExportBundle</code> contains:
 - <code>artifact_bundle_manifest.json</code>: Hashes of every file in the bundle.
@@ -3026,285 +2751,73 @@ integrity without the original workspace.</p>
 - <code>log_integrity.json</code>: Original runtime hashes for sub-artifacts.
 - All JSONL streams (<code>events.jsonl</code>, <code>storage_diffs.jsonl</code>, <code>gas_profile.jsonl</code>, <code>run.jsonl</code>, etc.)
 - (Optional) <code>.protected</code> marker indicating publication status.</p>
-<h2 id="lessons-learned-from-validation-june-2026">Lessons Learned From Validation (June 2026)<a class="headerlink" href="#lessons-learned-from-validation-june-2026" title="Permanent link">&para;</a></h2>
-<p>Across two validation rounds â€” initial A-Z validation and a full attack-pack testing session â€” <strong>21 bugs were found and fixed</strong> across 5 categories. Every issue here caused a real experiment failure.</p>
-<h3 id="round-1-initial-validation-13-bugs">Round 1: Initial Validation (13 bugs)<a class="headerlink" href="#round-1-initial-validation-13-bugs" title="Permanent link">&para;</a></h3>
-<h4 id="infrastructure-docker-issues-6-bugs">Infrastructure &amp; Docker Issues (6 bugs)<a class="headerlink" href="#infrastructure-docker-issues-6-bugs" title="Permanent link">&para;</a></h4>
+<h2 id="common-reproducibility-pitfalls">Common Reproducibility Pitfalls<a class="headerlink" href="#common-reproducibility-pitfalls" title="Permanent link">&para;</a></h2>
+<p>When reproducing historical exploits or authoring new attack packs, researchers commonly encounter the following issues that break determinism or fidelity.</p>
+<h3 id="infrastructure-environment-issues">Infrastructure &amp; Environment Issues<a class="headerlink" href="#infrastructure-environment-issues" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Issue</th>
-<th>Where</th>
+<th>Pitfall</th>
 <th>Symptom</th>
-<th>Fix</th>
+<th>Solution</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td><strong>Foundry not installed in Docker image</strong></td>
-<td><code>Dockerfile</code></td>
-<td><code>anvil not found on PATH</code></td>
-<td>Added <code>foundryup --install nightly</code> to Dockerfile</td>
-</tr>
-<tr>
-<td>2</td>
-<td><strong>Wrong foundryup flag</strong></td>
-<td><code>Dockerfile</code></td>
-<td>Build failed with <code>foundryup --nightly</code></td>
-<td>Changed to <code>foundryup --install nightly</code></td>
-</tr>
-<tr>
-<td>3</td>
-<td><strong>ANVIL_PORT missing from daemon services</strong></td>
-<td><code>docker-compose.yml</code></td>
-<td>Docker healthcheck failing</td>
-<td>Added <code>ANVIL_PORT</code> to each Anvil service</td>
-</tr>
-<tr>
-<td>4</td>
-<td><strong>Entrypoint is crucible, not shell</strong></td>
-<td><code>docker-compose.yml</code></td>
-<td><code>sh -c</code> fails</td>
-<td>Use <code>--entrypoint bash</code></td>
-</tr>
-<tr>
-<td>5</td>
 <td><strong>Stale meta files in Docker volume</strong></td>
-<td><code>states/</code> volume</td>
 <td><code>anvil_dumpState</code> on wrong port</td>
 <td>Clean <code>states/*.meta.json</code> before each fork</td>
 </tr>
 <tr>
-<td>6</td>
 <td><strong>Daemon Anvil fork block mismatch</strong></td>
-<td><code>docker-compose.yml</code></td>
 <td>Experiment uses wrong fork block</td>
-<td>Use single-container mode instead</td>
-</tr>
-</tbody>
-</table>
-<h4 id="code-bugs-3-bugs">Code Bugs (3 bugs)<a class="headerlink" href="#code-bugs-3-bugs" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Issue</th>
-<th>Where</th>
-<th>Symptom</th>
-<th>Fix</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>7</td>
-<td><strong>Missing <code>import logging</code> / <code>logger</code></strong></td>
-<td><code>instrumentation.py</code></td>
-<td><code>NameError: name 'logger' is not defined</code></td>
-<td>Added import and logger definition</td>
+<td>Use single-container mode instead for precise control</td>
 </tr>
 <tr>
-<td>8</td>
-<td><strong>Wrong python_script path resolution</strong></td>
-<td><code>scenario_steps.py</code></td>
-<td>Script not found (only checked scenario dir)</td>
-<td>Check workspace root first, then scenario dir</td>
+<td><strong>Port TIME_WAIT blocking restart</strong></td>
+<td>New Anvil can't bind</td>
+<td>Crucible automatically polls ports before restarting, but manual resets may require waiting 10-30s</td>
 </tr>
 <tr>
-<td>9</td>
-<td><strong>LogManager.step() message kwarg conflict</strong></td>
-<td><code>poly_network_privkey.py</code></td>
-<td><code>step() got multiple values for 'message'</code></td>
-<td>Remove <code>message=</code> kwarg, inline into positional arg</td>
-</tr>
-</tbody>
-</table>
-<h4 id="research-data-errors-a-contract-addresses-fork-blocks-4-bugs">Research Data Errors â€” Contract Addresses &amp; Fork Blocks (4 bugs)<a class="headerlink" href="#research-data-errors-a-contract-addresses-fork-blocks-4-bugs" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Issue</th>
-<th>Where</th>
-<th>Symptom</th>
-<th>Fix</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>10</td>
-<td><strong>WormholeCore address was an EOA</strong></td>
-<td><code>wormhole_guardian_bypass.py</code></td>
-<td><code>WormholeCore has no code</code></td>
-<td>Corrected to verified contract address on Etherscan</td>
-</tr>
-<tr>
-<td>11</td>
-<td><strong>EthCrossChainManager was an EOA</strong></td>
-<td><code>poly_network_privkey.py</code></td>
-<td><code>Manager has no code</code></td>
-<td>Corrected to verified address <code>0x838bf9E9...</code></td>
-</tr>
-<tr>
-<td>12</td>
-<td><strong>EthCrossChainData address wrong</strong></td>
-<td><code>poly_network_privkey.py</code></td>
-<td><code>Data has no code</code></td>
-<td>Corrected to verified address <code>0xcF2afe10...</code></td>
-</tr>
-<tr>
-<td>13</td>
-<td><strong>Poly Network fork block + exploit tx wrong</strong></td>
-<td><code>evidence.yaml</code></td>
-<td>Off by 631 blocks, wrong tx hash</td>
-<td>Fork block 12,996,693, exploit tx <code>0x5a8b2152...</code></td>
-</tr>
-</tbody>
-</table>
-<h3 id="round-2-full-attack-pack-testing-7-bugs-1-enhancement">Round 2: Full Attack-Pack Testing (7 bugs + 1 enhancement)<a class="headerlink" href="#round-2-full-attack-pack-testing-7-bugs-1-enhancement" title="Permanent link">&para;</a></h3>
-<h4 id="framework-bugs-4-bugs">Framework Bugs (4 bugs)<a class="headerlink" href="#framework-bugs-4-bugs" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Issue</th>
-<th>Where</th>
-<th>Symptom</th>
-<th>Fix</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>14</td>
-<td><strong>Auto-merge kills chain but never restarts it</strong></td>
-<td><code>experiment.py</code></td>
-<td><code>Connection refused</code> after fork block update</td>
-<td>Auto-merge now re-forks chains after terminating old processes</td>
-</tr>
-<tr>
-<td>15</td>
-<td><strong>Port TIME_WAIT after killing old Anvil</strong></td>
-<td><code>experiment.py</code></td>
-<td>New Anvil can't bind â€” port in TIME_WAIT</td>
-<td>Poll port every 500ms for up to 10 seconds before restarting</td>
-</tr>
-<tr>
-<td>16</td>
-<td><strong>Checkpoints snapshot dead chains</strong></td>
-<td><code>checkpoint.py</code></td>
+<td><strong>Checkpoints snapshotting dead chains</strong></td>
 <td><code>anvil_dumpState</code> on stale meta file</td>
-<td>Filter checkpoint to only snapshot chains in active topology</td>
-</tr>
-<tr>
-<td>17</td>
-<td><strong>Fidelity failures hidden from console</strong></td>
-<td><code>experiment.py</code></td>
-<td>Only <code>[fail]</code> shown, no reasons</td>
-<td>Print specific failure reasons inline below <code>[fail]</code> line</td>
+<td>Crucible filters checkpoints to active topologies</td>
 </tr>
 </tbody>
 </table>
-<h4 id="bridge-deployment-bugs-3-bugs">Bridge Deployment Bugs (3 bugs)<a class="headerlink" href="#bridge-deployment-bugs-3-bugs" title="Permanent link">&para;</a></h4>
+<h3 id="research-data-errors">Research Data Errors<a class="headerlink" href="#research-data-errors" title="Permanent link">&para;</a></h3>
+<p>The most common cause of reproduction failure is incorrect research data in the <code>evidence.yaml</code> or plugin file.</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>Issue</th>
-<th>Where</th>
+<th>Pitfall</th>
 <th>Symptom</th>
-<th>Fix</th>
+<th>Solution</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>18</td>
-<td><strong>Double <code>0x</code> prefix in bytecode</strong></td>
-<td>3 bridge plugins</td>
-<td><code>RPC error: invalid value "0x0x6080..."</code></td>
-<td>Remove <code>"0x" +</code> prefix â€” Foundry bytecode already has it</td>
+<td><strong>Contract address is actually an EOA</strong></td>
+<td><code>Contract has no code</code> error during setup</td>
+<td>Verify the address on a block explorer. It must be a deployed contract, not the attacker's wallet.</td>
 </tr>
 <tr>
-<td>19</td>
-<td><strong>Precompile deployer address fails on archive nodes</strong></td>
-<td>3 bridge plugins</td>
-<td><code>anvil_setBalance</code> fails on 0x...0001</td>
-<td>Wrap per-chain deploy in try/except; skip chain gracefully</td>
+<td><strong>Wrong fork block</strong></td>
+<td>Exploit tx reverts, state doesn't match</td>
+<td>Fork block must be exactly <code>exploit_block - 1</code></td>
 </tr>
 <tr>
-<td>20</td>
-<td><strong>Placeholder string in bridge evidence.yaml</strong></td>
-<td><code>nomad_bridge_demo/evidence.yaml</code></td>
-<td><code>get_code("deployed by bridge plugin")</code> fails</td>
-<td>Use empty list <code>[]</code> for dynamically deployed contracts</td>
+<td><strong>Precompile/Deployer fails on archive node</strong></td>
+<td><code>anvil_setBalance</code> fails on new address</td>
+<td>Some archive providers don't support setting balances on addresses with no historical state. Wrap bridge deployments in try/except.</td>
 </tr>
 </tbody>
 </table>
-<h4 id="cli-enhancement-1-feature">CLI Enhancement (1 feature)<a class="headerlink" href="#cli-enhancement-1-feature" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Issue</th>
-<th>Where</th>
-<th>Symptom</th>
-<th>Fix</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>21</td>
-<td><strong>No way to bypass auto-merge</strong></td>
-<td><code>commands/experiment.py</code></td>
-<td>Auto-merge always runs even when undesirable</td>
-<td>Added <code>--no-auto-merge</code> CLI flag</td>
-</tr>
-</tbody>
-</table>
-<h3 id="root-cause-analysis">Root Cause Analysis<a class="headerlink" href="#root-cause-analysis" title="Permanent link">&para;</a></h3>
-<p><strong>Round 1 (Most common):</strong> Contract addresses that were actually <strong>EOAs</strong> (user wallets), not contracts â€” 3 out of 13 bugs.</p>
-<p><strong>Round 2 (Most common):</strong> Framework lifecycle bugs â€” 4 out of 7 bugs were in <code>experiment.py</code> and <code>checkpoint.py</code>, where auto-merge, port management, and checkpointing didn't handle edge cases. The remaining 3 were bridge plugin issues, plus 1 CLI enhancement (--no-auto-merge flag).</p>
-<table>
-<thead>
-<tr>
-<th>Attack</th>
-<th>Wrong Address (What It Actually Was)</th>
-<th>Correct Address (Verified Contract)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>WormholeCore</strong></td>
-<td><code>0x98f3c9e6...360aA59...</code> (an EOA)</td>
-<td><code>0x98f3c9e6...36bAAd0...</code> (Etherscan [ok] verified)</td>
-</tr>
-<tr>
-<td><strong>EthCrossChainManager</strong></td>
-<td><code>0xa2526e9d...a59275</code> (an EOA)</td>
-<td><code>0x838bf9E9...F928270</code> (Etherscan [ok] verified)</td>
-</tr>
-<tr>
-<td><strong>EthCrossChainData</strong></td>
-<td><code>0x4f6c4662...</code> (wrong address)</td>
-<td><code>0xcF2afe10...</code> (Etherscan [ok] verified as EthCrossChainData)</td>
-</tr>
-</tbody>
-</table>
-<p>Before adding any contract address to an attack pack:
-- [ ] Paste the address into <a href="https://etherscan.io/">Etherscan</a>
-- [ ] Verify the page shows <strong>"Contract"</strong> (not "Address (EOA)")
-- [ ] Check the contract has non-zero transaction history
-- [ ] Verify the contract name matches what you expect</p>
-<p>Before setting a fork block:
-- [ ] Find the exploit transaction on the block explorer
-- [ ] Note the block number
-- [ ] Set fork block = exploit block - 1
-- [ ] Verify the vulnerable contracts exist at the fork block</p>
+<h3 id="verification-checklist-for-new-attacks">Verification Checklist for New Attacks<a class="headerlink" href="#verification-checklist-for-new-attacks" title="Permanent link">&para;</a></h3>
 <p>Before running an experiment:
 - [ ] Clean stale meta files: <code>rm -f states/*.meta.json</code> (if using Docker)
 - [ ] Set the correct fork block in <code>testbed.yaml</code> or <code>testbed.local.yaml</code>
 - [ ] Verify the RPC provider supports archive depth at your fork block
-- [ ] Use <code>--entrypoint bash</code> when chaining Docker commands
 - [ ] Run twice and diff: <code>crucible diff &lt;run_a&gt; &lt;run_b&gt;</code>
 - [ ] Check all 4 metrics (gas, storage, events, balances) are equal</p>
 <h2 id="baseline-system">Baseline System<a class="headerlink" href="#baseline-system" title="Permanent link">&para;</a></h2>
@@ -3373,7 +2886,7 @@ integrity without the original workspace.</p>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>crucible<span class="w"> </span>baseline<span class="w"> </span>capture<span class="w"> </span>my_scenario<span class="w"> </span>--topology<span class="w"> </span>single
 </code></pre></div>
 <h2 id="cache-system-fingerprinting">Cache System &amp; Fingerprinting<a class="headerlink" href="#cache-system-fingerprinting" title="Permanent link">&para;</a></h2>
-<p>Crucible caches fork state from archive RPCs to speed up repeated runs. The cache system has its own provenance tracking:</p>
+<p>Crucible caches fork state from archive RPCs to accelerate repeated execution. The cache subsystem maintains its own provenance tracking:</p>
 <h3 id="cache-policy">Cache Policy<a class="headerlink" href="#cache-policy" title="Permanent link">&para;</a></h3>
 <p>Configured in <code>testbed.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">fork_cache</span><span class="p">:</span>
@@ -3500,7 +3013,7 @@ integrity without the original workspace.</p>
 <a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>5. Upload to Zenodo/archive â†’ Upload datasets/&lt;run_id&gt;.tar.gz
 </code></pre></div>
 <h2 id="pre-reproduction-workflow">Pre-Reproduction Workflow<a class="headerlink" href="#pre-reproduction-workflow" title="Permanent link">&para;</a></h2>
-<p>Before running any reproduction, set up your environment:</p>
+<p>Prior to executing any reproduction, the environment must be initialized:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># 1. Initialize workspace</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>crucible<span class="w"> </span>init
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
@@ -3528,7 +3041,7 @@ integrity without the original workspace.</p>
 <td>System architecture, core concepts, data flow, design principles</td>
 </tr>
 <tr>
-<td><a href="../internal/DESIGN_DECISIONS/"><code>Design Decisions</code></a></td>
+<td><a href="../DESIGN_DECISIONS/"><code>Design Decisions</code></a></td>
 <td>15 key architectural decisions with rationale and tradeoffs</td>
 </tr>
 <tr>
@@ -3600,6 +3113,46 @@ integrity without the original workspace.</p>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../TROUBLESHOOTING/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Troubleshooting">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Troubleshooting
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../case_studies/nomad_replica_fraud/" class="md-footer__link md-footer__link--next" aria-label="Next: Nomad Replica Fraud">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Nomad Replica Fraud
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -3636,12 +3189,16 @@ integrity without the original workspace.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.indexes", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../javascripts/extra.js"></script>
+      
+        <script src="../assets/javascripts/panzoom.min.js"></script>
+      
+        <script src="../assets/javascripts/zoompan.js"></script>
       
     
   </body>
