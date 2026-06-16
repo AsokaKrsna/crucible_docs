@@ -101,10 +101,12 @@ nav:
     - Writing Attack Packs: ATTACK_PACK_GUIDE.md
     
   - Core Concepts (Explanation):
+    - Technical Overview: TECHNICAL_OVERVIEW.md
     - System Architecture: ARCHITECTURE.md
     - Instrumentation Architecture: INSTRUMENTATION_ARCHITECTURE.md
     - Scope & Capabilities: CAPABILITIES.md
     - Feature Guide: FEATURE_GUIDE.md
+    - Bridge Limitations: BRIDGE_LIMITATIONS.md
     - Research Workflow: RESEARCH_WORKFLOW.md
     - Researcher Observability: RESEARCHER_OBSERVABILITY.md
     - Implementation Spec: design/crucible_implementation_spec.md
@@ -117,6 +119,7 @@ nav:
     - Analysis Notebooks: ANALYSIS_NOTEBOOKS.md
     - Dashboard Guide: DASHBOARD_GUIDE.md
     - Deployment & Setup: DEPLOYMENT.md
+    - Docker Guide: DOCKER_GUIDE.md
     - Lab Deployment: LAB_DEPLOYMENT.md
     - RPC Provider Guide: RPC_PROVIDER_GUIDE.md
     - Maintenance: MAINTENANCE.md
