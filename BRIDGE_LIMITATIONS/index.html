@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bridge-plugin-system-current-coverage-limitations" class="md-skip">
+        <a href="#bridge-plugin-system-a-current-coverage-limitations" class="md-skip">
           Skip to content
         </a>
       
@@ -2728,11 +2728,11 @@
 
 
 
-<h1 id="bridge-plugin-system-current-coverage-limitations">Bridge Plugin System — Current Coverage &amp; Limitations<a class="headerlink" href="#bridge-plugin-system-current-coverage-limitations" title="Permanent link">&para;</a></h1>
+<h1 id="bridge-plugin-system-a-current-coverage-limitations">Bridge Plugin System â€” Current Coverage &amp; Limitations<a class="headerlink" href="#bridge-plugin-system-a-current-coverage-limitations" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><strong>Date:</strong> June 2026 (Updated)
 <strong>Audience:</strong> Researchers, contributors, and reviewers evaluating Crucible's bridge experimentation capabilities.
-<strong>Purpose:</strong> Document Crucible's bridge protocol simulation capabilities — what's covered by the 3 implemented bridge plugins and what are the known limitations.</p>
+<strong>Purpose:</strong> Document Crucible's bridge protocol simulation capabilities â€” what's covered by the 3 implemented bridge plugins and what are the known limitations.</p>
 </blockquote>
 <hr />
 <h2 id="1-executive-summary">1. Executive Summary<a class="headerlink" href="#1-executive-summary" title="Permanent link">&para;</a></h2>
@@ -2750,7 +2750,7 @@
 <tr>
 <td><strong>NomadBridge</strong> (<code>bridges/nomad_bridge/</code>)</td>
 <td><code>NomadReplica</code></td>
-<td><code>committedRoot == 0x00</code> — forged message accepted</td>
+<td><code>committedRoot == 0x00</code> â€” forged message accepted</td>
 <td>ethereum + polygon</td>
 </tr>
 <tr>
@@ -2762,7 +2762,7 @@
 <tr>
 <td><strong>WormholeBridge</strong> (<code>bridges/wormhole_bridge/</code>)</td>
 <td><code>WormholeCore</code> + <code>TokenBridge</code></td>
-<td>Guardian bypass — VAAs accepted without real signatures</td>
+<td>Guardian bypass â€” VAAs accepted without real signatures</td>
 <td>ethereum + polygon</td>
 </tr>
 </tbody>
@@ -2770,7 +2770,7 @@
 <p>Each plugin:
 - Deploys real Solidity contracts to forked chains (compiled via <code>forge build</code>)
 - Configures the vulnerable initial state (zero root, default keeper, bypass mode)
-- Supports the full <code>BridgePlugin</code> lifecycle: <code>deploy</code> → <code>configure</code> → <code>connect</code> → <code>send_message</code> → <code>reset</code> → <code>destroy</code>
+- Supports the full <code>BridgePlugin</code> lifecycle: <code>deploy</code> â†’ <code>configure</code> â†’ <code>connect</code> â†’ <code>send_message</code> â†’ <code>reset</code> â†’ <code>destroy</code>
 - Produces cross-chain artifacts through the existing instrumentation pipeline</p>
 <p>These are <strong>protocol-simulating</strong> plugins, not full protocol replicas. They deploy minimal contracts that model the vulnerability path, enabling L4 experiments without running the complete production protocol (which can require non-EVM components, off-chain relayers, and governance processes).</p>
 <hr />
@@ -2819,14 +2819,14 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Status:</strong> [ok] Well-designed ABC — all 3 bridge plugins override every method with real implementations.</p>
+<p><strong>Status:</strong> [ok] Well-designed ABC â€” all 3 bridge plugins override every method with real implementations.</p>
 <h3 id="22-bridge-lifecycle-wiring">2.2 Bridge Lifecycle Wiring<a class="headerlink" href="#22-bridge-lifecycle-wiring" title="Permanent link">&para;</a></h3>
 <p><strong>File:</strong> <code>crucible/bridge_lifecycle.py</code></p>
 <p>The experiment runner automatically:
 1. Loads the bridge plugin from topology config (<code>topology.bridge</code>)
-2. Calls <code>deploy()</code> → <code>configure()</code> → <code>connect()</code> before scenario setup
+2. Calls <code>deploy()</code> â†’ <code>configure()</code> â†’ <code>connect()</code> before scenario setup
 3. Calls <code>destroy()</code> in <code>finally</code> blocks (both <code>run()</code> and <code>resume()</code>)</p>
-<p><strong>Status:</strong> [ok] Production-ready wiring — all 3 bridge plugins benefit from this automatically.</p>
+<p><strong>Status:</strong> [ok] Production-ready wiring â€” all 3 bridge plugins benefit from this automatically.</p>
 <h3 id="23-scenario-engine-integration">2.3 Scenario Engine Integration<a class="headerlink" href="#23-scenario-engine-integration" title="Permanent link">&para;</a></h3>
 <p><strong>File:</strong> <code>crucible/scenario_steps.py</code></p>
 <p>A <code>bridge_action</code> step type with 4 actions:</p>
@@ -2870,7 +2870,7 @@
 <li><code>cross_chain.jsonl</code> stream for message correlation IDs</li>
 <li><code>LogManager.bridge()</code> emitter for bridge-specific events</li>
 </ul>
-<p><strong>Status:</strong> [ok] Production-ready — captures real bridge traffic from all 3 plugins.</p>
+<p><strong>Status:</strong> [ok] Production-ready â€” captures real bridge traffic from all 3 plugins.</p>
 <h3 id="25-topology-configuration">2.5 Topology Configuration<a class="headerlink" href="#25-topology-configuration" title="Permanent link">&para;</a></h3>
 <p><strong>Files:</strong> <code>topologies/nomad_bridge.yaml</code>, <code>topologies/poly_network_bridge.yaml</code>, <code>topologies/wormhole_bridge.yaml</code>, <code>topologies/bridge.yaml</code>, <code>topologies/harmony_bridge.yaml</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_bridge</span>
@@ -2889,7 +2889,7 @@
 <hr />
 <h2 id="3-whats-still-missing-remaining-gaps">3. What's Still Missing (Remaining Gaps)<a class="headerlink" href="#3-whats-still-missing-remaining-gaps" title="Permanent link">&para;</a></h2>
 <h3 id="31-relayer-timing-model">3.1 Relayer Timing Model<a class="headerlink" href="#31-relayer-timing-model" title="Permanent link">&para;</a></h3>
-<p>All 3 bridge plugins use synchronous <code>connect()</code> — there is no configurable message relay latency. Real bridge exploits often depend on:</p>
+<p>All 3 bridge plugins use synchronous <code>connect()</code> â€” there is no configurable message relay latency. Real bridge exploits often depend on:</p>
 <ul>
 <li>Relayer latency (minutes to hours across chains)</li>
 <li>Guardian quorum timing (waiting for N signatures)</li>
@@ -2976,7 +2976,7 @@
 </tr>
 <tr>
 <td>Reproduce a historical bridge exploit where the bridge is already deployed</td>
-<td>Fork the chain at the exploit block — the bridge contracts are part of the fork state</td>
+<td>Fork the chain at the exploit block â€” the bridge contracts are part of the fork state</td>
 </tr>
 <tr>
 <td>Verify that a vulnerable state existed at a specific block</td>
@@ -3007,7 +3007,7 @@
 <tbody>
 <tr>
 <td>Experiment with relay timing assumptions</td>
-<td>No relayer timing model — <code>connect()</code> is synchronous</td>
+<td>No relayer timing model â€” <code>connect()</code> is synchronous</td>
 </tr>
 <tr>
 <td>Test what-if scenarios with modified bridge parameters</td>
@@ -3214,23 +3214,23 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ARCHITECTURE.md">docs/ARCHITECTURE.md</a></td>
+<td><a href="../ARCHITECTURE/">docs/ARCHITECTURE.md</a></td>
 <td>System architecture, plugin system, data flow</td>
 </tr>
 <tr>
-<td><a href="../REPRODUCTION_SCOPE.md">docs/REPRODUCTION_SCOPE.md</a></td>
+<td><a href="../REPRODUCTION_SCOPE/">docs/REPRODUCTION_SCOPE.md</a></td>
 <td>Fidelity levels, what's in/out of scope</td>
 </tr>
 <tr>
-<td><a href="../ATTACK_PACK_GUIDE.md">docs/ATTACK_PACK_GUIDE.md</a></td>
+<td><a href="../ATTACK_PACK_GUIDE/">docs/ATTACK_PACK_GUIDE.md</a></td>
 <td>Creating attack plugins with bridge topology</td>
 </tr>
 <tr>
-<td><a href="../SCENARIO_AUTHORING.md">docs/SCENARIO_AUTHORING.md</a></td>
+<td><a href="../SCENARIO_AUTHORING/">docs/SCENARIO_AUTHORING.md</a></td>
 <td>bridge_action step type reference</td>
 </tr>
 <tr>
-<td><a href="../CLI_REFERENCE.md">docs/CLI_REFERENCE.md</a></td>
+<td><a href="../CLI_REFERENCE/">docs/CLI_REFERENCE.md</a></td>
 <td>Bridge plugin CLI commands</td>
 </tr>
 <tr>

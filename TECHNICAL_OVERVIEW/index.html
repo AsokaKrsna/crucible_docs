@@ -3356,7 +3356,7 @@
 <tr>
 <td><strong>CLI (L4)</strong></td>
 <td>All lower layers</td>
-<td>Command parsing, delegation — zero business logic</td>
+<td>Command parsing, delegation â€” zero business logic</td>
 </tr>
 <tr>
 <td><strong>Orchestration (L3)</strong></td>
@@ -3385,7 +3385,7 @@
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">attack</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_replica_fraud</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">topology</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">single</span>
 </code></pre></div>
-<p>Running <code>crucible experiment run experiments/nomad_replay.yaml</code> triggers the full experiment lifecycle: fork chains → validate evidence → deploy bridge → run scenario steps → start instrumentation → execute attack → verify fidelity → capture artifacts.</p>
+<p>Running <code>crucible experiment run experiments/nomad_replay.yaml</code> triggers the full experiment lifecycle: fork chains â†’ validate evidence â†’ deploy bridge â†’ run scenario steps â†’ start instrumentation â†’ execute attack â†’ verify fidelity â†’ capture artifacts.</p>
 <h3 id="topology">Topology<a class="headerlink" href="#topology" title="Permanent link">&para;</a></h3>
 <p>A <strong>topology</strong> declares which chains to fork and (optionally) which bridge plugin to deploy:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># topologies/bridge.yaml</span>
@@ -3393,9 +3393,9 @@
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">chains</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">ethereum</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">polygon</span><span class="p p-Indicator">]</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nt">bridge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nomad_bridge</span>
 </code></pre></div>
-<p>Topologies are <strong>reusable</strong> — the same attack can run on different topologies without modification. Adding a new chain config doesn't affect existing experiments.</p>
+<p>Topologies are <strong>reusable</strong> â€” the same attack can run on different topologies without modification. Adding a new chain config doesn't affect existing experiments.</p>
 <h3 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">&para;</a></h3>
-<p>A <strong>scenario</strong> defines the chain environment <strong>before</strong> the attack runs — contract state, impersonated accounts, initial conditions:</p>
+<p>A <strong>scenario</strong> defines the chain environment <strong>before</strong> the attack runs â€” contract state, impersonated accounts, initial conditions:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># scenarios/nomad_pre_exploit/scenario.yaml</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">phases</span><span class="p">:</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setup</span>
@@ -3410,7 +3410,7 @@
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xB92...&quot;</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="nt">data</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x...&quot;</span>
 </code></pre></div>
-<p>Scenarios use a <strong>registry-based step dispatcher</strong> — each step type (<code>log</code>, <code>send_tx</code>, <code>impersonate</code>, <code>forge_script</code>, <code>assert_balance</code>, etc.) is registered via a decorator. New step types can be added without modifying the engine.</p>
+<p>Scenarios use a <strong>registry-based step dispatcher</strong> â€” each step type (<code>log</code>, <code>send_tx</code>, <code>impersonate</code>, <code>forge_script</code>, <code>assert_balance</code>, etc.) is registered via a decorator. New step types can be added without modifying the engine.</p>
 <h3 id="attack-plugin">Attack Plugin<a class="headerlink" href="#attack-plugin" title="Permanent link">&para;</a></h3>
 <p>An <strong>attack plugin</strong> is a Python class that subclasses <code>AttackPlugin</code> and implements:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyExploit</span><span class="p">(</span><span class="n">AttackPlugin</span><span class="p">):</span>
@@ -3422,19 +3422,19 @@
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="c1"># Check on-chain state matches expectations</span>
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>        <span class="k">return</span> <span class="n">VerificationResult</span><span class="p">(</span><span class="n">passed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </code></pre></div>
-<p>The plugin receives an <code>ExperimentContext</code> through which it accesses chain state (<code>context.chains.runtime_for("ethereum")</code> → <code>JsonRpcClient</code>), logs events, and reads configuration.</p>
+<p>The plugin receives an <code>ExperimentContext</code> through which it accesses chain state (<code>context.chains.runtime_for("ethereum")</code> â†’ <code>JsonRpcClient</code>), logs events, and reads configuration.</p>
 <h3 id="evidence">Evidence<a class="headerlink" href="#evidence" title="Permanent link">&para;</a></h3>
 <p>Every attack plugin must include an <code>evidence.yaml</code> that documents:</p>
 <ul>
-<li><strong>Incident metadata</strong> — name, date, affected bridge, damage</li>
-<li><strong>Sources</strong> — advisories, postmortems, transaction explorers</li>
-<li><strong>Historical scope</strong> — chains, fork blocks, exploit transactions, affected contracts</li>
-<li><strong>Reproduction scope</strong> — fidelity level (L0–L4), modeled components, excluded components</li>
-<li><strong>Acceptance criteria</strong> — required assertions that must pass</li>
+<li><strong>Incident metadata</strong> â€” name, date, affected bridge, damage</li>
+<li><strong>Sources</strong> â€” advisories, postmortems, transaction explorers</li>
+<li><strong>Historical scope</strong> â€” chains, fork blocks, exploit transactions, affected contracts</li>
+<li><strong>Reproduction scope</strong> â€” fidelity level (L0â€“L4), modeled components, excluded components</li>
+<li><strong>Acceptance criteria</strong> â€” required assertions that must pass</li>
 </ul>
-<p>Evidence is <strong>validated against live chain state</strong> before every run — fork blocks are checked via <code>eth_getBlockByNumber</code>, contract addresses via <code>eth_getCode</code>.</p>
+<p>Evidence is <strong>validated against live chain state</strong> before every run â€” fork blocks are checked via <code>eth_getBlockByNumber</code>, contract addresses via <code>eth_getCode</code>.</p>
 <h3 id="fidelity-levels">Fidelity Levels<a class="headerlink" href="#fidelity-levels" title="Permanent link">&para;</a></h3>
-<p>The L0–L4 fidelity system is <strong>enforced at runtime</strong>, not just documented. Each level has specific requirements:</p>
+<p>The L0â€“L4 fidelity system is <strong>enforced at runtime</strong>, not just documented. Each level has specific requirements:</p>
 <table>
 <thead>
 <tr>
@@ -3479,7 +3479,7 @@
 </table>
 <h3 id="instrumentation-proxy">Instrumentation Proxy<a class="headerlink" href="#instrumentation-proxy" title="Permanent link">&para;</a></h3>
 <p>The instrumentation proxy is a <strong>transparent HTTP proxy</strong> that sits between the attack plugin and Anvil:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Attack Plugin → Proxy (port random) → Anvil (port 8545)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Attack Plugin â†’ Proxy (port random) â†’ Anvil (port 8545)
 </code></pre></div>
 <p>After every <code>eth_sendTransaction</code>, the proxy automatically:</p>
 <ol>
@@ -3491,22 +3491,22 @@
 <hr />
 <h2 id="data-flow-experiment-lifecycle">Data Flow: Experiment Lifecycle<a class="headerlink" href="#data-flow-experiment-lifecycle" title="Permanent link">&para;</a></h2>
 <h3 id="phase-1-setup">Phase 1: Setup<a class="headerlink" href="#phase-1-setup" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>CLI → ExperimentRunner → ScenarioEngine → ChainManager
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>                                         ↘ PluginRegistry
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>CLI â†’ ExperimentRunner â†’ ScenarioEngine â†’ ChainManager
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>                                         â†˜ PluginRegistry
 </code></pre></div>
 <ol>
-<li><strong>Load config</strong> — <code>testbed.yaml</code> + <code>testbed.local.yaml</code> → Pydantic-validated <code>TestbedConfig</code></li>
-<li><strong>Load experiment YAML</strong> — topology, scenario, attack plugin specified</li>
-<li><strong>Auto-merge fork blocks</strong> — if evidence.yaml specifies a different fork block, update config automatically</li>
-<li><strong>Verify Foundry version</strong> — check <code>forge --version</code> against <code>required_version</code></li>
-<li><strong>Run publication gates</strong> — if in publication mode, check evidence completeness, baseline existence, git provenance</li>
-<li><strong>Execute scenario</strong> — chain forking starts here. The scenario engine executes YAML steps (log, impersonate, send_tx, forge_script, etc.)</li>
+<li><strong>Load config</strong> â€” <code>testbed.yaml</code> + <code>testbed.local.yaml</code> â†’ Pydantic-validated <code>TestbedConfig</code></li>
+<li><strong>Load experiment YAML</strong> â€” topology, scenario, attack plugin specified</li>
+<li><strong>Auto-merge fork blocks</strong> â€” if evidence.yaml specifies a different fork block, update config automatically</li>
+<li><strong>Verify Foundry version</strong> â€” check <code>forge --version</code> against <code>required_version</code></li>
+<li><strong>Run publication gates</strong> â€” if in publication mode, check evidence completeness, baseline existence, git provenance</li>
+<li><strong>Execute scenario</strong> â€” chain forking starts here. The scenario engine executes YAML steps (log, impersonate, send_tx, forge_script, etc.)</li>
 </ol>
 <h3 id="phase-2-instrumentation">Phase 2: Instrumentation<a class="headerlink" href="#phase-2-instrumentation" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ExperimentRunner → ChainManager.start_instrumentation()
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>                 → RpcProxy (per chain)
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>                     → HTTPServer on random port
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>                     → ThreadPoolExecutor (max 10 workers)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ExperimentRunner â†’ ChainManager.start_instrumentation()
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>                 â†’ RpcProxy (per chain)
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>                     â†’ HTTPServer on random port
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>                     â†’ ThreadPoolExecutor (max 10 workers)
 </code></pre></div>
 <p>Each chain gets its <strong>own proxy instance</strong> with its own handler class (via <code>_make_handler()</code> closure). The proxy:</p>
 <ul>
@@ -3515,35 +3515,35 @@
 <li>Schedules background trace tasks via <code>ThreadPoolExecutor</code></li>
 </ul>
 <h3 id="phase-3-attack-execution">Phase 3: Attack Execution<a class="headerlink" href="#phase-3-attack-execution" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ExperimentRunner → PluginRegistry.load(&quot;attack&quot;, name)
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>                 → AttackPlugin.run(context)
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>                     → AttackPlugin.execute(context)
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                         → eth_sendTransaction (via proxy URL)
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>                         → Proxy captures: gas, events, storage diffs, balance diffs
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ExperimentRunner â†’ PluginRegistry.load(&quot;attack&quot;, name)
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>                 â†’ AttackPlugin.run(context)
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>                     â†’ AttackPlugin.execute(context)
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>                         â†’ eth_sendTransaction (via proxy URL)
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>                         â†’ Proxy captures: gas, events, storage diffs, balance diffs
 </code></pre></div>
 <p>The attack plugin interacts with the chain through <code>context.chains.runtime_for("ethereum").rpc_url</code>, which points to the <strong>proxy</strong>, not directly to Anvil. Every transaction is automatically instrumented.</p>
 <h3 id="phase-4-teardown">Phase 4: Teardown<a class="headerlink" href="#phase-4-teardown" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ExperimentRunner → ChainManager.stop_instrumentation()
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>                 → Proxy.drain()     — wait for pending traces
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>                 → Proxy.stop()      — shutdown HTTP server
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>                 → LogManager.write_report()
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>                 → LogManager.write_integrity()
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>                 → FidelityEnforcer.check()
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>                 → write run_manifest.json
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>ExperimentRunner â†’ ChainManager.stop_instrumentation()
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>                 â†’ Proxy.drain()     â€” wait for pending traces
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>                 â†’ Proxy.stop()      â€” shutdown HTTP server
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>                 â†’ LogManager.write_report()
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>                 â†’ LogManager.write_integrity()
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>                 â†’ FidelityEnforcer.check()
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>                 â†’ write run_manifest.json
 </code></pre></div>
 <p>The shutdown sequence is critical: <code>drain()</code> <strong>must</strong> be called before <code>stop()</code> and before log handles close. This ensures all async trace tasks complete before artifacts are finalized.</p>
 <hr />
 <h2 id="configuration-system">Configuration System<a class="headerlink" href="#configuration-system" title="Permanent link">&para;</a></h2>
 <h3 id="configuration-hierarchy">Configuration Hierarchy<a class="headerlink" href="#configuration-hierarchy" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>.env                              ← RPC URLs, secrets
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  ↓ load_dotenv()
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>testbed.yaml                      ← Committed to git (base config)
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  ↓
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>testbed.local.yaml                ← Gitignored (per-user overrides)
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  ↓ deep_merge()
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>↓ expand_env()
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>↓ Pydantic model_validate()
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>→ TestbedConfig
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>.env                              â† RPC URLs, secrets
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  â†“ load_dotenv()
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>testbed.yaml                      â† Committed to git (base config)
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>  â†“
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>testbed.local.yaml                â† Gitignored (per-user overrides)
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>  â†“ deep_merge()
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>â†“ expand_env()
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>â†“ Pydantic model_validate()
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>â†’ TestbedConfig
 </code></pre></div>
 <h3 id="key-config-models">Key Config Models<a class="headerlink" href="#key-config-models" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">TestbedConfig</span><span class="p">:</span>
@@ -3576,10 +3576,10 @@
 </code></pre></div>
 <h3 id="built-in-validations">Built-In Validations<a class="headerlink" href="#built-in-validations" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Port uniqueness</strong> — no two chains can share a port</li>
-<li><strong>Chain ID uniqueness</strong> — no two chains can share a chain_id</li>
-<li><strong>Port range</strong> — must be 1–65535</li>
-<li><strong>Matrix detection</strong> — <code>load_experiment()</code> rejects matrix files with a helpful error message</li>
+<li><strong>Port uniqueness</strong> â€” no two chains can share a port</li>
+<li><strong>Chain ID uniqueness</strong> â€” no two chains can share a chain_id</li>
+<li><strong>Port range</strong> â€” must be 1â€“65535</li>
+<li><strong>Matrix detection</strong> â€” <code>load_experiment()</code> rejects matrix files with a helpful error message</li>
 </ul>
 <hr />
 <h2 id="key-design-decisions">Key Design Decisions<a class="headerlink" href="#key-design-decisions" title="Permanent link">&para;</a></h2>
@@ -3590,16 +3590,16 @@
 <h3 id="transparent-instrumentation">Transparent Instrumentation<a class="headerlink" href="#transparent-instrumentation" title="Permanent link">&para;</a></h3>
 <p>The proxy intercepts all RPC traffic. Researchers never add logging code. Any attack method (Python, Forge, <code>cast send</code>) produces complete artifacts.</p>
 <h3 id="snapshot-driven-reset">Snapshot-Driven Reset<a class="headerlink" href="#snapshot-driven-reset" title="Permanent link">&para;</a></h3>
-<p>Baselines are captured once after setup. Soft resets use <code>anvil_loadState</code> — no chain restart needed. This enables fast iteration during development.</p>
+<p>Baselines are captured once after setup. Soft resets use <code>anvil_loadState</code> â€” no chain restart needed. This enables fast iteration during development.</p>
 <h3 id="determinism-by-default">Determinism by Default<a class="headerlink" href="#determinism-by-default" title="Permanent link">&para;</a></h3>
 <p>Deterministic flags are <strong>opt-out</strong>, not opt-in. If a researcher does nothing, their experiments are deterministic.</p>
 <h3 id="plugins-for-capabilities">Plugins for Capabilities<a class="headerlink" href="#plugins-for-capabilities" title="Permanent link">&para;</a></h3>
 <p>New functionality arrives as plugins, not core rewrites:
-- <code>attack</code> — exploit reproductions
-- <code>bridge</code> — bridge protocol simulation
-- <code>agent</code> — LLM-driven autonomous agents</p>
+- <code>attack</code> â€” exploit reproductions
+- <code>bridge</code> â€” bridge protocol simulation
+- <code>agent</code> â€” LLM-driven autonomous agents</p>
 <h3 id="fidelity-levels-are-enforced">Fidelity Levels Are Enforced<a class="headerlink" href="#fidelity-levels-are-enforced" title="Permanent link">&para;</a></h3>
-<p>The L0–L4 fidelity system isn't just documentation — publication gates and runtime enforcers check requirements programmatically.</p>
+<p>The L0â€“L4 fidelity system isn't just documentation â€” publication gates and runtime enforcers check requirements programmatically.</p>
 <h3 id="separation-of-scenario-and-experiment">Separation of Scenario and Experiment<a class="headerlink" href="#separation-of-scenario-and-experiment" title="Permanent link">&para;</a></h3>
 <p><strong>Scenarios</strong> define environments (chain state, setup). <strong>Experiments</strong> pair a scenario + attack plugin for formal runs. The same scenario can be used with different attacks, and the same attack can run against different scenarios.</p>
 <hr />
@@ -3619,19 +3619,19 @@
 <td><strong>Attack</strong></td>
 <td><code>AttackPlugin</code></td>
 <td>Exploit reproduction</td>
-<td><code>prepare()</code> → <code>execute()</code> → <code>verify()</code> → <code>rollback()</code> → <code>cleanup()</code></td>
+<td><code>prepare()</code> â†’ <code>execute()</code> â†’ <code>verify()</code> â†’ <code>rollback()</code> â†’ <code>cleanup()</code></td>
 </tr>
 <tr>
 <td><strong>Bridge</strong></td>
 <td><code>BridgePlugin</code></td>
 <td>Cross-chain simulation</td>
-<td><code>deploy()</code> → <code>configure()</code> → <code>connect()</code> → <code>send_message()</code> → <code>reset()</code> → <code>destroy()</code></td>
+<td><code>deploy()</code> â†’ <code>configure()</code> â†’ <code>connect()</code> â†’ <code>send_message()</code> â†’ <code>reset()</code> â†’ <code>destroy()</code></td>
 </tr>
 <tr>
 <td><strong>Agent</strong></td>
 <td><code>AgentPlugin</code></td>
 <td>LLM-driven agents</td>
-<td><code>prepare()</code> → <code>observe()</code> → <code>think()</code> → <code>respond()</code> (loop) → <code>verify()</code></td>
+<td><code>prepare()</code> â†’ <code>observe()</code> â†’ <code>think()</code> â†’ <code>respond()</code> (loop) â†’ <code>verify()</code></td>
 </tr>
 </tbody>
 </table>
@@ -3647,27 +3647,27 @@
 <h3 id="experimentcontext">ExperimentContext<a class="headerlink" href="#experimentcontext" title="Permanent link">&para;</a></h3>
 <p>Every plugin method receives an <code>ExperimentContext</code> through which it accesses:</p>
 <ul>
-<li><strong>Chain state</strong> — <code>context.chains.runtime_for("ethereum")</code> → <code>JsonRpcClient</code></li>
-<li><strong>Logging</strong> — <code>context.log.step("message")</code>, <code>context.log.event(...)</code></li>
-<li><strong>Configuration</strong> — <code>context.config.chains["ethereum"].fork_block</code></li>
-<li><strong>Bridges</strong> — <code>context.bridge_plugin.send_message(...)</code> (if bridge plugin deployed)</li>
+<li><strong>Chain state</strong> â€” <code>context.chains.runtime_for("ethereum")</code> â†’ <code>JsonRpcClient</code></li>
+<li><strong>Logging</strong> â€” <code>context.log.step("message")</code>, <code>context.log.event(...)</code></li>
+<li><strong>Configuration</strong> â€” <code>context.config.chains["ethereum"].fork_block</code></li>
+<li><strong>Bridges</strong> â€” <code>context.bridge_plugin.send_message(...)</code> (if bridge plugin deployed)</li>
 </ul>
 <hr />
 <h2 id="chain-management">Chain Management<a class="headerlink" href="#chain-management" title="Permanent link">&para;</a></h2>
 <h3 id="anvil-subprocess-lifecycle">Anvil Subprocess Lifecycle<a class="headerlink" href="#anvil-subprocess-lifecycle" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Configured → Starting (Popen) → WaitingReady (poll eth_blockNumber)
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>→ Running → Instrumented (proxy attached)
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>→ Draining (flush traces) → Running → Stopped
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Configured â†’ Starting (Popen) â†’ WaitingReady (poll eth_blockNumber)
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>â†’ Running â†’ Instrumented (proxy attached)
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>â†’ Draining (flush traces) â†’ Running â†’ Stopped
 </code></pre></div>
 <h3 id="blank-fork-mode">Blank Fork Mode<a class="headerlink" href="#blank-fork-mode" title="Permanent link">&para;</a></h3>
 <p>When <code>fork_block: null</code>, Anvil starts <strong>without</strong> <code>--fork-url</code> as a standalone local EVM. This enables:</p>
 <ul>
-<li><strong>Fully offline operation</strong> — no RPC provider needed</li>
-<li><strong>Instant startup</strong> — &lt;1 second instead of 30s–5min</li>
-<li><strong>Full determinism</strong> — no archive state variability</li>
-<li><strong>CI/hermetic testing</strong> — zero external dependencies</li>
+<li><strong>Fully offline operation</strong> â€” no RPC provider needed</li>
+<li><strong>Instant startup</strong> â€” &lt;1 second instead of 30sâ€“5min</li>
+<li><strong>Full determinism</strong> â€” no archive state variability</li>
+<li><strong>CI/hermetic testing</strong> â€” zero external dependencies</li>
 </ul>
-<p>The instrumentation proxy works identically in both modes — no code changes needed.</p>
+<p>The instrumentation proxy works identically in both modes â€” no code changes needed.</p>
 <h3 id="3-tier-reset">3-Tier Reset<a class="headerlink" href="#3-tier-reset" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -3687,7 +3687,7 @@
 </tr>
 <tr>
 <td><strong>Medium</strong></td>
-<td>Kill → restart → restore</td>
+<td>Kill â†’ restart â†’ restore</td>
 <td>&lt;30s</td>
 <td>After process corruption</td>
 </tr>
@@ -3751,12 +3751,12 @@
 <h3 id="log-directory-structure">Log Directory Structure<a class="headerlink" href="#log-directory-structure" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>logs/
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>  nomad_replay/
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    DS-2026-00042/                    ← Run directory
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>      run.jsonl                       ← Lifecycle events
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>      run_manifest.json               ← Provenance + outcome
-<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>      log_integrity.json              ← SHA-256 hashes
-<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>      report.md                       ← Human-readable summary
-<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>      chain_ethereum/                 ← Per-chain artifacts
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>    DS-2026-00042/                    â† Run directory
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>      run.jsonl                       â† Lifecycle events
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>      run_manifest.json               â† Provenance + outcome
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>      log_integrity.json              â† SHA-256 hashes
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>      report.md                       â† Human-readable summary
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>      chain_ethereum/                 â† Per-chain artifacts
 <a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>        events.jsonl
 <a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>        gas_profile.jsonl
 <a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>        storage_diffs.jsonl
@@ -3773,11 +3773,11 @@
 <p>Fidelity enforcement runs <strong>after</strong> the attack executes but <strong>before</strong> the run manifest is written. This means the manifest reflects the fidelity check outcome.</p>
 <p>The <code>FidelityEnforcer</code> runs cumulative checks:</p>
 <ol>
-<li><strong>L0</strong> — Always passes (narrative only)</li>
-<li><strong>L1</strong> — Verifies the plugin returned a result</li>
-<li><strong>L2</strong> — Verifies chains match topology, trace artifacts exist, no auto-trace failures</li>
-<li><strong>L3</strong> — Verifies exploit transactions declared, transaction actions in run.jsonl</li>
-<li><strong>L4</strong> — Verifies 2+ chains, bridge plugin loaded, excluded_components declared</li>
+<li><strong>L0</strong> â€” Always passes (narrative only)</li>
+<li><strong>L1</strong> â€” Verifies the plugin returned a result</li>
+<li><strong>L2</strong> â€” Verifies chains match topology, trace artifacts exist, no auto-trace failures</li>
+<li><strong>L3</strong> â€” Verifies exploit transactions declared, transaction actions in run.jsonl</li>
+<li><strong>L4</strong> â€” Verifies 2+ chains, bridge plugin loaded, excluded_components declared</li>
 </ol>
 <hr />
 <h2 id="docker-architecture">Docker Architecture<a class="headerlink" href="#docker-architecture" title="Permanent link">&para;</a></h2>
@@ -3794,7 +3794,7 @@
 <tr>
 <td><strong>Single-container</strong></td>
 <td><code>docker compose run orchestrator ...</code></td>
-<td>Most experiments — Anvil runs inside orchestrator</td>
+<td>Most experiments â€” Anvil runs inside orchestrator</td>
 </tr>
 <tr>
 <td><strong>Daemon + orchestrator</strong></td>
@@ -3804,12 +3804,12 @@
 </tbody>
 </table>
 <h3 id="container-composition">Container Composition<a class="headerlink" href="#container-composition" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>orchestrator — Python 3.12 + Foundry + uv | Entrypoint: uv run crucible
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>dashboard    — Streamlit UI | Port 8501
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>anvil-ethereum — Foundry Anvil daemon | Port 8545
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>anvil-polygon  — Foundry Anvil daemon | Port 8546
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>anvil-bsc      — Foundry Anvil daemon | Port 8547
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>anvil-harmony  — Foundry Anvil daemon | Port 8548
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>orchestrator â€” Python 3.12 + Foundry + uv | Entrypoint: uv run crucible
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>dashboard    â€” Streamlit UI | Port 8501
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>anvil-ethereum â€” Foundry Anvil daemon | Port 8545
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>anvil-polygon  â€” Foundry Anvil daemon | Port 8546
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>anvil-bsc      â€” Foundry Anvil daemon | Port 8547
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>anvil-harmony  â€” Foundry Anvil daemon | Port 8548
 </code></pre></div>
 <p>Named volumes (<code>states_data</code>, <code>logs_data</code>) persist chain state and experiment artifacts across container restarts.</p>
 <hr />
@@ -3823,27 +3823,27 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ARCHITECTURE.md">Architecture Deep Dive</a></td>
+<td><a href="../ARCHITECTURE/">Architecture Deep Dive</a></td>
 <td>Complete component map, all 39 modules</td>
 </tr>
 <tr>
-<td><a href="DESIGN_DECISIONS.md">Design Decisions</a></td>
+<td><a href="../internal/DESIGN_DECISIONS/">Design Decisions</a></td>
 <td>Key tradeoffs and rationale</td>
 </tr>
 <tr>
-<td><a href="../INSTRUMENTATION_ARCHITECTURE.md">Instrumentation Architecture</a></td>
+<td><a href="../INSTRUMENTATION_ARCHITECTURE/">Instrumentation Architecture</a></td>
 <td>RPC proxy design in detail</td>
 </tr>
 <tr>
-<td><a href="../PLUGIN_DEVELOPMENT.md">Plugin Development Guide</a></td>
+<td><a href="../PLUGIN_DEVELOPMENT/">Plugin Development Guide</a></td>
 <td>Writing attack, bridge, and agent plugins (in website/)</td>
 </tr>
 <tr>
-<td><a href="../FIDELITY_GUIDE.md">Fidelity Guide</a></td>
-<td>L0–L4 fidelity levels and enforcement</td>
+<td><a href="../FIDELITY_GUIDE/">Fidelity Guide</a></td>
+<td>L0â€“L4 fidelity levels and enforcement</td>
 </tr>
 <tr>
-<td><a href="../REPRODUCIBILITY.md">Reproducibility Guide</a></td>
+<td><a href="../REPRODUCIBILITY/">Reproducibility Guide</a></td>
 <td>Provenance, determinism, bug log</td>
 </tr>
 </tbody>

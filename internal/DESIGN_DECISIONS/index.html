@@ -2799,70 +2799,70 @@
 <p>Every action is available via <code>crucible &lt;command&gt;</code>. The Streamlit dashboard is a separate read-only viewer.</p>
 <h3 id="rationale">Rationale<a class="headerlink" href="#rationale" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Scriptability</strong> — experiments can be automated, CI-ified, and chained</li>
-<li><strong>Docker-friendly</strong> — no GUI dependencies in the container</li>
-<li><strong>Reproducibility</strong> — the exact command is recorded in the experiment history</li>
-<li><strong>Composability</strong> — <code>crucible fork &amp;&amp; crucible experiment run ...</code> can be piped and scripted</li>
+<li><strong>Scriptability</strong> â€” experiments can be automated, CI-ified, and chained</li>
+<li><strong>Docker-friendly</strong> â€” no GUI dependencies in the container</li>
+<li><strong>Reproducibility</strong> â€” the exact command is recorded in the experiment history</li>
+<li><strong>Composability</strong> â€” <code>crucible fork &amp;&amp; crucible experiment run ...</code> can be piped and scripted</li>
 </ul>
 <h3 id="tradeoff">Tradeoff<a class="headerlink" href="#tradeoff" title="Permanent link">&para;</a></h3>
-<p>The CLI has a learning curve. New users must learn command names and flags before they can be productive. The tutorial and user guide exist to mitigate this. A future web UI could be built as a wrapper around the CLI — the CLI remains the source of truth.</p>
+<p>The CLI has a learning curve. New users must learn command names and flags before they can be productive. The tutorial and user guide exist to mitigate this. A future web UI could be built as a wrapper around the CLI â€” the CLI remains the source of truth.</p>
 <hr />
 <h2 id="2-topology-driven-chain-composition">2. Topology-Driven Chain Composition<a class="headerlink" href="#2-topology-driven-chain-composition" title="Permanent link">&para;</a></h2>
 <h3 id="decision_1">Decision<a class="headerlink" href="#decision_1" title="Permanent link">&para;</a></h3>
 <p>Topology YAML files declare which chains to fork. The same attack can run on different topologies without modification.</p>
 <h3 id="rationale_1">Rationale<a class="headerlink" href="#rationale_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Reusability</strong> — a single attack plugin works against any topology</li>
-<li><strong>Separation of concerns</strong> — topology is orthogonal to attack logic and scenario setup</li>
-<li><strong>Extensibility</strong> — adding a new chain config (e.g., Avalanche) doesn't affect existing experiments</li>
+<li><strong>Reusability</strong> â€” a single attack plugin works against any topology</li>
+<li><strong>Separation of concerns</strong> â€” topology is orthogonal to attack logic and scenario setup</li>
+<li><strong>Extensibility</strong> â€” adding a new chain config (e.g., Avalanche) doesn't affect existing experiments</li>
 </ul>
 <h3 id="tradeoff_1">Tradeoff<a class="headerlink" href="#tradeoff_1" title="Permanent link">&para;</a></h3>
-<p>This introduces indirection — a researcher must understand how topology, scenario, and attack plugins compose. The configuration is declarative YAML, which is easier to reason about than imperative orchestration code.</p>
+<p>This introduces indirection â€” a researcher must understand how topology, scenario, and attack plugins compose. The configuration is declarative YAML, which is easier to reason about than imperative orchestration code.</p>
 <hr />
 <h2 id="3-transparent-instrumentation-via-rpc-proxy">3. Transparent Instrumentation via RPC Proxy<a class="headerlink" href="#3-transparent-instrumentation-via-rpc-proxy" title="Permanent link">&para;</a></h2>
 <h3 id="decision_2">Decision<a class="headerlink" href="#decision_2" title="Permanent link">&para;</a></h3>
 <p>An HTTP proxy sits between the attack plugin and Anvil, automatically capturing artifacts from every transaction.</p>
 <h3 id="rationale_2">Rationale<a class="headerlink" href="#rationale_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Zero instrumentation code</strong> — attack plugins never need to add logging</li>
-<li><strong>Language-agnostic</strong> — works with Python, <code>forge script</code>, <code>cast send</code>, or any JSON-RPC client</li>
-<li><strong>Universal coverage</strong> — every transaction is captured, not just the ones the researcher remembered to log</li>
-<li><strong>Consistent format</strong> — all artifacts use the same JSONL schema, regardless of attack type</li>
+<li><strong>Zero instrumentation code</strong> â€” attack plugins never need to add logging</li>
+<li><strong>Language-agnostic</strong> â€” works with Python, <code>forge script</code>, <code>cast send</code>, or any JSON-RPC client</li>
+<li><strong>Universal coverage</strong> â€” every transaction is captured, not just the ones the researcher remembered to log</li>
+<li><strong>Consistent format</strong> â€” all artifacts use the same JSONL schema, regardless of attack type</li>
 </ul>
 <h3 id="tradeoff_2">Tradeoff<a class="headerlink" href="#tradeoff_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Proxies add latency</strong> — each transaction waits for the proxy to forward + receipt polling + trace</li>
-<li><strong>Proxy is a single point of failure</strong> — if it crashes, artifacts are lost</li>
-<li><strong>debug_traceTransaction dependency</strong> — storage diffs and balance changes depend on Anvil's <code>prestateTracer</code>. If it fails (known Anvil nightly-build issue), only gas + events are captured</li>
+<li><strong>Proxies add latency</strong> â€” each transaction waits for the proxy to forward + receipt polling + trace</li>
+<li><strong>Proxy is a single point of failure</strong> â€” if it crashes, artifacts are lost</li>
+<li><strong>debug_traceTransaction dependency</strong> â€” storage diffs and balance changes depend on Anvil's <code>prestateTracer</code>. If it fails (known Anvil nightly-build issue), only gas + events are captured</li>
 </ul>
-<p>The latency tradeoff is acceptable because experiments are not performance-sensitive — we care about correctness, not throughput. The proxy failure mode is handled by graceful fallback (gas + events still captured) and prominent warning logging.</p>
+<p>The latency tradeoff is acceptable because experiments are not performance-sensitive â€” we care about correctness, not throughput. The proxy failure mode is handled by graceful fallback (gas + events still captured) and prominent warning logging.</p>
 <hr />
 <h2 id="4-determinism-by-default-opt-out">4. Determinism by Default (Opt-Out)<a class="headerlink" href="#4-determinism-by-default-opt-out" title="Permanent link">&para;</a></h2>
 <h3 id="decision_3">Decision<a class="headerlink" href="#decision_3" title="Permanent link">&para;</a></h3>
 <p>All deterministic flags (<code>gas_price: 0</code>, <code>order: fifo</code>, <code>timestamp: fork_block</code>, <code>auto_mine: True</code>) are defaults. Researchers must explicitly opt out.</p>
 <h3 id="rationale_3">Rationale<a class="headerlink" href="#rationale_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Reproducibility is the primary goal</strong> — non-deterministic experiments are hard to debug and impossible to publish</li>
-<li><strong>Opt-out, not opt-in, changes the default behavior</strong> — if a researcher does nothing, their experiment is deterministic</li>
-<li><strong>Explicit opt-out documents the non-determinism</strong> — the config file shows exactly which flags were changed</li>
+<li><strong>Reproducibility is the primary goal</strong> â€” non-deterministic experiments are hard to debug and impossible to publish</li>
+<li><strong>Opt-out, not opt-in, changes the default behavior</strong> â€” if a researcher does nothing, their experiment is deterministic</li>
+<li><strong>Explicit opt-out documents the non-determinism</strong> â€” the config file shows exactly which flags were changed</li>
 </ul>
 <h3 id="tradeoff_3">Tradeoff<a class="headerlink" href="#tradeoff_3" title="Permanent link">&para;</a></h3>
-<p>Some real-world exploits depend on non-deterministic behavior (e.g., MEV, frontrunning, timestamp dependencies). Researchers studying these must disable determinism and document why. This is a feature, not a bug — it forces explicit documentation of non-deterministic assumptions.</p>
+<p>Some real-world exploits depend on non-deterministic behavior (e.g., MEV, frontrunning, timestamp dependencies). Researchers studying these must disable determinism and document why. This is a feature, not a bug â€” it forces explicit documentation of non-deterministic assumptions.</p>
 <hr />
 <h2 id="5-plugin-architecture-for-capabilities">5. Plugin Architecture for Capabilities<a class="headerlink" href="#5-plugin-architecture-for-capabilities" title="Permanent link">&para;</a></h2>
 <h3 id="decision_4">Decision<a class="headerlink" href="#decision_4" title="Permanent link">&para;</a></h3>
 <p>New functionality arrives as plugins (attack, bridge, agent), not core rewrites.</p>
 <h3 id="rationale_4">Rationale<a class="headerlink" href="#rationale_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Separation of concerns</strong> — the framework handles chain management, instrumentation, and artifacts; plugins handle domain logic</li>
-<li><strong>Independent development</strong> — plugins can be developed, tested, and versioned independently</li>
-<li><strong>Plugin registry</strong> — <code>PluginRegistry.discover()</code> auto-finds plugins by scanning <code>attacks/</code>, <code>bridges/</code>, <code>plugins/</code> directories</li>
+<li><strong>Separation of concerns</strong> â€” the framework handles chain management, instrumentation, and artifacts; plugins handle domain logic</li>
+<li><strong>Independent development</strong> â€” plugins can be developed, tested, and versioned independently</li>
+<li><strong>Plugin registry</strong> â€” <code>PluginRegistry.discover()</code> auto-finds plugins by scanning <code>attacks/</code>, <code>bridges/</code>, <code>plugins/</code> directories</li>
 </ul>
 <h3 id="tradeoff_4">Tradeoff<a class="headerlink" href="#tradeoff_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Plugin API stability</strong> — changes to the <code>ExperimentContext</code> or plugin ABCs can break existing plugins</li>
-<li><strong>Discovery conventions</strong> — plugins must follow directory naming conventions (name/name.py + plugin.yaml + evidence.yaml)</li>
-<li><strong>No dynamic loading</strong> — plugins are loaded at experiment time, not hot-loaded during a running experiment</li>
+<li><strong>Plugin API stability</strong> â€” changes to the <code>ExperimentContext</code> or plugin ABCs can break existing plugins</li>
+<li><strong>Discovery conventions</strong> â€” plugins must follow directory naming conventions (name/name.py + plugin.yaml + evidence.yaml)</li>
+<li><strong>No dynamic loading</strong> â€” plugins are loaded at experiment time, not hot-loaded during a running experiment</li>
 </ul>
 <p>The API stability tradeoff is mitigated by versioned plugin manifests (<code>plugin.yaml</code> includes a <code>version</code> field).</p>
 <hr />
@@ -2871,26 +2871,26 @@
 <p>Scenarios define environments (chain state, setup). Experiments pair a scenario + attack plugin for formal runs.</p>
 <h3 id="rationale_5">Rationale<a class="headerlink" href="#rationale_5" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Reusability</strong> — the same scenario can be used with different attacks</li>
-<li><strong>Testing</strong> — scenarios can be tested independently of attacks</li>
-<li><strong>Composability</strong> — a single experiment YAML wires together topology + scenario + attack</li>
+<li><strong>Reusability</strong> â€” the same scenario can be used with different attacks</li>
+<li><strong>Testing</strong> â€” scenarios can be tested independently of attacks</li>
+<li><strong>Composability</strong> â€” a single experiment YAML wires together topology + scenario + attack</li>
 </ul>
 <h3 id="tradeoff_5">Tradeoff<a class="headerlink" href="#tradeoff_5" title="Permanent link">&para;</a></h3>
 <p>More files to manage: each attack needs a scenario YAML, an experiment YAML, and the plugin code. This is mitigated by the <code>crucible attack init</code> command which scaffolds all three at once.</p>
 <hr />
 <h2 id="7-fidelity-levels-are-runtime-enforced">7. Fidelity Levels Are Runtime-Enforced<a class="headerlink" href="#7-fidelity-levels-are-runtime-enforced" title="Permanent link">&para;</a></h2>
 <h3 id="decision_6">Decision<a class="headerlink" href="#decision_6" title="Permanent link">&para;</a></h3>
-<p>The L0–L4 fidelity system is enforced by runtime checks (<code>FidelityEnforcer</code>) and pre-run gates (<code>PublicationGate</code>), not just documentation.</p>
+<p>The L0â€“L4 fidelity system is enforced by runtime checks (<code>FidelityEnforcer</code>) and pre-run gates (<code>PublicationGate</code>), not just documentation.</p>
 <h3 id="rationale_6">Rationale<a class="headerlink" href="#rationale_6" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Prevents accidental overclaiming</strong> — a researcher cannot claim L3 without actually replaying an exploit transaction</li>
-<li><strong>Self-validating</strong> — every experiment produces a fidelity check result in its manifest</li>
-<li><strong>Trustworthy</strong> — reviewers can trust the declared fidelity level because it's verified programmatically</li>
+<li><strong>Prevents accidental overclaiming</strong> â€” a researcher cannot claim L3 without actually replaying an exploit transaction</li>
+<li><strong>Self-validating</strong> â€” every experiment produces a fidelity check result in its manifest</li>
+<li><strong>Trustworthy</strong> â€” reviewers can trust the declared fidelity level because it's verified programmatically</li>
 </ul>
 <h3 id="tradeoff_6">Tradeoff<a class="headerlink" href="#tradeoff_6" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>L4 enforcement is limited</strong> — we can check topology and bridge plugin, but we can't verify that the bridge plugin correctly simulates the real protocol</li>
-<li><strong>False negatives</strong> — a fidelity check failure doesn't mean the reproduction is wrong, just that it doesn't meet the declared level</li>
+<li><strong>L4 enforcement is limited</strong> â€” we can check topology and bridge plugin, but we can't verify that the bridge plugin correctly simulates the real protocol</li>
+<li><strong>False negatives</strong> â€” a fidelity check failure doesn't mean the reproduction is wrong, just that it doesn't meet the declared level</li>
 </ul>
 <hr />
 <h2 id="8-archive-rpc-independence-blank-fork-mode">8. Archive RPC Independence (Blank Fork Mode)<a class="headerlink" href="#8-archive-rpc-independence-blank-fork-mode" title="Permanent link">&para;</a></h2>
@@ -2898,12 +2898,12 @@
 <p>When <code>fork_block: null</code>, Anvil starts as a standalone local EVM with zero remote dependencies.</p>
 <h3 id="rationale_7">Rationale<a class="headerlink" href="#rationale_7" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Offline operation</strong> — researchers can work without archive RPC access</li>
-<li><strong>CI-friendly</strong> — hermetic tests don't need remote infrastructure</li>
-<li><strong>Instant startup</strong> — blank forks start in &lt;1s vs 30s–5min for archive forks</li>
+<li><strong>Offline operation</strong> â€” researchers can work without archive RPC access</li>
+<li><strong>CI-friendly</strong> â€” hermetic tests don't need remote infrastructure</li>
+<li><strong>Instant startup</strong> â€” blank forks start in &lt;1s vs 30sâ€“5min for archive forks</li>
 </ul>
 <h3 id="tradeoff_7">Tradeoff<a class="headerlink" href="#tradeoff_7" title="Permanent link">&para;</a></h3>
-<p>Blank forks have <strong>no historical state</strong> — they start from a genesis-like state. This means:
+<p>Blank forks have <strong>no historical state</strong> â€” they start from a genesis-like state. This means:
 - Cannot reproduce historical exploits (requires archive fork)
 - Cannot verify contract addresses via <code>eth_getCode</code> (no contracts deployed)
 - Best suited for L4 validation experiments and development iteration</p>
@@ -2913,14 +2913,14 @@
 <p>Each chain in a topology gets its own <code>RpcProxy</code> instance with its own handler class (created via <code>_make_handler()</code> closure).</p>
 <h3 id="rationale_8">Rationale<a class="headerlink" href="#rationale_8" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>No shared state</strong> — each proxy forwards to its own Anvil, has its own <code>LogEmitter</code>, its own thread pool</li>
-<li><strong>Independent failure</strong> — one proxy failing doesn't affect others</li>
-<li><strong>Clear ownership</strong> — each chain's artifacts are in their own <code>chain_&lt;name&gt;/</code> directory</li>
+<li><strong>No shared state</strong> â€” each proxy forwards to its own Anvil, has its own <code>LogEmitter</code>, its own thread pool</li>
+<li><strong>Independent failure</strong> â€” one proxy failing doesn't affect others</li>
+<li><strong>Clear ownership</strong> â€” each chain's artifacts are in their own <code>chain_&lt;name&gt;/</code> directory</li>
 </ul>
 <h3 id="tradeoff_8">Tradeoff<a class="headerlink" href="#tradeoff_8" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>More resource usage</strong> — N chains = N HTTP servers + N thread pools</li>
-<li><strong>More ports</strong> — each proxy binds to a random port (mitigated by OS port management)</li>
+<li><strong>More resource usage</strong> â€” N chains = N HTTP servers + N thread pools</li>
+<li><strong>More ports</strong> â€” each proxy binds to a random port (mitigated by OS port management)</li>
 </ul>
 <hr />
 <h2 id="10-python-as-the-plugin-language">10. Python as the Plugin Language<a class="headerlink" href="#10-python-as-the-plugin-language" title="Permanent link">&para;</a></h2>
@@ -2928,34 +2928,34 @@
 <p>Attack, bridge, and agent plugins are written in Python.</p>
 <h3 id="rationale_9">Rationale<a class="headerlink" href="#rationale_9" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Rich ecosystem</strong> — <code>web3.py</code>, <code>eth-account</code>, cryptographic libraries available</li>
-<li><strong>Accessible</strong> — Python is the most common language in blockchain security research</li>
-<li><strong>Fast iteration</strong> — no compile step, dynamic imports via <code>importlib</code></li>
-<li><strong>Integration</strong> — easy to call Foundry's <code>forge</code> from Python subprocess, easy to parse JSON-RPC responses</li>
+<li><strong>Rich ecosystem</strong> â€” <code>web3.py</code>, <code>eth-account</code>, cryptographic libraries available</li>
+<li><strong>Accessible</strong> â€” Python is the most common language in blockchain security research</li>
+<li><strong>Fast iteration</strong> â€” no compile step, dynamic imports via <code>importlib</code></li>
+<li><strong>Integration</strong> â€” easy to call Foundry's <code>forge</code> from Python subprocess, easy to parse JSON-RPC responses</li>
 </ul>
 <h3 id="tradeoff_9">Tradeoff<a class="headerlink" href="#tradeoff_9" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Performance</strong> — Python is slower than Rust or Go for compute-heavy operations</li>
-<li><strong>Type safety</strong> — Python is dynamically typed (mitigated by Pydantic models and type hints)</li>
-<li><strong>Deployment</strong> — Python environment must be managed (mitigated by Docker + <code>uv</code>)</li>
+<li><strong>Performance</strong> â€” Python is slower than Rust or Go for compute-heavy operations</li>
+<li><strong>Type safety</strong> â€” Python is dynamically typed (mitigated by Pydantic models and type hints)</li>
+<li><strong>Deployment</strong> â€” Python environment must be managed (mitigated by Docker + <code>uv</code>)</li>
 </ul>
 <hr />
 <h2 id="11-jsonl-for-artifact-storage">11. JSONL for Artifact Storage<a class="headerlink" href="#11-jsonl-for-artifact-storage" title="Permanent link">&para;</a></h2>
 <h3 id="decision_10">Decision<a class="headerlink" href="#decision_10" title="Permanent link">&para;</a></h3>
-<p>Artifacts are stored as JSONL (JSON Lines) — one JSON object per line, gzip-friendly.</p>
+<p>Artifacts are stored as JSONL (JSON Lines) â€” one JSON object per line, gzip-friendly.</p>
 <h3 id="rationale_10">Rationale<a class="headerlink" href="#rationale_10" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Append-friendly</strong> — new lines can be appended without parsing the entire file</li>
-<li><strong>Streamable</strong> — can be processed line-by-line without loading into memory</li>
-<li><strong>Diffable</strong> — easy to compare two artifact sets line-by-line (used by <code>diff.py</code>)</li>
-<li><strong>Portable</strong> — every language can parse JSONL; no special tools needed</li>
-<li><strong>Versionable</strong> — SHA-256 hashes are per-file, so integrity verification is straightforward</li>
+<li><strong>Append-friendly</strong> â€” new lines can be appended without parsing the entire file</li>
+<li><strong>Streamable</strong> â€” can be processed line-by-line without loading into memory</li>
+<li><strong>Diffable</strong> â€” easy to compare two artifact sets line-by-line (used by <code>diff.py</code>)</li>
+<li><strong>Portable</strong> â€” every language can parse JSONL; no special tools needed</li>
+<li><strong>Versionable</strong> â€” SHA-256 hashes are per-file, so integrity verification is straightforward</li>
 </ul>
 <h3 id="tradeoff_10">Tradeoff<a class="headerlink" href="#tradeoff_10" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>No schema enforcement</strong> — any component can write malformed JSONL (mitigated by <code>schema.py</code> validation)</li>
-<li><strong>No indexing</strong> — querying artifacts requires full scan (acceptable for research-scale data)</li>
-<li><strong>Storage size</strong> — JSONL is not as compact as binary formats (mitigated by gzip for export bundles)</li>
+<li><strong>No schema enforcement</strong> â€” any component can write malformed JSONL (mitigated by <code>schema.py</code> validation)</li>
+<li><strong>No indexing</strong> â€” querying artifacts requires full scan (acceptable for research-scale data)</li>
+<li><strong>Storage size</strong> â€” JSONL is not as compact as binary formats (mitigated by gzip for export bundles)</li>
 </ul>
 <hr />
 <h2 id="12-lazy-imports-in-public-api">12. Lazy Imports in Public API<a class="headerlink" href="#12-lazy-imports-in-public-api" title="Permanent link">&para;</a></h2>
@@ -2963,14 +2963,14 @@
 <p>Heavy modules (<code>web3</code>, <code>urllib</code>, agent system) are lazy-loaded via <code>__getattr__</code> in <code>__init__.py</code>.</p>
 <h3 id="rationale_11">Rationale<a class="headerlink" href="#rationale_11" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Fast CLI startup</strong> — <code>crucible --help</code> should respond instantly, not wait for <code>web3</code> to import</li>
-<li><strong>Minimal dependency chain</strong> — importing <code>crucible</code> doesn't trigger heavy transitive imports</li>
-<li><strong>Graceful degradation</strong> — agent system imports fail only when agent functionality is actually used</li>
+<li><strong>Fast CLI startup</strong> â€” <code>crucible --help</code> should respond instantly, not wait for <code>web3</code> to import</li>
+<li><strong>Minimal dependency chain</strong> â€” importing <code>crucible</code> doesn't trigger heavy transitive imports</li>
+<li><strong>Graceful degradation</strong> â€” agent system imports fail only when agent functionality is actually used</li>
 </ul>
 <h3 id="tradeoff_11">Tradeoff<a class="headerlink" href="#tradeoff_11" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Import-time errors become runtime errors</strong> — a broken agent module won't be discovered until someone runs an agent experiment</li>
-<li><strong>Type checking complexity</strong> — lazy imports require <code>TYPE_CHECKING</code> guards</li>
+<li><strong>Import-time errors become runtime errors</strong> â€” a broken agent module won't be discovered until someone runs an agent experiment</li>
+<li><strong>Type checking complexity</strong> â€” lazy imports require <code>TYPE_CHECKING</code> guards</li>
 </ul>
 <hr />
 <h2 id="13-fork-cache-fingerprinting">13. Fork Cache Fingerprinting<a class="headerlink" href="#13-fork-cache-fingerprinting" title="Permanent link">&para;</a></h2>
@@ -2978,14 +2978,14 @@
 <p>Fork caches are fingerprinted with provenance data (provider identity, block number, chain ID, Foundry version, config hash) and managed by a policy-controlled <code>CacheManager</code>.</p>
 <h3 id="rationale_12">Rationale<a class="headerlink" href="#rationale_12" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Auditability</strong> — <code>crucible cache inspect</code> shows exactly how each cache entry was created</li>
-<li><strong>Stale detection</strong> — <code>CacheManager.verify_manifest()</code> detects provider changes, block changes, version drift</li>
-<li><strong>Policy control</strong> — <code>strict</code> policy invalidates on any mismatch; <code>permissive</code> policy warns but continues</li>
+<li><strong>Auditability</strong> â€” <code>crucible cache inspect</code> shows exactly how each cache entry was created</li>
+<li><strong>Stale detection</strong> â€” <code>CacheManager.verify_manifest()</code> detects provider changes, block changes, version drift</li>
+<li><strong>Policy control</strong> â€” <code>strict</code> policy invalidates on any mismatch; <code>permissive</code> policy warns but continues</li>
 </ul>
 <h3 id="tradeoff_12">Tradeoff<a class="headerlink" href="#tradeoff_12" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Cache misses on version changes</strong> — every Foundry nightly update invalidates the cache</li>
-<li><strong>Storage overhead</strong> — cache manifests consume minimal space but the cache directory can grow large (mitigated by <code>invalidate_all()</code>)</li>
+<li><strong>Cache misses on version changes</strong> â€” every Foundry nightly update invalidates the cache</li>
+<li><strong>Storage overhead</strong> â€” cache manifests consume minimal space but the cache directory can grow large (mitigated by <code>invalidate_all()</code>)</li>
 </ul>
 <hr />
 <h2 id="14-agent-privilege-levels">14. Agent Privilege Levels<a class="headerlink" href="#14-agent-privilege-levels" title="Permanent link">&para;</a></h2>
@@ -2993,14 +2993,14 @@
 <p>LLM agents have configurable privilege levels (low/medium/high) that gate tool access.</p>
 <h3 id="rationale_13">Rationale<a class="headerlink" href="#rationale_13" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Safety</strong> — restricts what an autonomous agent can do on a forked chain</li>
-<li><strong>Progressive disclosure</strong> — researchers can start agents at low privilege and increase as they gain confidence</li>
-<li><strong>Auditability</strong> — all agent actions are logged with privilege level</li>
+<li><strong>Safety</strong> â€” restricts what an autonomous agent can do on a forked chain</li>
+<li><strong>Progressive disclosure</strong> â€” researchers can start agents at low privilege and increase as they gain confidence</li>
+<li><strong>Auditability</strong> â€” all agent actions are logged with privilege level</li>
 </ul>
 <h3 id="tradeoff_13">Tradeoff<a class="headerlink" href="#tradeoff_13" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>LOW privilege is very limited</strong> — read-only queries only, which may not be enough for complex exploits</li>
-<li><strong>HIGH privilege is dangerous</strong> — full access including time manipulation; must be used carefully</li>
+<li><strong>LOW privilege is very limited</strong> â€” read-only queries only, which may not be enough for complex exploits</li>
+<li><strong>HIGH privilege is dangerous</strong> â€” full access including time manipulation; must be used carefully</li>
 </ul>
 <hr />
 <h2 id="15-no-cicd-pipeline">15. No CI/CD Pipeline<a class="headerlink" href="#15-no-cicd-pipeline" title="Permanent link">&para;</a></h2>
@@ -3008,15 +3008,15 @@
 <p>The project runs locally without CI. Tests are run on-device.</p>
 <h3 id="rationale_14">Rationale<a class="headerlink" href="#rationale_14" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Docker dependency</strong> — tests need Anvil, which needs x86 architecture and Foundry</li>
-<li><strong>Offline development</strong> — researchers work on air-gapped machines, lab workstations</li>
-<li><strong>Simplicity</strong> — no CI configuration to maintain, no provider lock-in</li>
+<li><strong>Docker dependency</strong> â€” tests need Anvil, which needs x86 architecture and Foundry</li>
+<li><strong>Offline development</strong> â€” researchers work on air-gapped machines, lab workstations</li>
+<li><strong>Simplicity</strong> â€” no CI configuration to maintain, no provider lock-in</li>
 </ul>
 <h3 id="tradeoff_14">Tradeoff<a class="headerlink" href="#tradeoff_14" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>No automated regression testing</strong> — all testing is manual or scripted</li>
-<li><strong>No coverage enforcement</strong> — researchers must run tests themselves</li>
-<li><strong>Golden fixture tests deferred</strong> — checked-in state fixtures were removed because they provide no local benefit</li>
+<li><strong>No automated regression testing</strong> â€” all testing is manual or scripted</li>
+<li><strong>No coverage enforcement</strong> â€” researchers must run tests themselves</li>
+<li><strong>Golden fixture tests deferred</strong> â€” checked-in state fixtures were removed because they provide no local benefit</li>
 </ul>
 <hr />
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
@@ -3029,7 +3029,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="TECHNICAL_OVERVIEW.md">Technical Overview</a></td>
+<td><a href="../../TECHNICAL_OVERVIEW/">Technical Overview</a></td>
 <td>System philosophy and architecture at a glance</td>
 </tr>
 <tr>

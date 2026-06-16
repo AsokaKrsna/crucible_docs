@@ -1453,10 +1453,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#research-data-errors-contract-addresses-fork-blocks-4-bugs" class="md-nav__link">
+  <a href="#research-data-errors-a-contract-addresses-fork-blocks-4-bugs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Research Data Errors — Contract Addresses &amp; Fork Blocks (4 bugs)
+        Research Data Errors â€” Contract Addresses &amp; Fork Blocks (4 bugs)
       
     </span>
   </a>
@@ -2571,10 +2571,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#research-data-errors-contract-addresses-fork-blocks-4-bugs" class="md-nav__link">
+  <a href="#research-data-errors-a-contract-addresses-fork-blocks-4-bugs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Research Data Errors — Contract Addresses &amp; Fork Blocks (4 bugs)
+        Research Data Errors â€” Contract Addresses &amp; Fork Blocks (4 bugs)
       
     </span>
   </a>
@@ -2854,7 +2854,7 @@
 
 <h1 id="reproducibility-guide">Reproducibility Guide<a class="headerlink" href="#reproducibility-guide" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p><strong>New to Crucible?</strong> Reproducibility is baked into the testbed's core design. The <a href="internal/TECHNICAL_OVERVIEW.md">Technical Overview</a> explains the philosophy behind determinism-by-default, cache fingerprinting, and fidelity enforcement. For the design rationale behind each reproducibility mechanism, see the <a href="../internal/DESIGN_DECISIONS/">Design Decisions</a> document.</p>
+<p><strong>New to Crucible?</strong> Reproducibility is baked into the testbed's core design. The <a href="../TECHNICAL_OVERVIEW/">Technical Overview</a> explains the philosophy behind determinism-by-default, cache fingerprinting, and fidelity enforcement. For the design rationale behind each reproducibility mechanism, see the <a href="../internal/DESIGN_DECISIONS/">Design Decisions</a> document.</p>
 </blockquote>
 <h2 id="what-makes-a-crucible-run-reproducible">What Makes A Crucible Run Reproducible<a class="headerlink" href="#what-makes-a-crucible-run-reproducible" title="Permanent link">&para;</a></h2>
 <p>Every <code>crucible experiment run</code> pins the following in <code>run_manifest.json</code>:</p>
@@ -3014,7 +3014,7 @@ fingerprints match the current config:</p>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>crucible<span class="w"> </span>verify<span class="w"> </span>datasets/&lt;run_id&gt;
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>cat<span class="w"> </span>datasets/&lt;run_id&gt;/bundle_hash.txt
 </code></pre></div>
-<p>The export bundle is self-contained — copy it anywhere and verify
+<p>The export bundle is self-contained â€” copy it anywhere and verify
 integrity without the original workspace.</p>
 <h3 id="export-bundle-structure">Export Bundle Structure<a class="headerlink" href="#export-bundle-structure" title="Permanent link">&para;</a></h3>
 <p>The exported bundle (<code>.tar.gz</code> or uncompressed directory) built by <code>crucible.export.ExportBundle</code> contains:
@@ -3027,7 +3027,7 @@ integrity without the original workspace.</p>
 - All JSONL streams (<code>events.jsonl</code>, <code>storage_diffs.jsonl</code>, <code>gas_profile.jsonl</code>, <code>run.jsonl</code>, etc.)
 - (Optional) <code>.protected</code> marker indicating publication status.</p>
 <h2 id="lessons-learned-from-validation-june-2026">Lessons Learned From Validation (June 2026)<a class="headerlink" href="#lessons-learned-from-validation-june-2026" title="Permanent link">&para;</a></h2>
-<p>Across two validation rounds — initial A-Z validation and a full attack-pack testing session — <strong>21 bugs were found and fixed</strong> across 5 categories. Every issue here caused a real experiment failure.</p>
+<p>Across two validation rounds â€” initial A-Z validation and a full attack-pack testing session â€” <strong>21 bugs were found and fixed</strong> across 5 categories. Every issue here caused a real experiment failure.</p>
 <h3 id="round-1-initial-validation-13-bugs">Round 1: Initial Validation (13 bugs)<a class="headerlink" href="#round-1-initial-validation-13-bugs" title="Permanent link">&para;</a></h3>
 <h4 id="infrastructure-docker-issues-6-bugs">Infrastructure &amp; Docker Issues (6 bugs)<a class="headerlink" href="#infrastructure-docker-issues-6-bugs" title="Permanent link">&para;</a></h4>
 <table>
@@ -3120,7 +3120,7 @@ integrity without the original workspace.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="research-data-errors-contract-addresses-fork-blocks-4-bugs">Research Data Errors — Contract Addresses &amp; Fork Blocks (4 bugs)<a class="headerlink" href="#research-data-errors-contract-addresses-fork-blocks-4-bugs" title="Permanent link">&para;</a></h4>
+<h4 id="research-data-errors-a-contract-addresses-fork-blocks-4-bugs">Research Data Errors â€” Contract Addresses &amp; Fork Blocks (4 bugs)<a class="headerlink" href="#research-data-errors-a-contract-addresses-fork-blocks-4-bugs" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -3186,7 +3186,7 @@ integrity without the original workspace.</p>
 <td>15</td>
 <td><strong>Port TIME_WAIT after killing old Anvil</strong></td>
 <td><code>experiment.py</code></td>
-<td>New Anvil can't bind — port in TIME_WAIT</td>
+<td>New Anvil can't bind â€” port in TIME_WAIT</td>
 <td>Poll port every 500ms for up to 10 seconds before restarting</td>
 </tr>
 <tr>
@@ -3222,7 +3222,7 @@ integrity without the original workspace.</p>
 <td><strong>Double <code>0x</code> prefix in bytecode</strong></td>
 <td>3 bridge plugins</td>
 <td><code>RPC error: invalid value "0x0x6080..."</code></td>
-<td>Remove <code>"0x" +</code> prefix — Foundry bytecode already has it</td>
+<td>Remove <code>"0x" +</code> prefix â€” Foundry bytecode already has it</td>
 </tr>
 <tr>
 <td>19</td>
@@ -3262,8 +3262,8 @@ integrity without the original workspace.</p>
 </tbody>
 </table>
 <h3 id="root-cause-analysis">Root Cause Analysis<a class="headerlink" href="#root-cause-analysis" title="Permanent link">&para;</a></h3>
-<p><strong>Round 1 (Most common):</strong> Contract addresses that were actually <strong>EOAs</strong> (user wallets), not contracts — 3 out of 13 bugs.</p>
-<p><strong>Round 2 (Most common):</strong> Framework lifecycle bugs — 4 out of 7 bugs were in <code>experiment.py</code> and <code>checkpoint.py</code>, where auto-merge, port management, and checkpointing didn't handle edge cases. The remaining 3 were bridge plugin issues, plus 1 CLI enhancement (--no-auto-merge flag).</p>
+<p><strong>Round 1 (Most common):</strong> Contract addresses that were actually <strong>EOAs</strong> (user wallets), not contracts â€” 3 out of 13 bugs.</p>
+<p><strong>Round 2 (Most common):</strong> Framework lifecycle bugs â€” 4 out of 7 bugs were in <code>experiment.py</code> and <code>checkpoint.py</code>, where auto-merge, port management, and checkpointing didn't handle edge cases. The remaining 3 were bridge plugin issues, plus 1 CLI enhancement (--no-auto-merge flag).</p>
 <table>
 <thead>
 <tr>
@@ -3311,7 +3311,7 @@ integrity without the original workspace.</p>
 <p>Crucible uses a <strong>dual-verification baseline system</strong> that ensures reproducibility across runs:</p>
 <h3 id="how-baselines-work">How Baselines Work<a class="headerlink" href="#how-baselines-work" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Capture</strong> — After forking and bootstrapping, <code>crucible baseline capture &lt;scenario&gt;</code>:</li>
+<li><strong>Capture</strong> â€” After forking and bootstrapping, <code>crucible baseline capture &lt;scenario&gt;</code>:</li>
 <li>Dumps the full EVM state for each chain via <code>anvil_dumpState</code></li>
 <li>Canonicalizes and SHA-256 hashes the state</li>
 <li>Captures a <strong>live state hash</strong> from the running chain</li>
@@ -3319,7 +3319,7 @@ integrity without the original workspace.</p>
 <p>Writes a baseline manifest YAML with both hashes</p>
 </li>
 <li>
-<p><strong>Verify</strong> — Before running an experiment, <code>crucible baseline verify &lt;scenario&gt;</code>:</p>
+<p><strong>Verify</strong> â€” Before running an experiment, <code>crucible baseline verify &lt;scenario&gt;</code>:</p>
 </li>
 <li>Re-computes the snapshot file hash and compares it to the manifest</li>
 <li><strong>If the chain is running</strong>: also compares the live chain state against the captured state hash</li>
@@ -3327,14 +3327,14 @@ integrity without the original workspace.</p>
 <p>This dual check catches both file corruption AND environment drift</p>
 </li>
 <li>
-<p><strong>Restore</strong> — <code>crucible reset --mode soft</code> loads the baseline snapshot back into the running chain via <code>anvil_loadState</code> (&lt;5s)</p>
+<p><strong>Restore</strong> â€” <code>crucible reset --mode soft</code> loads the baseline snapshot back into the running chain via <code>anvil_loadState</code> (&lt;5s)</p>
 </li>
 </ol>
 <h3 id="baseline-storage">Baseline Storage<a class="headerlink" href="#baseline-storage" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>states/baseline/
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├── &lt;scenario&gt;.baseline.yaml      # Manifest with hashes and metadata
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>├── &lt;scenario&gt;.&lt;chain&gt;.json       # Full EVM state snapshot
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>└── &lt;scenario&gt;.&lt;chain2&gt;.json      # One per chain in topology
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>â”œâ”€â”€ &lt;scenario&gt;.baseline.yaml      # Manifest with hashes and metadata
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>â”œâ”€â”€ &lt;scenario&gt;.&lt;chain&gt;.json       # Full EVM state snapshot
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>â””â”€â”€ &lt;scenario&gt;.&lt;chain2&gt;.json      # One per chain in topology
 </code></pre></div>
 <h3 id="when-baselines-go-stale">When Baselines Go Stale<a class="headerlink" href="#when-baselines-go-stale" title="Permanent link">&para;</a></h3>
 <table>
@@ -3382,8 +3382,8 @@ integrity without the original workspace.</p>
 <a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">cache_policy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">permissive</span><span class="w">  </span><span class="c1"># or &quot;strict&quot;</span>
 </code></pre></div>
 <ul>
-<li><strong>strict</strong> — Invalidates cache on ANY mismatch (provider, foundry version, config fingerprint). Ensures bit-identical forks but may re-fetch frequently.</li>
-<li><strong>permissive</strong> — Warns on mismatch but doesn't invalidate. Faster for development, uses cache even if config changed slightly.</li>
+<li><strong>strict</strong> â€” Invalidates cache on ANY mismatch (provider, foundry version, config fingerprint). Ensures bit-identical forks but may re-fetch frequently.</li>
+<li><strong>permissive</strong> â€” Warns on mismatch but doesn't invalidate. Faster for development, uses cache even if config changed slightly.</li>
 </ul>
 <h3 id="cache-provenance">Cache Provenance<a class="headerlink" href="#cache-provenance" title="Permanent link">&para;</a></h3>
 <p>Each cache entry has a manifest tracking:
@@ -3493,11 +3493,11 @@ integrity without the original workspace.</p>
 <a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="c1"># The run is now protected from all auto-cleanup</span>
 </code></pre></div>
 <h3 id="publication-lifecycle">Publication Lifecycle<a class="headerlink" href="#publication-lifecycle" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>1. Run experiment          → crucible experiment run ... --tier saved
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>2. Verify artifacts        → crucible verify logs/&lt;experiment&gt;/&lt;run_id&gt;
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>3. Promote to published    → crucible publish &lt;run_id&gt;
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>4. Export publication bundle → crucible export &lt;run_id&gt; --format tar-gz
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>5. Upload to Zenodo/archive → Upload datasets/&lt;run_id&gt;.tar.gz
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>1. Run experiment          â†’ crucible experiment run ... --tier saved
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>2. Verify artifacts        â†’ crucible verify logs/&lt;experiment&gt;/&lt;run_id&gt;
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>3. Promote to published    â†’ crucible publish &lt;run_id&gt;
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>4. Export publication bundle â†’ crucible export &lt;run_id&gt; --format tar-gz
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>5. Upload to Zenodo/archive â†’ Upload datasets/&lt;run_id&gt;.tar.gz
 </code></pre></div>
 <h2 id="pre-reproduction-workflow">Pre-Reproduction Workflow<a class="headerlink" href="#pre-reproduction-workflow" title="Permanent link">&para;</a></h2>
 <p>Before running any reproduction, set up your environment:</p>
@@ -3524,7 +3524,7 @@ integrity without the original workspace.</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="internal/TECHNICAL_OVERVIEW.md"><code>Technical Overview</code></a></td>
+<td><a href="../TECHNICAL_OVERVIEW/"><code>Technical Overview</code></a></td>
 <td>System architecture, core concepts, data flow, design principles</td>
 </tr>
 <tr>
@@ -3533,7 +3533,7 @@ integrity without the original workspace.</p>
 </tr>
 <tr>
 <td><a href="../PLUGIN_DEVELOPMENT/"><code>Plugin Development Guide</code></a></td>
-<td>Writing attack, bridge, and agent plugins — step-by-step</td>
+<td>Writing attack, bridge, and agent plugins â€” step-by-step</td>
 </tr>
 <tr>
 <td><a href="../BENCHMARKS/"><code>Benchmark Attack Packs</code></a></td>
@@ -3545,7 +3545,7 @@ integrity without the original workspace.</p>
 </tr>
 <tr>
 <td><a href="../FIDELITY_GUIDE/"><code>Fidelity Guide</code></a></td>
-<td>Fidelity levels (L0–L4), enforcement rules, --no-fidelity usage</td>
+<td>Fidelity levels (L0â€“L4), enforcement rules, --no-fidelity usage</td>
 </tr>
 </tbody>
 </table>

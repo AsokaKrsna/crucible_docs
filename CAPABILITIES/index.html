@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#crucible-testbed-capabilities-limitations" class="md-skip">
+        <a href="#crucible-testbed-a-capabilities-limitations" class="md-skip">
           Skip to content
         </a>
       
@@ -2894,7 +2894,7 @@
 
 
 
-<h1 id="crucible-testbed-capabilities-limitations">Crucible Testbed — Capabilities &amp; Limitations<a class="headerlink" href="#crucible-testbed-capabilities-limitations" title="Permanent link">&para;</a></h1>
+<h1 id="crucible-testbed-a-capabilities-limitations">Crucible Testbed â€” Capabilities &amp; Limitations<a class="headerlink" href="#crucible-testbed-a-capabilities-limitations" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p><strong>Purpose:</strong> A clear, honest assessment of what the Crucible testbed can and cannot do. This document helps researchers, reviewers, and users understand the boundaries of the system before investing time in it.</p>
 </blockquote>
@@ -2911,59 +2911,59 @@
 <tbody>
 <tr>
 <td><strong>Benchmark attacks</strong></td>
-<td>✅ 5 of 6 pass</td>
+<td>âœ… 5 of 6 pass</td>
 <td>All at L2 fork-state fidelity</td>
 </tr>
 <tr>
 <td><strong>L4 bridge demos</strong></td>
-<td>✅ 2 of 2 pass</td>
+<td>âœ… 2 of 2 pass</td>
 <td>nomad_bridge_l4, demo_agent (with --no-fidelity)</td>
 </tr>
 <tr>
 <td><strong>Version</strong></td>
-<td>✅ v0.4.0</td>
-<td>Tagged release — clean git history with professional commits</td>
+<td>âœ… v0.4.0</td>
+<td>Tagged release â€” clean git history with professional commits</td>
 </tr>
 <tr>
 <td><strong>Unit tests</strong></td>
-<td>✅ 782 passed, 0 failed</td>
+<td>âœ… 782 passed, 0 failed</td>
 <td>No regressions, all passing</td>
 </tr>
 <tr>
 <td><strong>Documentation</strong></td>
-<td>✅ 28 docs, comprehensive</td>
+<td>âœ… 28 docs, comprehensive</td>
 <td>User guide, CLI, troubleshooting, fidelity, RPC, architecture, etc.</td>
 </tr>
 <tr>
 <td><strong>Determinism checks</strong></td>
-<td>✅ 4 of 5 verified</td>
+<td>âœ… 4 of 5 verified</td>
 <td>wormhole, nomad, horizon, bnb_token_hub all deterministic; poly_network has archive-RPC variability across 3 chains</td>
 </tr>
 <tr>
 <td><strong>Cross-provider verification</strong></td>
-<td>❌ Skipped</td>
+<td>âŒ Skipped</td>
 <td>No second RPC provider available (free tiers only); see code-level analysis below</td>
 </tr>
 <tr>
 <td><strong>Publication bundles</strong></td>
-<td>✅ 4 exported</td>
+<td>âœ… 4 exported</td>
 <td>All passing experiments exported with integrity PASS; wormhole/nomad have 24 files each, horizon/bnb have 18 files each</td>
 </tr>
 <tr>
 <td><strong>Artifact protection</strong></td>
-<td>✅ Permanent by default</td>
+<td>âœ… Permanent by default</td>
 <td><code>clean --all</code> never touches logs/ or datasets/; <code>--logs</code> respects tiers; <code>--datasets</code> requires <code>--confirm</code>; publish adds <code>.protected</code> marker</td>
 </tr>
 <tr>
 <td><strong>CI/CD</strong></td>
-<td>❌ Removed</td>
-<td>Local-only project — tests run on-device, no CI pipeline configured</td>
+<td>âŒ Removed</td>
+<td>Local-only project â€” tests run on-device, no CI pipeline configured</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <blockquote>
-<p><strong>Deep-dive reference:</strong> For a complete understanding of <em>why</em> the testbed is designed this way — the architecture, core concepts, design philosophy, and key decisions — see the <a href="internal/TECHNICAL_OVERVIEW.md">Technical Overview</a> and <a href="../internal/DESIGN_DECISIONS/">Design Decisions</a> documents.</p>
+<p><strong>Deep-dive reference:</strong> For a complete understanding of <em>why</em> the testbed is designed this way â€” the architecture, core concepts, design philosophy, and key decisions â€” see the <a href="../TECHNICAL_OVERVIEW/">Technical Overview</a> and <a href="../internal/DESIGN_DECISIONS/">Design Decisions</a> documents.</p>
 </blockquote>
 <h2 id="what-the-testbed-can-do">What The Testbed CAN Do<a class="headerlink" href="#what-the-testbed-can-do" title="Permanent link">&para;</a></h2>
 <h3 id="1-reproduce-5-historical-bridge-exploits-at-l2-fork-state">1. Reproduce 5 Historical Bridge Exploits at L2 (Fork-State)<a class="headerlink" href="#1-reproduce-5-historical-bridge-exploits-at-l2-fork-state" title="Permanent link">&para;</a></h3>
@@ -3060,7 +3060,7 @@
 <tr>
 <td><code>nomad_bridge</code></td>
 <td>ethereum + polygon</td>
-<td><code>committedRoot == 0x00</code> — forged message accepted</td>
+<td><code>committedRoot == 0x00</code> â€” forged message accepted</td>
 </tr>
 <tr>
 <td><code>poly_network_bridge</code></td>
@@ -3070,7 +3070,7 @@
 <tr>
 <td><code>wormhole_bridge</code></td>
 <td>ethereum + polygon</td>
-<td>Guardian bypass — forged VAA accepted</td>
+<td>Guardian bypass â€” forged VAA accepted</td>
 </tr>
 </tbody>
 </table>
@@ -3177,10 +3177,10 @@
 <h3 id="1-reproduce-non-evm-attack-components">1. Reproduce Non-EVM Attack Components<a class="headerlink" href="#1-reproduce-non-evm-attack-components" title="Permanent link">&para;</a></h3>
 <p><strong>Crucible is EVM-only.</strong> It uses Foundry's <code>anvil</code> which can only fork EVM-compatible chains (Ethereum, BSC, Polygon). Attacks involving:</p>
 <ul>
-<li><strong>Solana</strong> (Wormhole root cause was Solana-side — EVM-side effects only are reproducible)</li>
+<li><strong>Solana</strong> (Wormhole root cause was Solana-side â€” EVM-side effects only are reproducible)</li>
 <li><strong>Cosmos/IBC</strong> (cross-chain messages originating from non-EVM chains)</li>
-<li><strong>Harmony ONE</strong> (Horizon bridge — Harmony chain is not EVM)</li>
-<li><strong>Moonriver</strong> (Multichain — Moonriver is Substrate/Kusama-based)</li>
+<li><strong>Harmony ONE</strong> (Horizon bridge â€” Harmony chain is not EVM)</li>
+<li><strong>Moonriver</strong> (Multichain â€” Moonriver is Substrate/Kusama-based)</li>
 <li><strong>Substrate-based chains</strong> (Polkadot, Kusama, etc.)</li>
 </ul>
 <p>...are documented in <code>excluded_components</code> in each attack's <code>evidence.yaml</code>. The non-EVM portion is <strong>modeled, not reproduced.</strong></p>
@@ -3207,7 +3207,7 @@
 </tr>
 </tbody>
 </table>
-<p>These are correctly classified as <strong>L1 (narrative)</strong> — the testbed documents the incident but cannot reproduce it on-chain.</p>
+<p>These are correctly classified as <strong>L1 (narrative)</strong> â€” the testbed documents the incident but cannot reproduce it on-chain.</p>
 <h3 id="3-serve-full-archive-state-for-polygonbsc-at-old-blocks">3. Serve Full Archive State for Polygon/BSC at Old Blocks<a class="headerlink" href="#3-serve-full-archive-state-for-polygonbsc-at-old-blocks" title="Permanent link">&para;</a></h3>
 <p><strong>This is an RPC provider limitation, not a Crucible bug.</strong> At the fork blocks used by the attack packs:</p>
 <table>
@@ -3223,30 +3223,30 @@
 <tr>
 <td>Ethereum</td>
 <td>12-16M</td>
-<td>✅ Ankr free tier</td>
-<td>✅</td>
+<td>âœ… Ankr free tier</td>
+<td>âœ…</td>
 </tr>
 <tr>
 <td>BSC</td>
 <td>9.7M or 22M</td>
-<td>❌ No free provider</td>
-<td>✅ GetBlock $39/mo</td>
+<td>âŒ No free provider</td>
+<td>âœ… GetBlock $39/mo</td>
 </tr>
 <tr>
 <td>Polygon</td>
 <td>16.3M</td>
-<td>❌ No free provider</td>
-<td>✅ GetBlock $39/mo</td>
+<td>âŒ No free provider</td>
+<td>âœ… GetBlock $39/mo</td>
 </tr>
 </tbody>
 </table>
-<p>Even paid "archive" providers may fail to serve state for <strong>non-existent addresses</strong> at old fork blocks. This affects <code>anvil_setBalance</code> when bridge plugins try to fund new deployer addresses. The fix (applied to all 3 bridge plugins) wraps per-chain deployment in <code>try/except</code> — the offending chain is skipped gracefully.</p>
+<p>Even paid "archive" providers may fail to serve state for <strong>non-existent addresses</strong> at old fork blocks. This affects <code>anvil_setBalance</code> when bridge plugins try to fund new deployer addresses. The fix (applied to all 3 bridge plugins) wraps per-chain deployment in <code>try/except</code> â€” the offending chain is skipped gracefully.</p>
 <h3 id="4-run-l4-experiments-without-no-fidelity">4. Run L4 Experiments Without <code>--no-fidelity</code><a class="headerlink" href="#4-run-l4-experiments-without-no-fidelity" title="Permanent link">&para;</a></h3>
 <p>L4 fidelity enforcement checks for:
 - 2+ chains in <code>historical_scope.chains</code>
 - Bridge plugin in topology
 - <code>excluded_components</code> declared</p>
-<p>Bridge demo experiments (e.g., <code>nomad_bridge_l4</code>) don't meet these requirements by design — they're demonstrations, not formal reproductions. Use <code>--no-fidelity</code> for L4 demos.</p>
+<p>Bridge demo experiments (e.g., <code>nomad_bridge_l4</code>) don't meet these requirements by design â€” they're demonstrations, not formal reproductions. Use <code>--no-fidelity</code> for L4 demos.</p>
 <h3 id="5-guarantee-bit-identical-cross-platform-results">5. Guarantee Bit-Identical Cross-Platform Results<a class="headerlink" href="#5-guarantee-bit-identical-cross-platform-results" title="Permanent link">&para;</a></h3>
 <p>The <code>run_manifest.json</code> captures the full provenance (git commit, Foundry version, Python version, config fingerprint), but:
 - Different Foundry nightly versions may produce different gas estimates
@@ -3259,8 +3259,8 @@
 <p>Artifacts are the most valuable output of the testbed. They are protected by <strong>multiple layers</strong>:</p>
 <h3 id="layer-1-clean-all-never-touches-artifacts">Layer 1: <code>clean --all</code> Never Touches Artifacts<a class="headerlink" href="#layer-1-clean-all-never-touches-artifacts" title="Permanent link">&para;</a></h3>
 <p><code>crucible clean --all</code> only removes <strong>runtime state</strong>: <code>.fork_cache</code>, <code>states/checkpoints/</code>, <code>states/snapshots/</code>. It does <strong>NOT</strong> touch:
-- <code>logs/</code> (experiment run artifacts) — protected unless <code>--logs</code> is explicitly passed
-- <code>datasets/</code> (exported publication bundles) — protected unless <code>--datasets --confirm</code> is explicitly passed</p>
+- <code>logs/</code> (experiment run artifacts) â€” protected unless <code>--logs</code> is explicitly passed
+- <code>datasets/</code> (exported publication bundles) â€” protected unless <code>--datasets --confirm</code> is explicitly passed</p>
 <p>This means it's safe to run <code>clean --all</code> between experiments without worrying about losing results.</p>
 <h3 id="layer-2-explicit-flags-for-artifact-cleanup">Layer 2: Explicit Flags for Artifact Cleanup<a class="headerlink" href="#layer-2-explicit-flags-for-artifact-cleanup" title="Permanent link">&para;</a></h3>
 <table>
@@ -3291,8 +3291,8 @@
 </table>
 <h3 id="layer-3-publish-command-adds-protected-marker">Layer 3: Publish Command Adds <code>.protected</code> Marker<a class="headerlink" href="#layer-3-publish-command-adds-protected-marker" title="Permanent link">&para;</a></h3>
 <p>Running <code>crucible publish &lt;run_id&gt;</code>:
-1. Sets the run's tier to <code>published</code> — protected from <code>--logs</code> and <code>--logs-older-than</code>
-2. Writes a <code>.protected</code> marker file in <code>datasets/&lt;run_id&gt;/</code> — protected from <code>--datasets --confirm</code></p>
+1. Sets the run's tier to <code>published</code> â€” protected from <code>--logs</code> and <code>--logs-older-than</code>
+2. Writes a <code>.protected</code> marker file in <code>datasets/&lt;run_id&gt;/</code> â€” protected from <code>--datasets --confirm</code></p>
 <h3 id="layer-4-docker-persistence">Layer 4: Docker Persistence<a class="headerlink" href="#layer-4-docker-persistence" title="Permanent link">&para;</a></h3>
 <p>The <code>datasets/</code> directory is on the <strong>bind mount</strong> (<code>.:/workspace</code>), not on a Docker named volume. This means:
 - Export bundles survive container restarts and <code>docker compose down</code>
@@ -3339,7 +3339,7 @@
 <tr>
 <td>Bridge bytecode double <code>0x</code> prefix</td>
 <td>New bridge plugin development</td>
-<td>Use <code>"data": bytecode</code> (not <code>"0x" + bytecode</code>) — Foundry already has <code>0x</code></td>
+<td>Use <code>"data": bytecode</code> (not <code>"0x" + bytecode</code>) â€” Foundry already has <code>0x</code></td>
 </tr>
 <tr>
 <td>Multichain L1 doesn't return AttackResult</td>
@@ -3358,16 +3358,16 @@
 <p><strong>23 issues found and resolved across 3 validation rounds (22 bugs + 1 enhancement).</strong> See <a href="../REPRODUCIBILITY/"><code>docs/REPRODUCIBILITY.md</code></a> for the full log.</p>
 <h3 id="framework-4-bugs-fixed">Framework (4 bugs fixed)<a class="headerlink" href="#framework-4-bugs-fixed" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Auto-merge kills chain but never restarts → now re-forks automatically</li>
-<li>Port TIME_WAIT after killing old Anvil → port polling loop (500ms × 20 attempts)</li>
-<li>Checkpoints snapshot dead chains → filtered to active topology only</li>
-<li>Fidelity failures hidden from console → reasons printed inline below <code>[fail]</code></li>
+<li>Auto-merge kills chain but never restarts â†’ now re-forks automatically</li>
+<li>Port TIME_WAIT after killing old Anvil â†’ port polling loop (500ms Ã— 20 attempts)</li>
+<li>Checkpoints snapshot dead chains â†’ filtered to active topology only</li>
+<li>Fidelity failures hidden from console â†’ reasons printed inline below <code>[fail]</code></li>
 </ul>
 <h3 id="bridge-plugins-3-bugs-fixed">Bridge Plugins (3 bugs fixed)<a class="headerlink" href="#bridge-plugins-3-bugs-fixed" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Double <code>0x</code> prefix in bytecode → removed extra <code>"0x" +</code></li>
-<li>Precompile deployer fails on archive nodes → try/except per-chain</li>
-<li>Placeholder string in bridge evidence.yaml → empty list <code>[]</code></li>
+<li>Double <code>0x</code> prefix in bytecode â†’ removed extra <code>"0x" +</code></li>
+<li>Precompile deployer fails on archive nodes â†’ try/except per-chain</li>
+<li>Placeholder string in bridge evidence.yaml â†’ empty list <code>[]</code></li>
 </ul>
 <h3 id="cli-1-feature-added">CLI (1 feature added)<a class="headerlink" href="#cli-1-feature-added" title="Permanent link">&para;</a></h3>
 <ul>
@@ -3375,15 +3375,15 @@
 </ul>
 <h3 id="documentation-6-docs-createdupdated">Documentation (6 docs created/updated)<a class="headerlink" href="#documentation-6-docs-createdupdated" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>docs/FIDELITY_GUIDE.md</code> — NEW comprehensive fidelity reference</li>
-<li><code>docs/ATTACK_PACK_GUIDE.md</code> — 8 new Common Pitfalls entries</li>
-<li><code>docs/TROUBLESHOOTING.md</code> — 9 new error entries + local environment section</li>
-<li><code>docs/CLI_REFERENCE.md</code> — Added <code>--no-auto-merge</code>, <code>--no-fidelity</code> flags</li>
-<li><code>docs/SCENARIO_AUTHORING.md</code> — Added <code>--no-auto-merge</code> note</li>
-<li><code>docs/RPC_PROVIDER_GUIDE.md</code> — Archive depth issues, fork block reference</li>
-<li><code>docs/USER_GUIDE.md</code> — UV/venv guide, Docker vs local comparison, local workflow</li>
-<li><code>docs/REPRODUCIBILITY.md</code> — Expanded lessons from 13 to 21 bugs</li>
-<li><code>docs/BENCHMARKS.md</code> — Actual run results, L4 bridge demo status</li>
+<li><code>docs/FIDELITY_GUIDE.md</code> â€” NEW comprehensive fidelity reference</li>
+<li><code>docs/ATTACK_PACK_GUIDE.md</code> â€” 8 new Common Pitfalls entries</li>
+<li><code>docs/TROUBLESHOOTING.md</code> â€” 9 new error entries + local environment section</li>
+<li><code>docs/CLI_REFERENCE.md</code> â€” Added <code>--no-auto-merge</code>, <code>--no-fidelity</code> flags</li>
+<li><code>docs/SCENARIO_AUTHORING.md</code> â€” Added <code>--no-auto-merge</code> note</li>
+<li><code>docs/RPC_PROVIDER_GUIDE.md</code> â€” Archive depth issues, fork block reference</li>
+<li><code>docs/USER_GUIDE.md</code> â€” UV/venv guide, Docker vs local comparison, local workflow</li>
+<li><code>docs/REPRODUCIBILITY.md</code> â€” Expanded lessons from 13 to 21 bugs</li>
+<li><code>docs/BENCHMARKS.md</code> â€” Actual run results, L4 bridge demo status</li>
 </ul>
 <hr />
 <h2 id="determinism-reproducibility-verification">Determinism &amp; Reproducibility Verification<a class="headerlink" href="#determinism-reproducibility-verification" title="Permanent link">&para;</a></h2>
@@ -3407,62 +3407,62 @@
 <td><strong>wormhole_replay</strong></td>
 <td>bridge</td>
 <td>ethereum + polygon</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
+<td>âœ… true</td>
+<td>âœ… true</td>
+<td>âœ… true</td>
+<td>âœ… true</td>
 <td><strong>Deterministic</strong></td>
 </tr>
 <tr>
 <td><strong>nomad_replay</strong></td>
 <td>bridge</td>
 <td>ethereum + polygon</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
+<td>âœ… true</td>
+<td>âœ… true</td>
+<td>âœ… true</td>
+<td>âœ… true</td>
 <td><strong>Deterministic</strong></td>
 </tr>
 <tr>
 <td><strong>horizon_replay</strong></td>
 <td>single</td>
 <td>ethereum</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
+<td>âœ… true</td>
+<td>âœ… true</td>
+<td>âœ… true</td>
+<td>âœ… true</td>
 <td><strong>Deterministic</strong></td>
 </tr>
 <tr>
 <td><strong>bnb_token_hub_replay</strong></td>
 <td>single_bsc</td>
 <td>bsc</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
-<td>✅ true</td>
+<td>âœ… true</td>
+<td>âœ… true</td>
+<td>âœ… true</td>
+<td>âœ… true</td>
 <td><strong>Deterministic</strong></td>
 </tr>
 <tr>
 <td><strong>poly_network_replay</strong></td>
 <td>poly_network_full</td>
 <td>ethereum + polygon + bsc</td>
-<td>❌ false</td>
-<td>✅ true</td>
-<td>❌ false</td>
-<td>❌ false</td>
+<td>âŒ false</td>
+<td>âœ… true</td>
+<td>âŒ false</td>
+<td>âŒ false</td>
 <td><strong>Non-deterministic</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>4 of 5 experiments are fully deterministic.</strong> The only non-deterministic result (poly_network) is expected — it forks 3 chains simultaneously and Polygon/BSC archive RPCs may return slightly different state per run (see <a href="#3-serve-full-archive-state-for-polygonbsc-at-old-blocks">Archive RPC Limitations</a>).</p>
+<p><strong>4 of 5 experiments are fully deterministic.</strong> The only non-deterministic result (poly_network) is expected â€” it forks 3 chains simultaneously and Polygon/BSC archive RPCs may return slightly different state per run (see <a href="#3-serve-full-archive-state-for-polygonbsc-at-old-blocks">Archive RPC Limitations</a>).</p>
 <h3 id="cross-provider-verification">Cross-Provider Verification<a class="headerlink" href="#cross-provider-verification" title="Permanent link">&para;</a></h3>
 <p>Not run. The <code>.env</code> includes only one free-tier RPC provider per chain:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ETHEREUM_RPC_URL=https://rpc.ankr.com/eth
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>POLYGON_RPC_URL=https://rpc.ankr.com/polygon
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>BSC_RPC_URL=https://rpc.ankr.com/bsc
 </code></pre></div>
-<p>A second RPC provider (e.g., GetBlock, QuickNode, Alchemy) would be needed to confirm results are provider-independent. At the code level, the framework has no provider-dependent logic — all chain interaction goes through the JSON-RPC client abstraction. Any provider-capable client should produce equivalent results if they serve the same archive state.</p>
+<p>A second RPC provider (e.g., GetBlock, QuickNode, Alchemy) would be needed to confirm results are provider-independent. At the code level, the framework has no provider-dependent logic â€” all chain interaction goes through the JSON-RPC client abstraction. Any provider-capable client should produce equivalent results if they serve the same archive state.</p>
 <h3 id="export-bundles">Export Bundles<a class="headerlink" href="#export-bundles" title="Permanent link">&para;</a></h3>
 <p>4 of 5 experiments have publication-ready export bundles in <code>datasets/</code>:</p>
 <table>
@@ -3481,38 +3481,38 @@
 <td>DS-2026-00155</td>
 <td><code>datasets/DS-2026-00155</code></td>
 <td>24</td>
-<td>✅ PASS</td>
+<td>âœ… PASS</td>
 </tr>
 <tr>
 <td>nomad_replay</td>
 <td>DS-2026-00158</td>
 <td><code>datasets/DS-2026-00158</code></td>
 <td>24</td>
-<td>✅ PASS</td>
+<td>âœ… PASS</td>
 </tr>
 <tr>
 <td>horizon_replay</td>
 <td>DS-2026-00160</td>
 <td><code>datasets/DS-2026-00160</code></td>
 <td>18</td>
-<td>✅ PASS</td>
+<td>âœ… PASS</td>
 </tr>
 <tr>
 <td>bnb_token_hub_replay</td>
 <td>DS-2026-00159</td>
 <td><code>datasets/DS-2026-00159</code></td>
 <td>18</td>
-<td>✅ PASS</td>
+<td>âœ… PASS</td>
 </tr>
 </tbody>
 </table>
 <p>File count varies by topology complexity: bridge-topology experiments (wormhole, nomad) produce 24 files from 2 forked chains; single-chain experiments (horizon, bnb) produce 18 files from 1 chain.</p>
 <p>Each bundle contains:
-- <code>artifact_bundle_manifest.json</code> — SHA-256 hashes of every file
-- <code>publication_report.json</code> — machine-readable report with outcome, assertions
-- <code>provenance.json</code> — extracted provenance data
-- <code>assertions.json</code> — all assertion results from the run
-- <code>REPRODUCE.md</code> — exact reproduction instructions
+- <code>artifact_bundle_manifest.json</code> â€” SHA-256 hashes of every file
+- <code>publication_report.json</code> â€” machine-readable report with outcome, assertions
+- <code>provenance.json</code> â€” extracted provenance data
+- <code>assertions.json</code> â€” all assertion results from the run
+- <code>REPRODUCE.md</code> â€” exact reproduction instructions
 - All original run artifacts (run.jsonl, events.jsonl, storage_diffs.jsonl, etc.)</p>
 <hr />
 <h2 id="recommended-next-steps">Recommended Next Steps<a class="headerlink" href="#recommended-next-steps" title="Permanent link">&para;</a></h2>
@@ -3580,7 +3580,7 @@
 <td>All CLI commands and flags</td>
 </tr>
 <tr>
-<td><a href="internal/TECHNICAL_OVERVIEW.md"><code>docs/internal/TECHNICAL_OVERVIEW.md</code></a></td>
+<td><a href="../TECHNICAL_OVERVIEW/"><code>docs/TECHNICAL_OVERVIEW.md</code></a></td>
 <td>System architecture, core concepts, data flow, design principles</td>
 </tr>
 <tr>

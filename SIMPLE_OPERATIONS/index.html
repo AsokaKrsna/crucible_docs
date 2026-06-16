@@ -2132,10 +2132,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#topology-mismatch-running-bridge-experiments-on-single-topology" class="md-nav__link">
+  <a href="#topology-mismatch-a-running-bridge-experiments-on-single-topology" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Topology Mismatch — Running Bridge Experiments on Single Topology
+        Topology Mismatch â€” Running Bridge Experiments on Single Topology
       
     </span>
   </a>
@@ -3247,10 +3247,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#topology-mismatch-running-bridge-experiments-on-single-topology" class="md-nav__link">
+  <a href="#topology-mismatch-a-running-bridge-experiments-on-single-topology" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Topology Mismatch — Running Bridge Experiments on Single Topology
+        Topology Mismatch â€” Running Bridge Experiments on Single Topology
       
     </span>
   </a>
@@ -3460,7 +3460,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># testbed.local.yaml</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">chains</span><span class="p">:</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">ethereum</span><span class="p">:</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">fork_block</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span><span class="w">   </span><span class="c1"># blank fork — starts from genesis</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">fork_block</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">null</span><span class="w">   </span><span class="c1"># blank fork â€” starts from genesis</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8545</span>
 </code></pre></div>
 <p>Then fork normally:</p>
@@ -3472,12 +3472,12 @@
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>crucible<span class="w"> </span>status
 </code></pre></div>
 <p>Output example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>┌──────────┬──────┬──────┬───────┬────────┬───────────┬──────────┬─────────────────────────┐
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>│ Name     │ PID  │ Port │ Block │ Status │ Gas Price │ Base Fee │ RPC                     │
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>├──────────┼──────┼──────┼───────┼────────┼───────────┼──────────┼─────────────────────────┤
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>│ ethereum │ 1234 │ 8545 │ 12996693 │ ALIVE │ 0         │ 1gwei    │ http://127.0.0.1:8545   │
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>│ polygon  │ 1235 │ 8546 │ 16332982 │ ALIVE │ 0         │ 1gwei    │ http://127.0.0.1:8546   │
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>└──────────┴──────┴──────┴───────┴────────┴───────────┴──────────┴─────────────────────────┘
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>â”‚ Name     â”‚ PID  â”‚ Port â”‚ Block â”‚ Status â”‚ Gas Price â”‚ Base Fee â”‚ RPC                     â”‚
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>â”‚ ethereum â”‚ 1234 â”‚ 8545 â”‚ 12996693 â”‚ ALIVE â”‚ 0         â”‚ 1gwei    â”‚ http://127.0.0.1:8545   â”‚
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>â”‚ polygon  â”‚ 1235 â”‚ 8546 â”‚ 16332982 â”‚ ALIVE â”‚ 0         â”‚ 1gwei    â”‚ http://127.0.0.1:8546   â”‚
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 </code></pre></div>
 <p>Also see disk usage:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>crucible<span class="w"> </span>status<span class="w"> </span>--disk
@@ -3489,7 +3489,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Create a snapshot</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>crucible<span class="w"> </span>snapshot<span class="w"> </span>create<span class="w"> </span>my_state
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Restore a snapshot (instant — loads saved state back into memory)</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Restore a snapshot (instant â€” loads saved state back into memory)</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>crucible<span class="w"> </span>snapshot<span class="w"> </span>restore<span class="w"> </span>my_state<span class="w"> </span>--chain<span class="w"> </span>ethereum
 <a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
 <a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Snapshot specific chains in multi-chain topologies</span>
@@ -3511,7 +3511,7 @@
 <tr>
 <td><strong>soft</strong></td>
 <td>&lt;5s</td>
-<td><code>anvil_loadState</code> from baseline snapshot — no process restart</td>
+<td><code>anvil_loadState</code> from baseline snapshot â€” no process restart</td>
 </tr>
 <tr>
 <td><strong>medium</strong></td>
@@ -3525,7 +3525,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Fastest — just reload state</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Fastest â€” just reload state</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>crucible<span class="w"> </span>reset<span class="w"> </span>--scenario<span class="w"> </span>single<span class="w"> </span>--mode<span class="w"> </span>soft
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
 <a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Full clean restart</span>
@@ -3550,9 +3550,9 @@
 <hr />
 <h2 id="4-working-with-accounts">4. Working With Accounts<a class="headerlink" href="#4-working-with-accounts" title="Permanent link">&para;</a></h2>
 <h3 id="account-model">Account Model<a class="headerlink" href="#account-model" title="Permanent link">&para;</a></h3>
-<p>Crucible starts Anvil with <code>--accounts 0 --balance 0</code>. This means <strong>no pre-funded test accounts</strong> are created. This is intentional — some archive nodes fail when Anvil tries to prefetch balance for the default Foundry accounts at historical blocks.</p>
+<p>Crucible starts Anvil with <code>--accounts 0 --balance 0</code>. This means <strong>no pre-funded test accounts</strong> are created. This is intentional â€” some archive nodes fail when Anvil tries to prefetch balance for the default Foundry accounts at historical blocks.</p>
 <h3 id="fund-any-address">Fund Any Address<a class="headerlink" href="#fund-any-address" title="Permanent link">&para;</a></h3>
-<p>Since <code>--auto-impersonate</code> is always enabled, you can use <strong>any</strong> address — you just need to give it balance first.</p>
+<p>Since <code>--auto-impersonate</code> is always enabled, you can use <strong>any</strong> address â€” you just need to give it balance first.</p>
 <p><strong>With <code>cast</code>:</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Fund with 1000 ETH</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>cast<span class="w"> </span>rpc<span class="w"> </span>anvil_setBalance<span class="w"> </span><span class="se">\</span>
@@ -3581,7 +3581,7 @@
 <a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="s1">  }&#39;</span>
 </code></pre></div></p>
 <blockquote>
-<p><strong>💡 Tip:</strong> Create a shell script <code>fund.sh</code> that funds your test accounts:
+<p><strong>ðŸ’¡ Tip:</strong> Create a shell script <code>fund.sh</code> that funds your test accounts:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="ch">#!/bin/bash</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nv">RPC</span><span class="o">=</span><span class="s2">&quot;http://127.0.0.1:8545&quot;</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nv">ETH1000</span><span class="o">=</span><span class="k">$(</span>cast<span class="w"> </span>to-wei<span class="w"> </span><span class="m">1000</span><span class="w"> </span>ether<span class="k">)</span>
@@ -3656,7 +3656,7 @@ Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
 <a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span>--unlocked<span class="w"> </span>--broadcast
 </code></pre></div>
 <blockquote>
-<p><strong>⚠️ Note:</strong> When using <code>forge script</code> against a Crucible fork, the deployer address (default: <code>0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266</code>) needs to be funded first with <code>anvil_setBalance</code> since Crucible uses <code>--accounts 0</code>.</p>
+<p><strong>âš ï¸ Note:</strong> When using <code>forge script</code> against a Crucible fork, the deployer address (default: <code>0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266</code>) needs to be funded first with <code>anvil_setBalance</code> since Crucible uses <code>--accounts 0</code>.</p>
 </blockquote>
 <hr />
 <h2 id="6-calling-contracts-read-only">6. Calling Contracts (Read-Only)<a class="headerlink" href="#6-calling-contracts-read-only" title="Permanent link">&para;</a></h2>
@@ -3785,7 +3785,7 @@ Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
 <p>Even during ad-hoc manual testing, Crucible's instrumentation proxy captures everything automatically if you use <code>crucible setup</code> instead of <code>crucible fork</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>crucible<span class="w"> </span>setup<span class="w"> </span>--topology<span class="w"> </span>single<span class="w">   </span><span class="c1"># fork + bootstrap + instrumentation</span>
 </code></pre></div>
-<p>Now every transaction — whether sent via <code>cast</code>, <code>curl</code>, Python, or <code>forge script</code> — produces artifact streams:</p>
+<p>Now every transaction â€” whether sent via <code>cast</code>, <code>curl</code>, Python, or <code>forge script</code> â€” produces artifact streams:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="c1"># See captured events</span>
 <a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>cat<span class="w"> </span>logs/setup/bootstrap/events.jsonl<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-5
 <a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
@@ -3805,7 +3805,7 @@ Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
 <a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="c1"># Find storage changes for a specific contract</span>
 <a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>grep<span class="w"> </span><span class="s2">&quot;0xTargetContract&quot;</span><span class="w"> </span>logs/setup/bootstrap/storage_diffs.jsonl
 </code></pre></div>
-<p>To use the proxy URL instead of the raw Anvil URL — the proxy port is <strong>dynamically assigned</strong> and printed in the setup output:</p>
+<p>To use the proxy URL instead of the raw Anvil URL â€” the proxy port is <strong>dynamically assigned</strong> and printed in the setup output:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="c1"># After crucible setup, the proxy URL is shown in the CLI output.</span>
 <a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="c1"># Example output: &quot;started instrumented proxy for ethereum on http://127.0.0.1:34567&quot;</span>
 <a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="c1"># Use that URL for all your cast calls to get automatic artifact capture:</span>
@@ -3853,7 +3853,7 @@ Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
 </code></pre></div>
 <hr />
 <h2 id="11-cleaning-up">11. Cleaning Up<a class="headerlink" href="#11-cleaning-up" title="Permanent link">&para;</a></h2>
-<p>For the full list of clean commands — <code>crucible clean</code>, <code>--all</code>, <code>--cache</code>, <code>--logs</code>, <code>--states</code>, <code>--checkpoints</code>, <code>--datasets</code>, and <code>--logs-older-than</code> — see the <a href="../QUICK_REFERENCE/#cleaning-up">Quick Reference</a>.</p>
+<p>For the full list of clean commands â€” <code>crucible clean</code>, <code>--all</code>, <code>--cache</code>, <code>--logs</code>, <code>--states</code>, <code>--checkpoints</code>, <code>--datasets</code>, and <code>--logs-older-than</code> â€” see the <a href="../QUICK_REFERENCE/#cleaning-up">Quick Reference</a>.</p>
 <h3 id="fresh-start">Fresh Start<a class="headerlink" href="#fresh-start" title="Permanent link">&para;</a></h3>
 <p>To completely reset the workspace (stop chains, remove all artifacts, cache, and logs):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>crucible<span class="w"> </span>clean<span class="w"> </span>--all<span class="w"> </span>--logs<span class="w"> </span>--datasets<span class="w"> </span>--confirm
@@ -3862,7 +3862,7 @@ Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
 <hr />
 <h2 id="12-common-workflows">12. Common Workflows<a class="headerlink" href="#12-common-workflows" title="Permanent link">&para;</a></h2>
 <h3 id="workflow-contract-development-debugging">Workflow: Contract Development &amp; Debugging<a class="headerlink" href="#workflow-contract-development-debugging" title="Permanent link">&para;</a></h3>
-<h3 id="topology-mismatch-running-bridge-experiments-on-single-topology">Topology Mismatch — Running Bridge Experiments on Single Topology<a class="headerlink" href="#topology-mismatch-running-bridge-experiments-on-single-topology" title="Permanent link">&para;</a></h3>
+<h3 id="topology-mismatch-a-running-bridge-experiments-on-single-topology">Topology Mismatch â€” Running Bridge Experiments on Single Topology<a class="headerlink" href="#topology-mismatch-a-running-bridge-experiments-on-single-topology" title="Permanent link">&para;</a></h3>
 <p><strong>Problem:</strong> You run a bridge experiment (e.g., <code>experiments/nomad_replay.yaml</code> which declares <code>topology: bridge</code>) but forked with <code>--topology single</code>. The experiment runs and produces artifacts, but the fidelity check fails with:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>Runtime Fidelity: FAILED
 <a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>Fidelity level L2 requires complete trace artifacts, but 1 transaction(s) failed auto-instrumentation.
@@ -3905,7 +3905,7 @@ Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
 <tr>
 <td><code>demo_experiment.yaml</code></td>
 <td><code>single</code></td>
-<td>Ethereum only — works with single topology</td>
+<td>Ethereum only â€” works with single topology</td>
 </tr>
 <tr>
 <td><code>horizon_replay.yaml</code></td>
@@ -3923,7 +3923,7 @@ Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>single
 <a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>crucible<span class="w"> </span>experiment<span class="w"> </span>run<span class="w"> </span>experiments/nomad_replay.yaml<span class="w"> </span>--no-baseline<span class="w"> </span>--no-fidelity
 </code></pre></div>
-<p>This skips the fidelity check. The attack plugin still executes and produces results. <strong>Important:</strong> Runs with <code>--no-fidelity</code> bypass the publication gates — exported bundles will not pass L2 verification. Use this for development only; publications require actual multi-chain trace artifacts.</p>
+<p>This skips the fidelity check. The attack plugin still executes and produces results. <strong>Important:</strong> Runs with <code>--no-fidelity</code> bypass the publication gates â€” exported bundles will not pass L2 verification. Use this for development only; publications require actual multi-chain trace artifacts.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1"># 1. Fork a clean chain</span>
 <a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>crucible<span class="w"> </span>fork<span class="w"> </span>--topology<span class="w"> </span>single
 <a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
@@ -3944,7 +3944,7 @@ Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
 <a id="__codelineno-45-18" name="__codelineno-45-18" href="#__codelineno-45-18"></a><span class="c1"># 5. Snapshot before risky experiments</span>
 <a id="__codelineno-45-19" name="__codelineno-45-19" href="#__codelineno-45-19"></a>crucible<span class="w"> </span>snapshot<span class="w"> </span>create<span class="w"> </span>before_hack
 <a id="__codelineno-45-20" name="__codelineno-45-20" href="#__codelineno-45-20"></a>
-<a id="__codelineno-45-21" name="__codelineno-45-21" href="#__codelineno-45-21"></a><span class="c1"># 6. If something breaks — restore instantly</span>
+<a id="__codelineno-45-21" name="__codelineno-45-21" href="#__codelineno-45-21"></a><span class="c1"># 6. If something breaks â€” restore instantly</span>
 <a id="__codelineno-45-22" name="__codelineno-45-22" href="#__codelineno-45-22"></a>crucible<span class="w"> </span>snapshot<span class="w"> </span>restore<span class="w"> </span>before_hack<span class="w"> </span>--chain<span class="w"> </span>ethereum
 </code></pre></div>
 <h3 id="workflow-historical-state-exploration">Workflow: Historical State Exploration<a class="headerlink" href="#workflow-historical-state-exploration" title="Permanent link">&para;</a></h3>
@@ -4086,7 +4086,7 @@ Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
 <tr>
 <td><code>anvil_dumpState</code></td>
 <td>Export full EVM state</td>
-<td><code>dump_state()</code> → JSON</td>
+<td><code>dump_state()</code> â†’ JSON</td>
 </tr>
 <tr>
 <td><code>anvil_loadState</code></td>
@@ -4106,7 +4106,7 @@ Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
 <tr>
 <td><code>evm_snapshot</code></td>
 <td>Create snapshot ID</td>
-<td><code>snapshot()</code> → id</td>
+<td><code>snapshot()</code> â†’ id</td>
 </tr>
 <tr>
 <td><code>evm_revert</code></td>
@@ -4116,13 +4116,13 @@ Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
 </tbody>
 </table>
 <p>All of these work through:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="c1"># cast (direct to Anvil port — all methods work)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="c1"># cast (direct to Anvil port â€” all methods work)</span>
 <a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>cast<span class="w"> </span>rpc<span class="w"> </span>&lt;method&gt;<span class="w"> </span>&lt;params&gt;<span class="w"> </span>--rpc-url<span class="w"> </span>http://127.0.0.1:8545
 <a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>
-<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="c1"># Python (direct to Anvil port — all methods work)</span>
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="c1"># Python (direct to Anvil port â€” all methods work)</span>
 <a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>client.call<span class="o">(</span><span class="s2">&quot;&lt;method&gt;&quot;</span>,<span class="w"> </span><span class="o">[</span>params<span class="o">])</span>
 <a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>
-<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a><span class="c1"># curl (direct to Anvil port — all methods work)</span>
+<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a><span class="c1"># curl (direct to Anvil port â€” all methods work)</span>
 <a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>curl<span class="w"> </span>-s<span class="w"> </span>http://127.0.0.1:8545<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;method&quot;:&quot;&lt;method&gt;&quot;,&quot;params&quot;:[...]}&#39;</span>
 </code></pre></div>
 <blockquote>
@@ -4183,7 +4183,7 @@ Usage: <code>./fund.sh 0xAlice 0xBob 0xCharlie</code></p>
 </thead>
 <tbody>
 <tr>
-<td><a href="internal/TECHNICAL_OVERVIEW.md"><code>Technical Overview</code></a></td>
+<td><a href="../TECHNICAL_OVERVIEW/"><code>Technical Overview</code></a></td>
 <td>System architecture, core concepts, design principles</td>
 </tr>
 <tr>

@@ -3090,10 +3090,10 @@
 <h2 id="plugin-structure">Plugin Structure<a class="headerlink" href="#plugin-structure" title="Permanent link">&para;</a></h2>
 <p>Every plugin follows this directory convention:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>attacks/my_exploit/
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── plugin.yaml          # Plugin manifest (required)
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── evidence.yaml        # Evidence declaration (required for attacks)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── my_exploit.py        # Plugin implementation
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>└── ...                  # Additional files (ABI, bytecode, etc.)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>â”œâ”€â”€ plugin.yaml          # Plugin manifest (required)
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>â”œâ”€â”€ evidence.yaml        # Evidence declaration (required for attacks)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>â”œâ”€â”€ my_exploit.py        # Plugin implementation
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>â””â”€â”€ ...                  # Additional files (ABI, bytecode, etc.)
 </code></pre></div>
 <h3 id="plugin-manifest-pluginyaml">Plugin Manifest (<code>plugin.yaml</code>)<a class="headerlink" href="#plugin-manifest-pluginyaml" title="Permanent link">&para;</a></h3>
 <p>Crucible supports a modern manifest format that clearly declares dependencies. (The legacy format with <code>class_name</code> and <code>chains_required</code> is deprecated but still supported).</p>
@@ -3381,7 +3381,7 @@
 <a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Validator</span><span class="nv"> </span><span class="s">set</span><span class="nv"> </span><span class="s">management&quot;</span>
 <a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
 <a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="nt">limitations</span><span class="p">:</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;No</span><span class="nv"> </span><span class="s">real</span><span class="nv"> </span><span class="s">relayer</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">simulation</span><span class="nv"> </span><span class="s">only&quot;</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;No</span><span class="nv"> </span><span class="s">real</span><span class="nv"> </span><span class="s">relayer</span><span class="nv"> </span><span class="s">â€”</span><span class="nv"> </span><span class="s">simulation</span><span class="nv"> </span><span class="s">only&quot;</span>
 <a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Single</span><span class="nv"> </span><span class="s">message</span><span class="nv"> </span><span class="s">per</span><span class="nv"> </span><span class="s">transaction&quot;</span>
 <a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>
 <a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="nt">chains</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;ethereum&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;polygon&quot;</span><span class="p p-Indicator">]</span>
@@ -3428,8 +3428,8 @@
 <hr />
 <h2 id="plugin-lifecycle">Plugin Lifecycle<a class="headerlink" href="#plugin-lifecycle" title="Permanent link">&para;</a></h2>
 <h3 id="attack-plugin">Attack Plugin<a class="headerlink" href="#attack-plugin" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>prepare() → execute() → verify() → rollback() → cleanup()
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>                      ↘ run() ↗          (convenience wrapper)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>prepare() â†’ execute() â†’ verify() â†’ rollback() â†’ cleanup()
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>                      â†˜ run() â†—          (convenience wrapper)
 </code></pre></div>
 <table>
 <thead>
@@ -3468,7 +3468,7 @@
 </tbody>
 </table>
 <h3 id="bridge-plugin">Bridge Plugin<a class="headerlink" href="#bridge-plugin" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>deploy() → configure() → connect() → send_message()* → reset() → destroy()
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>deploy() â†’ configure() â†’ connect() â†’ send_message()* â†’ reset() â†’ destroy()
 </code></pre></div>
 <table>
 <thead>
@@ -3512,7 +3512,7 @@
 </tbody>
 </table>
 <h3 id="agent-plugin">Agent Plugin<a class="headerlink" href="#agent-plugin" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>prepare() → [observe() → think() → respond()]* → verify()
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>prepare() â†’ [observe() â†’ think() â†’ respond()]* â†’ verify()
 </code></pre></div>
 <table>
 <thead>
@@ -3561,7 +3561,7 @@
 </code></pre></div>
 <p>Each phase result appears in the run manifest and is visible in <code>crucible history</code>.</p>
 <h3 id="2-use-the-logemitter">2. Use the LogEmitter<a class="headerlink" href="#2-use-the-logemitter" title="Permanent link">&para;</a></h3>
-<p>Don't <code>print()</code> — use <code>context.log.step()</code>:</p>
+<p>Don't <code>print()</code> â€” use <code>context.log.step()</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">context</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">step</span><span class="p">(</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>    <span class="s2">&quot;Verifying contract code at fork block&quot;</span><span class="p">,</span>
 <a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="n">phase</span><span class="o">=</span><span class="s2">&quot;attack&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;check_code&quot;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
@@ -3592,14 +3592,14 @@
 <p>In <code>evidence.yaml</code>, be honest about what your plugin <strong>cannot</strong> reproduce:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">reproduction_scope</span><span class="p">:</span>
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">  </span><span class="nt">excluded_components</span><span class="p">:</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Solana-side</span><span class="nv"> </span><span class="s">validators</span><span class="nv"> </span><span class="s">(non-EVM</span><span class="nv"> </span><span class="s">—</span><span class="nv"> </span><span class="s">cannot</span><span class="nv"> </span><span class="s">fork)&quot;</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Solana-side</span><span class="nv"> </span><span class="s">validators</span><span class="nv"> </span><span class="s">(non-EVM</span><span class="nv"> </span><span class="s">â€”</span><span class="nv"> </span><span class="s">cannot</span><span class="nv"> </span><span class="s">fork)&quot;</span>
 <a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Off-chain</span><span class="nv"> </span><span class="s">MPC</span><span class="nv"> </span><span class="s">key</span><span class="nv"> </span><span class="s">generation&quot;</span>
 </code></pre></div>
 <hr />
 <h2 id="common-pitfalls">Common Pitfalls<a class="headerlink" href="#common-pitfalls" title="Permanent link">&para;</a></h2>
 <h3 id="1-double-0x-prefix-in-bytecode">1. Double <code>0x</code> Prefix in Bytecode<a class="headerlink" href="#1-double-0x-prefix-in-bytecode" title="Permanent link">&para;</a></h3>
 <p>When deploying contracts, Foundry <code>.json</code> artifacts already include the <code>0x</code> prefix:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># WRONG — double 0x prefix</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="c1"># WRONG â€” double 0x prefix</span>
 <a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">bytecode</span> <span class="o">=</span> <span class="s2">&quot;0x&quot;</span> <span class="o">+</span> <span class="n">artifact</span><span class="p">[</span><span class="s2">&quot;bytecode&quot;</span><span class="p">]</span>  <span class="c1"># artifact[&quot;bytecode&quot;] already starts with 0x</span>
 <a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>
 <a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="c1"># RIGHT</span>
@@ -3615,7 +3615,7 @@
 <h3 id="3-archive-rpc-limitations">3. Archive RPC Limitations<a class="headerlink" href="#3-archive-rpc-limitations" title="Permanent link">&para;</a></h3>
 <p>Polygon and BSC archive RPCs at old fork blocks may not serve state for newly created addresses. This affects <code>anvil_setBalance</code> when bridge plugins try to fund deployer addresses. Always wrap per-chain deployment in try/except.</p>
 <h3 id="4-non-evm-boundaries">4. Non-EVM Boundaries<a class="headerlink" href="#4-non-evm-boundaries" title="Permanent link">&para;</a></h3>
-<p>Crucible is EVM-only. Attacks involving Solana, Cosmos, Harmony ONE, or Substrate chains must be documented in <code>excluded_components</code> — they cannot be reproduced on-chain.</p>
+<p>Crucible is EVM-only. Attacks involving Solana, Cosmos, Harmony ONE, or Substrate chains must be documented in <code>excluded_components</code> â€” they cannot be reproduced on-chain.</p>
 <hr />
 <h2 id="testing-your-plugin">Testing Your Plugin<a class="headerlink" href="#testing-your-plugin" title="Permanent link">&para;</a></h2>
 <h3 id="1-validate-the-plugin-loads">1. Validate the Plugin Loads<a class="headerlink" href="#1-validate-the-plugin-loads" title="Permanent link">&para;</a></h3>
@@ -3679,7 +3679,7 @@
 <td>Deploy and test your own Solidity contracts</td>
 </tr>
 <tr>
-<td><a href="internal/TECHNICAL_OVERVIEW.md">Technical Overview</a></td>
+<td><a href="../TECHNICAL_OVERVIEW/">Technical Overview</a></td>
 <td>System architecture and plugin system overview</td>
 </tr>
 <tr>

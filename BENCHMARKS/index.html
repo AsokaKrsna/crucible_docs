@@ -2367,7 +2367,7 @@
 <h1 id="benchmark-attack-packs">Benchmark Attack Packs<a class="headerlink" href="#benchmark-attack-packs" title="Permanent link">&para;</a></h1>
 <p>Crucible includes <strong>6 benchmark attack packs</strong> reproducing <strong>$1.9B+</strong> in historical bridge exploit losses. Each pack includes a concrete exploit plugin, evidence manifest, scenario definitions, and experiment YAML ready for deterministic reproduction.</p>
 <blockquote>
-<p><strong>New to Crucible?</strong> The <a href="internal/TECHNICAL_OVERVIEW.md">Technical Overview</a> explains the system architecture, core concepts (Experiment, Topology, Fidelity Levels), and how benchmarks fit into the research workflow. For the rationale behind every major design choice — including why fidelity levels exist and how they're enforced — see the <a href="../internal/DESIGN_DECISIONS/">Design Decisions</a> document.</p>
+<p><strong>New to Crucible?</strong> The <a href="../TECHNICAL_OVERVIEW/">Technical Overview</a> explains the system architecture, core concepts (Experiment, Topology, Fidelity Levels), and how benchmarks fit into the research workflow. For the rationale behind every major design choice â€” including why fidelity levels exist and how they're enforced â€” see the <a href="../internal/DESIGN_DECISIONS/">Design Decisions</a> document.</p>
 </blockquote>
 <h2 id="current-status">Current Status<a class="headerlink" href="#current-status" title="Permanent link">&para;</a></h2>
 <table>
@@ -2384,37 +2384,37 @@
 <td><code>wormhole_guardian_bypass</code></td>
 <td><code>experiments/wormhole_replay.yaml</code></td>
 <td>L2</td>
-<td>[ok] Complete — fork block 14125553, verified contract addresses, determinism proven</td>
+<td>[ok] Complete â€” fork block 14125553, verified contract addresses, determinism proven</td>
 </tr>
 <tr>
 <td><code>nomad_replica_fraud</code></td>
 <td><code>experiments/nomad_replay.yaml</code></td>
 <td>L2</td>
-<td>[ok] Complete — fork block 15259100, determinism proven (storage/events/gas ≡ equal), gold-standard exemplar</td>
+<td>[ok] Complete â€” fork block 15259100, determinism proven (storage/events/gas â‰¡ equal), gold-standard exemplar</td>
 </tr>
 <tr>
 <td><code>poly_network_privkey</code></td>
 <td><code>experiments/poly_network_replay.yaml</code></td>
 <td>L2</td>
-<td>[ok] Complete — fork block 12996693, verified addresses, hash collision proven; 3-chain topology available</td>
+<td>[ok] Complete â€” fork block 12996693, verified addresses, hash collision proven; 3-chain topology available</td>
 </tr>
 <tr>
 <td><code>horizon_multisig_drain</code></td>
 <td><code>experiments/horizon_replay.yaml</code></td>
 <td>L2</td>
-<td>[ok] Complete — fork block 15005526, 3 bridge contracts verified, determinism proven</td>
+<td>[ok] Complete â€” fork block 15005526, 3 bridge contracts verified, determinism proven</td>
 </tr>
 <tr>
 <td><code>bnb_token_hub_proof</code></td>
 <td><code>experiments/bnb_token_hub_replay.yaml</code></td>
 <td>L2</td>
-<td>[ok] Complete — fork block 22166659, CrossChain contract (0x...2000) identified, selector 0x84013b6a verified</td>
+<td>[ok] Complete â€” fork block 22166659, CrossChain contract (0x...2000) identified, selector 0x84013b6a verified</td>
 </tr>
 <tr>
 <td><code>multichain_router_permit</code></td>
 <td><code>experiments/multichain_replay.yaml</code></td>
 <td>L1</td>
-<td>[ok] Complete — MPC infrastructure compromise, correctly classified as L1 narrative</td>
+<td>[ok] Complete â€” MPC infrastructure compromise, correctly classified as L1 narrative</td>
 </tr>
 </tbody>
 </table>
@@ -2433,19 +2433,19 @@
 <td><code>nomad_bridge</code></td>
 <td>Nomad (optimistic bridge)</td>
 <td>ethereum + polygon</td>
-<td><code>NomadReplica</code> — <code>committedRoot == 0x00</code> vulnerability</td>
+<td><code>NomadReplica</code> â€” <code>committedRoot == 0x00</code> vulnerability</td>
 </tr>
 <tr>
 <td><code>poly_network_bridge</code></td>
 <td>Poly Network (cross-chain manager)</td>
 <td>ethereum + polygon + bsc</td>
-<td><code>EthCrossChainManager</code> + <code>EthCrossChainData</code> — hash collision</td>
+<td><code>EthCrossChainManager</code> + <code>EthCrossChainData</code> â€” hash collision</td>
 </tr>
 <tr>
 <td><code>wormhole_bridge</code></td>
 <td>Wormhole (guardian bridge)</td>
 <td>ethereum + polygon</td>
-<td><code>WormholeCore</code> + <code>TokenBridge</code> — guardian bypass</td>
+<td><code>WormholeCore</code> + <code>TokenBridge</code> â€” guardian bypass</td>
 </tr>
 <tr>
 <td><code>demo_bridge</code></td>
@@ -2481,16 +2481,16 @@
 <h2 id="authoring-new-attacks">Authoring New Attacks<a class="headerlink" href="#authoring-new-attacks" title="Permanent link">&para;</a></h2>
 <p>New attacks can be authored by following the patterns established in existing packs:</p>
 <ol>
-<li>Choose a fork block   — the block number before the first exploit transaction</li>
-<li>Verify contract addresses — use Etherscan or <code>cast code</code> to confirm they are contracts, not EOAs</li>
-<li>Write the exploit plugin — subclass <code>AttackPlugin</code> in <code>attacks/&lt;name&gt;/&lt;name&gt;.py</code> (see the <a href="../PLUGIN_DEVELOPMENT/">Plugin Development Guide</a> for a complete walkthrough)</li>
-<li>Declare evidence — <code>attacks/&lt;name&gt;/evidence.yaml</code> with fork block, contracts, fidelity level</li>
-<li>Create scenario YAML — <code>scenarios/&lt;name&gt;/scenario.yaml</code> with pre-exploit setup steps</li>
-<li>Create experiment YAML — <code>experiments/&lt;name&gt;.yaml</code> wiring topology, scenario, and attack</li>
+<li>Choose a fork block   â€” the block number before the first exploit transaction</li>
+<li>Verify contract addresses â€” use Etherscan or <code>cast code</code> to confirm they are contracts, not EOAs</li>
+<li>Write the exploit plugin â€” subclass <code>AttackPlugin</code> in <code>attacks/&lt;name&gt;/&lt;name&gt;.py</code> (see the <a href="../PLUGIN_DEVELOPMENT/">Plugin Development Guide</a> for a complete walkthrough)</li>
+<li>Declare evidence â€” <code>attacks/&lt;name&gt;/evidence.yaml</code> with fork block, contracts, fidelity level</li>
+<li>Create scenario YAML â€” <code>scenarios/&lt;name&gt;/scenario.yaml</code> with pre-exploit setup steps</li>
+<li>Create experiment YAML â€” <code>experiments/&lt;name&gt;.yaml</code> wiring topology, scenario, and attack</li>
 <li>Optionally use <code>crucible attack extract &lt;tx_hash&gt;</code> to auto-generate the scaffold from a real exploit transaction</li>
 </ol>
 <h2 id="per-attack-fidelity-assessment">Per-Attack Fidelity Assessment<a class="headerlink" href="#per-attack-fidelity-assessment" title="Permanent link">&para;</a></h2>
-<p>The table below delineates each attack pack's <strong>declared fidelity level</strong> and outlines the <strong>specific constraints</strong> preventing it from achieving higher reproduction fidelity. This transparency is an architectural requirement—it explicitly documents the boundaries of the reproduction to facilitate rigorous peer review.</p>
+<p>The table below delineates each attack pack's <strong>declared fidelity level</strong> and outlines the <strong>specific constraints</strong> preventing it from achieving higher reproduction fidelity. This transparency is an architectural requirementâ€”it explicitly documents the boundaries of the reproduction to facilitate rigorous peer review.</p>
 <table>
 <thead>
 <tr>
@@ -2507,7 +2507,7 @@
 <td><strong>L2</strong> [ok]</td>
 <td>Fork-state <code>process()</code> call with forged message; deterministic diff proven</td>
 <td>L3</td>
-<td>Doesn't replay the exact historical exploit transaction (uses a reconstructed forged message). The real tx's <code>0x46e91d4f</code> selector targets a proxy implementation function — requires proxy ABI resolution to reconstruct exactly.</td>
+<td>Doesn't replay the exact historical exploit transaction (uses a reconstructed forged message). The real tx's <code>0x46e91d4f</code> selector targets a proxy implementation function â€” requires proxy ABI resolution to reconstruct exactly.</td>
 </tr>
 <tr>
 <td><code>wormhole_guardian_bypass</code></td>
@@ -2528,21 +2528,21 @@
 <td><strong>L2</strong> [ok]</td>
 <td>Fork-state reproduction at block 15005526; 3 bridge contracts verified (EthBridge, Erc20Bridge, BusdBridge); multisig authorization flow demonstrated via auto-impersonate; determinism proven</td>
 <td>L2</td>
-<td><strong>Infrastructure compromise.</strong> This was a compromised-multisig attack (2 of 5 validator keys), not a contract bug — reproducing the exact Ethereum tx would succeed but proves nothing about the vulnerability. Harmony chain state (non-EVM) is not forkable, blocking L4. The reproduction proves contracts were in a vulnerable state.</td>
+<td><strong>Infrastructure compromise.</strong> This was a compromised-multisig attack (2 of 5 validator keys), not a contract bug â€” reproducing the exact Ethereum tx would succeed but proves nothing about the vulnerability. Harmony chain state (non-EVM) is not forkable, blocking L4. The reproduction proves contracts were in a vulnerable state.</td>
 </tr>
 <tr>
 <td><code>multichain_router_permit</code></td>
-<td><strong>L1</strong> 📝</td>
+<td><strong>L1</strong> ðŸ“</td>
 <td>Infrastructure narrative with evidence of MPC key shard compromise</td>
-<td>—</td>
-<td><strong>Maxed at L1.</strong> This incident was an MPC node infrastructure compromise, not a smart contract vulnerability. No on-chain reproduction is possible — the attack happened entirely outside the EVM. This pack is correctly classified and cannot go higher.</td>
+<td>â€”</td>
+<td><strong>Maxed at L1.</strong> This incident was an MPC node infrastructure compromise, not a smart contract vulnerability. No on-chain reproduction is possible â€” the attack happened entirely outside the EVM. This pack is correctly classified and cannot go higher.</td>
 </tr>
 <tr>
 <td><code>bnb_token_hub_proof</code></td>
 <td><strong>L2</strong> [ok]</td>
 <td>Fork-state reproduction at block 22166659 on BSC; CrossChain contract (0x...2000) identified as the real <code>handlePackage()</code> target (not TokenHub); function selector corrected to 0x84013b6a for <code>handlePackage(bytes,bytes,uint64,uint64,uint8)</code>; malformed IAVL proof attempt confirmed; determinism proven</td>
 <td>L3</td>
-<td>The malformed IAVL proof (amino-like encoding) reverts on <code>eth_call</code> — expected since the proof format doesn't match BSC's real amino encoding on a fresh fork. BSC-only (single chain). Requires paid BSC archive RPC (block 22M exceeds free tier limits). The reproduction confirms contract existence, function callability, and documents the vulnerability mechanism at L2.</td>
+<td>The malformed IAVL proof (amino-like encoding) reverts on <code>eth_call</code> â€” expected since the proof format doesn't match BSC's real amino encoding on a fresh fork. BSC-only (single chain). Requires paid BSC archive RPC (block 22M exceeds free tier limits). The reproduction confirms contract existence, function callability, and documents the vulnerability mechanism at L2.</td>
 </tr>
 </tbody>
 </table>
@@ -2574,7 +2574,7 @@
 <tr>
 <td><strong>L1</strong></td>
 <td>Conceptual / narrative only</td>
-<td>No code required — documentation of infrastructure-level events</td>
+<td>No code required â€” documentation of infrastructure-level events</td>
 </tr>
 <tr>
 <td><strong>L0</strong></td>
@@ -2597,43 +2597,43 @@
 <tbody>
 <tr>
 <td><code>wormhole_replay</code></td>
-<td>✅ Passed</td>
+<td>âœ… Passed</td>
 <td>L2 passed</td>
 <td>Complete fork-state reproduction</td>
 </tr>
 <tr>
 <td><code>nomad_replay</code></td>
-<td>✅ Passed</td>
+<td>âœ… Passed</td>
 <td>L2 passed</td>
-<td>Gold-standard exemplar — deterministic diff proven</td>
+<td>Gold-standard exemplar â€” deterministic diff proven</td>
 </tr>
 <tr>
 <td><code>poly_network_replay</code></td>
-<td>✅ Passed</td>
+<td>âœ… Passed</td>
 <td>L2 passed</td>
 <td>Ethereum-only; BSC/Polygon chains require paid archive</td>
 </tr>
 <tr>
 <td><code>horizon_replay</code></td>
-<td>✅ Passed</td>
+<td>âœ… Passed</td>
 <td>L2 passed</td>
 <td>Compromised-multisig reproduction at fork block 15005526</td>
 </tr>
 <tr>
 <td><code>bnb_token_hub_replay</code></td>
-<td>✅ Passed</td>
+<td>âœ… Passed</td>
 <td>L2 passed</td>
-<td>Outcome:false expected — modeled reproduction of IAVL proof bypass</td>
+<td>Outcome:false expected â€” modeled reproduction of IAVL proof bypass</td>
 </tr>
 <tr>
 <td><code>multichain_replay</code></td>
-<td>❌ Expected failure</td>
+<td>âŒ Expected failure</td>
 <td>L1 (no AttackResult)</td>
-<td>L1 narrative — cannot be upgraded (see Per-Attack Fidelity Assessment)</td>
+<td>L1 narrative â€” cannot be upgraded (see Per-Attack Fidelity Assessment)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Unit tests:</strong> 782 passed, 0 failed — no regressions from framework or bridge fixes.</p>
+<p><strong>Unit tests:</strong> 782 passed, 0 failed â€” no regressions from framework or bridge fixes.</p>
 <h3 id="l4-bridge-demos">L4 Bridge Demos<a class="headerlink" href="#l4-bridge-demos" title="Permanent link">&para;</a></h3>
 <p>Crucible also includes 2 L4 bridge experiments for end-to-end cross-chain validation:</p>
 <table>
@@ -2649,19 +2649,19 @@
 <tr>
 <td><code>nomad_bridge_l4</code></td>
 <td>nomad_bridge (ethereum + polygon)</td>
-<td>✅ Passed (exit 0, outcome True)</td>
-<td>Polygon archive at fork block doesn't serve <code>anvil_setBalance</code> — chain skipped gracefully; use <code>--no-fidelity</code> for L4 demos</td>
+<td>âœ… Passed (exit 0, outcome True)</td>
+<td>Polygon archive at fork block doesn't serve <code>anvil_setBalance</code> â€” chain skipped gracefully; use <code>--no-fidelity</code> for L4 demos</td>
 </tr>
 <tr>
 <td><code>demo_agent</code></td>
 <td>single (ethereum)</td>
-<td>✅ Passed (exit 0)</td>
-<td>Uses <code>mock</code> provider — no LLM API key required</td>
+<td>âœ… Passed (exit 0)</td>
+<td>Uses <code>mock</code> provider â€” no LLM API key required</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p><strong>Polygon/BSC archive limitation:</strong> Both Polygon (block 16,332,982) and BSC (block 9,755,172) archives at these fork blocks cannot serve <code>anvil_setBalance</code> for newly created addresses. The bridge plugins handle this gracefully — the chain is skipped with a warning. This is an RPC provider depth limitation, not a code bug. See <a href="../RPC_PROVIDER_GUIDE/"><code>docs/RPC_PROVIDER_GUIDE.md</code></a> for archive-compatible providers.</p>
+<p><strong>Polygon/BSC archive limitation:</strong> Both Polygon (block 16,332,982) and BSC (block 9,755,172) archives at these fork blocks cannot serve <code>anvil_setBalance</code> for newly created addresses. The bridge plugins handle this gracefully â€” the chain is skipped with a warning. This is an RPC provider depth limitation, not a code bug. See <a href="../RPC_PROVIDER_GUIDE/"><code>docs/RPC_PROVIDER_GUIDE.md</code></a> for archive-compatible providers.</p>
 </blockquote>
 <h2 id="important-boundary">Important Boundary<a class="headerlink" href="#important-boundary" title="Permanent link">&para;</a></h2>
 <p>Crucible is EVM-only. For attacks involving non-EVM components, the non-EVM portion must be declared in <code>excluded_components</code> and modeled explicitly.</p>
@@ -2675,7 +2675,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="internal/TECHNICAL_OVERVIEW.md"><code>Technical Overview</code></a></td>
+<td><a href="../TECHNICAL_OVERVIEW/"><code>Technical Overview</code></a></td>
 <td>System architecture, core concepts, data flow, design principles</td>
 </tr>
 <tr>
@@ -2684,7 +2684,7 @@
 </tr>
 <tr>
 <td><a href="../PLUGIN_DEVELOPMENT/"><code>Plugin Development Guide</code></a></td>
-<td>Writing attack, bridge, and agent plugins — step-by-step</td>
+<td>Writing attack, bridge, and agent plugins â€” step-by-step</td>
 </tr>
 <tr>
 <td><a href="../ATTACK_PACK_GUIDE/"><code>Attack Pack Guide</code></a></td>
@@ -2692,7 +2692,7 @@
 </tr>
 <tr>
 <td><a href="../FIDELITY_GUIDE/"><code>Fidelity Guide</code></a></td>
-<td>Fidelity levels (L0–L4), enforcement rules, --no-fidelity usage</td>
+<td>Fidelity levels (L0â€“L4), enforcement rules, --no-fidelity usage</td>
 </tr>
 <tr>
 <td><a href="../REPRODUCIBILITY/"><code>Reproducibility Guide</code></a></td>
